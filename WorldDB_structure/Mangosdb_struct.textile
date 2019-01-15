@@ -153,6 +153,8 @@ h3. This is the list of tables in the regular 'mangos' database
 (Core)|holds information on what default actions a brand new character should start out with.|
 |"playercreateinfo_item":https://github.com/cmangos/issues/wiki/playercreateinfo_item
 (Core)|holds information on what items each race-class combination of a new character starts out with.|
+|"playercreateinfo_skills":https://github.com/cmangos/issues/wiki/playercreateinfo_skills
+(Core)|holds information on what skills newly created characters should start out with.|
 |"playercreateinfo_spell":https://github.com/cmangos/issues/wiki/playercreateinfo_spell
 (Core)|holds information on what spells newly created characters should start out with.|
 |"points_of_interest":https://github.com/cmangos/issues/wiki/points_of_interest
