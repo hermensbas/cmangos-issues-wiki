@@ -747,6 +747,8 @@ h4. GemProperties
 
 The value here corresponds to the ID in GemProperties.dbc.
 
+Defines the Meta Gem Item Enchant Spell.
+
 h4. RequiredDisenchantSkill
 
 The required proficiency in disenchanting that the player needs to have to be able to disenchant this item.
