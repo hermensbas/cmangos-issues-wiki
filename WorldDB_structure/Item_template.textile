@@ -745,7 +745,7 @@ h4. socketBonus
 
 h4. GemProperties
 
-The value here corresponds to the ID in GemProperties.dbc.
+The value here corresponds to the ID in "GemProperties.dbc":https://github.com/cmangos/issues/wiki/GemProperties.dbc.
 
 Defines the Meta Gem Item Enchant Spell.
 
