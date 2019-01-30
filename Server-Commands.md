@@ -1,4 +1,4 @@
-In these tables the available server commands are listed, grouped by security level.
+In these tables the available server commands are listed, grouped by security level. Level 0 usually can be used by players of the server, 1-3 by Gamemasters and 4 only on the server console.
 
 |Syntax|Security Level|Explanation|
 |-|-|-|
