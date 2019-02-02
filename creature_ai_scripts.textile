@@ -87,6 +87,8 @@ h4. event_type
 |31|EVENT_T_ENERGY|EnergyMax%|EnergyMin%|RepeatMin|RepeatMax|Expires when Energy% is between (Param1) and (Param2). Will repeat every (Param3) and (Param4) if Condition: between (Param1) and (Param2) are still met|
 |32|EVENT_T_SELECT_ATTACKING_TARGET|MinRange|MaxRange|RepeatMin|RepeatMax|Expires when threat table has target with distance between (Param1) and (Param2). Will repeat every (Param3) and (Param4) if Condition: between (Param1) and (Param2) are still met|
 |33|EVENT_T_FACING_TARGET|Back(0)OrFront(1)|NU|RepeatMin|RepeatMax|Expires when creature is (behind = 0 / infront = 1 of target. Will repeat every (Param3) and (Param4) if Condition: (Param1) is still met|
+|34|NOT_IMPLEMENTED_YET_EVENT_T_SPELLHIT_TARGET|SpellID|Schoolmask|RepeatMin|RepeatMax|Expires upon Spell Hit of the NPC. When (param1) is set, it is the specific Spell ID used as the trigger. With (param2) specified, the expiration is limited to specific spell schools (-1 for all) and Spell ID value is ignored. Will repeat Event Conditions Check between every (Param3) and (Param4). Only A Spell ID or Spell School may be Specified but NOT both|
+|35|NOT_IMPLEMENTED_YET_EVENT_T_DEATH_PREVENTED|NU|NU|NU|NU|Expires when Death prevention (Action 42) kicks in|
 
 Now that all of the supported events have been listed and described, we shall now move on to the actions that can be performed. 
 
@@ -146,7 +148,7 @@ h4. action_type
 |46|ACTION_T_SET_THROW_MASK|EventTypeMask|NU|NU|Marks for which AIEvents the npc will throw AIEvents on its own.|
 |47|ACTION_T_SET_STAND_STATE|"UnitStandStateType":creature_template_addon#UnitStandStateType|NU|NU|Set the UnitStandStateType (Param1) of the current creature|
 |48|ACTION_T_CHANGE_MOVEMENT|"MovementType":creature#MovementType|spawndist/PathId|NU|Change the creature MovementGeneratorType (Param1). If the movement type is Random Movement (1), the spawndist (Param2) must be provided. If the movement type is Waypoint Movement (2), (Param2) is PathId|
-|49|ACTION_T_DYNAMIC_MOVEMENT|Off(0)On(1)|NU|NU|Disable / Enable dynamic movement behavior|
+|49|RE_USE_ACTION_T_49|NU|NU|NU|comment|
 |50|ACTION_T_SET_REACT_STATE|"ReactStates":creature_ai_scripts#ReactStates|NU|NU|Change ReactState of the creature|
 |51|ACTION_T_PAUSE_WAYPOINTS|DoPause(0)UnPause(1)|NU|NU|Pause waypoints of creature, DoPause 0: unpause waypoint 1|
 |52|ACTION_T_INTERRUPT_SPELL|"CurrentSpellTypes":creature_ai_scripts#CurrentSpellTypes|NU|NU|Interrupt spell in given slot for creature|
