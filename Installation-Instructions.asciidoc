@@ -556,7 +556,7 @@ CORE_PATH="/c/Mangos/mangos"
 You may actually have to set ++CORE_PATH="../mangos"++ (assuming default paths from this guide), if the tilde is not properly resolved into your home folder path, causing InstallFullDB.sh to complain about not finding "/home/mangos/mangos". Tested on openSUSE 12.3.
 
 * Now the helper tool is configured, and you only need to run the helper script, whenever you want to set your world database to a clear state!
-* ++sh ./InstallFullDB.sh++
+* ++bash ./InstallFullDB.sh++
 +
 And check the output if the database could be set up correctly. If the helper script complains about not finding the config file, just open InstallFullDB.sh in a text editor and set
 +
