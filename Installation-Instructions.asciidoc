@@ -334,7 +334,7 @@ An https://youtu.be/KlRM18SVCQA[video] of the build process is now available.
 * Set the source bin to C:\Mangos\mangos
 * Set the destination folder to C:\Mangos\mangos\bin\buildir (create that folder if it doesn't exist)
 * Tick 'BUILD_EXTRACTORS' 
-* Click 'Configure' button and set your compiler version and platform.
+* Click 'Configure' button and set your compiler version and platform (note: platform is set to Win32 by default. Set it to x64 if you're using 64bit Windows.)
 * Select your options then click another time on 'Configure' button
 * Click 'Generate'button
 * Now you can click on 'Open' button or go to C:\Mangos\mangos\bin\buildir and click on the .sln file
