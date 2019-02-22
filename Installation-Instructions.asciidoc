@@ -337,6 +337,7 @@ An https://youtu.be/KlRM18SVCQA[video] of the build process is now available.
 * Click 'Configure' button and set your compiler version and platform (note: platform is set to Win32 by default. Set it to x64 if you're using 64bit Windows.)
 * Select your options then click another time on 'Configure' button
 * Click 'Generate'button
+* If you get any errors messages run File -> Delete Cache and try to configure CMake again.
 * Now you can click on 'Open' button or go to C:\Mangos\mangos\bin\buildir and click on the .sln file
 * Wait for Visual Studio to finish loading.
 * Open the menu "Build" -> "Configuration Manager"
