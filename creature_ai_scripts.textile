@@ -307,7 +307,7 @@ h4. RangeModeType
 |_. Value|_. Type|_. Description|
 |0|TYPE_NONE|Melee Mode|
 |1|TYPE_FULL_CASTER|Caster Mode|
-|2|TYPE_PROXIMITY|Hunter Mode(keeps distance)|
+|2|TYPE_PROXIMITY|Range Mode|
 
 h4. SheathState
 
