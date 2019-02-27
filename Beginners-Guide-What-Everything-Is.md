@@ -90,7 +90,7 @@ DBCs are game files which provide details on things like spells. You might notic
 Pretty straight forward: the maps folder contains all of the physical maps that the server will be running (the actual world environment).
 
 ### VMAPS
-Vmaps are like overlays for maps that specify how "line of site" (LOS) is calculated for players and creatures. So basically they tell the game server where objects are that obstruct LOS like trees, buildings, and crates.
+Vmaps are like overlays for maps that specify how "line of sight" (LOS) is calculated for players and creatures. So basically they tell the game server where objects are that obstruct LOS like trees, buildings, and crates.
 
 ### MMAPS
 Mmaps are similar overlays that tell the server where to route creatures and NPCs so that they don't run over top of rocks and fence posts. They aren't technically necessary but they greatly enhance the game experience and there isn't really a good reason _not_ to use them. Note that creating the mmaps can take several hours so you may want to start the process before going to bed or leaving for work. When you extract resources from the client using the ExtractResources.sh script it will tell you this and even give you an option to delay the mmaps.
