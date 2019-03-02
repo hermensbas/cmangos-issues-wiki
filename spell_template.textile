@@ -436,8 +436,8 @@ h4. FacingCasterFlags
 Specifies how the caster has to face the target so that the spell is successful.
 
 |*Id*| *ENUM Name*| *Description*|
-|0x00 | SPELL_FACING_FLAG_INFRONT | Must be in front of the caster. |
-|0x01 | - | No special requirement. |
+|0x00 |  - | No special requirement. |
+|0x01 | SPELL_FACING_FLAG_INFRONT | Must be in front of the caster. |
 
 h4. CasterAuraState
 
