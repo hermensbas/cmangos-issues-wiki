@@ -62,7 +62,7 @@ h3. Structure
 ||"EffectDicePerLevel1":spell_template#effectdiceperlevel1|FLOAT|NO||0||
 ||"EffectRealPointsPerLevel1":spell_template#effectrealpointsperlevel1|FLOAT|NO||0||
 ||"EffectBasePoints1":spell_template#effectbasepoints1|INT(11) UNSIGNED|NO||0||
-||"EffectMechanic1":spell_template#effectmechanic1|INT(11) UNSIGNED|NO||0||
+||"EffectMechanic{1,2,3}":spell_template#effectmechanicN|INT(11) UNSIGNED|NO||0||
 ||"EffectImplicitTargetA1":spell_template#effectimplicittargeta1|INT(11) UNSIGNED|NO||0||
 ||"EffectImplicitTargetB1":spell_template#effectimplicittargetb1|INT(11) UNSIGNED|NO||0||
 ||"EffectRadiusIndex1":spell_template#effectradiusindex1|INT(11) UNSIGNED|NO||0||
@@ -120,7 +120,40 @@ Dispel type of a spell. Some spells can only dispel specific types of spells, fo
 
 h4. Mechanic
 
-Spells effects utilize a mechanics. For example bleed, root, silence.
+Spells effects utilize a mechanics.
+
+|*Id*|*Enum name*|*Comment*|
+| 0| MECHANIC_NONE |          |
+| 1| MECHANIC_CHARM |         |
+| 2| MECHANIC_DISORIENTED |   |
+| 3| MECHANIC_DISARM |        |
+| 4| MECHANIC_DISTRACT |      |
+| 5| MECHANIC_FEAR |          |
+| 6| MECHANIC_FUMBLE |        |
+| 7| MECHANIC_ROOT |          |
+| 8| MECHANIC_PACIFY |No spells use this mechanic|
+| 9| MECHANIC_SILENCE |       |
+|10| MECHANIC_SLEEP |         |
+|11| MECHANIC_SNARE |         |
+|12| MECHANIC_STUN |          |
+|13| MECHANIC_FREEZE |        |
+|14| MECHANIC_KNOCKOUT |      |
+|15| MECHANIC_BLEED |         |
+|16| MECHANIC_BANDAGE |       |
+|17| MECHANIC_POLYMORPH |     |
+|18| MECHANIC_BANISH |        |
+|19| MECHANIC_SHIELD |        |
+|20| MECHANIC_SHACKLE |       |
+|21| MECHANIC_MOUNT |         |
+|22| MECHANIC_PERSUADE | spells use this mechanic|
+|23| MECHANIC_TURN |          |
+|24| MECHANIC_HORROR |        |
+|25| MECHANIC_INVULNERABILITY |
+|26| MECHANIC_INTERRUPT |     |
+|27| MECHANIC_DAZE |          |
+|28| MECHANIC_DISCOVERY |     |
+|29| MECHANIC_IMMUNE_SHIELD | Divine (Blessing) Shield/Protection and Ice Block|
+|30| MECHANIC_SAPPED |           |
 
 h4. Attributes
 
@@ -698,7 +731,9 @@ h4. EffectBasePoints1
 
 Value added to EffectBaseDice1
 
-h4. EffectMechanic1
+h4. EffectMechanicN
+
+The mechanic of the effect with the same id `N` (e.g. `EffectMechanic1` relates to `Effect1`). There are up to three effects, N = {1,2,3}. See "Mechanic":spell_template#mechanic.
 
 h4. EffectImplicitTargetA1
 
