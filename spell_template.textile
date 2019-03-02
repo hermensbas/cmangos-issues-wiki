@@ -520,9 +520,54 @@ h4. CategoryRecoveryTime
 
 h4. InterruptFlags
 
+|*Bit*|*Enum name*|*Comment*|
+| 0x01 | SPELL_INTERRUPT_FLAG_MOVEMENT    |
+| 0x02 | SPELL_INTERRUPT_FLAG_DAMAGE      |
+| 0x04 | SPELL_INTERRUPT_FLAG_INTERRUPT   |
+| 0x08 | SPELL_INTERRUPT_FLAG_AUTOATTACK  |
+| 0x10 | SPELL_INTERRUPT_FLAG_ABORT_ON_DMG| // _complete_ interrupt on direct damage|
+| 0x20 | SPELL_INTERRUPT_UNK              | // unk, 564 of 727 spells having this spell start with "Glyph"|
+
 h4. AuraInterruptFlags
 
+|*Bit*|*Enum name*|*Comment*|
+| 0x00000001 | AURA_INTERRUPT_FLAG_HITBYSPELL               |    removed when getting hit by a negative spell|
+| 0x00000002 | AURA_INTERRUPT_FLAG_DAMAGE                   |    removed by any damage|
+| 0x00000004 | AURA_INTERRUPT_FLAG_UNK2                     |
+| 0x00000008 | AURA_INTERRUPT_FLAG_MOVE                     |    removed by any movement|
+| 0x00000010 | AURA_INTERRUPT_FLAG_TURNING                  |    removed by any turning|
+| 0x00000020 | AURA_INTERRUPT_FLAG_ENTER_COMBAT             |    removed by entering combat|
+| 0x00000040 | AURA_INTERRUPT_FLAG_NOT_MOUNTED              |    removed by unmounting|
+| 0x00000080 | AURA_INTERRUPT_FLAG_NOT_ABOVEWATER           |    removed by entering water|
+| 0x00000100 | AURA_INTERRUPT_FLAG_NOT_UNDERWATER           |    removed by leaving water|
+| 0x00000200 | AURA_INTERRUPT_FLAG_NOT_SHEATHED             |    removed by unsheathing|
+| 0x00000400 | AURA_INTERRUPT_FLAG_TALK                     |    talk to npc / loot? action on creature|
+| 0x00000800 | AURA_INTERRUPT_FLAG_USE                      |    mine/use/open action on gameobject|
+| 0x00001000 | AURA_INTERRUPT_FLAG_MELEE_ATTACK             |    removed by attack|
+| 0x00002000 | AURA_INTERRUPT_FLAG_UNK13                    | |
+| 0x00004000 | AURA_INTERRUPT_FLAG_UNK14                    | |
+| 0x00008000 | AURA_INTERRUPT_FLAG_UNK15                    |    removed by casting a spell?|
+| 0x00010000 | AURA_INTERRUPT_FLAG_UNK16                    | |
+| 0x00020000 | AURA_INTERRUPT_FLAG_MOUNTING                 |    removed by mounting|
+| 0x00040000 | AURA_INTERRUPT_FLAG_NOT_SEATED               |    removed by standing up (used by food and drink mostly and sleep/Fake Death like)|
+| 0x00080000 | AURA_INTERRUPT_FLAG_CHANGE_MAP               |    leaving map/getting teleported|
+| 0x00100000 | AURA_INTERRUPT_FLAG_IMMUNE_OR_LOST_SELECTION |    removed by auras that make you invulnerable, or make other to loose selection on you|
+| 0x00200000 | AURA_INTERRUPT_FLAG_UNK21                    | |
+| 0x00400000 | AURA_INTERRUPT_FLAG_TELEPORTED               | |
+| 0x00800000 | AURA_INTERRUPT_FLAG_ENTER_PVP_COMBAT         |    removed by entering pvp combat|
+| 0x01000000 | AURA_INTERRUPT_FLAG_DIRECT_DAMAGE            |    removed by any direct damage|
+| 0x02000000 | AURA_INTERRUPT_FLAG_LANDING                  |    removed by hitting the ground or water|
+
 h4. ChannelInterruptFlags
+
+|*Bit*|*Enum name*|*Comment*|
+|0x0001|CHANNEL_FLAG_UNK     ||
+|0x0002|CHANNEL_FLAG_DAMAGE  ||
+|0x0008|CHANNEL_FLAG_MOVEMENT||
+|0x0010|CHANNEL_FLAG_TURNING ||
+|0x0080|CHANNEL_FLAG_DAMAGE2 ||
+|0x1000|CHANNEL_FLAG_UNK2    ||
+|0x4000|CHANNEL_FLAG_DELAY   ||
 
 h4. procFlags
 
