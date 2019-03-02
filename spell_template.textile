@@ -126,17 +126,255 @@ h4. Attributes
 
 Special rules for spells. There are several columns for attributes. These rules can do anything, and some can be name only.
 
+|*ID*|*ENUM NAME*|*Description*|
+|0x00000001 | SPELL_ATTR_UNK0                             | 0 |
+|0x00000002 | SPELL_ATTR_RANGED                           | 1 All ranged abilites have this flag |
+|0x00000004 | SPELL_ATTR_ON_NEXT_SWING_1                  | 2 on next swing |
+|0x00000008 | SPELL_ATTR_UNK3                             | 3 not set in 3.0.3 |
+|0x00000010 | SPELL_ATTR_ABILITY                          | 4 Displays ability instead of spell clientside |
+|0x00000020 | SPELL_ATTR_TRADESPELL                       | 5 trade spells, will be added by client to a sublist of profession spell |
+|0x00000040 | SPELL_ATTR_PASSIVE                          | 6 Passive spell |
+|0x00000080 | SPELL_ATTR_HIDDEN_CLIENTSIDE                | 7 Spells with this attribute are not visible in spellbook or aura bar TODO: check usage |
+|0x00000100 | SPELL_ATTR_HIDE_IN_COMBAT_LOG               | 8 hide created item in tooltip (for effect=24) TODO: implement it |
+|0x00000200 | SPELL_ATTR_TARGET_MAINHAND_ITEM             | 9 Client automatically selects item from mainhand slot as a cast target TODO: Implement |
+|0x00000400 | SPELL_ATTR_ON_NEXT_SWING_2                  | 10 on next swing 2 |
+|0x00000800 | SPELL_ATTR_UNK11                            | 11 |
+|0x00001000 | SPELL_ATTR_DAYTIME_ONLY                     | 12 only useable at daytime, not set in 2.4.2 |
+|0x00002000 | SPELL_ATTR_NIGHT_ONLY                       | 13 only useable at night, not set in 2.4.2 |
+|0x00004000 | SPELL_ATTR_INDOORS_ONLY                     | 14 only useable indoors, not set in 2.4.2 |
+|0x00008000 | SPELL_ATTR_OUTDOORS_ONLY                    | 15 Only useable outdoors. |
+|0x00010000 | SPELL_ATTR_NOT_SHAPESHIFT                   | 16 Not while shapeshifted |
+|0x00020000 | SPELL_ATTR_ONLY_STEALTHED                   | 17 Must be in stealth |
+|0x00040000 | SPELL_ATTR_DONT_AFFECT_SHEATH_STATE         | 18 client won't hide unit weapons in sheath on cast/channel TODO: Implement |
+|0x00080000 | SPELL_ATTR_LEVEL_DAMAGE_CALCULATION         | 19 spelldamage depends on caster level |
+|0x00100000 | SPELL_ATTR_STOP_ATTACK_TARGET               | 20 Stop attack after use this spell (and not begin attack if use) |
+|0x00200000 | SPELL_ATTR_IMPOSSIBLE_DODGE_PARRY_BLOCK     | 21 Cannot be dodged/parried/blocked |
+|0x00400000 | SPELL_ATTR_SET_TRACKING_TARGET              | 22 SetTrackingTarget |
+|0x00800000 | SPELL_ATTR_CASTABLE_WHILE_DEAD              | 23 castable while dead TODO: Implement |
+|0x01000000 | SPELL_ATTR_CASTABLE_WHILE_MOUNTED           | 24 castable while mounted |
+|0x02000000 | SPELL_ATTR_DISABLED_WHILE_ACTIVE            | 25 Activate and start cooldown after aura fade or remove summoned creature or go |
+|0x04000000 | SPELL_ATTR_AURA_IS_DEBUFF                   | 26 |
+|0x08000000 | SPELL_ATTR_CASTABLE_WHILE_SITTING           | 27 castable while sitting |
+|0x10000000 | SPELL_ATTR_CANT_USED_IN_COMBAT              | 28 Cannot be used in combat |
+|0x20000000 | SPELL_ATTR_UNAFFECTED_BY_INVULNERABILITY    | 29 unaffected by invulnerability (hmm possible not...) |
+|0x40000000 | SPELL_ATTR_UNK30                            | 30 breakable by damage? |
+|0x80000000 | SPELL_ATTR_CANT_CANCEL | 31 positive aura can't be canceled |
+
 h4. AttributesEx
+
+|*ID*|*ENUM NAME*|*Description*|
+|0x00000001 | SPELL_ATTR_EX_UNK0                         | 0|
+|0x00000002 | SPELL_ATTR_EX_DRAIN_ALL_POWER              | 1 use all power (Only paladin Lay of Hands and Bunyanize)|
+|0x00000004 | SPELL_ATTR_EX_CHANNELED_1                  | 2 channeled 1|
+|0x00000008 | SPELL_ATTR_EX_CANT_BE_REDIRECTED           | 3|
+|0x00000010 | SPELL_ATTR_EX_UNK4                         | 4|
+|0x00000020 | SPELL_ATTR_EX_NOT_BREAK_STEALTH            | 5 Not break stealth|
+|0x00000040 | SPELL_ATTR_EX_CHANNELED_2                  | 6 channeled 2|
+|0x00000080 | SPELL_ATTR_EX_CANT_BE_REFLECTED            | 7|
+|0x00000100 | SPELL_ATTR_EX_NOT_IN_COMBAT_TARGET         | 8 Spell req target not to be in combat state|
+|0x00000200 | SPELL_ATTR_EX_FACING_TARGET                | 9 TODO: CONFIRM!|
+|0x00000400 | SPELL_ATTR_EX_NO_THREAT                    | 10 no generates threat on cast 100%|
+|0x00000800 | SPELL_ATTR_EX_UNK11                        | 11|
+|0x00001000 | SPELL_ATTR_EX_IS_PICKPOCKET                | 12|
+|0x00002000 | SPELL_ATTR_EX_FARSIGHT                     | 13 related to farsight|
+|0x00004000 | SPELL_ATTR_EX_CHANNEL_TRACK_TARGET         | 14|
+|0x00008000 | SPELL_ATTR_EX_DISPEL_AURAS_ON_IMMUNITY     | 15 remove auras on immunity|
+|0x00010000 | SPELL_ATTR_EX_UNAFFECTED_BY_SCHOOL_IMMUNE  | 16 unaffected by school immunity|
+|0x00020000 | SPELL_ATTR_EX_UNAUTOCASTABLE_BY_CHARMED    | 17 TODO: Investigate more: SPELL_ATTR_EX_PLAYER_CANT_CAST_CHARMED, likely related to MC|
+|0x00040000 | SPELL_ATTR_EX_UNK18                        | 18|
+|0x00080000 | SPELL_ATTR_EX_CANT_TARGET_SELF             | 19 spells with area effect or friendly targets that exclude the caster|
+|0x00100000 | SPELL_ATTR_EX_REQ_TARGET_COMBO_POINTS      | 20 Req combo points on target|
+|0x00200000 | SPELL_ATTR_EX_UNK21                        | 21|
+|0x00400000 | SPELL_ATTR_EX_REQ_COMBO_POINTS             | 22 Use combo points (in 4.x not required combo point target selected)|
+|0x00800000 | SPELL_ATTR_EX_UNK23                        | 23|
+|0x01000000 | SPELL_ATTR_EX_UNK24                        | 24 Req fishing pole??|
+|0x02000000 | SPELL_ATTR_EX_UNK25                        | 25 not set in 2.4.2|
+|0x04000000 | SPELL_ATTR_EX_UNK26                        | 26|
+|0x08000000 | SPELL_ATTR_EX_REFUND_POWER                 | 27 All these spells refund power on parry or deflect|
+|0x10000000 | SPELL_ATTR_EX_DONT_DISPLAY_IN_AURA_BAR     | 28|
+|0x20000000 | SPELL_ATTR_EX_CHANNEL_DISPLAY_SPELL_NAME   | 29|
+|0x40000000 | SPELL_ATTR_EX_ENABLE_AT_DODGE              | 30 overpower|
+|0x80000000 | SPELL_ATTR_EX_UNK31                        | 31|
 
 h4. AttributesEx2
 
+|*ID*|*ENUM NAME*|*Description*|
+| 0x00000001 | SPELL_ATTR_EX2_CAN_TARGET_DEAD             | 0 can target dead unit or corpse|
+| 0x00000002 | SPELL_ATTR_EX2_UNK1                       | 1|
+| 0x00000004 | SPELL_ATTR_EX2_IGNORE_LOS                 | 2 do not need LOS (e.g. 18220 since 3.3.3)|
+| 0x00000008 | SPELL_ATTR_EX2_UNK3                       | 3 auto targeting? (e.g. fishing skill enhancement items since 3.3.3)|
+| 0x00000010 | SPELL_ATTR_EX2_DISPLAY_IN_STANCE_BAR      | 4|
+| 0x00000020 | SPELL_ATTR_EX2_AUTOREPEAT_FLAG            | 5|
+| 0x00000040 | SPELL_ATTR_EX2_CANT_TARGET_TAPPED         | 6 only usable on tabbed by yourself|
+| 0x00000080 | SPELL_ATTR_EX2_UNK7                       | 7|
+| 0x00000100 | SPELL_ATTR_EX2_UNK8                       | 8 not set in 2.4.2|
+| 0x00000200 | SPELL_ATTR_EX2_UNK9                       | 9|
+| 0x00000400 | SPELL_ATTR_EX2_UNK10                      | 10|
+| 0x00000800 | SPELL_ATTR_EX2_HEALTH_FUNNEL              | 11|
+| 0x00001000 | SPELL_ATTR_EX2_UNK12                      | 12|
+| 0x00002000 | SPELL_ATTR_EX2_UNK13                      | 13|
+| 0x00004000 | SPELL_ATTR_EX2_UNK14                      | 14|
+| 0x00008000 | SPELL_ATTR_EX2_UNK15                      | 15 not set in 3.0.3|
+| 0x00010000 | SPELL_ATTR_EX2_TAME_BEAST                 | 16|
+| 0x00020000 | SPELL_ATTR_EX2_NOT_RESET_AUTO_ACTIONS     | 17 suspend weapon timer instead of resetting it, (?Hunters Shot and Stings only have this flag?)|
+| 0x00040000 | SPELL_ATTR_EX2_REQ_DEAD_PET               | 18 Only Revive pet - possible req dead pet|
+| 0x00080000 | SPELL_ATTR_EX2_NOT_NEED_SHAPESHIFT        | 19 does not necessarly need shapeshift|
+| 0x00100000 | SPELL_ATTR_EX2_FACING_TARGETS_BACK        | 20 TODO: CONFIRM!|
+| 0x00200000 | SPELL_ATTR_EX2_DAMAGE_REDUCED_SHIELD      | 21 for ice blocks, pala immunity buffs, priest absorb shields, but used also for other spells -> not sure!|
+| 0x00400000 | SPELL_ATTR_EX2_UNK22                      | 22|
+| 0x00800000 | SPELL_ATTR_EX2_IS_ARCANE_CONCENTRATION    | 23 Only mage Arcane Concentration have this flag|
+| 0x01000000 | SPELL_ATTR_EX2_UNK24                      | 24|
+| 0x02000000 | SPELL_ATTR_EX2_UNK25                      | 25|
+| 0x04000000 | SPELL_ATTR_EX2_UNK26                      | 26 unaffected by school immunity|
+| 0x08000000 | SPELL_ATTR_EX2_UNK27                      | 27|
+| 0x10000000 | SPELL_ATTR_EX2_UNK28                      | 28 no breaks stealth if it fails??|
+| 0x20000000 | SPELL_ATTR_EX2_CANT_CRIT                  | 29 Spell can't crit|
+| 0x40000000 | SPELL_ATTR_EX2_TRIGGERED_CAN_TRIGGER_PROC | 30|
+| 0x80000000 | SPELL_ATTR_EX2_FOOD_BUFF                  | 31 Food or Drink Buff (like Well Fed|
+
 h4. AttributesEx3
+
+|*ID*|*ENUM NAME*|*Description*|
+|0x00000001 | SPELL_ATTR_EX3_OUT_OF_COMBAT_ATTACK           | 0 Spell landed counts as hostile action against enemy even if it doesn't trigger combat state, propagates PvP flags|
+|0x00000002 | SPELL_ATTR_EX3_UNK1                           | 1|
+|0x00000004 | SPELL_ATTR_EX3_UNK2                           | 2|
+|0x00000008 | SPELL_ATTR_EX3_BLOCKABLE_SPELL                | 3 TODO: Investigate more|
+|0x00000010 | SPELL_ATTR_EX3_IGNORE_RESURRECTION_TIMER      | 4 Druid Rebirth only this spell have this flag|
+|0x00000020 | SPELL_ATTR_EX3_UNK5                           | 5|
+|0x00000040 | SPELL_ATTR_EX3_UNK6                           | 6|
+|0x00000080 | SPELL_ATTR_EX3_STACK_FOR_DIFF_CASTERS         | 7 create a separate (de)buff stack for each caster|
+|0x00000100 | SPELL_ATTR_EX3_TARGET_ONLY_PLAYER             | 8 Can target only player|
+|0x00000200 | SPELL_ATTR_EX3_TRIGGERED_CAN_TRIGGER_SPECIAL  | 9 Can only proc auras with SPELL_ATTR_EX3_CAN_PROC_FROM_TRIGGERED_SPECIAL|
+|0x00000400 | SPELL_ATTR_EX3_MAIN_HAND                      | 10 Main hand weapon required|
+|0x00000800 | SPELL_ATTR_EX3_BATTLEGROUND                   | 11 Can casted only on battleground|
+|0x00001000 | SPELL_ATTR_EX3_CAST_ON_DEAD                   | 12 target is a dead player (not every spell has this flag)|
+|0x00002000 | SPELL_ATTR_EX3_DONT_DISPLAY_CHANNEL_BAR       | 13|
+|0x00004000 | SPELL_ATTR_EX3_IS_HONORLESS_TARGET            | 14 "Honorless Target" only this spells have this flag|
+|0x00008000 | SPELL_ATTR_EX3_UNK15                          | 15 Auto Shoot, Shoot, Throw,  - this is autoshot flag|
+|0x00010000 | SPELL_ATTR_EX3_CANT_TRIGGER_PROC              | 16 confirmed by patchnotes|
+|0x00020000 | SPELL_ATTR_EX3_NO_INITIAL_AGGRO               | 17 Causes no aggro if not missed|
+|0x00040000 | SPELL_ATTR_EX3_CANT_MISS                      | 18 Spell should always hit its target|
+|0x00080000 | SPELL_ATTR_EX3_UNK19                          | 19|
+|0x00100000 | SPELL_ATTR_EX3_DEATH_PERSISTENT               | 20 Death persistent spells|
+|0x00200000 | SPELL_ATTR_EX3_UNK21                          | 21|
+|0x00400000 | SPELL_ATTR_EX3_REQ_WAND                       | 22 Req wand|
+|0x00800000 | SPELL_ATTR_EX3_UNK23                          | 23|
+|0x01000000 | SPELL_ATTR_EX3_REQ_OFFHAND                    | 24 Req offhand weapon|
+|0x02000000 | SPELL_ATTR_EX3_UNK25                          | 25 no cause spell pushback ?|
+|0x04000000 | SPELL_ATTR_EX3_CAN_PROC_FROM_TRIGGERED_SPECIAL| 26 Auras with this attribute can proc off SPELL_ATTR_EX3_TRIGGERED_CAN_TRIGGER_SPECIAL|
+|0x08000000 | SPELL_ATTR_EX3_DRAIN_SOUL                     | 27|
+|0x10000000 | SPELL_ATTR_EX3_UNK28                          | 28 always cast ok ? (requires more research)|
+|0x20000000 | SPELL_ATTR_EX3_NO_DONE_BONUS                  | 29|
+|0x40000000 | SPELL_ATTR_EX3_DONT_DISPLAY_RANGE             | 30|
+|0x80000000 | SPELL_ATTR_EX3_UNK31                          | 31|
 
 h4. AttributesEx4
 
+|*ID*|*ENUM NAME*|*Description*|
+| 0x00000001 | SPELL_ATTR_EX4_IGNORE_RESISTANCES         | 0|
+| 0x00000002 | SPELL_ATTR_EX4_UNK1                       | 1 proc on finishing move?|
+| 0x00000004 | SPELL_ATTR_EX4_UNK2                       | 2|
+| 0x00000008 | SPELL_ATTR_EX4_UNK3                       | 3|
+| 0x00000010 | SPELL_ATTR_EX4_UNK4                       | 4 This will no longer cause guards to attack on use??|
+| 0x00000020 | SPELL_ATTR_EX4_UNK5                       | 5|
+| 0x00000040 | SPELL_ATTR_EX4_NOT_STEALABLE              | 6 although such auras might be dispellable, they cannot be stolen|
+| 0x00000080 | SPELL_ATTR_EX4_CAN_CAST_WHILE_CASTING     | 7 In theory, can use this spell while another is channeled/cast/autocast|
+| 0x00000100 | SPELL_ATTR_EX4_STACK_DOT_MODIFIER         | 8 no effect on non DoTs?|
+| 0x00000200 | SPELL_ATTR_EX4_TRIGGER_ACTIVATE           | 9 initially disabled / trigger activate from event (Execute, Riposte, Deep Freeze end other)|
+| 0x00000400 | SPELL_ATTR_EX4_SPELL_VS_EXTEND_COST       | 10 Rogue Shiv have this flag|
+| 0x00000800 | SPELL_ATTR_EX4_UNK11                      | 11|
+| 0x00001000 | SPELL_ATTR_EX4_UNK12                      | 12|
+| 0x00002000 | SPELL_ATTR_EX4_UNK13                      | 13|
+| 0x00004000 | SPELL_ATTR_EX4_DAMAGE_DOESNT_BREAK_AURAS  | 14|
+| 0x00008000 | SPELL_ATTR_EX4_UNK15                      | 15|
+| 0x00010000 | SPELL_ATTR_EX4_NOT_USABLE_IN_ARENA        | 16 not usable in arena|
+| 0x00020000 | SPELL_ATTR_EX4_USABLE_IN_ARENA            | 17 usable in arena|
+| 0x00040000 | SPELL_ATTR_EX4_UNK18                      | 18|
+| 0x00080000 | SPELL_ATTR_EX4_UNK19                      | 19|
+| 0x00100000 | SPELL_ATTR_EX4_NOT_CHECK_SELFCAST_POWER   | 20 do not give "more powerful spell" error message|
+| 0x00200000 | SPELL_ATTR_EX4_UNK21                      | 21|
+| 0x00400000 | SPELL_ATTR_EX4_UNK22                      | 22|
+| 0x00800000 | SPELL_ATTR_EX4_UNK23                      | 23|
+| 0x01000000 | SPELL_ATTR_EX4_UNK24                      | 24|
+| 0x02000000 | SPELL_ATTR_EX4_IS_PET_SCALING             | 25 pet scaling auras|
+| 0x04000000 | SPELL_ATTR_EX4_CAST_ONLY_IN_OUTLAND       | 26 Can only be used in Outland.|
+| 0x08000000 | SPELL_ATTR_EX4_UNK27                      | 27|
+| 0x10000000 | SPELL_ATTR_EX4_UNK28                      | 28|
+| 0x20000000 | SPELL_ATTR_EX4_UNK29                      | 29|
+| 0x40000000 | SPELL_ATTR_EX4_UNK30                      | 30|
+| 0x80000000 | SPELL_ATTR_EX4_UNK31                      | 31|
+
 h4. AttributesEx5
 
+|*ID*|*ENUM NAME*|*Description*|
+| 0x00000001 | SPELL_ATTR_EX5_CAN_CHANNEL_WHEN_MOVING             | 0 don't interrupt channeling spells when moving|
+| 0x00000002 | SPELL_ATTR_EX5_NO_REAGENT_WHILE_PREP            | 1 not need reagents if UNIT_FLAG_PREPARATION|
+| 0x00000004 | SPELL_ATTR_EX5_REMOVE_ON_ARENA_ENTER            | 2 removed at enter arena (e.g. 31850 since 3.3.3)|
+| 0x00000008 | SPELL_ATTR_EX5_USABLE_WHILE_STUNNED             | 3 usable while stunned|
+| 0x00000010 | SPELL_ATTR_EX5_UNK4                             | 4|
+| 0x00000020 | SPELL_ATTR_EX5_SINGLE_TARGET_SPELL              | 5 Only one target can be apply at a time|
+| 0x00000040 | SPELL_ATTR_EX5_UNK6                             | 6|
+| 0x00000080 | SPELL_ATTR_EX5_UNK7                             | 7|
+| 0x00000100 | SPELL_ATTR_EX5_UNK8                             | 8|
+| 0x00000200 | SPELL_ATTR_EX5_START_PERIODIC_AT_APPLY          | 9  begin periodic tick at aura apply|
+| 0x00000400 | SPELL_ATTR_EX5_HIDE_DURATION                    | 10|
+| 0x00000800 | SPELL_ATTR_EX5_ALLOW_TARGET_OF_TARGET_AS_TARGET | 11|
+| 0x00001000 | SPELL_ATTR_EX5_CLEAVE_FRONT_TARGET              | 12|
+| 0x00002000 | SPELL_ATTR_EX5_HASTE_AFFECT_DURATION            | 13 haste affects duration|
+| 0x00004000 | SPELL_ATTR_EX5_UNK14                            | 14|
+| 0x00008000 | SPELL_ATTR_EX5_UNK15                            | 15|
+| 0x00010000 | SPELL_ATTR_EX5_UNK16                            | 16|
+| 0x00020000 | SPELL_ATTR_EX5_USABLE_WHILE_FEARED              | 17 usable while feared|
+| 0x00040000 | SPELL_ATTR_EX5_USABLE_WHILE_CONFUSED            | 18 usable while confused|
+| 0x00080000 | SPELL_ATTR_EX5_DONT_TURN_DURING_CAST            | 19|
+| 0x00100000 | SPELL_ATTR_EX5_UNK20                            | 20|
+| 0x00200000 | SPELL_ATTR_EX5_UNK21                            | 21|
+| 0x00400000 | SPELL_ATTR_EX5_UNK22                            | 22|
+| 0x00800000 | SPELL_ATTR_EX5_UNK23                            | 23|
+| 0x01000000 | SPELL_ATTR_EX5_UNK24                            | 24|
+| 0x02000000 | SPELL_ATTR_EX5_UNK25                            | 25|
+| 0x04000000 | SPELL_ATTR_EX5_UNK26                            | 26|
+| 0x08000000 | SPELL_ATTR_EX5_DONT_SHOW_AURA_IF_SELF_CAST      | 27 Auras with this attribute are not visible on units that are the caster|
+| 0x10000000 | SPELL_ATTR_EX5_DONT_SHOW_AURA_IF_NOT_SELF_CAST  | 28 Auras with this attribute are not visible on units that are not the caster|
+| 0x20000000 | SPELL_ATTR_EX5_UNK29                            | 29|
+| 0x40000000 | SPELL_ATTR_EX5_UNK30                            | 30|
+| 0x80000000 | SPELL_ATTR_EX5_USE_PHYSICAL_HIT_CHANCE          | 31 Introduced in patch 2.3: Taunt, Growl, etc spells use ability miss calculation (see implementation for details)|
+
 h4. AttributesEx6
+
+|*ID*|*ENUM NAME*|*Description*|
+| 0x00000001 | SPELL_ATTR_EX6_DONT_DISPLAY_COOLDOWN | 0 Only Move spell have this flag|
+| 0x00000002 | SPELL_ATTR_EX6_ONLY_IN_ARENA         | 1 only usable in arena, not used in 3.2.0a and early|
+| 0x00000004 | SPELL_ATTR_EX6_IGNORE_CASTER_AURAS   | 2|
+| 0x00000008 | SPELL_ATTR_EX6_UNK3                  | 3|
+| 0x00000010 | SPELL_ATTR_EX6_UNK4                  | 4|
+| 0x00000020 | SPELL_ATTR_EX6_UNK5                  | 5|
+| 0x00000040 | SPELL_ATTR_EX6_USE_SPELL_CAST_EVENT  | 6 Auras with this attribute trigger SPELL_CAST combat log event instead of SPELL_AURA_START (clientside attribute)|
+| 0x00000080 | SPELL_ATTR_EX6_UNK7                  | 7|
+| 0x00000100 | SPELL_ATTR_EX6_IGNORE_CC_TARGETS     | 8 ignores target with cc effects|
+| 0x00000200 | SPELL_ATTR_EX6_UNK9                  | 9|
+| 0x00000400 | SPELL_ATTR_EX6_UNK10                 | 10|
+| 0x00000800 | SPELL_ATTR_EX6_NOT_IN_RAID_INSTANCE  | 11 not usable in raid instance|
+| 0x00001000 | SPELL_ATTR_EX6_UNK12                 | 12 for auras SPELL_AURA_TRACK_CREATURES, SPELL_AURA_TRACK_RESOURCES and SPELL_AURA_TRACK_STEALTHED select non-stacking tracking spells|
+| 0x00002000 | SPELL_ATTR_EX6_UNK13                 | 13|
+| 0x00004000 | SPELL_ATTR_EX6_UNK14                 | 14|
+| 0x00008000 | SPELL_ATTR_EX6_UNK15                 | 15 not set in 3.0.3|
+| 0x00010000 | SPELL_ATTR_EX6_UNK16                 | 16|
+| 0x00020000 | SPELL_ATTR_EX6_UNK17                 | 17|
+| 0x00040000 | SPELL_ATTR_EX6_UNK18                 | 18|
+| 0x00080000 | SPELL_ATTR_EX6_UNK19                 | 19|
+| 0x00100000 | SPELL_ATTR_EX6_UNK20                 | 20|
+| 0x00200000 | SPELL_ATTR_EX6_UNK21                 | 21|
+| 0x00400000 | SPELL_ATTR_EX6_UNK22                 | 22|
+| 0x00800000 | SPELL_ATTR_EX6_UNK23                 | 23 not set in 3.0.3|
+| 0x01000000 | SPELL_ATTR_EX6_UNK24                 | 24 not set in 3.0.3|
+| 0x02000000 | SPELL_ATTR_EX6_UNK25                 | 25 not set in 3.0.3|
+| 0x04000000 | SPELL_ATTR_EX6_UNK26                 | 26 not set in 3.0.3|
+| 0x08000000 | SPELL_ATTR_EX6_UNK27                 | 27 not set in 3.0.3|
+| 0x10000000 | SPELL_ATTR_EX6_UNK28                 | 28 not set in 3.0.3|
+| 0x20000000 | SPELL_ATTR_EX6_NO_DMG_PERCENT_MODS   | 29 do not apply damage mods (usually in cases where it has already been applied)|
+| 0x40000000 | SPELL_ATTR_EX6_UNK30                 | 30 not set in 3.0.3|
+| 0x80000000 | SPELL_ATTR_EX6_UNK31                 | 31 not set in 3.0.3|
 
 h4. Stances
 
