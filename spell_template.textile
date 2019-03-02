@@ -400,7 +400,11 @@ Indicates that this spell needs a GO near (e.g. forges). Required object has the
 
 h4. FacingCasterFlags
 
-Specifies how the caster has to face the target so that the spell is successful. enum SpellFacingFlags in Unit.h
+Specifies how the caster has to face the target so that the spell is successful.
+
+|*Id*| *ENUM Name*| *Description*|
+|0x00 | SPELL_FACING_FLAG_INFRONT | Must be in front of the caster. |
+|0x01 | - | No special requirement. |
 
 h4. CasterAuraState
 
