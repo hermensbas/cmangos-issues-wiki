@@ -63,8 +63,8 @@ h3. Structure
 ||"EffectRealPointsPerLevel1":spell_template#effectrealpointsperlevel1|FLOAT|NO||0||
 ||"EffectBasePoints1":spell_template#effectbasepoints1|INT(11) UNSIGNED|NO||0||
 ||"EffectMechanic{1,2,3}":spell_template#effectmechanicN|INT(11) UNSIGNED|NO||0||
-||"EffectImplicitTargetA1":spell_template#effectimplicittargeta1|INT(11) UNSIGNED|NO||0||
-||"EffectImplicitTargetB1":spell_template#effectimplicittargetb1|INT(11) UNSIGNED|NO||0||
+||"EffectImplicitTargetA{1,2,3}":spell_template#effectimplicittargetaN|INT(11) UNSIGNED|NO||0||
+||"EffectImplicitTargetB{1,2,3}":spell_template#effectimplicittargetbN|INT(11) UNSIGNED|NO||0||
 ||"EffectRadiusIndex1":spell_template#effectradiusindex1|INT(11) UNSIGNED|NO||0||
 ||"EffectApplyAuraName1":spell_template#effectapplyauraname1|INT(11) UNSIGNED|NO||0||
 ||"EffectAmplitude1":spell_template#effectamplitude1|INT(11) UNSIGNED|NO||0||
@@ -780,9 +780,111 @@ h4. EffectMechanicN
 
 The mechanic of the effect with the same id `N` (e.g. `EffectMechanic1` relates to `Effect1`). There are up to three effects, N = {1,2,3}. See "Mechanic":spell_template#mechanic.
 
-h4. EffectImplicitTargetA1
+h4. EffectImplicitTargetAN
 
-h4. EffectImplicitTargetB1
+The target of the effect with the same id `N` (e.g. `EffectImplicitTargetA1` relates to `Effect1`). There are up to three effects, N = {1,2,3}.
+
+For example: Food buff item spells usually work on the player eating them, indicated by `TARGET_UNIT_CASTER` (`1`).     
+
+|*Id*|*Enum name*|
+|0|TARGET_NONE                                  |
+|1|TARGET_UNIT_CASTER                           |
+|2|TARGET_UNIT_ENEMY_NEAR_CASTER                |
+|3|TARGET_UNIT_FRIEND_NEAR_CASTER               |
+|4|TARGET_UNIT_NEAR_CASTER                      |
+|5|TARGET_UNIT_CASTER_PET                       |
+|6|TARGET_UNIT_ENEMY                            |
+|7|TARGET_ENUM_UNITS_SCRIPT_AOE_AT_SRC_LOC      |
+|8|TARGET_ENUM_UNITS_SCRIPT_AOE_AT_DEST_LOC     |
+|9|TARGET_LOCATION_CASTER_HOME_BIND             |
+|10|TARGET_LOCATION_CASTER_DIVINE_BIND_NYI        |
+|11|TARGET_PLAYER_NYI                             |
+|12|TARGET_PLAYER_NEAR_CASTER_NYI                 |
+|13|TARGET_PLAYER_ENEMY_NYI                       |
+|14|TARGET_PLAYER_FRIEND_NYI                      |
+|15|TARGET_ENUM_UNITS_ENEMY_AOE_AT_SRC_LOC        |
+|16|TARGET_ENUM_UNITS_ENEMY_AOE_AT_DEST_LOC       |
+|17|TARGET_LOCATION_DATABASE                      |
+|18|TARGET_LOCATION_CASTER_DEST                   |
+|19|TARGET_UNK_19                                 |
+|20|TARGET_ENUM_UNITS_PARTY_WITHIN_CASTER_RANGE   |
+|21|TARGET_UNIT_FRIEND                            |
+|22|TARGET_LOCATION_CASTER_SRC                    |
+|23|TARGET_GAMEOBJECT                             |
+|24|TARGET_ENUM_UNITS_ENEMY_IN_CONE_24            |
+|25|TARGET_UNIT                                   |
+|26|TARGET_LOCKED                                 |
+|27|TARGET_UNIT_CASTER_MASTER                     |
+|28|TARGET_ENUM_UNITS_ENEMY_AOE_AT_DYNOBJ_LOC     |
+|29|TARGET_ENUM_UNITS_FRIEND_AOE_AT_DYNOBJ_LOC    |
+|30|TARGET_ENUM_UNITS_FRIEND_AOE_AT_SRC_LOC       |
+|31|TARGET_ENUM_UNITS_FRIEND_AOE_AT_DEST_LOC      |
+|32|TARGET_LOCATION_UNIT_MINION_POSITION          |
+|33|TARGET_ENUM_UNITS_PARTY_AOE_AT_SRC_LOC        |
+|34|TARGET_ENUM_UNITS_PARTY_AOE_AT_DEST_LOC       |
+|35|TARGET_UNIT_PARTY                             |
+|36|TARGET_ENUM_UNITS_ENEMY_WITHIN_CASTER_RANGE   |
+|37|TARGET_UNIT_FRIEND_AND_PARTY                  |
+|38|TARGET_UNIT_SCRIPT_NEAR_CASTER                |
+|39|TARGET_LOCATION_CASTER_FISHING_SPOT           |
+|40|TARGET_GAMEOBJECT_SCRIPT_NEAR_CASTER          |
+|41|TARGET_LOCATION_CASTER_FRONT_RIGHT            |
+|42|TARGET_LOCATION_CASTER_BACK_RIGHT             |
+|43|TARGET_LOCATION_CASTER_BACK_LEFT              |
+|44|TARGET_LOCATION_CASTER_FRONT_LEFT             |
+|45|TARGET_UNIT_FRIEND_CHAIN_HEAL                 |
+|46|TARGET_LOCATION_SCRIPT_NEAR_CASTER            |
+|47|TARGET_LOCATION_CASTER_FRONT                  |
+|48|TARGET_LOCATION_CASTER_BACK                   |
+|49|TARGET_LOCATION_CASTER_LEFT                   |
+|50|TARGET_LOCATION_CASTER_RIGHT                  |
+|51|TARGET_ENUM_GAMEOBJECTS_SCRIPT_AOE_AT_SRC_LOC |
+|52|TARGET_ENUM_GAMEOBJECTS_SCRIPT_AOE_AT_DEST_LOC|
+|53|TARGET_LOCATION_CASTER_TARGET_POSITION        |
+|54|TARGET_ENUM_UNITS_ENEMY_IN_CONE_54            |
+|55|TARGET_LOCATION_CASTER_FRONT_LEAP             |
+|56|TARGET_ENUM_UNITS_RAID_WITHIN_CASTER_RANGE    |
+|57|TARGET_UNIT_RAID                              |
+|58|TARGET_UNIT_RAID_NEAR_CASTER                  |
+|59|TARGET_ENUM_UNITS_FRIEND_IN_CONE              |
+|60|TARGET_ENUM_UNITS_SCRIPT_IN_CONE_60           |
+|61|TARGET_UNIT_RAID_AND_CLASS                    |
+|62|TARGET_PLAYER_RAID_NYI                        |
+|63|TARGET_LOCATION_UNIT_POSITION                 |
+|64|TARGET_LOCATION_UNIT_FRONT                    |
+|65|TARGET_LOCATION_UNIT_BACK                     |
+|66|TARGET_LOCATION_UNIT_RIGHT                    |
+|67|TARGET_LOCATION_UNIT_LEFT                     |
+|68|TARGET_LOCATION_UNIT_FRONT_RIGHT              |
+|69|TARGET_LOCATION_UNIT_BACK_RIGHT               |
+|70|TARGET_LOCATION_UNIT_BACK_LEFT                |
+|71|TARGET_LOCATION_UNIT_FRONT_LEFT               |
+|72|TARGET_LOCATION_CASTER_RANDOM_SIDE            |
+|73|TARGET_LOCATION_CASTER_RANDOM_CIRCUMFERENCE   |
+|74|TARGET_LOCATION_UNIT_RANDOM_SIDE              |
+|75|TARGET_LOCATION_UNIT_RANDOM_CIRCUMFERENCE     |
+|76|TARGET_LOCATION_DYNOBJ_POSITION               |
+|77|TARGET_UNIT_CHANNEL_TARGET                    |
+|78|TARGET_LOCATION_NORTH                         |
+|79|TARGET_LOCATION_SOUTH                         |
+|80|TARGET_LOCATION_EAST                          |
+|81|TARGET_LOCATION_WEST                          |
+|82|TARGET_LOCATION_NE                            |
+|83|TARGET_LOCATION_NW                            |
+|84|TARGET_LOCATION_SE                            |
+|85|TARGET_LOCATION_SW                            |
+|86|TARGET_LOCATION_RANDOM_SIDE                   |
+|87|TARGET_LOCATION_CURRENT_REFERENCE             |
+|88|TARGET_ENUM_UNITS_SCRIPT_AOE_AT_DYNOBJ_LOC    |
+|89|TARGET_LOCATION_TRAJECTORY                    |
+|90|TARGET_UNIT_CASTER_COMPANION                  |
+|91|TARGET_LOCATION_RANDOM_CIRCUMFERENCE          |
+|92|TARGET_UNIT_CASTER_SUMMONER                   |
+|93|TARGET_CORPSE_ENEMY_NEAR_CASTER_NYI           |
+
+h4. EffectImplicitTargetBN
+
+See "EffectImplicitTargetAN":spell_template#effectimplicittargetaN.
 
 h4. EffectRadiusIndex1
 
