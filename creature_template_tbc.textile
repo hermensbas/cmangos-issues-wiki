@@ -906,6 +906,15 @@ h4. GossipMenuId
 
 Reference to a "gossip_menu_id":gossip_menu.
 
+h4. NOT_IMPLEMENTED_YET_VisibilityDistanceType
+
+|ID|Name|Type|Comments|
+|0|Normal|DEFAULT_VISIBILITY_DISTANCE|100.0f|
+|1|Tiny|VISIBILITY_DISTANCE_TINY|25.0f|
+|2|Small|VISIBILITY_DISTANCE_SMALL|50.0f|
+|3|Large|VISIBILITY_DISTANCE_LARGE|200.0f|
+|4|Gigantic|VISIBILITY_DISTANCE_GIGANTIC|400.0f|
+|5|Infinite|MAX_VISIBILITY_DISTANCE|unlimited, client restricted|
 
 h4. AIName
 
