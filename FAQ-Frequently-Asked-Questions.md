@@ -16,6 +16,9 @@
 ### Error: "MySQL is not recognized as an internal or external command"
 * You need to add MySQL to your path environment so that windows recognizes the command by default. See [here](http://dev.mysql.com/doc/mysql-windows-excerpt/5.1/en/mysql-installation-windows-path.html) for a walk through from MySQL.
 
+### I have issues with BOOST during compilation / CMake generation steps and i'm on Windows!
+* Check BOOST_ROOT and BOOST_LIBRARYROOT environmental variables, check [this](https://gist.github.com/Levitanious/d3756fd1634c7be58c51add9466bbe2e) gist for version compatibility (often all it takes to fix is to roll back the boost version or upgrading CMake).
+
 ### My server has errors when I try to start it
 * First you should review the [Installation Instructions](https://github.com/cmangos/issues/wiki/Installation-Instructions) again to be sure you didn't miss any steps and that every step was done according to the instructions.  
 * Second, search the forums or Discord for a solution (most errors have been encountered before and so there is usually a thread someone on the forums discussing it).
