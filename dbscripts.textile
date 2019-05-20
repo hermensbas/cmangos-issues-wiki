@@ -38,7 +38,7 @@ This table format is used for different tables to control possible scripts activ
 * *`dbscripts_on_creature_death:* Holds scripts activated when a creature dies.
     Source: killed creature; Target: responsible killer (unit or player).
 
-* *`dbscripts_on_event:* Holds scripts activated whenever an event is activated by spell, gameobject or taxi waypoints. The following spell effects and gameobjecs can activate an event:
+* *`dbscripts_on_event:* Holds scripts activated whenever an event is activated by spell, gameobject or taxi waypoints. The following spell effects and gameobjects can activate an event:
     ** SPELL_EFFECT_SEND_EVENT (61)
     ** GAMEOBJECT_TYPE_CHEST (3)
     ** GAMEOBJECT_TYPE_GOOBER (10)
@@ -92,7 +92,7 @@ For *dbscripts_on_gossip*, it is the "action script id":Gossip_menu_option#actio
 For *dbscripts_on_promo_code_use*, it is the ?
 For *dbscripts_on_quest_end*, it is the ID that is used in "CompleteScript":quest_template#CompleteScript in the quest template definition.
 For *dbscripts_on_quest_start*, it is the ID that is used in "StartScript":quest_template#StartScript in the quest template definition.
-For *dbsccripts_on_relay*, it is the entry of the creature. See "creature_template.entry":creature_template#entry + 2-Digit Script ID (Starting at 01). Example: c.21218 has few relay scripts, so 21218+01 = 2121801 ... 2121802 ..etc
+For *dbscripts_on_relay*, it is the entry of the creature. See "creature_template.entry":creature_template#entry + 2-Digit Script ID (Starting at 01). Example: c.21218 has few relay scripts, so 21218+01 = 2121801 ... 2121802 ..etc
 For *dbscripts_on_spell*, it is the Spell ID. See "spell_template.Id":spell_template#Id
 
 h4. delay
@@ -329,7 +329,7 @@ h4. TriggerCastFlags
 ** Source or target must be a player.
 
 * *SCRIPT_COMMAND_DESPAWN_SELF = 18*
-** datalong: Despawn delay (MILLIESECONDS).
+** datalong: Despawn delay (MILLISECONDS).
 ** Resulting source must be a creature.
 ** Despawns the target.
 
@@ -355,7 +355,7 @@ h4. TriggerCastFlags
 |Bit|Hex|Description|
 |0|0x00|TEMPFACTION_NONE|When no flag is used in temporary faction change, faction will be persistent. It will then require manual change back to default/another faction when changed once.|
 |1|0x01|TEMPFACTION_RESTORE_RESPAWN|Default faction will be restored at respawn.|
-|2|0x02|TEMPFACTION_RESTORE_COMBAT_STOP|at CombatStop() (happens at creature death, at evade or custom scripte among others).|
+|2|0x02|TEMPFACTION_RESTORE_COMBAT_STOP|at CombatStop() (happens at creature death, at evade or custom script among others).|
 |4|0x04|TEMPFACTION_RESTORE_REACH_HOME|at reaching home in home movement (evade), if not already done at CombatStop().|
 |8|0x08|TEMPFACTION_TOGGLE_NON_ATTACKABLE|Remove UNIT_FLAG_NON_ATTACKABLE(0x02) when faction is changed (reapply when temp-faction is removed).|
 |16|0x10|TEMPFACTION_TOGGLE_IMMUNE_TO_PLAYER|Remove UNIT_FLAG_IMMUNE_TO_PLAYER(0x100) when faction is changed (reapply when temp-faction is removed.)|
@@ -416,14 +416,14 @@ h4. TriggerCastFlags
 |0x01|Add|
 |0x02|Remove|
 
-* *SCRIPT_COMMAND_SEND_TAXY_PATH = 30*
+* *SCRIPT_COMMAND_SEND_TAXI_PATH = 30*
 ** datalong: "Taxi path id":TaxiPath.dbc#Content.
 ** Source or target must be a player.
 
 * *SCRIPT_COMMAND_TERMINATE_SCRIPT = 31*
 ** datalong: "Creature entry":creature_template#entry if provided. (Or pool ID if SCRIPT_FLAG_BUDDY_BY_POOL)
 ** datalong2: Search distance.
-** dataint: Change of "waittime":creature_movement#waittime (MILLIESECONDS) of a current waypoint movement type. Negative values will decrease time.
+** dataint: Change of "waittime":creature_movement#waittime (MILLISECONDS) of a current waypoint movement type. Negative values will decrease time.
 ** "data_flags":dbscripts#data_flags
 
 |& data_flags|Description|
