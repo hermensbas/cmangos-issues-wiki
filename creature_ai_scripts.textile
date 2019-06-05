@@ -195,7 +195,7 @@ h4. Target
 |14|TARGET_T_PLAYER_TAPPED|Player who currently holds to score the kill credit from the npc|
 |15|TARGET_T_NONE|Default spell target - sets nullptr which should be most common spell fill|
 |16|TARGET_T_HOSTILE_RANDOM_MANA|Random target with mana|
-|17|TARGET_T_NEAREST_AOE_TARGET|Checks for available near aoe targets by EffectRadiusIndex[0] for the spell used|
+|17|TARGET_T_NEAREST_AOE_TARGET|Checks for available near aoe targets by <code>EffectRadiusIndex[0]</code> for the spell used|
 |18|TARGET_T_HOSTILE_FARTHEST_AWAY|Farthest away target, excluding melee range|
 
 h4. castFlags
