@@ -1,3 +1,5 @@
+# !NOTE: This page mirrors the discord `faq` channel, for easier collaborative editing.!
+
 # Important links
 
 ## CMaNGOS Wiki
