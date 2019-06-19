@@ -23,6 +23,9 @@ After this step you should be fairly ready to go just about any Git task.
 
 Should you have further questions, read the rest of [Git Book][git-book] and search around [Stack Overflow][stack-overflow-git-start].
 
+## Additional Links:
+- GitHub's own [help system](https://try.github.io/) with stuff like interactive tutorial and command cheat-sheets.
+
 ---
 
 If either link will become unavailable for any reason, find [Levi][levi-github] or ask around our [Discord server][cmangos-discord] -- there's an offline backup copy of those.
