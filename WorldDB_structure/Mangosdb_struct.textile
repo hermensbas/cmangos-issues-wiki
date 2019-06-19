@@ -22,6 +22,7 @@ h3. This is the list of tables in the regular 'mangos' database
 (Reloadable) (Core)|holds help and security information for commands.|
 |"conditions":https://github.com/cmangos/issues/wiki/conditions|With this table and the new conditions it is possible to create tree like and very complicated combined conditions.|
 |"creature":https://github.com/cmangos/issues/wiki/creature|contains individual creature spawn data. Spawn of a creature is an instance of the creature object in the world.|
+|"creature_spawn_entry":https://github.com/cmangos/issues/wiki/creature_spawn_entry|holds multiple creature_template.entry a creature.guid can be spawned as. *creature.id = 0*|
 |"creature_addon":https://github.com/cmangos/issues/wiki/creature_template_addon|defines different things that are applied on creature with a certain GUID when it is loaded.|
 |"creature_ai_scripts":https://github.com/cmangos/issues/wiki/creature_ai_scripts
 (Reloadable)|ACID (Artificial Creature Intelligence Database) EventAI|
