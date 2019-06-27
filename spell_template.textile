@@ -978,6 +978,11 @@ h4. IsServerSide
 
 h4. AttributesServerside
 
+|*Id*|*Description*|
+|0|Default Spell.sql Data                       |
+|1|Ported Spell from other CMaNGOS Spell.sql    |
+|2|Designed serverside Spell using spell.xml    |
+
 ---
 
 TODO: Describe rest of columns
