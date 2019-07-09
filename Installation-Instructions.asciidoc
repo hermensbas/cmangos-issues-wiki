@@ -464,15 +464,15 @@ This will create and fill in Mangos database the imported DBC data.
 
 On *nix you may want to use the following two scripted commands:
 
-* ++for sql_file in `ls mangos/sql/base/dbc/original_data/*.sql`; do mysql -uroot -p --database=classicmangos < $sql_file ; done++
+* ++for sql_file in $(ls mangos/sql/base/dbc/original_data/*.sql); do mysql -uroot -p --database=classicmangos < $sql_file ; done++
 
-* ++for sql_file in `ls mangos/sql/base/dbc/cmangos_fixes/*.sql`; do mysql -uroot -p --database=classicmangos < $sql_file ; done++
+* ++for sql_file in $(ls mangos/sql/base/dbc/cmangos_fixes/*.sql); do mysql -uroot -p --database=classicmangos < $sql_file ; done++
 
 **If you're working with mangos-tbc:**
 
-* ++for sql_file in `ls mangos/sql/base/dbc/original_data/*.sql`; do mysql -uroot -p --database=tbcmangos < $sql_file ; done++
+* ++for sql_file in $(ls mangos/sql/base/dbc/original_data/*.sql); do mysql -uroot -p --database=tbcmangos < $sql_file ; done++
 
-* ++for sql_file in `ls mangos/sql/base/dbc/cmangos_fixes/*.sql`; do mysql -uroot -p --database=tbcmangos < $sql_file ; done++
+* ++for sql_file in $(ls mangos/sql/base/dbc/cmangos_fixes/*.sql); do mysql -uroot -p --database=tbcmangos < $sql_file ; done++
 
 Initialize characters database:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
