@@ -15,7 +15,7 @@ It therefore removes the need of abusing the pooling system for a 100% spawn and
 
 #### guid
 
-`creature`.`guid` thas has multiple `creature_template`.`entry` possibilities.
+`creature`.`guid` that has multiple `creature_template`.`entry` possibilities.
 
 Set `creature`.`id` to **0** for this guid as identifier.
 
