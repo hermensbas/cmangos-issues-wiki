@@ -26,3 +26,8 @@ The security level required to use the command. Corresponds with "account.gmleve
 h4. help
 
 The help text displayed by the .help command.
+
+|Command|Security|Description|
+| .debug lootdropstats [#entry]|?|Rolls 100k Lootsimulations for creature with #entry|
+
+
