@@ -1,0 +1,1 @@
+	Storyline_NPCFrameObjectivesContent.Title:SetText(QUEST_OBJECTIVES);
