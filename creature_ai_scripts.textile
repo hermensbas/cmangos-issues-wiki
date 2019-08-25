@@ -310,7 +310,7 @@ h4. RangeModeType
 |0|TYPE_NONE|Melee Mode|
 |1|TYPE_FULL_CASTER|Caster Mode|
 |2|TYPE_PROXIMITY|Range Mode|
-|3|TYPE_NO_MELEE_MODE|No Melee, No Chase|
+|3|TYPE_NO_MELEE_MODE|Stationary Mode (No Melee, No Chase)|
 
 h4. SheathState
 
