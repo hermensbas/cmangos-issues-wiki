@@ -387,6 +387,8 @@ This Field Controls the Application Of Flags That Controls Certain NPC Specific 
 |1048576|0x00100000|CREATURE_EXTRA_FLAG_IGNORE_USED_POSITION|ignore creature when checking used positions around target|
 |2097152|0x00200000|NOT_IMPLEMENTED_CREATURE_EXTRA_FLAG_COUNT_SPAWNS|count creature spawns in Map*|
 |4194304|0x00400000|CREATURE_EXTRA_FLAG_HASTE_SPELL_IMMUNITY|immunity to COT or Mind Numbing Poison - very common in instances|
+|8388606|0x00800000|CREATURE_EXTRA_FLAG_DUAL_WIELD_FORCED|creature is alwyas dual wielding (even if unarmed)|
+|16777216|0x01000000|CREATURE_EXTRA_FLAG_POISON_IMMUNITY|creature is immune to poisons|
 
 h4. CreatureTypeFlags
 
