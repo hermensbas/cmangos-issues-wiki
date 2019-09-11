@@ -414,11 +414,23 @@ You must extract *DBC/maps* and *vmaps* for CMaNGOS to work, *mmaps* are optiona
 ~~~~
 Ever since extractors are no longer in repository, you will need to compile them yourself. The extraction process should work identically to Windows, since the scripts are portable. 
 
+Make sure cmake creates the makefiles for you extractors, I use this line (_-DBUILD_EXTRACTORS_ is the important part):
+    cmake ../mangos -DPCH=1 -DDEBUG=0 -DBUILD_PLAYERBOT=ON -DBUILD_EXTRACTORS=ON
+
 If you followed this guide the file can be found in:
 
-* Executables: ++/home/mangos/mangos/run/bin/tools++
+* Executables: ++/home/mangos/build/contrib/++
 
 * Scripts: ++/home/mangos/mangos/contrib/extractor_scripts++
+
+To make it easier to copy the scripts you can use this simple script, save it as `copy-extractors.sh`
+```sh
+#!/bin/sh
+# set WOWDIR to wherever your WoW client folder is located. "~" means homedir, so ++/home/mangos++ in the examples. 
+WOWDIR=~/data/org/WoW
+rsync -a ~/build/contrib/extractor/ad $WOWDIR/                                                                rsync -a ~/build/contrib/mmap/MoveMapGen $WOWDIR/                                                             rsync -a ~/build/contrib/vmap_assembler/vmap_assembler $WOWDIR/                                               rsync -a ~/build/contrib/vmap_extractor/vmapextract/vmap_extractor $WOWDIR/
+rsync -a ~/mangos/contrib/extractor_scripts $WOWDIR/
+```
 
 Install databases
 -----------------
