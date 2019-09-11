@@ -428,8 +428,11 @@ To make it easier to copy the scripts you can use this simple script, save it as
 #!/bin/sh
 # set WOWDIR to wherever your WoW client folder is located. "~" means homedir, so ++/home/mangos++ in the examples. 
 WOWDIR=~/data/org/WoW
-rsync -a ~/build/contrib/extractor/ad $WOWDIR/                                                                rsync -a ~/build/contrib/mmap/MoveMapGen $WOWDIR/                                                             rsync -a ~/build/contrib/vmap_assembler/vmap_assembler $WOWDIR/                                               rsync -a ~/build/contrib/vmap_extractor/vmapextract/vmap_extractor $WOWDIR/
-rsync -a ~/mangos/contrib/extractor_scripts $WOWDIR/
+cp -a ~/build/contrib/extractor/ad $WOWDIR/
+cp -a ~/build/contrib/mmap/MoveMapGen $WOWDIR/
+cp -a ~/build/contrib/vmap_assembler/vmap_assembler $WOWDIR/
+cp -a ~/build/contrib/vmap_extractor/vmapextract/vmap_extractor $WOWDIR/
+cp -a ~/mangos/contrib/extractor_scripts $WOWDIR/
 ```
 
 Install databases
