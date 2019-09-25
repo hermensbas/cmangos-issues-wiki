@@ -566,7 +566,7 @@ With the default configuration, you only need to change CORE_PATH to:
 +
 -----------------------
 CORE_PATH="/c/Mangos/mangos"
-(for *nix /home/mangos/mangos)
+(for *nix /home/<USER_NAME>/mangos/mangos)
 -----------------------
 *
 You may actually have to set ++CORE_PATH="../mangos"++ (assuming default paths from this guide), if the tilde is not properly resolved into your home folder path, causing InstallFullDB.sh to complain about not finding "/home/mangos/mangos". Tested on openSUSE 12.3.
