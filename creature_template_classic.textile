@@ -264,11 +264,11 @@ Some Known Possible Flags Are:
 |4|16|UNIT_FLAG_PET_RENAME||
 |5|32|UNIT_FLAG_PET_ABANDON||
 |6|64|UNIT_FLAG_UNK_6|Related to Movement? often paired with UNIT_FLAG_SWIMMING|
-|7|128|||
+|7|128|UNIT_FLAG_UNK_7||
 |8|256|UNIT_FLAG_IMMUNE_TO_PLAYER|Target is immune to players|
 |9|512|UNIT_FLAG_IMMUNE_TO_NPC|makes you unable to attack everything. Almost identical to our "civilian"-term. Will ignore it's surroundings and not engage in combat unless "called upon" or engaged by another unit.|
-|10|1024|||
-|11|2048|||
+|10|1024|UNIT_FLAG_UNK_10||
+|11|2048|UNIT_FLAG_UNK_11||
 |12|4096|UNIT_FLAG_PVP|Allows item spells to be casted upon. changed in 3.0.3|
 |13|8192|UNIT_FLAG_SILENCED|silenced, 2.1.1|
 |14|16384|UNIT_FLAG_PERSUADED|persuaded, 2.0.8|
@@ -278,7 +278,7 @@ Some Known Possible Flags Are:
 |18|262144|UNIT_FLAG_STUNNED|stunned, 2.1.1 Unit is a subject to stun, turn and strafe movement disabled|
 |19|524288|UNIT_FLAG_IN_COMBAT||
 |20|1048576|UNIT_FLAG_TAXI_FLIGHT|Unit is on taxi, paired with a duplicate loss of client control packet (likely a legacy serverside hack). Disables any spellcasts not allowed in taxi flight client-side.|
-|21|2097152|||
+|21|2097152|UNIT_FLAG_UNK_21||
 |22|4194304|UNIT_FLAG_CONFUSED|Unit is a subject to confused movement, movement checks disabled, paired with loss of client control packet.|
 |23|8388608|UNIT_FLAG_FLEEING|Unit is a subject to fleeing movement, movement checks disabled, paired with loss of client control packet.|
 |24|16777216|UNIT_FLAG_POSSESSED|Unit is under remote control by another unit, movement checks disabled, paired with loss of client control packet. New master is allowed to use melee attack and can't select this unit via mouse in the world (as if it was own character).|
