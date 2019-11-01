@@ -30,4 +30,5 @@ The slot the spell icon is in in the pet bar.
 
 h4. active
 
-Boolean 0 or 1 controlling if the spell is active or not.
+For movement and reaction states: Boolean 0 or 1 controlling if the spell is active or not.
+For pet special actions: 193 is slotted and active, and 129 is slotted but inactive.
