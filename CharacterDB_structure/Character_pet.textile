@@ -81,7 +81,9 @@ Boolean 1 or 0. 1 = Pet has been renamed, 0 = Pet has never been renamed and sti
 
 h4. slot
 
-The pet slot that the pet is in. The slot is a number between 0 and 3 inclusive.
+The pet slot that the pet is in. 
+For Hunters: 0 = current active pet, 1..99 = stored in stable in corresponding storage slot, 100 = current dismissed pet.
+For Warlocks: 0 = active minion, 100 = inactive minion.
 
 h4. curhealth
 
