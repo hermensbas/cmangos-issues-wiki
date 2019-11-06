@@ -85,7 +85,7 @@ h4. emote
 Emote ID that the creature should continually perform.
 
 COMPLETE LIST OF EMOTES CAN BE FOUND IN: Emotes.dbc
-(They Are Different Between Client Versions)
+(They Are Different Between Client Versions "classic":https://github.com/cmangos/mangos-classic/blob/master/src/game/Globals/SharedDefines.h#L1091, "tbc":https://github.com/cmangos/mangos-tbc/blob/master/src/game/Globals/SharedDefines.h#L1227, "wotlk":https://github.com/cmangos/mangos-wotlk/blob/master/src/game/Globals/SharedDefines.h#L1418)
 
 |Bit|Name|Bit|Name|
 |0|EMOTE_ONESHOT_NONE|400|EMOTE_STATE_DANCESPECIAL|
