@@ -111,7 +111,7 @@ h3. Description of the fields
 
 h4. Entry
 
-This is the Primary NPC Entry Number and is Also the Dungeon Normal Mode / Raid 10-Man Normal Mode Entry.
+This is the Primary NPC Entry Number and is also the Dungeon Normal Mode / Raid 10-Man Normal Mode Entry.
 
 |DUNGEON_DIFFICULTY_NORMAL|
 |RAID_DIFFICULTY_10MAN_NORMAL|
@@ -122,11 +122,11 @@ Base Name of the Creature.
 
 h4. SubName
 
-The SubName of the Creature That Appears in &lt;&gt; Below the Creature's Name.
+The SubName of the Creature that appears in &lt;&gt; below the Creature's Name.
 
 h4. IconName
 
-Script Icon Used by Guards With Directions Menu.
+Script Icon used by Guards With Directions Menu.
 
 h4. MinLevel
 
