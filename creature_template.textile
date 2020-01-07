@@ -263,6 +263,8 @@ h4. NpcFlags
 
 This Field Is a Bitmask That Represents What NPC Flags The Creature Has Assigned To It. Each Bit Controls a Different Flag and to Combine Flags, You Can Add Each Flag That You Require, In Effect Activating The Respective Bits.
 
+*Note:* These are the values for TBC/WotLK, for Vanilla values see the <code>NPCFlags</code> enum in "Unit.h":https://github.com/cmangos/mangos-classic/blob/172c005b0a69e342e908f4589b24a6f18246c95e/src/game/Entities/Unit.h#L536
+
 |_. Bit|_. Value|_. Flag|_. Comment|
 |0|1|Gossip|If creature has more gossip options, add this flag to bring up a menu.|
 |1|2|Quest Giver|Any creature giving or taking quests needs to have this flag.|
