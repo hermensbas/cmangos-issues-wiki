@@ -60,7 +60,7 @@ h4. event_type
 |2|EVENT_T_HP|HPMax%|HPMin%|RepeatMin|RepeatMax|IC - Expires when HP% is between (Param1) and (Param2). Will repeat every (Param3) and (Param4)|
 |3|EVENT_T_MANA|ManaMax%|ManaMin%|RepeatMin|RepeatMax|IC - Expires when Mana% is between (Param1) and (Param2). Will repeat every (Param3) and (Param4)|
 |4|EVENT_T_AGGRO|NU|NU|NU|NU|Expires on Aggro|
-|5|EVENT_T_KILL|RepeatMin|RepeatMax|NU|NU|Expires on Player Kill. Will repeat every (Param3) and (Param4)|
+|5|EVENT_T_KILL|RepeatMin|RepeatMax|PlayerOnly|NU|Expires when creature kills a unit (Player only if Param3 = 1). Will repeat every (Param3) and (Param4)|
 |6|EVENT_T_DEATH|NU|NU|NU|NU|Expires on Death|
 |7|EVENT_T_EVADE|NU|NU|NU|NU|Expires on Evade|
 |8|EVENT_T_SPELLHIT|"spellId":spell_template#Id|"schoolMask":creature_ai_scripts#schoolMask|RepeatMin|RepeatMax|Expires on (Param1) "spellId":spell_template#Id or on (Param2) "schoolMask":creature_ai_scripts#schoolMask spellhit. Will repeat every (Param3) and (Param4)|
