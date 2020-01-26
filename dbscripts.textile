@@ -191,7 +191,7 @@ h4. data_flags
 
 Defined in "enum ScriptInfoDataFlags"
 
-|Hex|Type|Description|
+|Decimal|Hex|Type|Description|
 |0|0x00|DEFAULT|s/b -> t|
 |1|0x01|SCRIPT_FLAG_BUDDY_AS_TARGET|s -> b|
 |2|0x02|SCRIPT_FLAG_REVERSE_DIRECTION|t* -> s* (* result after previous flag is evaluated)|
@@ -222,7 +222,7 @@ Depending on what "command":dbscripts#command was used, the meaning and use for 
 
 * *SCRIPT_COMMAND_MOVE_TO = 3*
 ** datalong2: Length of the motion. This calculates as travel_speed*100. Use 0 for creature default movement.
-** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL will teleport the creature to the given location.
+** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL (8) will teleport the creature to the given location.
 ** x: X position to move to.
 ** y: Y position to move to.
 ** z: Z position to move to.
@@ -277,7 +277,7 @@ More Examples Can Be Found At: UpdateFields.h In Core
 ** datalong: Entry of the summoned creature from "creature_template.entry":creature_template#entry.
 ** datalong2: Despawn time (MILLIESECONDS). If set to 0 then the creature will be despawned only when killed.
 ** datalong3: The "pathId":creature_movement_template#pathId you want the creature to immediately start moving on (if MovementType=2)
-** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL will summon the creature as active object.
+** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL (8) will summon the creature as active object.
 ** dataint: SetRun (bool). 0 = off (default), 1 = on
 ** dataint2 = factionId - if 0 is set, faction is from DB entry
 ** dataint3 = modelId - if 0 is set, model is from DB entry
@@ -299,7 +299,7 @@ More Examples Can Be Found At: UpdateFields.h In Core
 
 * *SCRIPT_COMMAND_REMOVE_AURA = 14*
 ** datalong: "Spell ID":spell_template#Id.
-** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL will remove aura from the source only for the target unit.
+** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL (8) will remove aura from the source only for the target unit.
 
 * *SCRIPT_COMMAND_CAST_SPELL = 15*
 ** datalong: "Spell ID":spell_template#Id.
@@ -325,13 +325,13 @@ h4. TriggerCastFlags
 * *SCRIPT_COMMAND_PLAY_SOUND = 16*
 ** datalong: "Sound ID":SoundEntries.dbc#Content.
 ** datalong2: bitmask: 0/1=anyone/target, 0/2=with distance dependent, 0/4=map wide, 0/8=zone wide; 1&#124;2 = 3 is target with distance dependent.
-** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL: play music instead of sound
+** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL (8): play music instead of sound
 ** Source may be any object. Target may be any player.
 
 * *SCRIPT_COMMAND_CREATE_ITEM = 17*
 ** datalong: "Item entry":item_template#Content.
 ** datalong2: Amount.
-** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL: remove the item from player by the given amount
+** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL (8): remove the item from player by the given amount
 ** Source or target must be a player.
 
 * *SCRIPT_COMMAND_DESPAWN_SELF = 18*
@@ -346,7 +346,7 @@ h4. TriggerCastFlags
 * *SCRIPT_COMMAND_MOVEMENT = 20*
 ** datalong: Change the "MovementType":creature_template#MovementType of a creature. Possible values: 0 = Idle, 1 = Random Movement, 2 = Waypoint Movement.
 ** datalong2: Wander distance (for random movement), "creature_movement_template.pathId":creature_movement_template#pathId (for waypoint movement).
-** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL will set random movement around the current position.
+** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL (8) will set random movement around the current position.
 ** Resulting source must be a creature.
 
 * *SCRIPT_COMMAND_SET_ACTIVEOBJECT = 21*
@@ -371,12 +371,12 @@ h4. TriggerCastFlags
 
 * *SCRIPT_COMMAND_MORPH_TO_ENTRY_OR_MODEL = 23*
 ** datalong: Creature "entry":creature_template#entry or "model_id":creature_template#modelid (depending on "data_flags":dbscripts#data_flags). If set to 0 then the creature will demorph.
-** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL to use datalong value as model_id explicit.
+** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL (8) to use datalong value as model_id explicit.
 ** Resulting source must be a creature.
 
 * *SCRIPT_COMMAND_MOUNT_TO_ENTRY_OR_MODEL = 24*
 ** datalong: Creature "entry":creature_template#entry or "model_id":creature_template#modelid (depending on "data_flags":dbscripts#data_flags). If set to 0 then the creature will dismount.
-** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL to use datalong value as model_id explicit.
+** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL (8) to use datalong value as model_id explicit.
 ** Resulting source must be creature.
 
 * *SCRIPT_COMMAND_SET_RUN = 25*
@@ -468,7 +468,7 @@ _Side note: Only available on wotlk version._
 ** datalong = 0:  Move resulting source towards resulting target
 ** datalong != 0: Move resulting source to a random point between datalong2..datalong around resulting target.
 ** orientation != 0: Obtain a random point around resulting target in direction of orientation
-** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL Obtain a point in direction of resulting target->GetOrientation + orientation
+** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL (8) Obtain a point in direction of resulting target->GetOrientation + orientation
 ** for resulting target == resulting source and orientation == 0 this will mean resulting source moving forward
 
 * *SCRIPT_COMMAND_SEND_MAIL = 38*
@@ -480,7 +480,7 @@ _Side note: Only available on wotlk version._
 * *SCRIPT_COMMAND_SET_FLY = 39*
 ** Resulting source must be a creature.
 ** datalong = bool 0=off, 1=on
-** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL set/unset byte flag UNIT_BYTE1_FLAG_FLY_ANIM
+** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL (8) set/unset byte flag UNIT_BYTE1_FLAG_FLY_ANIM
 
 * *SCRIPT_COMMAND_DESPAWN_GO = 40*
 ** Resulting target must be a Gameobject. Please note that not all gameobject types support this command.
