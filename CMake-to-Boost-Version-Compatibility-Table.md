@@ -1,5 +1,8 @@
 | CMake Version | Boost Version | OS                       | Success? |
 | :-----------: | :-----------: | :----------------------: | :------: |
+| 3.16.3        | 1.64          | Windows 10 x86_64        | Yes      |
+| 3.16.3        | 1.69          | Windows 10 x86_64        | Yes      |
+| 3.16.3        | 1.72          | Windows 10 x86_64        | No       |
 | 3.15.3        | 1.71          | FreeBSD 12.1             | Yes      |
 | 3.15.2        | 1.70          | Windows 10 x86_64        | Yes      |
 | 3.14.3        | 1.69          | Windows 10 x86_64        | Yes      |
