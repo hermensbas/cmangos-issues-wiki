@@ -172,7 +172,7 @@ After having opened Git bash in the right folder, simply type:
 
  git clone git://github.com/cmangos/mangos-tbc.git mangos
 
- * Wrath of the Litch King:
+ * Wrath of the Lich King:
 
  git clone git://github.com/cmangos/mangos-wotlk.git mangos
 
