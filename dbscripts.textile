@@ -156,6 +156,7 @@ The following commands can be used (enum ScriptCommand):
 |44|SCRIPT_COMMAND_UPDATE_TEMPLATE|Update creature entry.|
 |45|SCRIPT_COMMAND_START_RELAY_SCRIPT|Launch relay script or relay template.|
 |46|SCRIPT_COMMAND_CAST_CUSTOM_SPELL|resSource = Unit, cast spell at resTarget = Unit|
+|47|SCRIPT_COMMAND_INTERRUPT_SPELL|resSource = Unit, interrupt spell in specific slot|
 
 h4. buddy_entry
 
@@ -512,3 +513,7 @@ _Side note: Only available on wotlk version._
 ** datalong = spellid
 ** datalong2 = castFlags, enum "TriggerCastFlags":dbscripts#TriggerCastFlags
 ** dataint1-3 define the &bp value for the spell. At least one field is required.
+
+* *SCRIPT_COMMAND_INTERRUPT_SPELL= 47*
+** Resulting source must be a Unit.
+** datalong = SpellType, enum "CurrentSpellTypes":/mangos-wotlk/blob/master/src/game/Entities/Unit.h#L1074
