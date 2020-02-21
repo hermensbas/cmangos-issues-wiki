@@ -300,6 +300,7 @@ More Examples Can Be Found At: UpdateFields.h In Core
 * *SCRIPT_COMMAND_REMOVE_AURA = 14*
 ** datalong: "Spell ID":spell_template#Id.
 ** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL (8) will remove aura from the source only for the target unit.
+warning - if used with a channeled spell will not interrupt channel
 
 * *SCRIPT_COMMAND_CAST_SPELL = 15*
 ** datalong: "Spell ID":spell_template#Id.
