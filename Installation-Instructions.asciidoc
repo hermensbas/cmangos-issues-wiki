@@ -38,7 +38,7 @@ Game client of:
 Some tools:
 
  * Git: https://git-scm.com/[Main Download Page]. Select the "Git Bash Here" and "Use Git Bash only" options from the respective pages of the http://tinypic.com/view.php?pic=v45smh&s=6#.V2vSH_krKHs[install Wizard] in order to follow along with these instructions; otherwise, just use the default install options. __Alternatively, you can install (http://sourceforge.net/projects/gitextensions/files/latest/download)[Git Extensions] instead, which comes with Git, MySYSGit, and KDiff).__
- * CMAKE is now used to generate visual studio project file as it's are not provided anymore https://cmake.org/[Download it from here].
+ * CMAKE is now used to generate visual studio project file as it's are not provided anymore https://cmake.org/[Download it from here]. Using version 3.16 or newer is encouraged.
  * Visual C++ 2015 or newer: https://www.visualstudio.com/downloads/[Visual Studio Downloads] (https://www.visualstudio.com/vs/community/[Visual Studio Community] 2015 is recommended, but Express 2015 for Desktop will also do the job and is free, it is however not as good a choice for open source development as CE (Community Edition).
  * Any MySQL server such as http://dev.mysql.com/downloads/mysql/[MySQL server community edition] or http://www.apachefriends.org/en/xampp.html[XAMPP]. (Note 2018-05-02: Do not use MySQL version 8.0 for now since build will fail on some queries. Use 5.7 until resolved)
  * Any MySQL client (optional, for easy database access) such as http://dev.mysql.com/downloads/workbench/[MySQL Workbench] or https://www.webyog.com/[SQLyog]
@@ -52,7 +52,7 @@ An alternative page for a detailled installation guide on https://github.com/cma
 Software requirements (*nix)
 ----------------------------
 
-You will need Git, GCC, CMake, MySQL, Boost and a few libraries
+You will need Git, GCC, CMake, MySQL, Boost and a few libraries.
 
 ### Ubuntu (12.04)
 
@@ -68,6 +68,7 @@ You will need Git, GCC, CMake, MySQL, Boost and a few libraries
 
 _Note: installing boost-devel has not been tested yet._
 
+_Note: precompiled headers require a cmake that is version 3.16 or newer. You can compile from source or get binary releases on this page: https://cmake.org/download/
 
 Essentials
 ----------
