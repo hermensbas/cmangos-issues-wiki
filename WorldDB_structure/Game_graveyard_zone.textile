@@ -26,11 +26,11 @@ Graveyard's ID. See "WorldSafeLocs.dbc":WorldSafeLocs.dbc
 
 h4. ghost&#95;loc
 
-The id of a location. This is either an area id or a map id based on the value of link_kind. See "AreaTable.dbc":AreaTable.dbc
+The id of a location. This is either an area/zone id or a map id based on the value of link_kind. See "AreaTable.dbc":AreaTable.dbc
 
 h4. link&#95;kind
 
-The kind of id, either GRAVEYARD_AREALINK = 0 or GRAVEYARD_MAPLINK = 1
+The kind of ghost_loc id, either GRAVEYARD_AREALINK = 0 or GRAVEYARD_MAPLINK = 1
 
 h4. faction
 
@@ -41,3 +41,12 @@ Graveyard's team.
 469 - ALLIANCE team accepted only
 
 67 - HORDE team accepted only
+
+h4. Exemple for DBDevs:
+
+To fix issue where dead player on coldridge valey are respawned to kheranos you use .gps to see what area (132) you are then you look over the "WorldSafeLocs.dbc":WorldSafeLocs.dbc to find id of the coldridge valey wich is (100).
+Then the following should make you respawn correctly in that graveyard.
+```sql
+INSERT INTO `game_graveyard_zone` (`id`, `ghost_loc`, `link_kind`, `faction`) VALUES (100, 132, 0, 0);
+```
+
