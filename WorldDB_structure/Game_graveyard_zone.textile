@@ -13,7 +13,8 @@ h3. Structure
 
 |*Field*|*Type*|*Null*|*Key*|*Default*|*Extra*|
 |"id":Game_graveyard_zone#id|int(10) unsigned|NO||0||
-|"ghost_zone":Game_graveyard_zone#ghost_zone|int(10) unsigned|NO||0||
+|"ghost_loc":Game_graveyard_zone#ghost_zone|int(10) unsigned|NO||0||
+|"link_kind":Game_graveyard_zone#link_king|tinyint unsigned|NO||0||
 |"faction":Game_graveyard_zone#faction|int(10) unsigned|NO||0||
 
 
@@ -23,9 +24,13 @@ h4. id
 
 Graveyard's ID. See "WorldSafeLocs.dbc":WorldSafeLocs.dbc
 
-h4. ghost&#95;zone
+h4. ghost&#95;loc
 
-Zone's Id of ghost position before teleportation to graveyard. See "AreaTable.dbc":AreaTable.dbc
+The id of a location. This is either an area id or a map id based on the value of link_kind. See "AreaTable.dbc":AreaTable.dbc
+
+h4. link&#95;kind
+
+The kind of id, either GRAVEYARD_AREALINK = 0 or GRAVEYARD_MAPLINK = 1
 
 h4. faction
 
