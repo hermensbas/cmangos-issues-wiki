@@ -92,7 +92,7 @@ For *dbscripts_on_gossip*, it is the "action script id":Gossip_menu_option#actio
 For *dbscripts_on_promo_code_use*, it is the ?
 For *dbscripts_on_quest_end*, it is the ID that is used in "CompleteScript":quest_template#CompleteScript in the quest template definition.
 For *dbscripts_on_quest_start*, it is the ID that is used in "StartScript":quest_template#StartScript in the quest template definition.
-For *dbscripts_on_relay*, it is the entry of the creature. See "creature_template.entry":creature_template#entry + 2-Digit Script ID (Starting at 01). Example: c.21218 has few relay scripts, so 21218+01 = 2121801 ... 2121802 ..etc
+For *dbscripts_on_relay*, it is unique ID (0-9999 for Classic, 10k-19999 for TBC, 20K+ for WoTLK)
 For *dbscripts_on_spell*, it is the Spell ID. See "spell_template.Id":spell_template#Id
 
 h4. delay
