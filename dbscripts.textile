@@ -157,6 +157,8 @@ The following commands can be used (enum ScriptCommand):
 |45|SCRIPT_COMMAND_START_RELAY_SCRIPT|Launch relay script or relay template.|
 |46|SCRIPT_COMMAND_CAST_CUSTOM_SPELL|resSource = Unit, cast spell at resTarget = Unit|
 |47|SCRIPT_COMMAND_INTERRUPT_SPELL|resSource = Unit, interrupt spell in specific slot|
+|48|SCRIPT_UNK_1|reserved|
+|49|SCRIPT_UNK_2|reserved|
 
 h4. buddy_entry
 
