@@ -97,14 +97,14 @@ For *dbscripts_on_spell*, it is the Spell ID. See "spell_template.Id":spell_temp
 
 h4. delay
 
-Delay in seconds before this current step of the script activates. 0 = instant.
+Delay in milliseconds before this current step of the script activates. 0 = instant.
 
 NOTE: Delay is Cumulative From Script to Script with same ID.
-Example: Script 1 Has 5 seconds delay and then if you want script 2 to trigger 3 seconds later you would use delay value 8 (5+3) for script 2 in the sequence.
+Example: Script 1 Has 5 seconds (5000ms) delay and then if you want script 2 to trigger 3 seconds (3000ms) later you would use delay value 8000 (5000+3000) for script 2 in the sequence.
 
 h4. command
 
-The type of action performed by the script after "delay":dbscripts#delay seconds have passed. The value of this field affects what other fields also need to be set.
+The type of action performed by the script after "delay":dbscripts#delay milliseconds have passed. The value of this field affects what other fields also need to be set.
 
 The following commands can be used (enum ScriptCommand):
 
