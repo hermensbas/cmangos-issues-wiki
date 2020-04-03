@@ -9,7 +9,7 @@ Don't forget that we are volunteers and donating our spare time to the project, 
 
 
 #### In particular:
-- **Search** Disocrd chat logs for relevant messages, **explore** the Web -- maybe someone else has already found the solution? It happens a lot.
+- **Search** Discord chat logs for relevant messages, **explore** the Web -- maybe someone else has already found the solution? It happens a lot.
 
 - **Provide us with data!** We _need_ that stuff to efficiently help you.
 
