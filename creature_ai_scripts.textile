@@ -113,7 +113,7 @@ h4. action_type
 |11|ACTION_T_CAST|"spellId":spell_template#Id|"target":creature_ai_scripts#Target|"castFlags":creature_ai_scripts#castFlags|Creature cast spell on a target with specified "castFlags":creature_ai_scripts#castFlags|
 |12|ACTION_T_SPAWN|"CreatureEntry":creature_template#entry|"target":creature_ai_scripts#Target|Duration in milliseconds|Creature spawns a creature with (Param1) "CreatureEntry":creature_template#entry at Target for a given duration (infinite if zero)|
 |13|ACTION_T_THREAT_SINGLE_PCT|Threat %|"target":creature_ai_scripts#Target|NU|Modifies "target":creature_ai_scripts#Target threat by a percent (-100 to +100)|
-|14|ACTION_T_THREAT_ALL_PCT|Threat %|NU|NU|Modifies everyone's threat by a percent (-100 to +100), will not cause Evade|
+|14|ACTION_T_THREAT_ALL_PCT|Threat %|NU|NU|Modifies everyone's threat by a percent (-100 to +100), -101 will cause Evade|
 |15|ACTION_T_QUEST_EVENT|Quest ID|"target":creature_ai_scripts#Target|NU|Satisfies external script objective for a quest for the target (MUST be a player)|
 |16|ACTION_T_CAST_EVENT|"CreatureEntry":creature_template#entry|"spellId":spell_template#Id|"target":creature_ai_scripts#Target|Emulates spell cast on the creature for the target (must be a player) [hacky]|
 |17|ACTION_T_SET_UNIT_FIELD|"EUnitFields":creature_ai_scripts#EUnitFields|Value|"target":creature_ai_scripts#Target|Sets unit field at the index to the value given for the target. More information on the field value indeces can be found at "character data":character data|
