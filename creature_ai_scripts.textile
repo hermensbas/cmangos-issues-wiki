@@ -339,6 +339,18 @@ bytes1
 
 h4. event_inverse_phase_mask
 
+Working with phases requires a certain amount of math. You will have to know a few things before we begin.
+
+You should have an idea of how many phases the NPC will have.
+You will have to know Binary Addition. Don't worry, I'll show you how to do it. 
+
+0110 = 06 (base 10)
+0111 = 07 (base 10)
+____ = __
+1101 = 13 (base 10)
+
+07 06 05 04 03 02 01 00
+
 h4. Ranged mode - reference usage
 
 ('58902','589','11','0','100','0','0','0','0','0','0','0','57','1','35','0','0','0','0','0','0','0','0','0','Defias Pillager - Enable Caster Mode on Spawn'),
