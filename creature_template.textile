@@ -615,6 +615,11 @@ CalculatedMaxMeleeDmg=ROUND((((BaseDamage * Damage Variance) * 1.5) + (Base Mele
 = ((((78.472 * 1.0) * 1.5) + (266/14)) * (2000/1000)) * 5.83
 = (((117.708) + 19) * 2) = 273.416 * 5.83 = 1594.01528
 
+Bestiary lists Sneed with a range of 97 - 129 damage. He attacks once every 2 seconds (unconfirmed). Given the formula above ...
+
+97 = X * ((9.6823) + (70 / 14)) * (2000 / 1000)
+129 = X * ((9.6823 * 1.5) + (70 / 14)) * (2000 / 1000)
+
 NOTE: 
 
 Very Slight Rounding Errors of 1 or 2 Damage Might Occur... This was due to Rounding When Generating BaseDamage Values in Calculations.
