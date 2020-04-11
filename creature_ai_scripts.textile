@@ -150,7 +150,7 @@ h4. action_type
 |48|ACTION_T_CHANGE_MOVEMENT|"MovementType":creature#MovementType|spawndist/PathId|NU|Change the creature MovementGeneratorType (Param1). If the movement type is Random Movement (1), the spawndist (Param2) must be provided. If the movement type is Waypoint Movement (2), (Param2) is PathId|
 |49|RE_USE_ACTION_T_49|NU|NU|NU|comment|
 |50|ACTION_T_SET_REACT_STATE|"ReactStates":creature_ai_scripts#ReactStates|NU|NU|Change ReactState of the creature|
-|51|ACTION_T_PAUSE_WAYPOINTS|DoPause(0)UnPause(1)|NU|NU|Pause waypoints of creature, DoPause 0: unpause waypoint 1|
+|51|ACTION_T_PAUSE_WAYPOINTS|DoPause(1) UnPause(0)|NU|NU|Pause or unpause waypoints of creature. Pause 1, Unpause 0|
 |52|ACTION_T_INTERRUPT_SPELL|"CurrentSpellTypes":creature_ai_scripts#CurrentSpellTypes|NU|NU|Interrupt spell in given slot for creature|
 |53|ACTION_T_START_RELAY_SCRIPT|RelayIDorTemplate|"target":creature_ai_scripts#Target|NU|Launches dbscripts_on_relay script, either static one, or when (Param1) is < 0 then random one chosen from dbscript_random_templates|
 |54|ACTION_T_TEXT_NEW|-TextId|Target|TemplateId|Displays text, either static one or when (Param3) != 0, then random one chosen from dbscript_random_templates|
