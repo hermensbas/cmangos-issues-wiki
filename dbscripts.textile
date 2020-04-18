@@ -471,6 +471,7 @@ _Side note: Only available on wotlk version._
 ** Resulting source must be a creature; Resulting target must be a Worldobject.
 ** datalong = 0:  Move resulting source towards resulting target
 ** datalong != 0: Move resulting source to a random point between datalong2..datalong around resulting target.
+** datalong3 = Exact contact point distance, to be used when you want to stop moving as soon as you're within this distance of the target
 ** orientation != 0: Obtain a random point around resulting target in direction of orientation
 ** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL (8) Obtain a point in direction of resulting target->GetOrientation + orientation
 ** for resulting target == resulting source and orientation == 0 this will mean resulting source moving forward
