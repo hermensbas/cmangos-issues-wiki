@@ -19,7 +19,9 @@ h3. Structure
 |"type":Conditions#type|tinyint(3)|signed||NO|0|
 |"value1":Conditions#value1|mediumint(8)|unsigned||NO|0|
 |"value2":Conditions#value2|mediumint(8)|unsigned||NO|0|
-
+|"value3":Conditions#value3|mediumint(8)|unsigned||NO|0|
+|"value4":Conditions#value4|mediumint(8)|unsigned||NO|0|
+|"flags":Conditions#flags|tinyint(3)|unsigned|NO|0|
 
 h3. Description of the fields
 
@@ -37,7 +39,25 @@ data field one for the condition
 
 h4. value2
 
-data field one for the condition
+data field two for the condition
+
+h4. value3
+
+data field three for the condition
+
+h4. value4
+
+data field four for the condition
+
+h4. flags
+
+Flags modifying the condition for an evaluation type such as inverting result or swapping target and source.
+
+|Decimal|Hex|Type|Description|
+|0|0x00|DEFAULT|no effect|
+|1|0x01|CONDITION_FLAG_REVERSE_RESULT|Reverse the evaluation of the condition like requiering an item/aura instead of missing it (not supported by all conditions)|
+|2|0x02|CONDITION_FLAG_SWAP_TARGETS|Swap the source and the target when evaluating the condition (not supported by all conditions)|
+Flags can be cumulated.
 
 h3. Possible condition types
 
@@ -45,11 +65,11 @@ This is a description of the values in "type":Conditions#type
 
 |_. Value of type |_. Condition|_. Comments|
 |-3|CONDITION_NOT|NOT combination of another condition_entry *|
-|-2|CONDITION_OR|OR combination of 2 other condition_entry *|
-|-1|CONDITION_AND|AND combination of 2 other condition_entry *|
+|-2|CONDITION_OR|OR combination of 2 to 4 other condition_entry *|
+|-1|CONDITION_AND|AND combination of 2 to 4 other condition_entry *|
 |0|CONDITION_NONE|No condition, returns always true|
-|1|CONDITION_AURA|Player must have an aura active|
-|2|CONDITION_ITEM|Player must have a number of items in his/her inventory|
+|1|CONDITION_AURA|Target must have or be missing an aura|
+|2|CONDITION_ITEM|Player must have or be missing a number of items in his/her inventory|
 |3|CONDITION_ITEM_EQUIPPED|Player must have an item equipped|
 |4|CONDITION_AREAID|Player must be in a certain area/zone|
 |5|CONDITION_REPUTATION_RANK_MIN|Player must have a certain reputation rank with a certain faction|
@@ -58,28 +78,28 @@ This is a description of the values in "type":Conditions#type
 |8|CONDITION_QUESTREWARDED|Player must have completed a quest first|
 |9|CONDITION_QUESTTAKEN|Players must have the quest in the quest log and not completed yet|
 |10|CONDITION_AD_COMMISSION_AURA||
-|11|CONDITION_NO_AURA|Miss some aura.|
-|12|CONDITION_ACTIVE_EVENT|Event is active.|
+|11|UNUSED|Deprecated was CONDITION_NO_AURA replaced by CONDITION_AURA + FLAG_REVERSE_RESULT.|
+|12|CONDITION_ACTIVE_GAME_EVENT|Event must be active/inactive.|
 |13|CONDITION_AREA_FLAG||
 |14|CONDITION_RACE_CLASS|Has special race or class.|
 |15|CONDITION_LEVEL|Has special level.|
-|16|CONDITION_NOITEM|Has not enough items yet.|
+|16|UNUSED|Deprecated was CONDITION_NOITEM replaced by CONDITION_ITEM + FLAG_REVERSE_RESULT.|
 |17|CONDITION_SPELL|Knows some spell.|
 |18|CONDITION_INSTANCE_SCRIPT|SD2-Based condition|
 |19|CONDITION_QUESTAVAILABLE|Some quest is available.|
 |20|CONDITION_ACHIEVEMENT|Has or has no special achievement.|
 |21|CONDITION_ACHIEVEMENT_REALM|Realm-wideversion of 20.|
 |22|CONDITION_QUEST_NONE|Has not taken a quest yet.|
-|23|CONDITION_ITEM_WITH_BANK|Checks presence of required amount of items in inventory or bank.|
-|24|CONDITION_NOITEM_WITH_BANK|Checks absence of required amount of items in inventory or bank.|
-|25|CONDITION_NOT_ACTIVE_GAME_EVENT||
+|23|CONDITION_ITEM_WITH_BANK|Checks presence or absence of required amount of items in inventory or bank.|
+|24|UNUSED|Deprecated was CONDITION_NOITEM_WITH_BANK replaced by CONDITION_ITEM_WITH_BANK + FLAG_REVERSE_RESULT.|
+|25|UNUSED|Deprecated was CONDITION_NOT_ACTIVE_GAME_EVENT replaced by CONDITION_ACTIVE_GAME_EVENT + FLAG_REVERSE_RESULT.|
 |26|CONDITION_ACTIVE_HOLIDAY||
-|27|CONDITION_NOT_ACTIVE_HOLIDAY||
+|27|UNUSED|Deprecated was CONDITION_NOT_ACTIVE_HOLIDAY replaced by CONDITION_ACTIVE_HOLIDAY + FLAG_REVERSE_RESULT.|
 |28|CONDITION_LEARNABLE_ABILITY|Checks if the player has high enough skill level and may check if a special item is in the inventory.|
 |29|CONDITION_SKILL_BELOW||
 |30|CONDITION_REPUTATION_RANK_MAX||
 |31|CONDITION_COMPLETED_ENCOUNTER|Checks if some encounter is completed|
-|32|CONDITION_SOURCE_AURA|Checks if the source of the condition (like looted npc) has an aura|
+|32|UNUSED|Deprecated was CONDITION_SOURCE_AURA replaced by CONDITION_AURA + FLAG_SWAP_TARGETS|
 |33|CONDITION_LAST_WAYPOINT|Checks the waypoint-state of the source of the condition|
 |34|CONDITION_XP_USER|Checks if a player has turned XP earning on/off|
 |35|CONDITION_GENDER|Checks the gender of a player|
@@ -88,31 +108,35 @@ This is a description of the values in "type":Conditions#type
 |38|CONDITION_PVP_SCRIPT||
 |39|CONDITION_SPAWN_COUNT|Returns if specified count of creature entry exists on map|
 |40|CONDITION_WORLD_SCRIPT|Check the state of a given World State|
-|41|CONDITION_GENDER_NPC|Checks the gender of a NPC|
+|41|UNUSED|Deprecated was CONDITION_GENDER_NPC replaced by CONDITION_GENDER + FLAG_SWAP_TARGETS|
 
 
-(&#42;) Meta-Condition types CONDITION_AND (-1) and CONDITION_OR (-2) which are used as: value1 (as condition_entry) AND / OR value2 (as condition_entry). With these meta-conditions it is possible to create tree like and very complicated combined conditions (like HasAura && (HasItem || HasQuest))
+(&#42;) Meta-Condition types CONDITION_AND (-1) and CONDITION_OR (-2) which are used as: value1 (as condition_entry) AND / OR value2 (as condition_entry) AND / OR value3 (as condition_entry) AND / OR value4 (as condition_entry). With these meta-conditions it is possible to create tree like and very complicated combined conditions (like HasAura && (HasItem || HasQuest))
 
 h3. Detailed description of available condition types
 
-The meaning of the values in "value1":Conditions#value1 / "value2":Conditions#value2 depend of the "type":Possible-condition-types of the condition
+The meaning of the values in "value1":Conditions#value1 / "value2":Conditions#value2 / "value3":Conditions#value3 / "value4":Conditions#value4 depend of the "type":Possible-condition-types of the condition
 
 * CONDITION_NOT (-3)
 ** value1: condition_entry
 ** Must have higher condition_entry than value1
-Returns NOT condidition (of value1)
+Returns NOT condition (of value1)
 
 * CONDITION_OR (-2)
 ** value1: condition_entry
 ** value2: condition_entry
-** Must have higher condition_entry than value1 OR value2
-Returns condidition (of value1) OR condidition (of value2)
+** value3: condition_entry (optional)
+** value4: condition_entry (optional)
+** Must have higher condition_entry than value1, value2, value3 and value4
+Returns condition (of value1) OR condition (of value2) OR condition (of value3) OR condition (of value4)
 
 * CONDITION_AND (-1)
 ** value1: condition_entry
 ** value2: condition_entry
-** Must have higher condition_entry than value1 OR value2
-Returns condidition (of value1) AND condidition (of value2)
+** value3: condition_entry (optional)
+** value4: condition_entry (optional)
+** Must have higher condition_entry than value1, value2, value3 and value4
+Returns condition (of value1) AND condition (of value2) AND condition (of value3) AND condition (of value4)
 
 * CONDITION_NONE (0)
 No condition - is always met
@@ -120,12 +144,18 @@ No condition - is always met
 * CONDITION_AURA (1)
 ** value1: The spell ID from where the aura came from.
 ** value2: The effect index of the spell that applied the aura (0, 1, or 2)
-Returns if a player has an aura
+** value3: unused
+** value4: unused
+** flags: FLAG_REVERSE_RESULT or FLAG_SWAP_TARGETS
+Returns if the target has an aura. If &FLAG_REVERSE_RESULT: returns if the target has no aura. If &FLAG_SWAP_TARGETS: returns if the source has an aura (or not if &FLAG_REVERSE_RESULT), evaluating the source instead of the target (usually source is a NPC and target is a player)
 
 * CONDITION_ITEM (2)
 ** value1: Item ID
 ** value2: Count
-Returns if a player has Count items in his inventory
+** value3: unused
+** value4: unused
+** flags: FLAG_REVERSE_RESULT
+Returns if a player has Count items in his inventory. If &FLAG_REVERSE_RESULT: returns if a player has not Count items in Inventory
 
 * CONDITION_ITEM_EQUIPPED (3)
 ** value1: Item ID
@@ -175,14 +205,13 @@ Returns if a player already got a quest rewarded
 * CONDITION_AD_COMMISSION_AURA (10)
 Returns if a Player has any Argent Dawn Commission Aura Active (17670,23930,24198,29112,29113)
 
-* CONDITION_NO_AURA (11)
-** value1: spellid
-** value2: EffectIndex
-Returns if a player has not an aura
-
-* CONDITION_ACTIVE_EVENT (12)
+* CONDITION_ACTIVE_GAME_EVENT (12)
 ** value1: "event":game_event
-Returns if a event is active
+** value2: unused
+** value3: unused
+** value4: unused
+** flags: FLAG_REVERSE_RESULT
+Returns if a event is active. If &FLAG_REVERSE_RESULT: returns if a game event is not active.
 
 * CONDITION_AREA_FLAG (13)
 ** value1: area_flag
@@ -224,11 +253,6 @@ Returns if a player is of race (if race_mask set != 0) AND if a player is of cla
 ** value2: 0: equal to, 1: equal or higher than, 2: equal or less than
 Returns if a player is of/ has a higher/ has a lower level
 
-* CONDITION_NOITEM (16)
-** value1: itemid
-** value2: count
-Returns if a player has not count items in Inventory
-
 * CONDITION_SPELL (17)
 ** value1: spellid
 ** value2: 0: has spell, 1: has no spell
@@ -269,24 +293,18 @@ Returns if a player has a quest neither taken nor ever rewarded
 * CONDITION_ITEM_WITH_BANK (23)
 ** value1: item_id
 ** value2: count
-Returns if a player has at least count of items (including inventory stored in the bank)
-
-* CONDITION_NOITEM_WITH_BANK (24)
-** value1: item_id
-** value2: count
-Returns if a player has less than count of items (including inventory stored in the bank)
-
-* CONDITION_NOT_ACTIVE_GAME_EVENT (25)
-** value1: event_id
-Returns if a game event is not active
+** value3: unused
+** value4: unused
+** flags: FLAG_REVERSE_RESULT
+Returns if a player has at least count of items (including inventory stored in the bank). if &FLAG_REVERSE_RESULT: returns if a player has less than count of items (including inventory stored in the bank).
 
 * CONDITION_ACTIVE_HOLIDAY (26)
 ** value1: holiday_id
-Returns if a holidy is active
-
-* CONDITION_NOT_ACTIVE_HOLIDAY (27)
-** value1: holiday_id
-Returns if a holiday is not active
+** value2: unused
+** value3: unused
+** value4: unused
+** flags: FLAG_REVERSE_RESULT
+Returns if a holidy is active. If &FLAG_REVERSE_RESULT: returns if a holiday is not active
 
 * CONDITION_LEARNABLE_ABILITY (28)
 ** value1: spell_id
@@ -321,11 +339,6 @@ Returns if a player has at most (<=) max_rank with a faction
 ** value2: encounter_id2 (DungeonEncounter(dbc).id)
 Returns if encounter_id is complete (if encounter_id2 provided it will return if encounter_id is completed OR if encounter_id2 is completed)
 
-* CONDITION_SOURCE_AURA (32)
-** value1: spell_id
-** value2: effindex
-Returns true if the source of the condition check has aura of spell_id, effIndex
-
 * CONDITION_LAST_WAYPOINT (33)
 ** value1: waypointId
 ** value2: 0 = exact, 1: wp <= waypointId, 2: wp > waypointId
@@ -337,7 +350,11 @@ Returns if a player has his XP earning turned off/on
 
 * CONDITION_GENDER (35)
 ** value1: 0=male, 1=female, 2=none (see enum Gender)
-Returns if a player is male or female (none cannot happen)
+** value2: unused
+** value3: unused
+** value4: unused
+** flags: FLAG_SWAP_TARGETS
+Returns if a player is male or female (none cannot happen). If &FLAG_SWAP_TARGETS: returns true if source NPC model has gender equal to value1. Model gender is defined in creature_model_info.gender.
 
 * CONDITION_DEAD_OR_AWAY (36)
 ** value1: 0=player dead, 1=player is dead (with group dead), 2=player in instance are dead, 3=creature is dead
@@ -365,7 +382,3 @@ Note: The creature specified in value1 must have ExtraFlags CREATURE_EXTRA_FLAG_
 ** value1: transport WorldState from WorldState.h enum Conditions
 ** value2: event state value from WorldState.cpp enum
 Condition returns true if WorldState for given transport is equals to the expected event state
-
-* CONDITION_GENDER_NPC (41)
-** value1: NPC gender from SharedDefines.h enum Gender (0:male, 1:female, 2:none)
-Condition returns true if source NPC model has gender equal to value1. Model gender is defined in creature_model_info.gender
