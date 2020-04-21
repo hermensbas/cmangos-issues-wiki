@@ -218,13 +218,15 @@ The NPC Is Limited To ONLY Movement On This:
 
 h4. RegenerateStats
 
-This Field Controls If The Creature Should Regenerate It's Health/Stats When Out of Combat (Data Flag)
+This Field Controls If The Creature Should Regenerate It's Health/Stats (Data Flag)
 
-|Value|Description|
-|0|NPC Does NOT Regenerate Stats When Out Of Combat|
-|1|NPC DOES Regenerate Health When Out Of Combat|
-|2|NPC DOES Regenerate Power (Mana) When Out Of Combat|
-|3|NPC DOES Regenerate Health AND Power (Mana) When Out Of Combat|
+|Value|Bit|Name|Description|
+|0|0x000|-|NPC Does NOT Regenerate Stats|
+|1|0x001|REGEN_FLAG_HEALTH_IN_COMBAT|NPC DOES Regenerate Health IN COMBAT|
+|2|0x002|REGEN_FLAG_HEALTH|NPC DOES Regenerate Health|
+|4|0x004|REGEN_FLAG_POWER_IN_COMBAT|NPC DOES Regenerate Power (Mana) IN COMBAT|
+|8|0x008|REGEN_FLAG_POWER|NPC DOES Regenerate Power (Mana)|
+|14|0x014|REGEN_FLAG_HEALTH+REGEN_FLAG_POWER_IN_COMBAT+REGEN_FLAG_POWER|Default|
 
 h4. RacialLeader
 
