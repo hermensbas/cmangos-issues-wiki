@@ -355,51 +355,69 @@ If you cannot solve an error, please use the official forums or IRC channels to 
 
 Compiling CMaNGOS (*nix)
 ~~~~~~~~~~~~~~~~~~~~~~~~
-* Go to your ++/home/mangos++ folder
 
- cd /home/mangos
+We assume you have followed the instructions above, i.e. created the ++mangos++ user and cloned the core repository into ++/home/mangos/mangos++. Adjust the pathes if your setup is different.
 
-* Enter the build folder:
+* Create the ++build++ folder:
 
- cd build
+ mkdir /home/mangos/build
+
+* Enter the ++build++ folder:
+
+ cd /home/mangos/build
 
 * Invoke ++cmake ../mangos++, suggested options are:
-  - ++-DCMAKE_INSTALL_PREFIX=\../mangos/run++ to install into the "run" subfolder of /home/mangos folder, otherwise this will install to /opt/mangos
+  - ++-DCMAKE_INSTALL_PREFIX=\../mangos/run++ to install into ++/home/mangos/mangos/run++ folder, by default this will install to ++/opt/mangos++
   - ++-DPCH=1++ to compile with PCH mode (much faster after updates).
-  - ++-DDEBUG=0++ to remove debug mode from compiling
+  - ++-DDEBUG=0++ to remove debug mode from compiling (recommended)
   - ++-DBUILD_PLAYERBOT=ON++ to build with playerbots enabled
 
   - *examples:*
 
- cmake ../mangos -DCMAKE_INSTALL_PREFIX=\../mangos/run -DPCH=1 -DDEBUG=0  <--- Just want to compile CMaNGOS
- cmake ../mangos -DCMAKE_INSTALL_PREFIX=\../mangos/run -DBUILD_EXTRACTORS=ON -DPCH=1 -DDEBUG=0  <--- Want compile CMaNGOS & the map extraction tools
- cmake ../mangos -DCMAKE_INSTALL_PREFIX=\../mangos/run -DBUILD_EXTRACTORS=ON -DPCH=1 -DDEBUG=0 -DBUILD_PLAYERBOT=ON <--- Want compile CMaNGOS & the map extraction tools & playerbots
+  - Just want to compile CMaNGOS (e.g. for updates)
+
+ cmake ../mangos -DCMAKE_INSTALL_PREFIX=\../mangos/run -DPCH=1 -DDEBUG=0
+
+  - Want compile CMaNGOS & the map extraction tools (recommended for first time setup)
+
+ cmake ../mangos -DCMAKE_INSTALL_PREFIX=\../mangos/run -DBUILD_EXTRACTORS=ON -DPCH=1 -DDEBUG=0
+
+  - Want compile CMaNGOS & the map extraction tools & playerbots (playerbots let players summon other characters from their account as bots)
+
+ cmake ../mangos -DCMAKE_INSTALL_PREFIX=\../mangos/run -DBUILD_EXTRACTORS=ON -DPCH=1 -DDEBUG=0 -DBUILD_PLAYERBOT=ON
 
 * Invoke ++make++ to compile CMaNGOS and ScriptDev2
 
  make
 
-* Invoke ++make install++ to install to your "run" directory
+  - You may define the number of threads for faster compilation (e.g. ++make -j8++ for 8 threads)
+
+* Copy the compiled files to the installation directory (++/home/mangos/mangos/run++)
 
  make install
 
+* Go the configuration directory and copy the config files to their correct names:
 
-Install CMaNGOS binary files
-----------------------------
+ cd /home/mangos/mangos/run/etc
+ cp mangosd.conf.dist mangosd.conf
+ cp realmd.conf.dist realmd.conf
+
+Install CMaNGOS binary files (Windows)
+--------------------------------------
 * Transfer the files from your compile folder (likely ++C:\Mangos\mangos\bin\Win32_Release++) into ++C:\Mangos\run++
 * Go to ++C:\Mangos\mangos\src\game\AuctionHouseBot++ and copy ++ahbot.conf.dist.in++ to ++C:\Mangos\run++ and rename it to ++ahbot.conf++
 * If you compiled project with the PlayeBots enabled, go to ++C:\Mangos\mangos\src\game\PlayerBot++ and copy ++playerbot.conf.dist.in++ to ++C:\Mangos\run++ and rename it to ++playerbot.conf++
 
-On *nix this is partly done with the ++make install++ command (from the build directory).
-
-You will however still need to manually copy and rename the .conf.dist files to .conf files.
-
-
 Extract files from the client
 -----------------------------
 
-Windows
-~~~~~~~
+*Note:* The extractors are compiled only if you pass the ++-DBUILD_EXTRACTORS=ON++ option to ++cmake++ during compilation.
+
+Note that extracting *mmaps* might take a long time depending on your CPU, you will want to give it as many CPU cores as you can. While *mmaps* are optional, their use is advised, as they improve AI pathfinding. You will be prompeted wether you want to extract them or not by the extraction script.
+
+Extraction on Windows
+~~~~~~~~~~~~~~~~~~~~~
+
 * Copy the content of ++C:\Mangos\mangos\bin\Win32_Release\Extractors\++ into your ++C:\World of Warcraft++ folder
 * Run ++ExtractResources.sh++ from your ++C:\World of Warcraft++.
 
@@ -407,34 +425,23 @@ For this you can open a "Git Bash" on your C:\World of Warcraft folder and type 
 
 Depending on your installation settings, a simple double click onto the ++ExtractResources.sh++ file from your explorer might also work.
 
-You must extract *DBC/maps* and *vmaps* for CMaNGOS to work, *mmaps* are optional (and take very long)
+* When finished, move the folders ++maps++, ++dbc++, and ++vmaps++ - optionally ++mmaps++ and ++Cameras++ - that have been created in your ++C:\World of Warcraft++ to your ++C:\Mangos\run++ (the buildings folder is not required and can be deleted).
 
-* When finish, move the folders ++maps++, ++dbc++, ++Cameras++ and ++vmaps++ - optionally ++mmaps++ - that have been created in your ++C:\World of Warcraft++ to your ++C:\Mangos\run++ (the buildings folder is not required and can be deleted).
+Extraction on *nix
+~~~~~~~~~~~~~~~~~~
 
-*nix
-~~~~
-Ever since extractors are no longer in repository, you will need to compile them yourself. The extraction process should work identically to Windows, since the scripts are portable. 
+If you followed this guide you should find all the extractor files in ++/home/mangos/mangos/run/bin/tools++.
 
-Make sure cmake creates the makefiles for you extractors, I use this line (_-DBUILD_EXTRACTORS_ is the important part):
-    cmake ../mangos -DPCH=1 -DDEBUG=0 -DBUILD_PLAYERBOT=ON -DBUILD_EXTRACTORS=ON
+* Copy all of them over to your WoW client directory
+* Set the executable flag on the shell scripts:
 
-If you followed this guide the file can be found in:
+ chmod +x ExtractResources.sh MoveMapGen.sh
 
-* Executables: ++/home/mangos/build/contrib/++
+* Run the data extraction:
 
-* Scripts: ++/home/mangos/mangos/contrib/extractor_scripts++
+ ./ExtractResources.sh
 
-To make it easier to copy the scripts you can use this simple script, save it as `copy-extractors.sh`
-```sh
-#!/bin/sh
-# set WOWDIR to wherever your WoW client folder is located. "~" means homedir, so ++/home/mangos++ in the examples. 
-WOWDIR=~/data/org/WoW
-cp -a ~/build/contrib/extractor/ad $WOWDIR/
-cp -a ~/build/contrib/mmap/MoveMapGen $WOWDIR/
-cp -a ~/build/contrib/vmap_assembler/vmap_assembler $WOWDIR/
-cp -a ~/build/contrib/vmap_extractor/vmapextract/vmap_extractor $WOWDIR/
-cp -a ~/mangos/contrib/extractor_scripts $WOWDIR/
-```
+* When finished, move the folders ++maps++, ++dbc++, and ++vmaps++ - optionally ++mmaps++ and ++Cameras++ - that have been created to ++/home/mangos/mangos/run/bin++ (the buildings folder is not required and can be deleted).
 
 Install databases
 -----------------
