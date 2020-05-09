@@ -12,7 +12,11 @@ You should also have removed the `.dist` ending from the configuration files, so
 
 ## Disabling the world servers interactive console
 
-You have to disable the server console of `mangosd`. **This is important! If you don't disable the console the service won't work.** Open your `mangosd.conf`, search for the line `Console.Enable = 1` and change it to `0`.
+You have to disable the server console of `mangosd`. **This is important! If you don't disable the console the service won't work.** Open your `mangosd.conf`, search for the line
+```
+Console.Enable = 1
+```
+and change it to `0`.
 
 If you don't want to change the default config file so you still have the console when starting from the terminal, you can copy the config file to another name and supply its path to `mangosd` with the `-c` option (see below).
 
@@ -45,7 +49,9 @@ WorkingDirectory=/path/to/cmangos/bin
 # And here
 ExecStart=/path/to/cmangos/bin/mangosd
 
-# Example with the config options manually passed along:
+# The line above assumes the config files are in the default
+# places and have default names.
+# Example with the config files manually passed along:
 # ExecStart=/path/to/cmangos/bin/mangosd -c /path/to/cmangos/etc/mangosd.conf -a /path/to/cmangos/etc/ahbot.conf -p /path/to/cmangos/etc/playerbot.conf
 
 [Install]
@@ -79,15 +85,21 @@ WantedBy=multi-user.target
 
 ## Activating the service files
 
-To make systemd aware of the new files you need to run `sudo systemctl daemon-reload`. This is also applies if you add changes to the files later.
+To make systemd aware of the new files you need to run:
+
+```
+sudo systemctl daemon-reload
+```
+
+This is also applies if you change the files later.
 
 ## Using the services
 
 There are several subcommands of `systemctl` that you can use to manage your services. Assuming you named your files `mangosd-classic.service` and `realmd-classic.service` you would start them like this:
 
 ```
-$ sudo systemctl start mangosd-classic
-$ sudo systemctl start realmd-classic
+sudo systemctl start mangosd-classic
+sudo systemctl start realmd-classic
 ```
 
 When you do a `systemctl status <service>` command (no `sudo` needed for this one) you should see a line like this somewhere at the top:
@@ -96,18 +108,23 @@ When you do a `systemctl status <service>` command (no `sudo` needed for this on
 Active: active (running) since ...
 ```
 
-If it doesn't, something went wrong.
+If it says something else, like "dead", something went wrong. Try to look at the logs:
+
+```
+journalctl -xe
+sudo journalctl -u <service>
+```
 
 You can stop them like this:
 
 ```
-$ sudo systemctl stop mangosd-classic
-$ sudo systemctl stop realmd-classic
+sudo systemctl stop mangosd-classic
+sudo systemctl stop realmd-classic
 ```
 
 Since the script sets the `Restart=always` option, the server will always restart if it crashes. But after a system reboot the service will not start on its own again. If you want them to start automatically on boot, you will have to use the `enable` and `disable` subcommands of `systemctl` instead of `start` and `stop`:
 
 ```
-$ sudo systemctl enable mangosd-classic
-$ sudo systemctl enable realmd-classic
+sudo systemctl enable mangosd-classic
+sudo systemctl enable realmd-classic
 ```
