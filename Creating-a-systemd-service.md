@@ -6,7 +6,7 @@ Below you will find two example files to start the cmangos world and login serve
 
 ## File locations
 
-We assume you have your configuration files in the default directories relative to the binaries, `/path/to/cmangos/etc/` and `/path/to/cmangos/bin/` respectively, where `/path/to/cmangos/` is the installation location you chose during compilation.
+We assume you have your cmangos configuration files in the default directories relative to the binaries, `/path/to/cmangos/etc/` and `/path/to/cmangos/bin/` respectively, where `/path/to/cmangos/` is the installation location you chose during compilation.
 
 You should also have removed the `.dist` ending from the configuration files, so the binaries will automatically find them. If this isn't the case you will have to manually supply their location (see comments in the example files below).
 
