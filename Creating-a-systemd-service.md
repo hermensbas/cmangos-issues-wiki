@@ -22,7 +22,7 @@ You have to create a file in the `/etc/systemd/system` directory or link it to t
 
 You can choose its name freely as long as it ends in `.service`, it will become the name the `systemctl` command uses. E.g. if the file is named `mangosd-classic.service` you will be able to start the service with `systemctl start mangosd-classic`.
 
-Create the file, copy this text and then replace all occurences of `/path/to/cmangos/` with your installation location.
+Create the file, copy the text below and then replace all occurences of `/path/to/cmangos/` with your installation location.
 
 If you are not using the `mangos` user on your system, you will have to change the `User=mangos` line as well.
 
