@@ -28,6 +28,11 @@ h3. Description of the fields
 h4. condition_entry
 
 Identifier
+To avoid conflicts between Expansions, please use:
+
+|Vanilla:|*0 - 9999*|
+|TBC:|*10000 - 19999*|
+|WotLK:|*20000 +*|
 
 h4. type
 
