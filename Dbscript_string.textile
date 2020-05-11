@@ -32,12 +32,10 @@ h4. entry
 
 The ID to identify the text.
 To avoid conflicts between Expansions, please use:
-* Vanilla
-2000000000 and 2000009999
-* TBC
-2000010000 and 2000019999
-* WotLK
-2000020000 +
+
+|Vanilla:|*2000000000 - 2000009999*|
+|TBC:|*2000010000 - 2000019999*|
+|WotLK:|*2000020000 +*|	
 
 Referenced by:
 "dbscript_random_templates":dbscript_random_templates#target_id
