@@ -22,6 +22,7 @@ h3. Structure
 |"type":Dbscript_string#type|tinyint|NO||0||
 |"language":Dbscript_string#language|tinyint|NO||0||
 |"emote":Dbscript_string#emote|smallint|NO||0||
+|"broadcast_text_id":Dbscript_string#broadcast_text_id|mediumint|NO||0||
 |"comment":Dbscript_string#comment|text|YES||NULL||
 
 
@@ -29,13 +30,23 @@ h3. Description of the fields
 
 h4. entry
 
-The ID to identify the text. Referenced by "event&#95;scripts":event_scripts#dataint, "gameobject&#95;scripts":gameobject_scripts#dataint, "quest&#95;start&#95;scripts":quest_start_scripts#dataint, "quest&#95;end&#95;scripts":quest_end_scripts#dataint, "spell&#95;scripts":spell_scripts#dataint and "creature&#95;movement":creature_movement#text.
+The ID to identify the text.
+To avoid conflicts between Expansions, please use:
+* Vanilla
+2000000000 and 2000009999
+* TBC
+2000010000 and 2000019999
+* WotLK
+2000020000 +
 
-Entries must be between 2000000000 and 2000010000.
+Referenced by:
+"dbscript_random_templates":dbscript_random_templates#target_id
+"DBScripts":DBScripts#otherfields
 
 h4. content&#95;default
 
-The text for default language. UDB provides english, see e.g. GMDB"1":http://sourceforge.net/projects/gm-db/|GMDB for german support.
+The text for default language. 
+CmangoS provides English as default.
 
 h4. content&#95;loc
 
@@ -75,6 +86,11 @@ h4. emote
 
 Emote ID to play.
 
+h4. broadcast_text_id
+
+more info to come
+
 h4. comment
 
 Description.
+***
