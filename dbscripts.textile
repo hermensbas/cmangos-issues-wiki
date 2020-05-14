@@ -70,6 +70,7 @@ h3. Structure
 |*Field*|*Type*|*Null*|*Key*|*Default*|*Extra*|
 |"id":dbscripts#id|int(8) unsigned|NO||0||
 |"delay":dbscripts#delay|int(10) unsigned|NO||0||
+|"priority":dbscripts#priority|int(11) unsigned|NO||0||
 |"command":dbscripts#command|mediumint(8) unsigned|NO||0||
 |"datalong":dbscripts#otherfields|mediumint(8) unsigned|NO||0||
 |"datalong2":dbscripts#otherfields|int(10) unsigned|NO||0||
@@ -114,6 +115,10 @@ Delay in milliseconds before this current step of the script activates. 0 = inst
 
 NOTE: Delay is Cumulative From Script to Script with same ID.
 Example: Script 1 Has 5 seconds (5000ms) delay and then if you want script 2 to trigger 3 seconds (3000ms) later you would use delay value 8000 (5000+3000) for script 2 in the sequence.
+
+h4. priority
+
+priority of the event, lower number higher priority if delay is the same. Used for adjusting execution order of events taking place at the same time
 
 h4. command
 
