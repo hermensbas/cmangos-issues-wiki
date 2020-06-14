@@ -2,7 +2,7 @@
 
 Welcome to the **C**ontinued **Ma**ssive **N**etwork **G**ame **O**bject **S**erver! :tada:
 
-This step-by-step guide is intended to help people to install a CMaNGOS World of Warcraft server on their Windows computer. If you need installation instructions for MacOS or Linux, see the [More Information](#more-information) section. Information about updating an already installed server is provided in the [Updating](#updating) section of this file.
+This step-by-step guide is intended to help people to install a CMaNGOS World of Warcraft server on their Windows computer. If you need installation instructions for macOS or Linux, see the [More Information](#more-information) section. Information about updating an already installed server is provided in the [Updating](#updating) section of this file.
 
 # Table Of Contents
 
@@ -63,21 +63,21 @@ There are three versions of CMaNGOS: **Classic**, **The Burning Crusade**, and *
 | **Core**     | mangos-classic | mangos-tbc | mangos-wotlk |
 | **DB**       | classic-db     | tbc-db     | wotlk-db     |
 
-**Note:** When following this guide, you will sometimes have to pick the command/path appropriate to the version you would like to install. You will have to replace the `VERSION` part of them with `classic`, `tbc` or `wotlk`, i.e. if you are asked to got to `C:\mangos\mangos-VERSION` and you are installing WotLK, you have to go to `C:\mangos\mangos-wotlk`. The screenshots will show the pathes for Classic version.
+**Note:** When following this guide, you will sometimes have to pick the command/path appropriate to the version you would like to install. You will have to replace the `VERSION` part of them with `classic`, `tbc` or `wotlk`, i.e. if you are asked to get to `C:\mangos\mangos-VERSION` and you are installing WotLK, you have to go to `C:\mangos\mangos-wotlk`. The screenshots will show the paths for the Classic version.
 
 ### Releases
 
-Compilation of the server core and extractor tool binaries is optional. If you do not plan on changing the code yourself, you can download the precompiled binaries from the release pages of the core repositories on Github. Here are the links to the download pages:
+The compilation of the server core and extractor tool binaries is optional. If you do not plan on changing the code yourself, you can download the precompiled binaries from the release pages of the core repositories on Github. Here are the links to the download pages:
 
 * https://github.com/cmangos/mangos-classic/releases
 * https://github.com/cmangos/mangos-tbc/releases
 * https://github.com/cmangos/mangos-wotlk/releases
 
-We will provide more information about how to setup a server with released files when it will be possible.
+We will provide more information about how to set up a server with released files when it will be possible.
 
 ### More Information
 
-This guide is intended only for Windows and provides one of many ways to setup a CMaNGOS server. You can find a [more detailed installation guide](https://github.com/cmangos/issues/wiki/Installation-Instructions) (including alternative programs, Linux/Mac setup, etc.) in the [Wiki](https://github.com/cmangos/issues/wiki). If you get stuck you can find us here:
+This guide is intended only for Windows and provides one of many ways to set up a CMaNGOS server. You can find a [more detailed installation guide](https://github.com/cmangos/issues/wiki/Installation-Instructions) (including alternative programs, Linux/Mac setup, etc.) in the [Wiki](https://github.com/cmangos/issues/wiki). If you get stuck you can find us here:
 - http://cmangos.net (forum)
 - Discord: https://discord.gg/nSaXpCn
 - **#cmangos** channel on **irc.rizon.net**
@@ -89,15 +89,15 @@ This section will most likely not be of any concern to most people, as it is hig
 
 ![architecture](https://user-images.githubusercontent.com/8838573/27604263-1cd25e72-5b79-11e7-9561-de8e6a0499a1.PNG)
 
-32-bit/64-bit refers to the instruction set architecture (ISA) of your computers central processing unit (CPU). Generaly speaking, 64-bit processors can run instructions sets (parts of a program) that are twice as big and the program therefore runs faster. They are however able to run 32-bit programs as well, while 32-bit processors are unable to run 64-bit programs. The same goes for operating systems. If you have a 64-bit processor but a 32-bit Windows version, you will not be able to run 64 bit programs.
+32-bit/64-bit refers to the instruction set architecture (ISA) of your computer's central processing unit (CPU). Generally speaking, 64-bit processors can run instructions sets (parts of a program) that are twice as big and the program, therefore, runs faster. They are however able to run 32-bit programs as well, while 32-bit processors are unable to run 64-bit programs. The same goes for operating systems. If you have a 64-bit processor but a 32-bit Windows version, you will not be able to run 64-bit programs.
 
-In the context of this guide, that means if you have either a 32-bit processor or Windows version, you will have to adjust the instructions given here to that fact. You will have to download/install 32-bit programs and set it as target architecture during compilation. You can usually recognise the correct link/file by a part of its name that will read something like **32**, **32bit**, **x86**, etc. If you run into problems while compiling or running a 32-bit version of CMaNGOS, you can find information about how to contact the team in the [above section](#more-information).
+In the context of this guide, that means if you have either a 32-bit processor or Windows version, you will have to adjust the instructions given here to that fact. You will have to download/install 32-bit programs and set it as target architecture during compilation. You can usually recognize the correct link/file by a part of its name that will read something like **32**, **32bit**, **x86**, etc. If you run into problems while compiling or running a 32-bit version of CMaNGOS, you can find information about how to contact the team in the [above section](#more-information).
 
 **Note:** While **x86** refers to the 32-bit architecture, **x86_64** or **x86-64** refers to the 64-bit architecture (read "I can only process 32-bit" vs. "I can process both 32-bit and 64-bit").
 
 # Toolchain
 
-These are programs you will need to setup the database and compile the core. This section will explain where to download and how to install them. **If not otherwise noted in the programs installation instructions, the default settings apply.** After downloading them all into a separate folder, it should look something like this:
+These are programs you will need to set up the database and compile the core. This section will explain where to download and how to install them. **If not otherwise noted in the programs installation instructions, the default settings apply.** After downloading them all into a separate folder, it should look something like this:
 
 ![installers](https://user-images.githubusercontent.com/8838573/27418828-e5ebb048-571d-11e7-900f-bda30e015fe4.PNG)
 
@@ -105,9 +105,9 @@ These are programs you will need to setup the database and compile the core. Thi
 
 - Go to: http://sourceforge.net/projects/boost/files/boost-binaries/
 - Select a version number not ending in `_bX` (those are beta versions), e.g. click `1.69.0`. (Confirmed working as of 2019-01-09.)
-- Download the executable file containing `msvc-14.1-64`, e.g. `boost_1_69_0-msvc-14.1-64.exe`. (MSVC-14.1 is the Visual Studio 2017 C++ compiler, 64 stands for the 64 bit architecture)
+- Download the executable file containing `msvc-14.1-64`, e.g. `boost_1_69_0-msvc-14.1-64.exe`. (MSVC-14.1 is the Visual Studio 2017 C++ compiler, 64 stands for the 64-bit architecture. If using Visual Studio 2019, try MSVC-14.2 rather than MSVC-14.1)
 - Execute the downloaded file. During the installation you will be asked to set the installation path, if you change it, remember it. It is needed in the next step.
-- Add the `BOOST_ROOT` environment variable (**Note:** You might have to relog/restart afterwards, so every program can see this variable):
+- Add the `BOOST_ROOT` environment variable (**Note:** You might have to relog/restart afterward, so every program can see this variable):
   - Press **WinKey+Pause** (or navigate to the **System** settings in the Control Panel).
   - Click on **Advanced system settings**.
   - Click on **Environment Variables**.
@@ -126,7 +126,7 @@ These are programs you will need to setup the database and compile the core. Thi
 ## Git
 
 - Go to: https://git-scm.com/download/win
-- Confirm the download if it is the architecture you want (32 or 64 bit). Otherwise abort and select the correct version.
+- Confirm the download if it is the architecture you want (32 or 64 bit). Otherwise, abort and select the correct version.
 - During installation make sure the following options are checked:
   - Git Bash Here:
   
@@ -163,11 +163,11 @@ These are programs you will need to setup the database and compile the core. Thi
 
   ![mysql7](https://user-images.githubusercontent.com/8838573/27420887-3554e1ae-5728-11e7-9037-bb64b886ef4d.PNG)
 
-- After the installation has finished, start the **MySQL Workbench** program and click on the **Local instance** button. In the popup that opens, set the checkbox and enter your root password.
+- After the installation has finished, start the **MySQL Workbench** program and click on the **Local instance** button. In the popup that opens, set the checkbox, and enter your root password.
 
   ![mysqlx](https://user-images.githubusercontent.com/8838573/27421017-c6639bcc-5728-11e7-9741-54086ce87963.PNG)
 
-- Add the MySQL servers path to the `Path` environment variable:  (**Note:** You might have to relog/restart afterwards, so every program can see the updates to the variable)
+- Add the MySQL servers path to the `Path` environment variable:  (**Note:** You might have to relog/restart afterward, so every program can see the updates to the variable)
   - Press **WinKey+Pause** (or navigate to the **System** settings in the Control Panel).
   - Click on **Advanced system setting**.
   - Click on **Environment Variables**.
@@ -185,7 +185,7 @@ These are programs you will need to setup the database and compile the core. Thi
    
      ![npp_context](https://user-images.githubusercontent.com/8838573/27422058-252ea206-572d-11e7-8409-284dc2b1c3cd.PNG)
    
-   - Recognises Linux style line endings. (Windows apparently thinks it is a typewriter and uses two symbols, CR and LF - **c**arriage **r**eturn and **l**ine **f**eed - for new lines instead of just LF like Linux does. This is why some files mysteriously appear to be written in one line.)
+   - Recognizes Linux style line endings. (Windows apparently thinks it is a typewriter and uses two symbols, CR and LF - **c**arriage **r**eturn and **l**ine **f**eed - for new lines instead of just LF like Linux does. This is why some files mysteriously appear to be written in one line.)
    - Line numbers.
    - Open multiple files at once.
    - Remembers opened files and unsaved changes between sessions.
@@ -215,7 +215,7 @@ These are programs you will need to setup the database and compile the core. Thi
 
 # Cloning the repositories
 
-A git repository is basically just a normal directory which contains some hidden files, that the git program (or some other program) can use to manage different versions of that directory. In this step we will "clone" the repositories from Github, which means creating an exact copy of them on your hard drive.
+A git repository is basically just a normal directory that contains some hidden files, that the git program (or some other program) can use to manage different versions of that directory. In this step, we will "clone" the repositories from Github, which means creating an exact copy of them on your hard drive.
 
 ### Location
 
@@ -232,18 +232,18 @@ A new window should open with two lines of text:
 2. `$ ` 
    - This line is the command prompt. It waits for you to write a command and press **Enter**.
 
-**FYI:** Git Bash uses Linux style pathes, which means:
-- Pathes use `/` (forward slash) instead of `\` (backwards slash).
+**FYI:** Git Bash uses Linux style paths, which means:
+- Paths use `/` (forward slash) instead of `\` (backward slash).
 - Your base directories are not the hard drive partitions, but the single "root directory" `/`, which contains all the hard drives (and some other stuff). So `/c/` points to your `C:\` and `/d/` points to `D:\`.
 - There is a shortcut to the users "home" directory, which is `~`. The Windows path hidden behind that is `C:\Users\YourUserName`. So if Git Bash says you are in `~/Desktop` you are actually in `C:\Users\YourUserName\Desktop`.
-- There are absolute pathes (starting with `/` or `~`), and relative pathes (not starting with `/` or `~`). Relative pathes point to a location relative to the working directory. Every directory contains a directory `..` which points to its parent (the directory one step closer to the root directory), and a directory `.` which points to itself (executing binaries is prefixed with `./`).
+- There are absolute paths (starting with `/` or `~`), and relative paths (not starting with `/` or `~`). Relative paths point to a location relative to the working directory. Every directory contains a directory `..` which points to its parent (the directory one step closer to the root directory), and a directory `.` which points to itself (executing binaries is prefixed with `./`).
 - Use `cd /absolute/path/to/something` or `cd relative/path/to/something`to change your working directory. You can use `cd ..` to go one directory back, `cd ../..` to go two directories back, etc.
 - When you are entering long path names, you can use the **Tab** key to auto-complete them. E.g. if you have already entered `cd /c/man` and then press **Tab**, the command prompt will autocomplete it to `cd /c/mangos` (as long as there are no other directories in `/c/` that start with `man`).
 - For more information see https://en.wikipedia.org/wiki/Path_(computing)
 
 ### Core
 
-**Note:** You need these files even if you use the precompiled binaries, since some of the database creation scripts are contained in this repository. This command creates a copy of the Github repository on your hard drive.
+**Note:** You need these files even if you use the precompiled binaries since some of the database creation scripts are contained in this repository. This command creates a copy of the Github repository on your hard drive.
 
 - Copy the command (**Ctrl+C**):
 ```
@@ -252,7 +252,7 @@ git clone https://github.com/cmangos/mangos-tbc.git
 git clone https://github.com/cmangos/mangos-wotlk.git
 ```
 
-- In the Git Bash window, **Right-Click** and select **Paste**, or press **Shift+Insert** (for historic reason the usual copy/paste keyboard shortcuts do not work in most command line interfaces).
+- In the Git Bash window, **Right-Click** and select **Paste**, or press **Shift+Insert** (for historic reason the usual copy/paste keyboard shortcuts do not work in most command-line interfaces).
 
   ![git_bash2 1](https://user-images.githubusercontent.com/8838573/27424959-1d8d9bd8-5737-11e7-96e6-51e2fd082c5a.PNG)
 
@@ -277,16 +277,16 @@ git clone https://github.com/cmangos/wotlk-db.git
 ### Configure CMake
 
 - Start CMake.
-- Set source directory to `C:\mangos\mangos-VERSION` and build directory to `C:\mangos\mangos-VERSION\bin\BuildDir` (see screenshot). You will have to create the `bin` and `BuildDir` directories, if they do not exist. The `bin` directory is listed in the repositories `.gitignore` file, which means you can change its content without git noticing it. If you choose another location inside the repository for building, you will break the update process (see [Updating](#updating)).
+- Set source directory to `C:\mangos\mangos-VERSION` and build directory to `C:\mangos\mangos-VERSION\bin\BuildDir` (see screenshot). You will have to create the `bin` and `BuildDir` directories if they do not exist. The `bin` directory is listed in the repositories `.gitignore` file, which means you can change its content without git noticing it. If you choose another location inside the repository for building, you will break the update process (see [Updating](#updating)).
 - Click **Configure**
 
   ![cmake1 1](https://user-images.githubusercontent.com/8838573/27503014-cdfc8ffa-5878-11e7-9c54-cb5aa7fb1714.PNG)
 
-- In the popup window select the compiler version. If you followed this guide you have **Visual Studio 15 2017 Win64**
+- In the pop-up window select the compiler version. If you followed this guide you have **Visual Studio 15 2017 Win64**
 
   ![cmake2](https://user-images.githubusercontent.com/8838573/27503270-fcf143da-587a-11e7-9f11-a6f8e5fe4e81.PNG)
 
-- Make sure the **BUILD_EXTRACTORS** option is checked. Then click **Generate**. *FYI: You can also activate the `BUILD_PLAYERBOT` option. Playerbot allows you to add other characters in your account as AI controlled bots that follow you around.*
+- Make sure the **BUILD_EXTRACTORS** option is checked. Then click **Generate**. *FYI: You can also activate the `BUILD_PLAYERBOT` option. Playerbot allows you to add other characters in your account as AI-controlled bots that follow you around.*
 
   ![cmake3 x](https://user-images.githubusercontent.com/8838573/27503421-24a974f0-587c-11e7-93bb-91fe2d98aaa5.PNG)
 
@@ -331,12 +331,12 @@ git clone https://github.com/cmangos/wotlk-db.git
 
 ### Initialisation
 
-- **Double-Click** the `mangos` database in the Schemas overview, so that its name is written bold. This marks the database as active, which means that table specific SQL commands will be run on this database. If the database name is not written in bold text after double-clicking it, restart Workbench and **double-click** again.
+- **Double-Click** the `mangos` database in the Schemas overview so that its name is written in bold. This marks the database as active, which means that table-specific SQL commands will be run on this database. If the database name is not written in a bold text after double-clicking it, restart Workbench and **double-click** again.
 - Click the **Open script file** button above the editor:
 
   ![mysql12 1](https://user-images.githubusercontent.com/8838573/27504191-c818d0f0-5885-11e7-9205-091aeb828ed7.png)
 
-- Execute the `mangos.sql` file found in `C:\mangos\mangos-VERSION\sql\base\`. (See output at bottom of window to know when it is finished.)
+- Execute the `mangos.sql` file found in `C:\mangos\mangos-VERSION\sql\base\`. (See output at bottom of the window to know when it is finished.)
 - Execute all scripts in the `C:\mangos\mangos-VERSION\sql\base\dbc\original_data` directory (currently `DungeonEncounter.sql` and `Spell.sql`).
 - **Double-Click** the `characters` database in the Schemas overview and execute the `characters.sql` file found in `C:\mangos\mangos-VERSION\sql\base\`.
 - **Double-Click** the `realmd` database in the Schemas overview and execute the `realmd.sql` file found in `C:\mangos\mangos-VERSION\sql\base\`.
@@ -357,13 +357,13 @@ git clone https://github.com/cmangos/wotlk-db.git
   ![db_install2](https://user-images.githubusercontent.com/8838573/27504761-c5bfa24c-5890-11e7-8ab5-5a867200da5b.png)
 
 - Change the `CORE_PATH` variable to `../mangos-VERSION` and save the file. 
-  - **FYI**: The double dots mean we are going back one step in the directory tree, so it is assumed that the core repository has been cloned to the parent directory of the database repository. If you diverged from the guides steps adjust the relative path accordingly or use an absolute path (see [Location section](#location)).
+  - **FYI**: The double dots mean we are going back one step in the directory tree, so it is assumed that the core repository has been cloned to the parent directory of the database repository. If you diverged from the guide's steps, adjust the relative path accordingly, or use an absolute path (see [Location section](#location)).
   - **Note:** If you changed the MySQL user name and/or password during the [database creation](#creation) step, you will have to change the `USERNAME` and/or `PASSWORD` variable here as well.
   - **Note:** If you changed the database name `mangos` during the [database creation](#creation) step, you will have to change the `DATABASE`variable here as well.
 
   ![db_install3](https://user-images.githubusercontent.com/8838573/27504838-61f4f4b8-5892-11e7-80f4-6d44cd1fc48e.png)
 
-- In Git Bash, enter the `./InstallFullDB.sh` again, by pressing **ArrowUp** and **Enter** (it will now do something different, since the `config` file is present).
+- In Git Bash, enter the `./InstallFullDB.sh` again, by pressing **ArrowUp** and **Enter** (it will now do something different since the `config` file is present).
 
   ![db_install4](https://user-images.githubusercontent.com/8838573/27504858-c044d6dc-5892-11e7-8bed-14c54d9e684a.PNG)
 
@@ -373,8 +373,8 @@ git clone https://github.com/cmangos/wotlk-db.git
 
 # Map Extraction
 
-- **FYI:** This step deals with extracting terrain information from the client. This is used by the AI to generate correct movement. Four different data types are extracted. One of them, mmaps, is optional, because its **extraction takes a long time (depending on your CPU, 30 minutes to several hours)**. Mmaps are required for correct NPC movement though, so it is **not** advised to skip mmap extraction. This step is sometimes also needed when updating, but only if the extraction process has been changed (it is always needed when first installing). If the files need to be updated, the server will crash on startup and write information about this to the log file.
-- Acquire a clean copy of the correct WoW client version (1.12.1/2.4.3/3.3.5). *Note: It is recommended to do this step in a copy of the client directory, not the actual one you use for gaming, since some temporary files are created. If you use a copy you can just delete it after you are done.* Your directory should look something like this (example from classic):
+- **FYI:** This step deals with extracting terrain information from the client. This is used by the AI to generate the correct movement. Four different data types are extracted. One of them, mmaps, is optional, because its **extraction takes a long time (depending on your CPU, 30 minutes to several hours)**. Mmaps are required for correct NPC movement though, so it is **not** advised to skip mmap extraction. This step is sometimes also needed when updating, but only if the extraction process has been changed (it is always needed when first installing). If the files need to be updated, the server will crash on startup and write information about this to the log file.
+- Acquire a clean copy of the correct WoW client version (1.12.1/2.4.3/3.3.5). *Note: It is recommended to do this step in a copy of the client directory, not the actual one you use for gaming since some temporary files are created. If you use a copy you can just delete it after you are done.* Your directory should look something like this (example from classic):
 
   ![extract1](https://user-images.githubusercontent.com/8838573/27504988-43cacbae-5895-11e7-851a-20938df59583.PNG)
 
@@ -402,7 +402,7 @@ git clone https://github.com/cmangos/wotlk-db.git
 
   ![extract4](https://user-images.githubusercontent.com/8838573/27505793-e9992ae0-58a8-11e7-8140-472ec56625e7.png)
 
-- After extraction is finished, copy the `dbc`, `maps`, `mmaps` and `vmaps` directories to `C:\mangos\mangos-VERSION\bin\x64_Release` (or the directory you extracted the precompiled binaries to).
+- After the extraction is finished, copy the `dbc`, `maps`, `mmaps` and `vmaps` directories to `C:\mangos\mangos-VERSION\bin\x64_Release` (or the directory you extracted the precompiled binaries to).
 
   ![extract5](https://user-images.githubusercontent.com/8838573/27505326-58fea9e8-589d-11e7-9ce4-c71fd5ec8a63.PNG)
 
@@ -412,7 +412,7 @@ git clone https://github.com/cmangos/wotlk-db.git
 
 #### Note: If you have not changed the user password and database names during the [database creation](#creation) step above, and you do not plan on changing the standard configuration, then you can skip to [running](#running).
 
-- **FYI:** You will have to start two binaries (`.exe` files) to launch the server, the `mangosd.exe` and the `realmd.exe` (*the **d** stands for **daemon** (**d**isk **a**nd **e**xecution **mon**itor). Both of the binaries read settings from a file which is passed to them by the `-c <config-file>` argument when starting them (see [below](#running)).
+- **FYI:** You will have to start two binaries (`.exe` files) to launch the server, the `mangosd.exe` and the `realmd.exe` (*the **d** stands for **daemon** (**d**isk **a**nd **e**xecution **mon**itor). Both of the binaries read settings from a file that is passed to them by the `-c <config-file>` argument when starting them (see [below](#running)).
 - The standard names for the configuration files are `mangosd.conf.dist` and `realmd.conf.dist`. They are copied to `C:\mangos\mangos-VERSION\bin\x64_Release` when compiling (or contained in the zip file of the precompiled binaries). **If you change the configuration, it is advised you rename the files to `mangosd.conf` and `realmd.conf`, so they will not be overwritten when [updating](#updating).** To do so, select the file and press **F2** or **Right-Click** it and select **Rename** from the context menu. Then remove the `.dist` at the end, and press **Enter**. If you do not see the `.dist` ending when trying to rename, see the note below.
 
   ![folder1 3](https://user-images.githubusercontent.com/8838573/27506163-f5d975ee-58b2-11e7-867e-3a94e08c809f.png)
@@ -438,7 +438,7 @@ git clone https://github.com/cmangos/wotlk-db.git
 
 ### Running
 
-- In the Windows Explorer, navigate to `C:\mangos\mangos-VERSION\bin\x64_Release` (or the directory you extracted the precompiled binaries to). You have two options of doing the start up:
+- In the Windows Explorer, navigate to `C:\mangos\mangos-VERSION\bin\x64_Release` (or the directory you extracted the precompiled binaries to). You have two options of doing the startup:
 
 1. **Manual:** Run from Git Bash
     -  **Right-Click** into the empty area and select **Git Bash Here**.
@@ -464,7 +464,7 @@ git clone https://github.com/cmangos/wotlk-db.git
   
   ![start_server](https://user-images.githubusercontent.com/8838573/27507216-b69ba52e-58ca-11e7-88b7-87912ace65cd.png)
 
-- When first starting the server, the Windows Firewall might ask for permissions. If you want players to connect over the local network or the internet, enable both check boxes and click **Allow access** (for both `realmd` and `mangosd` binaries).
+- When first starting the server, the Windows Firewall might ask for permissions. If you want players to connect over the local network or the internet, enable both checkboxes and click **Allow access** (for both `realmd` and `mangosd` binaries).
   
   ![start1](https://user-images.githubusercontent.com/8838573/27507252-98908788-58cb-11e7-8609-0b7357655255.PNG)
 
@@ -481,7 +481,7 @@ git clone https://github.com/cmangos/wotlk-db.git
   - 1: TBC
   - 2: WotLK
   - 3: Cata
-- Setting the access level to ingame commands: `account set gmlevel MyNewAccount 3`
+- Setting the access level to in-game commands: `account set gmlevel MyNewAccount 3`
   - 0: Player (default value)
   - 1: Moderator
   - 2: Game Master
@@ -494,7 +494,7 @@ git clone https://github.com/cmangos/wotlk-db.git
     ```
 ### Ingame commands
 
-- There are many useful ingame commands. When ingame, open the chat prompt by pressing **Enter**, write `.help` and confirm by pressing **Enter** again. This will show a list of commands available to your account in the chat window. Many commands show further ingame documentation when called without arguments (e.g. `.modify`).
+- There are many useful in-game commands. When in-game, open the chat prompt by pressing **Enter**, write `.help` and confirm by pressing **Enter** again. This will show a list of commands available to your account in the chat window. Many commands show further in-game documentation when called without arguments (e.g. `.modify`).
 - CMaNGOS has no dedicated documentation of these commands, if you want a list look through the source files, the database, or search the web for something like "mangos gm commands" (most commands are the same across open source servers).
 
 ### Shutdown
@@ -511,7 +511,7 @@ git clone https://github.com/cmangos/wotlk-db.git
 
 To update the precompiled binaries, go to the [release page on Github](#releases) and download a fresh copy of the zip file (the release is automatically updated when there are new commits). Extract the content of the zip file into your current server directory, overwriting existing files. Now you need to update your database. Occasionally database updates get delivered through the core repository instead of the DB repository. The script used later to do the database update will search the core repository for updates, if its path is provided in the `InstallFullDB.config` file (see [database filling](#filling) section).
 
-### Self compiled binaries
+### Self-compiled binaries
 
 - In the Windows Explorer, navigate to `C:\mangos\mangos-VERSION\`.
 - **Right-Click** and select **Git Bash Here**.
