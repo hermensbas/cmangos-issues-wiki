@@ -10,7 +10,6 @@ h3. Structure
 |*Field*|*Type*|*Null*|*Key*|*Default*|*Extra*|
 |"id":Account#id|bigint(20) unsigned|NO|PRI||auto&#95;increment|
 |"username":Account#username|varchar(32)|NO|UNI|||
-|"sha_pass_hash":Account#sha_pass_hash|varchar(40)|NO||||
 |"gmlevel":Account#gmlevel|tinyint(3) unsigned|NO|MUL|0||
 |"sessionkey":Account#sessionkey|longtext|YES||||
 |"v":Account#v|longtext|YES||||
@@ -37,13 +36,6 @@ h4. username
 
 The account user name.
 
-h4. sha&#95;pass&#95;hash
-
-This field contains the encrypted password. The encryption is SHA1 and is in the following format: username:password. The SQL to create the password (or to compare with the current hash) is:
-
-bc. SELECT SHA1(CONCAT(UPPER(`username`), ':', UPPER(<pass>)));
-
-
 h4. gmlevel
 
 The account security level. Different levels have access to different commands. The individual level required for a command is defined in the "command":command table.
@@ -52,7 +44,11 @@ h4. sessionkey
 
 h4. v
 
+SRP (secure remote password protocol) password verifier field
+
 h4. s
+
+SRP (secure remote password protocol) random generated salt value
 
 h4. email
 
