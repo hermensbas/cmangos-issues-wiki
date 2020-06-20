@@ -34,6 +34,8 @@ h4. point
 
 Defines the waypoint number. A creature will go from waypoint to waypoint in the order controlled by this field.
 
+As a convention, the first point of a path **must be greater than zero**. This is expected by core.
+
 h4. position_x
 
 The X position of the waypoint.
