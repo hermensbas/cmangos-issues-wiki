@@ -33,6 +33,7 @@ The guid of the creature if creature_movement. See [creature_guid](https://githu
 
 Defines the waypoint number. A creature will go from waypoint to waypoint in the order controlled by this field.
 
+As a convention, the first point of a path **must be greater than zero**. This is expected by core.
 #### position&#95;x
 
 The X position of the waypoint.
