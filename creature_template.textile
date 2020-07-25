@@ -103,6 +103,7 @@ h3. Structure
 |"EquipmentTemplateId":creature_template#equipmenttemplateid|mediumint(8) unsigned|NO||0||
 |"VehicleTemplateId":creature_template#vehicletemplateid|mediumint(8) unsigned|NO||0||
 |"GossipMenuId":creature_template#gossipmenuid|mediumint(8) unsigned|YES||0||
+|"visibilityDistanceType":creature_template#visibilityDistanceType|tinyint(4)|YES||0||
 |"AIName":creature_template#ainame|char(64)|NO||||
 |"ScriptName":creature_template#scriptname|char(64)|NO||||
 
@@ -956,6 +957,15 @@ h4. GossipMenuId
 
 Reference to a "gossip_menu_id":gossip_menu.
 
+h4. visibilityDistanceType
+
+|_. Bit|_. Name|_. Description|
+|0|DEFAULT_VISIBILITY_DISTANCE|Default Config Setting: 100y|
+|1|VISIBILITY_DISTANCE_TINY|25y|
+|2|VISIBILITY_DISTANCE_SMALL|50y|
+|3|VISIBILITY_DISTANCE_LARGE|200y|
+|4|VISIBILITY_DISTANCE_GIGANTIC|400y|
+|5|MAX_VISIBILITY_DISTANCE|533.33333y|
 
 h4. AIName
 
