@@ -14,6 +14,8 @@ h3. Structure
 |"maxcount":npc_vendor_template#maxcount|int(10) unsigned|NO||0||
 |"incrtime":npc_vendor_template#incrtime|int(10) unsigned|NO||0||
 |"ExtendedCost":npc_vendor_template#extendedcost|mediumint(8) unsigned|NO||0||
+|"condition_id":npc_vendor_template#condition_id|mediumint(8) unsigned|NO||0||
+|"comments":npc_vendor_template#comments|text|NO||NULL||
 
 h3. Description of the fields
 
@@ -38,3 +40,11 @@ Combined with "maxcount":#maxcount, this field tells how often (in seconds) the 
 h4. ExtendedCost
 
 The value here corresponds to the ID in ItemExtendedCost.dbc and that ID controls the item's non monetary price, be it honor points, arena points, different types of badges or any combination of the above.
+
+h4. condition_id
+
+Condition to buy the item
+
+h4. comments
+
+Description - Currently "Item Name"
