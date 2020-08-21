@@ -385,6 +385,19 @@ In what slot the item can be equipped.
 
 h4. AllowableClass
 
+| ENUM | Value (HEX) | Value (DEC) |
+|------|------|------|
+|CLASS_WARRIOR | 0x1 | 1       |
+|CLASS_PALADIN | 0x2 | 2       |
+|CLASS_HUNTER | 0x4 | 4        |
+|CLASS_ROGUE | 0x8 | 8         |
+|CLASS_PRIEST | 0x10 | 16      |
+|CLASS_DEATHKNIGHT | 0x20 | 32 |
+|CLASS_SHAMAN | 0x40 | 64      |
+|CLASS_MAGE | 0x80 | 128       |
+|CLASS_WARLOCK | 0x100 | 256   |
+|CLASS_DRUID | 0x400 | 1024    |
+
 Bitmask controlling which classes can use this item. Add ids together to combine class possibilities. Use -1 if all classes can use it. 
 
 h4. AllowableRace
