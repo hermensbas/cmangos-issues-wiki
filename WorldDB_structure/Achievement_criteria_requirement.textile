@@ -47,6 +47,7 @@ Describes how to use value1 and value2.
 |19|TYPE&#95;S&#95;EQUIPED&#95;ITEM&#95;LVL|
 |20|TYPE&#95;REQUIRE&#95;NTH&#95;BIRTHDAY|
 |21|TYPE&#95;REQUIRE&#95;KNOWN&#95;TITLE|
+|22|TYPE&#95;PVP&#95;SCRIPT|
 
 
 h4. OtherFields
