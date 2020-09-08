@@ -57,24 +57,24 @@ Depending on what Type was set, the meaning and use for the following fields var
 * *TYPE&#95;T&#95;CREATURE = 1*
 ** value1: Target creature&#95;template."entry":creature_template#entry
 
-* '''TYPE&#95;T&#95;PLAYER&#95;CLASS&#95;RACE = 2 '''
+* *TYPE&#95;T&#95;PLAYER&#95;CLASS&#95;RACE = 2*
 ** value1: Target Player class
 ** value2: Target Player race
 
-* '''TYPE&#95;T&#95;PLAYER&#95;LESS&#95;HEALTH = 3 '''
+* *TYPE&#95;T&#95;PLAYER&#95;LESS&#95;HEALTH = 3*
 ** value1: Target Health percentage
 
-* '''TYPE&#95;T&#95;PLAYER&#95;DEAD = 4 '''
+* *TYPE&#95;T&#95;PLAYER&#95;DEAD = 4*
 ** value1: Team value the source player and target dead player must both meet
 
-* '''TYPE&#95;S&#95;AURA = 5 '''
+* *TYPE&#95;S&#95;AURA = 5*
 ** value1: Spell ID
 ** value2: Effect index
 
-* '''TYPE&#95;S&#95;AREA = 6 '''
+* *TYPE&#95;S&#95;AREA = 6*
 ** value1: Area ID from "AreaTable.dbc":AreaTable.dbc
 
-* '''TYPE&#95;T&#95;AURA = 7 '''
+* *TYPE&#95;T&#95;AURA = 7*
 ** value1: Spell ID
 ** value2: Effect index
 
@@ -116,22 +116,26 @@ Used to prevent achievement criteria to complete if not all requirements are imp
 * *TYPE&#95;HOLIDAY = 16*
 ** value1: Holiday ID which must be active from Holiday.dbc and "game&#95;event":Game_event#holiday
 
-* '''TYPE&#95;BG&#95;LOSS&#95;TEAM&#95;SCORE = 17 '''
+* *TYPE&#95;BG&#95;LOSS&#95;TEAM&#95;SCORE = 17*
 ** value1: min&#95;score
 ** value2: max&#95;score
 
-* '''TYPE&#95;INSTANCE&#95;SCRIPT = 18 '''
+* *TYPE&#95;INSTANCE&#95;SCRIPT = 18*
 
 Make instance script call for check current criteria requirements fit
 
-* '''TYPE&#95;S&#95;EQUIPED&#95;ITEM&#95;LVL = 19 '''
+* *TYPE&#95;S&#95;EQUIPED&#95;ITEM&#95;LVL = 19*
 ** value1: item&#95;level
 ** value2: item&#95;quality
 
 For equipped item in slot `misc1` to item level and quality
 
-* '''TYPE&#95;REQUIRE&#95;NTH&#95;BIRTHDAY = 20 '''
+* *TYPE&#95;REQUIRE&#95;NTH&#95;BIRTHDAY = 20*
 ** value1: nth-birthday
 
-* '''TYPE&#95;CRITERIA&#95;REQUIRE&#95;KNOWN&#95;TITLE = 21 '''
+* *TYPE&#95;CRITERIA&#95;REQUIRE&#95;KNOWN&#95;TITLE = 21*
 ** value1: "title&#95;id":CharTitles.dbc
+
+* *TYPE&#95;PVP&#95;SCRIPT = 22*
+
+Make battleground or outdoor PvP script call for check current criteria requirements fit
