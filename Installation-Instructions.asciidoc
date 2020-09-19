@@ -66,8 +66,6 @@ You will need Git, GCC, CMake, MySQL, Boost and a few libraries.
 
   dnf install git cmake gcc patch autoconf mariadb-server mariadb-devel libtool zfstream gcc-c++ subversion boost-devel boost-static
 
-_Note: installing boost-devel has not been tested yet._
-
 _Note: precompiled headers require a cmake that is version 3.16 or newer. You can compile from source or get binary releases on this page: https://cmake.org/download/
 
 Essentials
