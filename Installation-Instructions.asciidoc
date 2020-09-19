@@ -64,7 +64,7 @@ You will need Git, GCC, CMake, MySQL, Boost and a few libraries.
 
 ### Fedora
 
-  dnf install git cmake gcc patch autoconf mariadb-server mariadb-devel libtool zfstream gcc-c++ subversion boost-devel boost-static
+  dnf install git make cmake gcc patch autoconf mariadb-server mariadb-devel libtool zfstream gcc-c++ subversion boost-devel boost-static
 
 _Note: precompiled headers require a cmake that is version 3.16 or newer. You can compile from source or get binary releases on this page: https://cmake.org/download/
 
