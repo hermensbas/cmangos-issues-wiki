@@ -60,7 +60,7 @@ You will need Git, GCC, CMake, MySQL, Boost and a few libraries.
 
 ### Debian
 
-  apt install grep build-essential gcc g++ automake git-core autoconf make patch cmake mariadb-dev mariadb-dev-compat mariadb-server libtool libssl-dev binutils zlibc libc6 libbz2-dev subversion libboost-all-dev
+  apt install grep build-essential gcc g++ automake git-core autoconf make patch cmake libmariadb-dev libmariadb-dev-compat mariadb-server libtool libssl-dev binutils zlibc libc6 libbz2-dev subversion libboost-all-dev
 
 ### Fedora 32
 
