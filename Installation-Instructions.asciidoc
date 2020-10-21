@@ -611,7 +611,6 @@ So you need to:
 * Apply the latest release file
 * Apply all following updatepack files (always corepatches before updatepacks)
 * Apply the remaining updates from the core (located in C:\Mangos\mangos\sql\updates
----------------------------------
 
 Metrics:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -626,6 +625,7 @@ Metric.Username = ""
 Metric.Password = ""
 
 The rest of the information can be found in the appropriate InfluxDB and Grafana documentations, which are well maintained.
+---------------------------------
 
 Alternative Databases
 ---------------------
