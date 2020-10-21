@@ -524,7 +524,7 @@ Metrics database:
 
 For realtime metrics we suggest looking into InfluxDB and Grafana. The core supports posting HTTP data to a websocket in InfluxDB format.
 
-In the configuration file all that is required is to fill out the following based on your connection:
+In the configuration file all that is required is to fill out the following based on your connection in mangosd.conf:
 
 Metric.Enable = 0
 
