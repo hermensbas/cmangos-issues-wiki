@@ -3,15 +3,15 @@ Installation Instructions
 
 How to install C(ontinued)-MaNGOS from scratch and how to update it.
 
-This Guide will help you for Windows or *nix (Ubuntu, Debian) and for all supported clients: Classic - TBC - WotLK.
+This guide will help you for Windows or *nix (Ubuntu, Debian) and for all supported clients: Classic - TBC - WotLK.
 
 Instructions covering Mac OS X (10.6 & 10.7) specific steps are available https://github.com/cmangos/issues/wiki/Build-CMaNGOS-for-Mac-OS-X[here] in addition of this guide.
 
-For other environments (like FreeBSD, ARM and similar) please consider our https://forum.cmangos.net[forum] for assistance.
+For other environments (like FreeBSD, ARM and similar), consider reaching out on https://discord.gg/Dgzerzb[Discord] for assistance.
 
-If you run into issues during installation or need help understanding one of the following steps, please visit https://discord.gg/Dgzerzb[discord] to look for solutions and ask questions.
+These installation instructions are expected to be current, so please read through every step again to ensure that you didn't skip or misunderstand something before going to https://discord.gg/Dgzerzb[Discord] for help.
 
-These Installation Instructions are expected to be current, so please read through every step again to ensure that you didn't skip or misunderstand something before going to the forums.
+If you run into issues during installation or need help understanding one of the following steps, please visit https://discord.gg/Dgzerzb[Discord] to look for solutions and ask questions.
 
 If you are an absolute beginner to programming and compiling then you may want to go through the https://github.com/cmangos/issues/wiki/Beginners-Guide-Home[Beginner's Guide] first.
 
@@ -19,12 +19,10 @@ If you are an absolute beginner to programming and compiling then you may want t
 Addresses
 ---------
 
- * CMaNGOS: https://cmangos.net[site] | https://forum.cmangos.net[forum] | https://github.com/cmangos[git repositories] | https://discord.gg/Dgzerzb[discord]
- * Classic-DB: https://github.com/cmangos/classic-db/issues[forum] | https://github.com/cmangos/classic-db.git[git repository]
- * TBC-DB: https://github.com/cmangos/tbc-db/issues[forum] | https://github.com/cmangos/tbc-db.git[git repository]
- * WOTLK-DB: https://github.com/cmangos/wotlk-db/issues[forum] | https://github.com/cmangos/wotlk-db.git[git repository]
- * YTDB: http://ytdb.ru[forum] | http://svn2.assembla.com/svn/ytdbase/[svn repository]
- * PSDB: http://project-silvermoon.forumotion.com/[forum] | http://subversion.assembla.com/svn/psmdb_wotlk/[svn repository]
+ * General -> https://cmangos.net[site] | https://github.com/cmangos[github org] | https://github.com/cmangos/issues/issues[bug tracker] | https://discord.gg/Dgzerzb[discord]  
+ * Classic -> https://github.com/cmangos/classic-db/issues[forum] | https://github.com/cmangos/mangos-classic.git[core repo] | https://github.com/cmangos/classic-db.git[database repo] | https://github.com/cmangos/classic-db/releases/tag/classic-db_PreBuild[latest database release] | https://github.com/cmangos/mangos-classic/releases/tag/Last_mangos-classic_PreBuild[latest core release]
+ * TBC -> https://github.com/cmangos/tbc-db/issues[forum] | https://github.com/cmangos/mangos-tbc.git[core repo] | https://github.com/cmangos/tbc-db.git[database repo] | https://github.com/cmangos/tbc-db/releases/tag/tbc-db_PreBuild[latest database release] | https://github.com/cmangos/mangos-tbc/releases/tag/Last_mangos-tbc_PreBuild[latest core release] 
+ * WotLK -> https://github.com/cmangos/wotlk-db/issues[forum] | https://github.com/cmangos/mangos-wotlk.git[core repo] | https://github.com/cmangos/wotlk-db.git[database repo] | https://github.com/cmangos/wotlk-db/releases/tag/wotlk-db_PreBuild[latest database release] | https://github.com/cmangos/mangos-wotlk/releases/tag/Last_mangos-wotlk_PreBuild[latest core release]
 
 Software requirements (Windows)
 -------------------------------
@@ -33,7 +31,7 @@ Game client of:
 
  * World of Warcraft Classic (1.12.x) for cmangos-classic
  * World of Warcraft TBC (2.4.3) for cmangos-tbc
- * World of Warcraft WotLK (3.3.5a) for for cmangos-wotlk
+ * World of Warcraft WotLK (3.3.5a) for cmangos-wotlk
 
 Some tools:
 
@@ -42,12 +40,11 @@ Some tools:
  * Visual C++ 2015 or newer: https://www.visualstudio.com/downloads/[Visual Studio Downloads] (https://www.visualstudio.com/vs/community/[Visual Studio Community] 2015 is recommended, but Express 2015 for Desktop will also do the job and is free, it is however not as good a choice for open source development as CE (Community Edition).
  * Any MySQL server such as http://dev.mysql.com/downloads/mysql/[MySQL server community edition] or http://www.apachefriends.org/en/xampp.html[XAMPP]. (Note 2018-05-02: Do not use MySQL version 8.0 for now since build will fail on some queries. Use 5.7 until resolved)
  * Any MySQL client (optional, for easy database access) such as http://dev.mysql.com/downloads/workbench/[MySQL Workbench] or https://www.webyog.com/[SQLyog]
- * SVN (very optional, for easy download of alternative (not directly supported by the cmangos team) databases (ytdb / psdb)): http://tortoisesvn.net/downloads[Tortoise SVN].
  * An advanced text editor (optional) such as http://notepad-plus-plus.org/[Notepad++]. Definitely not required but will make editing the configuration files much easier in later steps.
 
 You can find https://youtu.be/drnlf4UMZ1w[here a video] of how to install Git, Visual Studio and CMAKE.
 
-An alternative page for a detailled installation guide on https://github.com/cmangos/issues/wiki/Detailed-installation-guide-for-Microsoft-Windows[windows installation]
+If you are having trouble with the instructions on this page, try this https://github.com/cmangos/issues/wiki/Detailed-installation-guide-for-Microsoft-Windows[alternate detailed installation guide for Windows users].
 
 Software requirements (*nix)
 ----------------------------
@@ -72,29 +69,23 @@ Essentials
 ----------
 
 CMaNGOS::
-  is the server, also called "core", which manages all the game inquiries and accesses your SQL Database to get the information needed.
+  is the server, also called "core", which manages all the game inquiries and accesses your SQL database to get the information needed.
 
 ScriptDev2::
-  is an optional library which contains C++ scripts that, when added to CMaNGOS, handles special events, quests, encounters and bosses.
-*AS OF 11/1/2015 ScriptDev2 HAS BEEN INTEGRATED INTO THE "CORE"*
+  is a library consisting of C++ scripts that handles special world events and quests, as well as complex dungeon & raid encounters.
+__AS OF 11/1/2015 ScriptDev2 HAS BEEN INTEGRATED INTO THE "CORE"__
 
 ACID::
-  stands for "Advanced Creature Intelligence Database". It is an optional SQL database that handles regular mobs and bosses. ACID and ScriptDev2 complement each other and you should use both. ACID is usually already included in the database shipped by the database providers.
-*AS OF 10/2016 ACID HAS BEEN INTEGRATED INTO THE "DATABASES"*
+  stands for "Advanced Creature Intelligence Database". Also referred to as "EAI" (EventAI). It is data that defines and handles the behaviors of most creatures in the world. https://github.com/cmangos/issues/wiki/creature_ai_scripts[ACID], https://github.com/cmangos/issues/wiki/dbscripts[DBScripts], and ScriptDev2 all complement each other, so you should consider all three options when creating scripts.
+__AS OF 10/2016 ACID HAS BEEN INTEGRATED INTO THE "DATABASES"__
 
-
-in the context of CMaNGOS installation is usually referring to the world database, which contains all of the content of the game world run by CMaNGOS.
+The "world db" in the context of a CMaNGOS installation is usually referring to the database which contains all of the content of the game world run by CMaNGOS.
 
 CMaNGOS databases::
   cMaNGOS provides 3 different content databases depending on the core version:
-  - WOTLK-DB (for WotLK - 3.3.5a)
-  - TBC-DB (for TBC - 2.4.3)
-  - Classic-DB (for Classic - 1.12.1)
-
-Alternative databases::
-  A few other teams also provide databases that work with the cmangos core, and while we here at cmangos don't directly support them they still are a valid choice, and to some a more prefered one.
-  - YTDB (for WotLK - 3.3.5a)
-  - PSDB (for WotLK - 3.3.5a)
+  - https://github.com/cmangos/wotlk-db[WotLK-DB] (for WotLK - 3.3.5a)
+  - https://github.com/cmangos/tbc-db[TBC-DB] (for TBC - 2.4.3)
+  - https://github.com/cmangos/classic-db[Classic-DB] (for Classic - 1.12.1)
 
 World Of Warcraft Client::
   is a client to connect to the server. It's your own copy of the game.
@@ -104,7 +95,7 @@ Tools
 -----
 
 Git::
-  is a free distributed revision control or source code management tool which allows you to easily manage a virtual filesystem. With this tool, you'll download the code from CMaNGOS, ScriptDev2, and ACID.
+  is a free distributed revision control or source code management tool which allows you to easily manage a virtual filesystem. With this tool, you can download or "clone" the CMaNGOS code.
 
 CMAKE::
   its the most used tools that help to keep this project cross-platform.
@@ -117,9 +108,6 @@ MySQL server::
 
 MySQL client::
   allows you to connect to the MySQL server by providing an easy-to-use interface to import and change the data in the database.
-
-IRC::
-  is a simple chat system that is used by supporters and developers of CMaNGOS.
 
 
 How things fit together
@@ -153,7 +141,7 @@ create a new user to run your mangos server under
 
  useradd -m -d /home/mangos -c "MaNGOS" -U mangos
 
-This guide assumes you will use this new user personnal folder (+/home/mangos+) as a base folder under which you will put everything.
+This guide assumes you will use this new user personal folder (+/home/mangos+) as a base folder under which you will put everything.
 
  cd /home/mangos
 
@@ -206,39 +194,6 @@ WotLK-DB
  git clone git://github.com/cmangos/wotlk-db.git
 
 This will create a new subfolder ++wotlk-db++ in which WOTLK-DB SQL-files are located.
-
-YTDB (WotLK)
-^^^^^^^^^^^^
-*On Windows*
-
-* Open ++C:\Mangos++ in the explorer, right-click on the right hand side
-* Select "Tortoise SVN Checkout" from the context menu.
-* Insert as SVN-URL: ++http://svn2.assembla.com/svn/ytdbase/++
-
-*On *nix*
-
- svn co http://svn2.assembla.com/svn/ytdbase/
-
-This will create a new folder (likely ++ytdbase++) in which YTDB SQL-files are located.
-
-*On *nix*
-
- svn co http://svn2.assembla.com/svn/ytdbase/Mangos/Cataclysm ytdbase/
-
-This will create a new folder (likely ++ytdbase++) in which YTDB SQL-files are located.
-
-PSDB (WotLK)
-^^^^^^^^^^^^
-*On Windows*
-
-* Open ++C:\Mangos++ in the explorer, right-click on the right hand side
-* Select "Tortoise SVN Checkout" from the context menu.
-* Insert as SVN-URL: ++http://svn.assembla.com/svn/psmdb_wotlk/++
-
-*On *nix*
-
- svn co http://svn.assembla.com/svn/psmdb_wotlk/
-
 
 Directory structure
 ~~~~~~~~~~~~~~~~~~~
@@ -335,7 +290,7 @@ An https://youtu.be/KlRM18SVCQA[video] of the build process is now available.
 * Tick 'BUILD_EXTRACTORS' 
 * Click 'Configure' button and set your compiler version and platform (note: platform is set to Win32 by default. Set it to x64 if you're using 64bit Windows.)
 * Select your options then click another time on 'Configure' button
-* Click 'Generate'button
+* Click 'Generate' button
 * If you get any errors messages run File -> Delete Cache and try to configure CMake again.
 * Now you can click on 'Open' button or go to C:\Mangos\mangos\bin\buildir and click on the .sln file
 * Wait for Visual Studio to finish loading.
@@ -354,7 +309,7 @@ If you cannot solve an error, please use the official forums or IRC channels to 
 Compiling CMaNGOS (*nix)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-We assume you have followed the instructions above, i.e. created the ++mangos++ user and cloned the core repository into ++/home/mangos/mangos++. Adjust the pathes if your setup is different.
+We assume you have followed the instructions above, i.e. created the ++mangos++ user and cloned the core repository into ++/home/mangos/mangos++. Adjust the paths if your setup is different.
 
 * Create the ++build++ folder:
 
@@ -404,14 +359,14 @@ Install CMaNGOS binary files (Windows)
 --------------------------------------
 * Transfer the files from your compile folder (likely ++C:\Mangos\mangos\bin\Win32_Release++) into ++C:\Mangos\run++
 * Go to ++C:\Mangos\mangos\src\game\AuctionHouseBot++ and copy ++ahbot.conf.dist.in++ to ++C:\Mangos\run++ and rename it to ++ahbot.conf++
-* If you compiled project with the PlayeBots enabled, go to ++C:\Mangos\mangos\src\game\PlayerBot++ and copy ++playerbot.conf.dist.in++ to ++C:\Mangos\run++ and rename it to ++playerbot.conf++
+* If you compiled project with the PlayerBots enabled, go to ++C:\Mangos\mangos\src\game\PlayerBot++ and copy ++playerbot.conf.dist.in++ to ++C:\Mangos\run++ and rename it to ++playerbot.conf++
 
 Extract files from the client
 -----------------------------
 
 *Note:* The extractors are compiled only if you pass the ++-DBUILD_EXTRACTORS=ON++ option to ++cmake++ during compilation.
 
-Note that extracting *mmaps* might take a long time depending on your CPU, you will want to give it as many CPU cores as you can. While *mmaps* are optional, their use is advised, as they improve AI pathfinding. You will be prompeted wether you want to extract them or not by the extraction script.
+Note that extracting *mmaps* might take a long time depending on your CPU, you will want to give it as many CPU cores as you can. While *mmaps* are optional, their use is advised, as they improve AI pathfinding. You will be prompted whether you want to extract them or not by the extraction script.
 
 Extraction on Windows
 ~~~~~~~~~~~~~~~~~~~~~
@@ -522,7 +477,7 @@ This will create an empty realmd database.
 Metrics database:
 ~~~~~~~~~~~~~~~~~
 
-For realtime metrics we suggest looking into InfluxDB and Grafana. The core supports posting HTTP data to a websocket in InfluxDB format.
+For real-time metrics we suggest looking into InfluxDB and Grafana. The core supports posting HTTP data to a websocket in InfluxDB format.
 
 In the configuration file all that is required is to fill out the following based on your connection in mangosd.conf:
 
@@ -634,56 +589,6 @@ So you need to:
 * Apply the remaining updates from the core (located in C:\Mangos\mangos\sql\updates
 ---------------------------------
 
-Alternative Databases
----------------------
-
-* Execute PSDB_Installer in psmdb_wotlk svn folder.
-* Type your info when prompted.
-* You can also edit PSDB_Installer.bat for quick re-install of PSDB & Scriptdev2 DB by changing "set   quick=on" & "set pass=".
-+
-Example of PSDB_Installer.bat:
-+
------------------------
-####################################################################################################
-8888888b.   .d8888b.  8888888b.  888888b.  (LK)
-888   Y88b d88P  Y88b 888  "Y88b 888  "88b
-888    888 Y88b.      888    888 888  .88P
-888   d88P  "Y888b.   888    888 8888888K.
-8888888P"      "Y88b. 888    888 888  "Y88b
-888              "888 888    888 888    888
-888        Y88b  d88P 888  .d88P 888   d88P
-888         "Y8888P"  8888888P"  8888888P"
-
-Credits to: Factionwars, Nemok and BrainDedd
-
-What is your MySQL host name?           [localhost]   :
-What is your MySQL user name?           [root]        :
-What is your MySQL password?            [ ]           :
-What is your MySQL port?                [3306]        :
-What is your World database name?       [mangos]      :
-What is your ScriptDev2 database name?  [scriptdev2]  :
-What is your Characters database name?  [characters]  :
-What is your Realmd database name?      [realmd]      :
-
-This will wipe out your current World database and replace it.
-Do you wish to continue? (y/n)
-
-This will wipe out your current ScriptDev2 database and replace it.
-Do you wish to continue? (y/n)
-
-This will wipe out your current Characters database and replace it.
-Do you wish to continue? (y/n)
-
-This will wipe out your current Realm database and replace it.
-Do you wish to continue? (y/n)
-
-This will optimize your current database.
-Do you wish to continue? (y/n)
-####################################################################################################
------------------------
-*Support for YTDB Needed.*
-
-
 Configuring CMaNGOS
 --------------------
 This part should be an extra wiki-page: Meaning of config files from mangos/sd2
@@ -700,13 +605,12 @@ The files are:
 
 * mangosd.conf: Holds configuration for the mangosd executable
 * realmd.conf: Holds configuration for the realmd executable
-* scriptdev2.conf: Holds configuration for ScriptDev2's settings(no longer used and may not exist)
 * (Very optional) ahbot.conf: Holds configuration for AHBot (by default disabled)
-* (optional, only if you enabled PlayerBots during complilation) playerbot.conf: Holds configuration for PlayerBots (by default disabled)
+* (optional, only if you enabled PlayerBots during compilation) playerbot.conf: Holds configuration for PlayerBots (by default disabled)
 
 Most important to configure are the database settings. You will need this if you decided to use a different password/user then the "default" combination of mangos/mangos.
 
-These settings are relatively self-explaining, you should look for the settings of "LoginDatabaseInfo", "WorldDatabaseInfo", "CharacterDatabaseInfo" and "ScriptDev2DatabaseInfo" (no file contains all of these options)
+These settings are relatively self-explanatory. You should pay attention mainly to the values of "LoginDatabaseInfo", "WorldDatabaseInfo", and "CharacterDatabaseInfo" found in your mangosd and realmd configuration files.
 
 
 (OPTIONAL) Update realmd.realmlist
