@@ -368,6 +368,7 @@ h4. TriggerCastFlags
 * *SCRIPT_COMMAND_MOVEMENT = 20*
 ** datalong: Change the "MovementType":creature_template#MovementType of a creature. Possible values: 0 = Idle, 1 = Random Movement, 2 = Waypoint Movement.
 ** datalong2: Wander distance (for random movement), "creature_movement_template.pathId":creature_movement_template#pathId (for waypoint movement).
+** datalong3: timer (in milliseconds) - use in conjunction with MoveRandomAroundPoint to trigger usage of TimedWanderMovementGenerator
 ** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL (8) will set random movement around the current position.
 ** Resulting source must be a creature.
 
