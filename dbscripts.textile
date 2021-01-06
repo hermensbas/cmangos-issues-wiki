@@ -175,7 +175,7 @@ The following commands can be used (enum ScriptCommand):
 |45|SCRIPT_COMMAND_START_RELAY_SCRIPT|Launch relay script or relay template.|
 |46|SCRIPT_COMMAND_CAST_CUSTOM_SPELL|resSource = Unit, cast spell at resTarget = Unit|
 |47|SCRIPT_COMMAND_INTERRUPT_SPELL|resSource = Unit, interrupt spell in specific slot|
-|48|SCRIPT_UNK_1|reserved|
+|48|SCRIPT_COMMAND_MODIFY_UNIT_FLAGS|Change Unit flags of a creature.|
 |49|SCRIPT_UNK_2|reserved|
 
 h4. buddy_entry
@@ -317,6 +317,8 @@ More Examples Can Be Found At: UpdateFields.h In Core
 
 * *SCRIPT_COMMAND_ACTIVATE_OBJECT = 13*
 ** The source must be a unit and the target a gameobject.
+** datalong: animation id; Used for "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL. Default is 0.
+** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL (8) will send a gameobject animation instead of standard gameobject Use() function
 
 * *SCRIPT_COMMAND_REMOVE_AURA = 14*
 ** datalong: "Spell ID":spell_template#Id.
@@ -440,10 +442,10 @@ h4. TriggerCastFlags
 ** datalong: NPC Flags
 ** datalong2:
 
-|Hex|Action|
-|0x00|Toggle|
-|0x01|Add|
-|0x02|Remove|
+|Value|Action|
+|0|Remove|
+|1|Add|
+|2|Toggle|
 
 * *SCRIPT_COMMAND_SEND_TAXI_PATH = 30*
 ** datalong: "Taxi path id":TaxiPath.dbc#Content.
@@ -539,3 +541,14 @@ _Side note: Only available on wotlk version._
 * *SCRIPT_COMMAND_INTERRUPT_SPELL= 47*
 ** Resulting source must be a Unit.
 ** datalong = SpellType, enum "CurrentSpellTypes":/mangos-wotlk/blob/master/src/game/Entities/Unit.h#L1074
+
+* *SCRIPT_COMMAND_MODIFY_UNIT_FLAGS = 48*
+** Resulting source must be a creature.
+** datalong: Unit Flags
+** datalong2:
+
+|Value|Action|
+|0|Remove|
+|1|Add|
+|2|Toggle|
+
