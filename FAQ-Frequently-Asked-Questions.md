@@ -26,6 +26,9 @@ As for content completeness, again it is impossible to say which is best. We'd l
 ### How do I install CMaNGOS?
 * See the [Installation Instructions](https://github.com/cmangos/issues/wiki/Installation-Instructions).
 
+### How do I create a systemd service for CMaNGOS?
+* See the [Systemd service guide](https://github.com/cmangos/issues/wiki/Creating-a-systemd-service).
+
 ### Error: "MySQL is not recognized as an internal or external command"
 * You need to add MySQL to your path environment so that windows recognizes the command by default. See [here](http://dev.mysql.com/doc/mysql-windows-excerpt/5.1/en/mysql-installation-windows-path.html) for a walk through from MySQL.
 
