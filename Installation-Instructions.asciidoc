@@ -686,6 +686,8 @@ and then, as ++mangos++ user, run ++crontab -e++ and add this line :
 
 It'll run this script at your server boot.
 
+Alternatively you can https://github.com/cmangos/issues/wiki/Creating-a-systemd-service[create a systemd service] for CMaNGOS.
+
 
 Creating first account:
 -----------------------
