@@ -111,15 +111,23 @@ SetId of the Immunityset to Summarize all different Immunities, Default: 0
 ###### Examples
 
 -- CREATURE_EXTRA_FLAG_NOT_TAUNTABLE
-
+```
 (entry, 0, 0, 114), -- SPELL_EFFECT_ATTACK_ME
-
 (entry, 0, 1, 11), -- SPELL_AURA_MOD_TAUNT
+```
 
 -- CREATURE_EXTRA_FLAG_HASTE_SPELL_IMMUNITY
-
+```
 (entry, 0, 1, 216), -- SPELL_AURA_HASTE_SPELLS
+```
 
 -- CREATURE_EXTRA_FLAG_POISON_IMMUNITY
-
+```
 (entry, 0, 4, 4), -- DISPEL_POISON
+```
+
+-- Life Draining Effects (Mechanical Units)
+```
+(entry, 0, 0, 9), -- SPELL_EFFECT_HEALTH_LEECH
+(entry, 0, 1, 53), -- SPELL_AURA_PERIODIC_LEECH
+```
