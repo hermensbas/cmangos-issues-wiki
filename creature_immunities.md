@@ -122,4 +122,4 @@ SetId of the Immunityset to Summarize all different Immunities, Default: 0
 
 -- CREATURE_EXTRA_FLAG_POISON_IMMUNITY
 
-(entry, 0, 4, 4), -- SPELL_AURA_HASTE_SPELLS
+(entry, 0, 4, 4), -- DISPEL_POISON
