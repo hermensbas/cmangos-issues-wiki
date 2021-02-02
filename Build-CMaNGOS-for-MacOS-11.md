@@ -90,15 +90,14 @@ For Classic use instead:
 
 `$ git clone git://github.com/scriptdev2/scriptdev2-classic.git mangos-classic/src/bindings/ScriptDev2`
 
-
-We will now use CMake to generate our Makefile. Our Makefile is what contains instructions to build the application.
-
-```
-$ mkdir mangos-wotlk/build && cd mangos-wotlk/build
-$ cmake .. -DCMAKE_INSTALL_PREFIX=~/mangos/run
-```
-
 ## 3. Build and Install (Create the engine)
+
+We will now compile our application
+
+```
+$ mkdir build && cd build
+$ cmake ../mangos-wotlk -DCMAKE_INSTALL_PREFIX=\../mangos/run -DBUILD_EXTRACTORS=ON -DPCH=1 -DDEBUG=0
+```
 
 If we've made it this far, we're ready to build:
 
@@ -118,14 +117,13 @@ Finally, we will create the config files from their template files.
 $ cd ~/mangos/run/etc/
 $ cp realmd.conf.dist realmd.conf
 $ cp mangosd.conf.dist mangosd.conf
-$ cp scriptdev2.conf.dist scriptdev2.conf
 ```
 
 ## 4. Extract Maps and DBC (Add a world around the engine)
 Now that the server is built and installed, we will extract all the maps, objects, spells and others data from the game files. The CMaNGOS server will need them to shape the world around our characters. The extractor utility can be built from the CMaNGOS source files:
 ```
 $ cd ~/mangos/mangos-wotlk/contrib/extractor
-$ cmake -G "Unix Makefiles" -DCMAKE_OSX_ARCHITECTURES=i386
+$ cmake -G "Unix Makefiles"z
 $ make
 ```
 There now should be an new file named `ad`. This is the Map/DBC Extractor. We will extract the maps and the DBC files from the game data and put the extracted files where the freshly compiled server was installed. Note that we can replace `f 0` by `f 1` on the last line for more accurate maps, but at the cost of larger file size).
