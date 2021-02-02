@@ -1,13 +1,11 @@
 **These instructions are specific to MacOS 11 and were only tested with Mac OS X 11.1**
 
-## 1: Basics
-
 **Privileges**
 
 We must have access to an administrator account on your computer. Nearly all steps will be carried out via Terminal.
 
 
-## 2: Software Tools
+## 1: Software Tools
 
 In order to download, compile and install CMaNGOS and its tools, we will need the following free software:
 
@@ -62,7 +60,7 @@ Once this software is installed, we can move to the next step.
 
 
 
-## 3. CMaNGOS Build Setup
+## 2. CMaNGOS Build Setup
 
 The following is a brief overview of the directory structure we will assume for this project (step-by-step instructions follow):
 * The entire CMaNGOS application will reside in a project folder named `mangos`
@@ -100,7 +98,7 @@ $ mkdir mangos-wotlk/build && cd mangos-wotlk/build
 $ cmake .. -DCMAKE_INSTALL_PREFIX=~/mangos/run
 ```
 
-## 4. Build and Install (Create the engine)
+## 3. Build and Install (Create the engine)
 
 If we've made it this far, we're ready to build:
 
@@ -111,7 +109,7 @@ If successful, we can install the compiled files:
 `$ make install`
 
 
-### GUIDE TESTED TO HERE
+**## GUIDE TESTED TO HERE**
 
 
 
@@ -123,7 +121,7 @@ $ cp mangosd.conf.dist mangosd.conf
 $ cp scriptdev2.conf.dist scriptdev2.conf
 ```
 
-## 5. Extract Maps and DBC (Add a world around the engine)
+## 4. Extract Maps and DBC (Add a world around the engine)
 Now that the server is built and installed, we will extract all the maps, objects, spells and others data from the game files. The CMaNGOS server will need them to shape the world around our characters. The extractor utility can be built from the CMaNGOS source files:
 ```
 $ cd ~/mangos/mangos-wotlk/contrib/extractor
@@ -137,12 +135,12 @@ $ cd /Applications/World\ of\ Warcraft/
 $ chmod +x ad
 $ ./ad -f 0 -i /Applications/World\ of\ Warcraft/ -o .
 ```
-We should now have two new directories inside our World of Warcraft client folder: dbc and maps. By default, these folders need to be located with the server binaires we built in step 4. If we want to use mmaps (for pathfinding and smoother creatures movements), we can continue to step 6. Otherwise, we simply move the dbc and maps folders to the server directory:
+We should now have two new directories inside our World of Warcraft client folder: dbc and maps. By default, these folders need to be located with the server binaires we built in step 4. If we want to use mmaps (for pathfinding and smoother creatures movements), we can continue to step 5. Otherwise, we simply move the dbc and maps folders to the server directory:
 
 `$ mv dbc maps ~/mangos/run/bin/`
 
 
-## 6. Installing the vmaps (optional, but highly recommended)
+## 5. Installing the vmaps (optional, but highly recommended)
 Vmaps are used by the server to determine if an NPC can see/attack our characters, through walls for instance. This is also called LoS calculation (Line of Sight).
 We will extract the vmaps from the game data and then assemble them. CMaNGOS does not yet provide binaries for Mac but it does provide the source files, thus we will build our own binaries. First, we need to download and apply a patch written by evil-at-wow and cala:
 
@@ -155,7 +153,7 @@ $ git apply fix_extractors_for_os_x.patch
 ```
 
 
-### GUIDE UPDATED TO HERE
+**## GUIDE UPDATED TO HERE**
 
 
 If everything went OK, you should not have any feedback and we need to commit (aka save the changes).
