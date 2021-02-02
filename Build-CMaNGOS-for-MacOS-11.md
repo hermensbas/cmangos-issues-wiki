@@ -1,14 +1,15 @@
 **These instructions are specific to MacOS 11 and were only tested with Mac OS X 11.1**
 
-## 1: Getting everything we need
+## 1: Basics
 
 **Privileges**
 
-We must have access to an administrator account on your computer.
+We must have access to an administrator account on your computer. Nearly all steps will be carried out via Terminal.
 
-**Software tools**
 
-In order to download, compile and install CMaNGOS and its tools, we will need the following software, all of which is free.
+## 2: Software Tools
+
+In order to download, compile and install CMaNGOS and its tools, we will need the following free software:
 
 
 **Developers Tools (Xcode)**
@@ -61,103 +62,102 @@ Once this software is installed, we can move to the next step.
 
 
 
-## 2. Building CMaNGOS - Creating the world engine
+## 3. CMaNGOS Build Setup
 
-The following is an overview of the directory structure we will assume. Step-by-step instructions will follow:
-* The entire CMaNGOS application will reside in a folder named `mangos`
-* We will download CMaNGOS source code into a subdirectory of `mangos`, name `mangos-wotlk`
-* We will install the server into subdirectory of `mangos` named `run`
+The following is a brief overview of the directory structure we will assume for this project (step-by-step instructions follow):
+* The entire CMaNGOS application will reside in a project folder named `mangos`
+* We will download CMaNGOS source code into a subdirectory of the `mangos` project folder, named `mangos-wotlk`
+* We will install the server application into subdirectory of `mangos` named `run`
 * The World of Warcraft game client is located at /Applications/World of Warcraft/
 
-First, we will download all sources for CMaNGOS and scripts.
-Open Terminal and enter:
+**Clone the CMaNGOS and ScriptDev Repositories**
+First, we will download or "clone" the source code repository for CMaNGOS. We have chosen to create our `mangos` project directory in our home directory (i.e. `/Users/<username>/`), but the `mangos` project can be placed anywhere we have appropriate read/write/execute privileges. Our home directory is the safest bet. Note that the tilde `~` can be used in place of the home directory path, i.e. `/Users/<username>/mangos` is the same as writing `~/mangos`.
+
+From Terminal, we execute the following. This may take a few moments:
 ```
-$mkdir mangos && cd mangos
-$git clone git://github.com/cmangos/mangos-wotlk.git mangos
+$ cd ~
+$ mkdir -p mangos/run && cd mangos
+$ git clone git://github.com/cmangos/mangos-wotlk.git
 ```
-or for TBC:
 
-`$git clone git://github.com/cmangos/mangos-tbc.git mangos`
+Next, we clone the ScriptDev repository. ScriptDev allows NPC to cast more spells and do complex things. This not mandatory but we will certainly want it:
 
-Or for classic:
-
-`$git clone git://github.com/cmangos/mangos-classic.git mangos`
-
-Once the download is finished, we create the directory where the CMaNGOS server will be installed:
-
-`$mkdir run`
-
-Now, we will prepare to build the server
-
-`$cd mangos`
-
-Download the source files for the scripts (allows NPC to cast more spells and do complex things, not mandatory but you definitely want them):
-
-`$git clone git://github.com/scriptdev2/scriptdev2.git src/bindings/ScriptDev2`
+`$ git clone git://github.com/scriptdev2/scriptdev2.git mangos-wotlk/src/bindings/ScriptDev2`
 
 For TBC use instead:
 
-`$git clone git://github.com/scriptdev2/scriptdev2-tbc.git src/bindings/ScriptDev2`
+`$ git clone git://github.com/scriptdev2/scriptdev2-tbc.git mangos-tbc/src/bindings/ScriptDev2`
 
 For Classic use instead:
 
-`$git clone git://github.com/scriptdev2/scriptdev2-classic.git src/bindings/ScriptDev2`
+`$ git clone git://github.com/scriptdev2/scriptdev2-classic.git mangos-classic/src/bindings/ScriptDev2`
 
-We will now configure the compilation to tell cmake we want to install CMaNGOS server into the server directory we created earlier:
+
+We will now use CMake to generate our Makefile. Our Makefile is what contains instructions to build the application.
 
 ```
-$mkdir build && cd build
-$cmake .. -DCMAKE_INSTALL_PREFIX=~/mangos/run -DCMAKE_C_COMPILER=~/toolchains/gcc-4.8.5/bin/gcc -DCMAKE_CXX_COMPILER=~/toolchains/gcc-4.8.5/bin/g++ -DBOOST_INCLUDEDIR=/usr/local/boost/include
+$ mkdir mangos-wotlk/build && cd mangos-wotlk/build
+$ cmake .. -DCMAKE_INSTALL_PREFIX=~/mangos/run
 ```
 
-If everything is OK, we can compile:
+## 4. Build and Install (Create the engine)
 
-`$make`
+If we've made it this far, we're ready to build:
 
-*Note: If your computer's CPU is multicore, you can instead type `$make -jN` where N is your number of cores. For instance, compiling on a 4 cores CPU: `$make -j4`
-You can use the same command option everytime you will see `$make` in this tutorial.*
+`$ make`
 
-If everything went OK, we can install the compiled files:
+If successful, we can install the compiled files:
 
-`$make install`
+`$ make install`
+
+
+### GUIDE TESTED TO HERE
+
+
 
 Finally, we will create the config files from their template files.
 ```
-$cd ~/mangos/run/etc/
-$cp realmd.conf.dist realmd.conf
-$cp mangosd.conf.dist mangosd.conf
-$cp scriptdev2.conf.dist scriptdev2.conf
+$ cd ~/mangos/run/etc/
+$ cp realmd.conf.dist realmd.conf
+$ cp mangosd.conf.dist mangosd.conf
+$ cp scriptdev2.conf.dist scriptdev2.conf
 ```
 
-## 3. Extracting Maps and DBC - adding a world around the engine
-Now the server is built and installed, we will extract all the maps, objects, spells and others data from the game files. The CMaNGOS server will need them to shape the world around your characters. The extractor utility is provided with the CMaNGOS source files and we will build it:
+## 5. Extract Maps and DBC (Add a world around the engine)
+Now that the server is built and installed, we will extract all the maps, objects, spells and others data from the game files. The CMaNGOS server will need them to shape the world around our characters. The extractor utility can be built from the CMaNGOS source files:
 ```
-$cd ~/mangos/mangos
-$cd ./contrib/extractor
-$cmake -G "Unix Makefiles" -DCMAKE_OSX_ARCHITECTURES=i386
-$make
+$ cd ~/mangos/mangos-wotlk/contrib/extractor
+$ cmake -G "Unix Makefiles" -DCMAKE_OSX_ARCHITECTURES=i386
+$ make
 ```
-There now should be an new file named `ad`. This is the Map/DBC Extractor. We will extract the maps and the DBC files from the game data and put the extracted files where the freshly compiled server was installed.
+There now should be an new file named `ad`. This is the Map/DBC Extractor. We will extract the maps and the DBC files from the game data and put the extracted files where the freshly compiled server was installed. Note that we can replace `f 0` by `f 1` on the last line for more accurate maps, but at the cost of larger file size).
 ```
-$cp ad /Applications/World\ of\ Warcraft/
-$cd  /Applications/World\ of\ Warcraft/
-$chmod +x ad
-$./ad -f 0 -i /Applications/World\ of\ Warcraft/ -o .
+$ cp ad /Applications/World\ of\ Warcraft/
+$ cd /Applications/World\ of\ Warcraft/
+$ chmod +x ad
+$ ./ad -f 0 -i /Applications/World\ of\ Warcraft/ -o .
 ```
-You can either remplace `f 0` by `f 1`, depending of the accuracy you want for the maps (but at the cost of larger file size). You should now have two new directories: dbc and maps inside your WoW client folder. By default, they need to be put where the server binaires are. If you want to use mmaps (for pathfinding and smoother creatures movements), you can go to step 4. If you don't want to use mmaps, you can move the dbc and maps to the server directory:
+We should now have two new directories inside our World of Warcraft client folder: dbc and maps. By default, these folders need to be located with the server binaires we built in step 4. If we want to use mmaps (for pathfinding and smoother creatures movements), we can continue to step 6. Otherwise, we simply move the dbc and maps folders to the server directory:
 
-`$mv dbc maps ~/mangos/run/bin/`
-## 4. Installing the vmaps (optional, but highly recommended)
-Vmaps are used by the server to determine if NPC can see/attack your characters, through walls for instance. This is also called LoS calculation (Line of Sight).
-We will extract the vmaps from the game data and then assemble them. CMaNGOS does not yet provide binaries for Mac but it does provide the source files, thus we will build our own binaries. First, we need to download and apply a patch written by evil-at-wow and myself:
+`$ mv dbc maps ~/mangos/run/bin/`
 
-`$cd ~/mangos/mangos`
+
+## 6. Installing the vmaps (optional, but highly recommended)
+Vmaps are used by the server to determine if an NPC can see/attack our characters, through walls for instance. This is also called LoS calculation (Line of Sight).
+We will extract the vmaps from the game data and then assemble them. CMaNGOS does not yet provide binaries for Mac but it does provide the source files, thus we will build our own binaries. First, we need to download and apply a patch written by evil-at-wow and cala:
+
+`$ cd ~/mangos/mangos-wotlk`
 
 (copy paste the command line below into Terminal)
 ```
-$curl https://gist.githubusercontent.com/cala/5784873/raw/0b06591d9aac800a2ede4b8ba4b15e586d5d789e/Fix%20extractors%20build%20for%20Mac%20OS%20X -o fix_extractors_for_os_x.patch
-$git apply fix_extractors_for_os_x.patch
+$ curl https://gist.githubusercontent.com/cala/5784873/raw/0b06591d9aac800a2ede4b8ba4b15e586d5d789e/Fix%20extractors%20build%20for%20Mac%20OS%20X -o fix_extractors_for_os_x.patch
+$ git apply fix_extractors_for_os_x.patch
 ```
+
+
+### GUIDE UPDATED TO HERE
+
+
 If everything went OK, you should not have any feedback and we need to commit (aka save the changes).
 
 `$git commit -am "Fix extractors build for Mac OS X"`
