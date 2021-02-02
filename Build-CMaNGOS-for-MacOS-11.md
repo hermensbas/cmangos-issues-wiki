@@ -1,60 +1,73 @@
-These instructions are specific to MacOS 11. They were only tested with Mac OS X 11.1
+**These instructions are specific to MacOS 11 and were only tested with Mac OS X 11.1**
 
-## 1: Getting everything you need
+## 1: Getting everything we need
 
 **Privileges**
 
-You must have access to an administrator account on your computer.
+We must have access to an administrator account on your computer.
 
 **Software tools**
 
-In order to download, compile and install CMaNGOS and its tools, you will need the following software. All of them are free, though some may require you to register on the company website before downloading.
+In order to download, compile and install CMaNGOS and its tools, we will need the following software, all of which is free.
+
 
 **Developers Tools (Xcode)**
 
-You'll need them to compile the source files. They are provided to developers by Apple You can grab Xcode here: https://developer.apple.com/xcode/   
-Don't forget to install the command line tools (Preferences>Download for the last version of Xcode)
+This is what we will use to compile the source files. Provided to developers by Apple, you can find Xcode here: https://developer.apple.com/xcode/   
+**Don't forget to install the Xcode Command Line Tools!**
 
 
 **Homebrew**
 
-Installation of many of the software packages below can be made much easier through use of a package manager.  The most popular package manager for MacOS is Homebrew, which is somewhat similar to e.g. the apt package manager in Debian/Ubuntu. Homebrew installation instructions and download can be found here: https://brew.sh/
+Installation of many of the software packages below can be made much easier through use of a package manager. The most popular package manager for MacOS is Homebrew, which is somewhat similar to e.g. the apt package manager in Debian/Ubuntu. Homebrew installation instructions can be found here: https://brew.sh/
+
+**Most of the installation instructions that follow are carried out via Terminal.**
+
 
 **Boost lib**
 
-The network part of CMaNGOS relies on the boost library. Install Boost with Homebrew with:
+The network part of CMaNGOS relies on the Boost library. We can install Boost with Homebrew:
 `$ brew install boost`
 
-Alternatively, you can install/compile boost from http://www.boost.org/users/download/. We will assume that Boost is installed under `/usr/local/boost/`. You will need to let your OS know where Boost lib directory is by running:
+Boost libraries should be found in the directory `/usr/local/opt`. If they are not, we must copy them to this location. Homebrew may install boost in `/usr/local/Cellar`, so look there first.
+
+We will also need to let MacOS know where the Boost libraries reside. We can save the path to and reload our zsh profile by executing the following commands:
 ```
-$ echo "export DYLD_LIBRARY_PATH
-$ DYLD_LIBRARY_PATH=/usr/local/boost/lib:DYLD_LIBRARY_PATH
-$ export DYLD_LIBRARY_PATH
+$ echo "export DYLD_LIBRARY_PATH=/usr/local/opt/boost/lib:DYLD_LIBRARY_PATH" >> ~/.zshrc"
+$ source ~/.zshrc
 ``` 
+
 
 **MySQL Community Database Server**
 
-Where a great part of the data about the game server side will be stored.  
-Link: http://dev.mysql.com/downloads/mysql/?rz=gdl#downloads  
-Of course, if you have a 64-bit Mac, install the 64-bit MySQL package
+A great part of the game server data will be stored using MySQL. Currently, version <=5.7 of MySQL is supported.
+
+We can install the proper version of MySQL with:
+`$ brew install mysql@5.7`
+
 
 **Git**
 
-Git comes with Xcode so you don't have to install it separately. If you want a newer version you can download it from http://git-scm.com/
+Git comes with Xcode, so it needn't be installed separately. The official git website is http://git-scm.com/
+
 
 **CMake**
 
-To configure compilation. Get it from here: http://www.cmake.org/cmake/resources/software.html  
-Of course, if you have a 64-bit Mac, install the 64-bit CMake package.
+CMake configures our Makefiles, which are in turn used to compile our code. We can install CMake with:
+`$ brew install cmake`
 
-Once all these softwares are downloaded and installed on your Mac, you can move to the next step.
 
-## 2. Building CMaNGOS - creating the world engine
-From now, we will assume that:
-* all the building will be done in a directory named mangos into your home directory
-* you will download CMaNGOS sources into a subdirectory of this mangos folder (which we will also name mangos)
-* you will install your server also into subdirectory of this mangos directory (which will be named run)
-* your game client is located in /Applications/World of Warcraft/
+Once this software is installed, we can move to the next step.
+
+
+
+## 2. Building CMaNGOS - Creating the world engine
+
+The following is an overview of the directory structure we will assume. Step-by-step instructions will follow:
+* The entire CMaNGOS application will reside in a folder named `mangos`
+* We will download CMaNGOS source code into a subdirectory of `mangos`, name `mangos-wotlk`
+* We will install the server into subdirectory of `mangos` named `run`
+* The World of Warcraft game client is located at /Applications/World of Warcraft/
 
 First, we will download all sources for CMaNGOS and scripts.
 Open Terminal and enter:
