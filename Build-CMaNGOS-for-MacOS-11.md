@@ -109,7 +109,7 @@ If successful, we can install the compiled files:
 `$ make install`
 
 
-**## GUIDE TESTED TO HERE**
+## GUIDE TESTED TO HERE
 
 
 
@@ -153,7 +153,7 @@ $ git apply fix_extractors_for_os_x.patch
 ```
 
 
-**## GUIDE UPDATED TO HERE**
+## GUIDE UPDATED TO HERE
 
 
 If everything went OK, you should not have any feedback and we need to commit (aka save the changes).
