@@ -399,8 +399,8 @@ Depending on your installation settings, a simple double click onto the ++Extrac
 
 * When finished, move the folders ++maps++, ++dbc++, and ++vmaps++ - optionally ++mmaps++ and ++Cameras++ - that have been created in your ++C:\World of Warcraft++ to your ++C:\Mangos\run++ (the buildings folder is not required and can be deleted).
 
-Extraction on *nix
-~~~~~~~~~~~~~~~~~~
+Extraction on *nix and MacOS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you followed this guide you should find all the extractor files in ++/home/mangos/mangos/run/bin/tools++.
 
@@ -457,7 +457,7 @@ From the C:\Mangos folder invoke (in Git bash):
 +
 This will create and fill in Mangos database the imported DBC data.
 
-On *nix you may want to use the following two scripted commands:
+On *nix and MacOS you may want to use the following two scripted commands:
 
 * ++for sql_file in $(ls mangos/sql/base/dbc/original_data/*.sql); do mysql -uroot -p --database=classicmangos < $sql_file ; done++
 
