@@ -326,7 +326,7 @@ An https://youtu.be/KlRM18SVCQA[video] of the build process is now available.
 If you cannot solve an error, please use the official forums or IRC channels to ask for help
 
 Compiling CMaNGOS (*nix & MacOS)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We assume you have followed the instructions above, i.e. created the ++mangos++ user and cloned the core repository into ++/home/mangos/mangos++. Adjust the paths if your setup is different.
 
