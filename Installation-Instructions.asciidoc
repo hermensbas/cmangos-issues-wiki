@@ -3,7 +3,7 @@ Installation Instructions
 
 How to install C(ontinued)-MaNGOS from scratch and apply the latest updates.
 
-This guide will help you for Windows or *nix (Ubuntu, Debian) and for all supported clients: Classic - TBC - WotLK.
+This guide will help you for Windows, *nix (Ubuntu, Debian), and MacOS (11.1) (**in progress**), and for all supported clients: Classic - TBC - WotLK.
 
 Instructions covering Mac OS X (10.6 & 10.7) specific steps are available https://github.com/cmangos/issues/wiki/Build-CMaNGOS-for-Mac-OS-X[here] in addition of this guide.
 
@@ -24,7 +24,7 @@ Addresses
  * TBC -> https://github.com/cmangos/tbc-db/issues[forum] | https://github.com/cmangos/mangos-tbc.git[core repo] | https://github.com/cmangos/tbc-db.git[database repo] | https://github.com/cmangos/tbc-db/releases/tag/tbc-db_PreBuild[latest database release] | https://github.com/cmangos/mangos-tbc/releases/tag/Last_mangos-tbc_PreBuild[latest core release] 
  * WotLK -> https://github.com/cmangos/wotlk-db/issues[forum] | https://github.com/cmangos/mangos-wotlk.git[core repo] | https://github.com/cmangos/wotlk-db.git[database repo] | https://github.com/cmangos/wotlk-db/releases/tag/wotlk-db_PreBuild[latest database release] | https://github.com/cmangos/mangos-wotlk/releases/tag/Last_mangos-wotlk_PreBuild[latest core release]
 
-Software requirements (Windows)
+Software requirements (General)
 -------------------------------
 
 Game client of:
@@ -32,6 +32,10 @@ Game client of:
  * World of Warcraft Classic (1.12.x) for cmangos-classic
  * World of Warcraft TBC (2.4.3) for cmangos-tbc
  * World of Warcraft WotLK (3.3.5a) for cmangos-wotlk
+
+
+Software requirements (Windows)
+-------------------------------
 
 Some tools:
 
@@ -64,6 +68,16 @@ You will need Git, GCC, CMake, MySQL, Boost and a few libraries.
   dnf install git make cmake gcc patch autoconf mariadb-server mariadb-devel libtool zfstream gcc-c++ subversion boost-devel boost-static
 
 _Note: precompiled headers require a cmake that is version 3.16 or newer. You can compile from source or get binary releases on this page: https://cmake.org/download/
+
+Software requirements (MacOS)
+----------------------------
+
+You will need https://developer.apple.com/xcode/[Xcode] and https://brew.sh/[Homebrew] installed to follow this guide.
+
+Install dependencies as follows
+
+  xcode-select --install
+  brew install cmake boost mysql@5.7
 
 Essentials
 ----------
@@ -203,11 +217,11 @@ Now you should have the following subfolders:
  - ++mangos++ (containing the sources of CMaNGOS)
  - ++classic-db++ OR ++tbc-db++ OR ++wotlk-db++ OR ++Database++ containing the content of your database-provider
 
-For windows we suggest creating an additional ++run++ folder, on *nix this can be useful if you don't want to install to ++/opt++ or so
+For windows we suggest creating an additional ++run++ folder, on *nix and MacOS this can be useful if you don't want to install to ++/opt++ or so
 
  - ++run++
 
-For *nix or cmake compile we suggest creating an additional ++build++ folder, this is not required for Visual Studio
+For *nix, MacOS, or cmake compile we suggest creating an additional ++build++ folder, this is not required for Visual Studio
 
  - ++build++
 
@@ -215,13 +229,18 @@ For *nix or cmake compile we suggest creating an additional ++build++ folder, th
 Compiling CMaNGOS
 -----------------
 
-Installing and Configuring boost (UNIX)
+Installing and Configuring boost (*nix and MacOS)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The CMaNGOS cmake scripts should automatically detect the location of your boost installation, and configure the build accordingly.  If it is not detected, please ensure that your BOOST_ROOT environment variable is set properly.
 
 On most *nix you just have to install boost development libraries from your distribution package repositories.
 
 On Debian and Ubuntu you can simply install the ++libboost-all-dev++ meta-package. On Fedora there should be a package named ++boost-devel++ (untested). If you followed the https://github.com/cmangos/issues/wiki/Installation-Instructions#software-requirements-nix[Software requirements (*nix)] step above you should have the respective package installed already.
+
+On MacOS, add the boost path as an environment variable
+
+  echo "export DYLD_LIBRARY_PATH=/usr/local/opt/boost/lib:DYLD_LIBRARY_PATH" >> ~/.zshrc"
+  source ~/.zshrc
 
 For instructions on how to compile boost from source code or general information, see the boost http://www.boost.org/more/getting_started/index.html[Getting Started] guide.
 
@@ -306,7 +325,7 @@ An https://youtu.be/KlRM18SVCQA[video] of the build process is now available.
 
 If you cannot solve an error, please use the official forums or IRC channels to ask for help
 
-Compiling CMaNGOS (*nix)
+Compiling CMaNGOS (*nix & MacOS)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 We assume you have followed the instructions above, i.e. created the ++mangos++ user and cloned the core repository into ++/home/mangos/mangos++. Adjust the paths if your setup is different.
