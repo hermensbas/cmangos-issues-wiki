@@ -161,7 +161,7 @@ The content of the data fields depends on the "gameobject type":#type
 ** data3: gossipID (unknown ID)
 ** data4: customAnim (unknown value from 1 to 4)
 ** data5: noDamageImmune (Boolean flag)
-** data6: openTextID (Unknown Text ID)
+** data6: openTextID (broadcast_text ID)
 ** data7: losOK (Boolean flag)
 ** data8: allowMounted (Boolean flag)
 ** data9: large? (Boolean flag)
