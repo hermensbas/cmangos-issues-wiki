@@ -118,6 +118,19 @@ h4. Dispel
 
 Dispel type of a spell. Some spells can only dispel specific types of spells, for example poisons.
 
+|*Id*|*Enum name*|*Comment*|
+| 0| DISPEL_NONE|          |
+| 1| DISPEL_MAGIC|         |
+| 2| DISPEL_CURSE|   |
+| 3| DISPEL_DISEASE|        |
+| 4| DISPEL_POISON|      |
+| 5| DISPEL_STEALTH|          |
+| 6| DISPEL_INVISIBILITY|        |
+| 7| DISPEL_ALL |          |
+| 8| DISPEL_SPE_NPC_ONLY |          |
+| 9| DISPEL_ENRAGE|       |
+|10| DISPEL_ZG_TICKET|         |
+
 h4. Mechanic
 
 Spells effects utilize a mechanics.
