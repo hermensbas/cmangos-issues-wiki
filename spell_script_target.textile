@@ -2,7 +2,7 @@ Back to "world database":mangosdb_struct list of tables.
 
 h2. The `spell_script_target` table
 
-Used to control SpellEffect with ImplicitTargetA-B.
+Used to control SpellEffect with ImplicitTargetA-B. The target, either GO or Creature can be utilized to supply either itself or its XYZ.
 
 |ID|Name|
 | 2|TARGET_UNIT_ENEMY_NEAR_CASTER|
@@ -44,6 +44,9 @@ h4. type
 |1|Creature by Entry|
 |2|Creature which must be dead (killed by Player or Npc)|
 |3|Creature by Guid|
+|4|Gameobject by Guid|
+
+Supply through Guid now utilizes Map wide fetching when range of spell is 50000yd. This can be used for many map wide scripts, but remember the target still has to be loaded in grid.
 
 NOTE: A creature corpse and a creature that _looks_ dead are two different things. One is actually dead and the other is just using an emote or spell to appear dead.
 
