@@ -2,7 +2,7 @@ Back to "world database":mangosdb_struct list of tables.
 
 h2. The `spell&#95;teleport` table
 
-This table holds coordinate information on supplying XYZ data for TARGET_LOCATION_DATABASE
+This table holds coordinate information on supplying XYZ data for TARGET_LOCATION_DATABASE - 17
 
 h3. Structure
 
