@@ -432,27 +432,27 @@ Determines specific stances in which caster cannot be for spell to be successful
 
 h4. Targets
 
-Determines the default targets for some spells. These specify what needs to be supplied to a spell/effect and some are used for client->server sending and some for server->client sending.
+Determines the default targets for some spells. These specify what needs to be supplied to a spell/effect and some are used for client->server sending and some for server->client sending. Represents mask, i.e. more can be utilized at once.
 
 |*Id*|*Enum name*|*Comment*|
-| 0| TARGET_FLAG_SELF| No data supplied or being sent |
-| 1| TARGET_FLAG_UNUSED1|         |
-| 4| TARGET_FLAG_UNIT|   |
-| 8| TARGET_FLAG_UNIT_RAID|        |
-|10| TARGET_FLAG_UNIT_PARTY|      |
-|20| TARGET_FLAG_ITEM|          |
-|40| TARGET_FLAG_SOURCE_LOCATION|        |
-|80| TARGET_FLAG_DEST_LOCATION|          |
-|100| TARGET_FLAG_UNIT_ENEMY||
-|200| TARGET_FLAG_UNIT_ALLY|       |
-|400| TARGET_FLAG_CORPSE_ENEMY|         |
-|800| TARGET_FLAG_UNIT_DEAD|         |
-|1000| TARGET_FLAG_GAMEOBJECT|          |
-|2000| TARGET_FLAG_TRADE_ITEM| Item you would like enchanted in trade for example |
-|4000| TARGET_FLAG_STRING|      |
-|8000| TARGET_FLAG_LOCKED| Item or GameObject |
-|10000| TARGET_FLAG_CORPSE_ALLY|       |
-|20000| TARGET_FLAG_UNIT_MINIPET| Critter pet |
+|    0x0| TARGET_FLAG_SELF| No data supplied or being sent |
+|    0x1| TARGET_FLAG_UNUSED1|         |
+|    0x4| TARGET_FLAG_UNIT|   |
+|    0x8| TARGET_FLAG_UNIT_RAID|        |
+|   0x10| TARGET_FLAG_UNIT_PARTY|      |
+|   0x20| TARGET_FLAG_ITEM|          |
+|   0x40| TARGET_FLAG_SOURCE_LOCATION|        |
+|   0x80| TARGET_FLAG_DEST_LOCATION|          |
+|  0x100| TARGET_FLAG_UNIT_ENEMY||
+|  0x200| TARGET_FLAG_UNIT_ALLY|       |
+|  0x400| TARGET_FLAG_CORPSE_ENEMY|         |
+|  0x800| TARGET_FLAG_UNIT_DEAD|         |
+| 0x1000| TARGET_FLAG_GAMEOBJECT|          |
+| 0x2000| TARGET_FLAG_TRADE_ITEM| Item you would like enchanted in trade for example |
+| 0x4000| TARGET_FLAG_STRING|      |
+| 0x8000| TARGET_FLAG_LOCKED| Item or GameObject |
+|0x10000| TARGET_FLAG_CORPSE_ALLY|       |
+|0x20000| TARGET_FLAG_UNIT_MINIPET| Critter pet |
 
 h4. TargetCreatureType
 
@@ -631,15 +631,21 @@ h4. procFlags
 |23|Successful Offhand Hit||
 |24|Death||
 
-h4. procChance
+h4. ProcChance
 
-h4. procCharges
+Chance to proc on a given event. Often overriden in spell_proc_event.
 
-h4. maxLevel
+h4. ProcCharges
 
-h4. baseLevel
+How many times it can proc until it expires. Can be infinite - -1. Often overriden in spell_proc_event.
 
-h4. spellLevel
+h4. MaxLevel
+
+All three level fields are used for level scaling of spells and how their base values are utilized. Diminishing returns start to apply above MaxLevel.
+
+h4. BaseLevel
+
+h4. SpellLevel
 
 h4. DurationIndex
 
@@ -753,27 +759,32 @@ h4. DurationIndex
 |DURATION_MAX_12_HRS|576||
 |DURATION_MAX_18_HRS|580||
 
-h4. powerType
+h4. PowerType
 
 |*ID*|*Description*|
 |0|Mana|
 |1|Rage|
-|2|?|
+|2|Focus|
 |3|Energy|
+|-2|Health|
 
-h4. manaCost
+h4. ManaCost
 
-h4. manaCostPerlevel
+h4. ManaCostPerlevel
 
-h4. manaPerSecond
+h4. ManaPerSecond
 
-h4. manaPerSecondPerLevel
+h4. ManaPerSecondPerLevel
 
-h4. rangeIndex
+h4. RangeIndex
 
-h4. speed
+h4. Speed
+
+If above zero, how fast spell travels to target. Below zero values are at the moment not understood.
 
 h4. StackAmount
+
+How many stacks a spell can have on repeated casts. Example is Lifebloom. In client shown in same fashion as ProcCharges but are two different things. A dispell spell would dispel all ProcCharges at once but only one stack.
 
 h4. Totem1
 
@@ -790,6 +801,8 @@ h4. EquippedItemSubClassMask
 h4. EquippedItemInventoryTypeMask
 
 h4. Effect1
+
+enum SpellEffects or SpellEffects.cpp for more information
 
 h4. EffectDieSides1
 
@@ -809,15 +822,17 @@ h4. EffectBasePoints1
 
 Value added to EffectBaseDice1
 
-h4. EffectMechanicN
+h4. EffectMechanic
 
 The mechanic of the effect with the same id `N` (e.g. `EffectMechanic1` relates to `Effect1`). There are up to three effects, N = {1,2,3}. See "Mechanic":spell_template#mechanic.
 
-h4. EffectImplicitTargetAN
+h4. EffectImplicitTargetA
 
 The target of the effect with the same id `N` (e.g. `EffectImplicitTargetA1` relates to `Effect1`). There are up to three effects, N = {1,2,3}.
 
 For example: Food buff item spells usually work on the player eating them, indicated by `TARGET_UNIT_CASTER` (`1`).     
+
+SpellTargets.h / .cpp or
 
 |*Id*|*Enum name*|
 |0|TARGET_NONE                                  |
