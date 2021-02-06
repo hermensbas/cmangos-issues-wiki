@@ -2,7 +2,7 @@ Back to "world database":mangosdb_struct list of tables.
 
 h2. The `spell&#95;teleport` table
 
-This table holds coordinate information on where the player should be teleported to when a spell with effect SPELL&#95;EFFECT&#95;TELEPORT&#95;UNITS.
+This table holds coordinate information on supplying XYZ data for TARGET_LOCATION_DATABASE
 
 h3. Structure
 
