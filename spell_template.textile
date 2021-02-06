@@ -1106,11 +1106,16 @@ From TBC onwards, spells can have multiple schools. Best example is either Fel L
 
 h4. IsServerSide
 
-h4. AttributesServerside
-
 |*Id*|*Description*|
 |0|Default Spell.sql Data                       |
 |1|Ported Spell from other CMaNGOS Spell.sql    |
 |2|Designed serverside Spell using spell.xml    |
+
+h4. AttributesServerside
+
+|*Id*|*Enum*|*Description*|
+|0x1|SPELL_ATTR_SS_PREVENT_INVIS|Faerie Fire type of spells which prevent invis and stealth|
+|0x2|SPELL_ATTR_SS_AOE_CAP|AOE Damage Cap affected spell|
+|0x4|SPELL_ATTR_SS_IGNORE_EVADE|Aura will not be removed on evade|
 
 ---
