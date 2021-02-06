@@ -116,7 +116,7 @@ Category ID based on which cooldown is determined. Spells with same category go 
 
 h4. Dispel
 
-Dispel type of a spell. Some spells can only dispel specific types of spells, for example poisons.
+Dispel type of a spell. Some spells can only dispel specific types of spells, for example poisons. - enum DispelType
 
 |*Id*|*Enum name*|*Comment*|
 | 0| DISPEL_NONE|          |
@@ -133,7 +133,7 @@ Dispel type of a spell. Some spells can only dispel specific types of spells, fo
 
 h4. Mechanic
 
-Spells effects utilize a mechanics.
+Spells effects utilize a mechanics. - enum Mechanics
 
 |*Id*|*Enum name*|*Comment*|
 | 0| MECHANIC_NONE |          |
@@ -170,7 +170,7 @@ Spells effects utilize a mechanics.
 
 h4. Attributes
 
-Special rules for spells. There are several columns for attributes. These rules can do anything, and some can be name only.
+Special rules for spells. There are several columns for attributes. These rules can do anything, and some can be name only. - SharedDefines.h
 
 |*ID*|*ENUM NAME*|*Description*|
 |0x00000001 | SPELL_ATTR_UNK0                             | 0 |
@@ -424,7 +424,7 @@ h4. AttributesEx6
 
 h4. Stances
 
-Determines specific stances in which caster must be for spell to be successfully cast.
+Determines specific stances in which caster must be for spell to be successfully cast. Example can be either warrior stances or druid forms.
 
 h4. StancesNot
 
@@ -432,7 +432,27 @@ Determines specific stances in which caster cannot be for spell to be successful
 
 h4. Targets
 
-Determines the default targets for some effects. Seems to be connected to TARGET_NONE.
+Determines the default targets for some spells. These specify what needs to be supplied to a spell/effect and some are used for client->server sending and some for server->client sending.
+
+|*Id*|*Enum name*|*Comment*|
+| 0| TARGET_FLAG_SELF| No data supplied or being sent |
+| 1| TARGET_FLAG_UNUSED1|         |
+| 4| TARGET_FLAG_UNIT|   |
+| 8| TARGET_FLAG_UNIT_RAID|        |
+|10| TARGET_FLAG_UNIT_PARTY|      |
+|20| TARGET_FLAG_ITEM|          |
+|40| TARGET_FLAG_SOURCE_LOCATION|        |
+|80| TARGET_FLAG_DEST_LOCATION|          |
+|100| TARGET_FLAG_UNIT_ENEMY||
+|200| TARGET_FLAG_UNIT_ALLY|       |
+|400| TARGET_FLAG_CORPSE_ENEMY|         |
+|800| TARGET_FLAG_UNIT_DEAD|         |
+|1000| TARGET_FLAG_GAMEOBJECT|          |
+|2000| TARGET_FLAG_TRADE_ITEM| Item you would like enchanted in trade for example |
+|4000| TARGET_FLAG_STRING|      |
+|8000| TARGET_FLAG_LOCKED| Item or GameObject |
+|10000| TARGET_FLAG_CORPSE_ALLY|       |
+|20000| TARGET_FLAG_UNIT_MINIPET| Critter pet |
 
 h4. TargetCreatureType
 
