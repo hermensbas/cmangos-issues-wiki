@@ -6,12 +6,29 @@ This table holds individual item instance information for all items currently eq
 
 h3. Structure
 
+Deprecated:
 
 |*Field*|*Type*|*Null*|*Key*|*Default*|*Extra*|
 |"guid":Item_instance#guid|int(11) unsigned|NO|PRI|0||
 |"owner_guid":Item_instance#owner_guid|int(11) unsigned|NO|MUL|0||
-|"data":Item_instance#data|longtext|YES||||
+|"data":Item_instance#data-deprecated|longtext|YES||||
 
+Current:
+
+|*Field*|*Type*|*Null*|*Key*|*Default*|*Extra*|
+|"guid":Item_instance#guid|int(11) unsigned|NO|PRI|0||
+|"owner_guid":Item_instance#owner_guid|int(11) unsigned|NO|MUL|0||
+|"itemEntry":Item_instance#itemEntry|mediumint(8) unsigned|NO||0||
+|"creatorGuid":Item_instance#creatorGuid|int(10) unsigned|NO||0||
+|"giftCreatorGuid":Item_instance#giftCreatorGuid|int(10) unsigned|NO||0||
+|"count":Item_instance#count|int(10) unsigned|NO||1||
+|"duration":Item_instance#duration|int(10) unsigned|NO||0||
+|"charges":Item_instance#charges|text|NO||NULL||
+|"flags":Item_instance#flags|int(8) unsigned|NO||0||
+|"enchantments":Item_instance#enchantments|text|NO||NULL||
+|"randomPropertyId":Item_instance#randomPropertyId|smallint(5)|NO||0||
+|"durability":Item_instance#durability|int(5) unsigned|NO||0||
+|"itemTextId":Item_instance#itemTextId|mediumint(8) unsigned|NO||0||
 
 h3. Description of the fields
 
@@ -23,7 +40,51 @@ h4. owner&#95;guid
 
 The GUID of the character who has ownership of this item. See "character.guid":character#guid
 
-h4. data
+h4. itemEntry
+
+The entry of the item from `item_template`
+
+h4. creatorGuid
+
+The GUID of the item creator
+
+h4. giftCreatorGuid
+
+N/A
+
+h4. count
+
+Count of item
+
+h4. duration
+
+Time until item expires
+
+h4. charges
+
+Number of uses left?
+
+h4. flags
+
+Itemflags
+
+h4. enchantments
+
+Enchanments present on the item
+
+h4. randomPropertyId
+
+N/A
+
+h4. durability
+
+Item durability
+
+h4. itemTextId
+
+ID for flavor text
+
+h4. data (deprecated)
 
 Much like the data field in the character table, this field has many number fields all separated by a space which contain specific individual item information like any enchantments applied to the item, etc.
 
@@ -47,4 +108,5 @@ Much like the data field in the character table, this field has many number fiel
 |57|ITEM&#95;FIELD&#95;ITEM&#95;TEXT&#95;ID|Text id used and shown by the item.|
 |58|ITEM&#95;FIELD&#95;DURABILITY|Current item durability.|
 |59|ITEM&#95;FIELD&#95;MAXDURABILITY|Maximum item durability.|
+
 
