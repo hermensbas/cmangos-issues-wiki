@@ -343,6 +343,7 @@ that parameter.
 | UNIT\_FIELD\_HEALTH         | 22      | 22  | 24    | Health           |
 | UNIT\_FIELD\_POWER1         | 23      | 23  | 25    | Mana             |
 | UNIT\_FIELD\_LEVEL          | 34      | 34  | 54    | Level            |
+| UNIT\_VIRTUAL\_ITEM\_SLOT\_DISPLAY| 37 | 37 | 56 | Equipment (UNIT_VIRTUAL_ITEM_SLOT_ID in wotlk) |
 | UNIT\_FIELD\_FLAGS          | 46      | 46  | 59    | UnitFlags        |
 | UNIT\_FIELD\_BOUNDINGRADIUS | 129     | 150 | 65    | bounding\_radius |
 | UNIT\_FIELD\_COMBATREACH    | 130     | 151 | 66    | combat\_reach    |
