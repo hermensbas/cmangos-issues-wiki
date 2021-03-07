@@ -46,7 +46,7 @@ h3. This is the list of tables in the regular 'mangos' database
 |"creature_questrelation":https://github.com/cmangos/issues/wiki/creature_questrelation
 (Reloadable)|holds NPC quest giver relations on which NPCs start which quests.|
 |"creature_spawn_data":https://github.com/cmangos/issues/wiki/creature_spawn_data|link between individual creatures GUID and creature_spawn_data_template|
-|"creature_spawn_data_template":https://github.com/cmangos/issues/wiki/creature_spawn_data_template|contains data to override spawned creatures UnitFlags, Faction, ModelId, EquipmentId, CurHealth, CurMana, SpawnFlags <br>Part of creature_spawn_data|
+|"creature_spawn_data_template":https://github.com/cmangos/issues/wiki/creature_spawn_data_template|contains data to override spawned creatures UnitFlags, Faction, ModelId, EquipmentId, CurHealth, CurMana, SpawnFlags|
 |"creature_spawn_entry":https://github.com/cmangos/issues/wiki/creature_spawn_entry|holds multiple creature_template.entry a creature.guid can be spawned as. *creature.id = 0*|
 |"creature_template":https://github.com/cmangos/issues/wiki/creature_template|contains the description of creatures.|
 |"creature_template_addon":https://github.com/cmangos/issues/wiki/creature_template_addon|defines different things that are applied on creature with a certain ENTRY when it is loaded.|
