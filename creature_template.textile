@@ -27,7 +27,7 @@ h3. Structure
 |"ModelId2":creature_template#modelid2|mediumint(8) unsigned|NO||0||
 |"ModelId3":creature_template#modelid3|mediumint(8) unsigned|NO||0||
 |"ModelId4":creature_template#modelid4|mediumint(8) unsigned|NO||0||
-|"Faction":creature_template#factionalliance|smallint(5) unsigned|NO||0||
+|"Faction":creature_template#faction|smallint(5) unsigned|NO||0||
 |"Scale":creature_template#scale|float|NO||0||
 |"Family":creature_template#family|tinyint(4)|YES||0||
 |"CreatureType":creature_template#creaturetype|tinyint(3) unsigned|NO||0||
