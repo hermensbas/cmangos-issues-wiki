@@ -23,8 +23,7 @@ h3. Structure
 |"ModelId2":creature_template_classic#modelid2|mediumint(8) unsigned|NO||0||
 |"ModelId3":creature_template_classic#modelid3|mediumint(8) unsigned|NO||0||
 |"ModelId4":creature_template_classic#modelid4|mediumint(8) unsigned|NO||0||
-|"FactionAlliance":creature_template_classic#factionalliance|smallint(5) unsigned|NO||0||
-|"FactionHorde":creature_template_classic#factionhorde|smallint(5) unsigned|NO||0||
+|"Faction":creature_template_classic#faction|smallint(5) unsigned|NO||0||
 |"Scale":creature_template_classic#scale|float|NO||0||
 |"Family":creature_template_classic#family|tinyint(4)|YES||0||
 |"CreatureType":creature_template_classic#creaturetype|tinyint(3) unsigned|NO||0||
@@ -131,15 +130,9 @@ h4. ModelId4
 
 Optional Extra Graphical Model That The Client Applies On This Creature. This is a "Creature_Model_Info.Entry":Creature_Model_Info#Entry
 
-h4. FactionAlliance
+h4. Faction
 
-The Faction If The Creature Is On The Alliance Side. See "FactionTemplate.dbc.":FactionTemplate.dbc. Just Because More Than One Faction Has The Same Name, The Inter-Faction Relationships Can Be Different.
-
-Note: This Field Also Controls The Creature Family Assistance Mechanic. Only Creatures With The Same Faction Will Assist Each Other.
-
-h4. FactionHorde
-
-The Faction If The Creature Is On The Horde Side. See "FactionTemplate.dbc.":FactionTemplate.dbc. Just Because More Than One Faction Has The Same Name, The Inter-Faction Relationships Can Be Different.
+The Faction Of The Creature, See "FactionTemplate.dbc.":FactionTemplate.dbc. Just Because More Than One Faction Has The Same Name, The Inter-Faction Relationships Can Be Different.
 
 Note: This Field Also Controls The Creature Family Assistance Mechanic. Only Creatures With The Same Faction Will Assist Each Other.
 
