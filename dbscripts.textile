@@ -530,7 +530,7 @@ _Side note: Only available on wotlk version._
 * *SCRIPT_COMMAND_START_RELAY_SCRIPT= 45*
 ** Resulting source must be a Unit. Target is not mandatory.
 ** datalong = dbscripts_on_relay Id which should be launched
-** datalong2 = dbscript_random_template relay Id which should be launched. Takes precedence over relay Id.
+** datalong2 = dbscript_random_templates relay Id which should be launched. Takes precedence over relay Id.
 
 * *SCRIPT_COMMAND_CAST_CUSTOM_SPELL= 46*
 ** Resulting source must be a Unit. Target is Unit.
