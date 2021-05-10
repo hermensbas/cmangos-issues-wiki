@@ -59,11 +59,11 @@ Defines which phase the creature belongs. 1 is default phase, rest are from spel
 
 h4. modelid
 
-The model ID associated with this creature. Note that two creatures that use the same template can have different models. See "creature_model_info":creature_model_info for more information on model-specific characteristics.
+The model ID associated with this creature. Note that two creatures that use the same template can have different models. See "creature_model_info":creature_model_info for more information on model-specific characteristics. DEPRECATED: Use creature_spawn_data_template paradigm instead.
 
 h4. equipment_id
 
-The ID of the equipment that the creature is using. See "creature_equip_template.entry":creature_equip_template#entry
+The ID of the equipment that the creature is using. See "creature_equip_template.entry":creature_equip_template#entry DEPRECATED: Use creature_spawn_data_template paradigm instead.
 
 h4. position_x
 
@@ -104,15 +104,15 @@ The current waypoint number that the creature is on, if any. See "creature_movem
 
 h4. curhealth
 
-The current health that the creature has.
+The current health that the creature has. For CLS enabled NPCs value of 1 should be used unless NPC has lower-than-max HP out of combat. DEPRECATED: Use creature_spawn_data_template paradigm instead.
 
 h4. curmana
 
-The current mana that the creature has.
+The current mana that the creature has. Some NPCs start with 0 mana, needs to be combined with removing REGEN_FLAG_POWER from creature_template. DEPRECATED: Use creature_spawn_data_template paradigm instead.
 
 h4. DeathState
 
-The creature's death state. 
+The creature's death state. DEPRECATED: Official way uses fake death spells like 29266 instead.
 A boolean, 0 = Alive, 1 = Corpse lying dead around (no gossip possible when dead, if you need corpse-gossip use dynamicflags|32)
 
 h4. MovementType
