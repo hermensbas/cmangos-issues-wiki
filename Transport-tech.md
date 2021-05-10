@@ -17,3 +17,6 @@ It is important to mention two things when working with transports. LOS checks w
 WOTLK onwards also supports spawning of passengers onto them. This is done through creature and gameobject table by assigning a transport-specific map which can be found in gameobject_template of a given transport. This is only possible for GO type 15 and as such the only known type 11 which has a default passenger GO (ulduar tram) is currently done in core.
 
 Limitations (change this accordingly in the future): WOTLK spell system is not transport ready. GO models are currently exported to an .mmtile directly and no .map file is available and as such, viewer does not work for viewing extracted Transport meshes without hacking.
+
+Transport class has two useful functions: CalculatePassengerPosition -> takes local transport coordinates and calculates global space coordinates. 
+CalculatePassengerOffset -> takes global space coordinates and calculates current local transport coordinates.
