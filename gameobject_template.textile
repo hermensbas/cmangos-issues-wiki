@@ -125,7 +125,10 @@ NOTE: All chests that contain only quest loots need to have flag 4 set as the co
 
 h4. ExtraFlags
 
-* 1 = GAMEOBJECT_EXTRA_FLAG_CUSTOM_ANIM_ON_USE (// GO that plays custom animation on usage)
+bc.    
+enum GameobjectExtraFlags
+    GAMEOBJECT_EXTRA_FLAG_CUSTOM_ANIM_ON_USE = 0x00000001,    // GO that plays custom animation on usage
+    GAMEOBJECT_EXTRA_FLAG_ACTIVE             = 0x00001000,    // Always active
 
 h4. size
 
