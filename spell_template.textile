@@ -1100,9 +1100,32 @@ h4. AreaId
 Specifies the Allowed areas for a successful cast.
 IDs taken from "AreaGroup.dbc":AreaGroup.dbc
 
+h4. School
+
+|ID|Name|
+|0|SPELL_SCHOOL_NORMAL|
+|1|SPELL_SCHOOL_HOLY|
+|2|SPELL_SCHOOL_FIRE|
+|3|SPELL_SCHOOL_NATURE|
+|4|SPELL_SCHOOL_FROST|
+|5|SPELL_SCHOOL_SHADOW|
+|6|SPELL_SCHOOL_ARCAN|
+
+In Vanilla, spellschools are handled by ID.
+
 h4. SchoolMask
 
-From TBC onwards, spells can have multiple schools. Best example is either Fel Lightning in Magisters Terrace or Frostfire bolt WOTLK mage spell
+|Bitmask|Name|
+|0|SPELL_SCHOOL_MASK_NONE|
+|1|SPELL_SCHOOL_MASK_NORMAL|
+|2|SPELL_SCHOOL_MASK_HOLY|
+|4|SPELL_SCHOOL_MASK_FIRE|
+|8|SPELL_SCHOOL_MASK_NATURE|
+|16|SPELL_SCHOOL_MASK_FROST|
+|32|SPELL_SCHOOL_MASK_SHADOW|
+|64|SPELL_SCHOOL_MASK_ARCANE|
+
+From TBC onwards, spells can have multiple schools, handled by Bitmask. Best example is either Fel Lightning in Magisters Terrace or Frostfire bolt WOTLK mage spell
 
 h4. IsServerSide
 
