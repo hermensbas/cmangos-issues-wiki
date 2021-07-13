@@ -74,11 +74,14 @@ visual effects on the creature
 
 (UNIT\_FIELD\_BYTES\_1,3) used instead of bytes1 in some cases.
 
-| Flag     | Name                             | Comment                                                                                                                                       |
+| Bitmask/ Value     | Name                             | Comment                                                                                                                                       |
 | -------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x01     | UNIT\_BYTE1\_FLAG\_ALWAYS\_STAND | always stand state                                                                                                                            |
 | 0x02     | UNIT\_BYTE1\_FLAG\_FLY\_ANIM     | Creature that can fly and are not on the ground appear to have this flag. If they are on the ground, flag is not present.                     |
 | 0x04     | UNIT\_BYTE1\_FLAG\_UNTRACKABLE   | untrackable                                                                                                                                   |
+|0x200|UNIT\_BYTE1\_FLAG\_HUNTERPET_1|related to player controlled pet|
+|0x400|UNIT\_BYTE1\_FLAG\_HUNTERPET_2|related to player controlled pet|
+| 1536    | UNIT\_BYTE1\_FLAG\_HUNTERPET?     | related to player controlled pet                                                                                        |
 | 65536    | ?                                | Linked to Defensive Stance? (not actively added flag?)                                                                                        |
 | 131072   | ?                                | no name & health bar visible with plate mode on (name only when targeted) Linked to Stealth? Linked to DeathState? (not actively added flag?) |
 | 1048576  | ?                                | Linked to Defensive Stance? (not actively added flag?)                                                                                        |
@@ -102,7 +105,7 @@ visual effects on the creature
 | Bit | Name                                           | Comment |
 | --- | ---------------------------------------------- | ------- |
 | 16  | UNIT\_BYTE2\_CREATURE\_DEBUFF\_LIMIT           | ?       |
-| 40  | UNIT\_BYTE2\_PLAYER\_CONTROLLED\_DEBUFF\_LIMIT | ?       |
+| 40  | UNIT\_BYTE2\_PLAYER\_CONTROLLED\_DEBUFF\_LIMIT | Player Pet, Player controlled, no default spawn       |
 
 #### emote
 
