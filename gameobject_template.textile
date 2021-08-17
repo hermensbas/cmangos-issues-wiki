@@ -388,7 +388,7 @@ No data data used, all are always 0
 
 h4. CustomData1
 
-
+For trap => type 6 GO, 0 value targets enemies, 1 friendlies and 2 all
 
 h4. mingold
 
