@@ -103,6 +103,7 @@ h3. Structure
 |"VehicleTemplateId":creature_template#vehicletemplateid|mediumint(8) unsigned|NO||0||
 |"GossipMenuId":creature_template#gossipmenuid|mediumint(8) unsigned|YES||0||
 |"visibilityDistanceType":creature_template#visibilityDistanceType|tinyint(4)|YES||0||
+|"CorpseDecay":creature_template#CorpseDecay|int(10) unsigned|NO||0||
 |"AIName":creature_template#ainame|char(64)|NO||||
 |"ScriptName":creature_template#scriptname|char(64)|NO||||
 
@@ -959,6 +960,10 @@ h4. visibilityDistanceType
 |3|VISIBILITY_DISTANCE_LARGE|200y|
 |4|VISIBILITY_DISTANCE_GIGANTIC|400y|
 |5|MAX_VISIBILITY_DISTANCE|533.33333y|
+
+h4. CorpseDecay
+
+Time before corpse despawns in seconds.
 
 h4. AIName
 
