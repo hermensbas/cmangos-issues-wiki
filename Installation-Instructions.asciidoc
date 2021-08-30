@@ -482,7 +482,7 @@ From the C:\Mangos folder invoke (in Git bash):
 This will create an empty characters database.
 
 Initialize logs database:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 From the C:\Mangos folder invoke (in Git bash):
 
 * ++mysql -uroot -p classiclogs < mangos/sql/base/logs.sql++
