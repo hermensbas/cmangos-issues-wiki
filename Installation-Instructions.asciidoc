@@ -481,6 +481,18 @@ From the C:\Mangos folder invoke (in Git bash):
 +
 This will create an empty characters database.
 
+Initialize logs database:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+From the C:\Mangos folder invoke (in Git bash):
+
+* ++mysql -uroot -p classiclogs < mangos/sql/base/logs.sql++
+
+**If you're working with mangos-tbc:**
+
+* ++mysql -uroot -p tbclogs < mangos/sql/base/logs.sql++
++
+This will create an empty logs database.
+
 Initialize realmd database:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 From the C:\Mangos folder invoke (in Git bash):
