@@ -83,11 +83,11 @@ The orientation of the creature. (North = 0.0; South = pi (3.14159))
 
 h4. spawntimesecsmin
 
-The minimum respawn time of the creature in seconds.
+The minimum respawn time of the creature in seconds. If 0 creature will not respawn, only scripted respawn
 
 h4. spawntimesecsmax
 
-The maximum respawn time of the creature in seconds.
+The maximum respawn time of the creature in seconds. If 0 creature will not respawn, only scripted respawn
 
 h4. spawndist
 
