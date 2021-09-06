@@ -259,7 +259,6 @@ _Side note: If position is very near to current position, or x=y=z=0, then only 
 |UNIT_FIELD_HEALTH|22|22|24|Health|
 |UNIT_FIELD_POWER1|23|23|25|Mana|
 |UNIT_FIELD_LEVEL|34|34|54|Level|
-|UNIT_FIELD_FLAGS|46|46|59|UnitFlags|
 |UNIT_FIELD_BOUNDINGRADIUS|129|150|65|bounding_radius|
 |UNIT_FIELD_COMBATREACH|130|151|66|combat_reach|
 |UNIT_FIELD_BYTES_1|138|159|74|bytes1|
