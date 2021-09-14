@@ -63,6 +63,24 @@ This table format is used for different tables to control possible scripts activ
     ** For gossip_menu_option when gossip holder is creature - Source: gossip holder (creature); Target: player; Script execution unique by source.
     ** For gossip_menu_option when gossip holder is gameobject - Source: player; Target: gossip holder (gameobject); Script execution unique by target.
 
+* *dbscript_random_templates*
+   Holds scripts that can be activated by AI or other dbscripts.
+   The usage of IDs is as following:
+   ** Vanilla: 0 - 9999
+   ** TBC: 10000 - 19999
+   ** WoTLK 20000 +
+
+   Source and Target are defined by the mechanism that launched it.
+
+   Holds broadcast_text     for type = 0
+   Holds dbscripts_on_relay for type = 1
+
+   ** For creature_ai_scripts - ACTION_T_TEXT_NEW.param3 to launch dbscript_random_templates.type = 0, broadcast_text
+   ** For creature_ai_scripts - ACTION_T_START_RELAY_SCRIPT to launch type = 2, dbscripts_on_relay
+	
+   ** For SCRIPT_COMMAND_TALK to launch dbscript_random_templates.type = 0, broadcast_text
+   ** For SCRIPT_COMMAND_START_RELAY_SCRIPT to launch type = 2, dbscripts_on_relay
+
 *NOTE:* An entry in this table may have more than one row as a script may do more than just one action. Also each action the script may make can have a separate "delay":dbscripts#delay attached to it. In that case, the core will activate the appropriate action after the correct "delay":dbscripts#delay.
 
 h3. Structure
@@ -104,6 +122,10 @@ For *dbscripts_on_gossip*, it is the "action script id":Gossip_menu_option#actio
 
 For *dbscripts_on_quest_end*, it is the ID that is used in "CompleteScript":quest_template#CompleteScript in the quest template definition.
 For *dbscripts_on_quest_start*, it is the ID that is used in "StartScript":quest_template#StartScript in the quest template definition.
+
+For *dbscript_random_templates*, it is unique ID
+* (0-9999 for Classic, 10k-19999 for TBC, 20K+ for WoTLK)
+
 For *dbscripts_on_relay*, it is unique ID
 * (0-9999 for Classic, 10k-19999 for TBC, 20K+ for WoTLK)
 
