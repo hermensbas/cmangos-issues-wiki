@@ -182,8 +182,8 @@ Submit this git command with enter/return. This will take a little time to compl
 A simple https://youtu.be/At3VUI9fOq4[video] of the process
 
 
-Get the world-database stuff
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Clone database for your CMaNGOS version
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Classic-DB
 ^^^^^^^^^^
@@ -432,42 +432,6 @@ From the C:\Mangos folder invoke (in Git bash):
 And enter your password in the following dialogue (similar in all other next steps)
 +
 This will create a user (name mangos, password mangos) with rights to the databases "mangos" (world-db), characters and realmd
-
-Initialize Mangos database
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-From the C:\Mangos folder invoke (in Git bash):
-
-* ++mysql -uroot -p classicmangos < mangos/sql/base/mangos.sql++
-
-**If you're working with mangos-tbc:**
-
-* ++mysql -uroot -p tbcmangos < mangos/sql/base/mangos.sql++
-+
-This will create and fill the Mangos database with some values.
-
-Initialize DBC data
-~~~~~~~~~~~~~~~~~~~
-From the C:\Mangos folder invoke (in Git bash):
-
-* ++mysql -uroot -p classicmangos < mangos/sql/base/dbc/*.sql++
-
-**If you're working with mangos-tbc:**
-
-* ++mysql -uroot -p tbcmangos < mangos/sql/base/dbc/*.sql++
-+
-This will create and fill in Mangos database the imported DBC data.
-
-On *nix and MacOS you may want to use the following two scripted commands:
-
-* ++for sql_file in $(ls mangos/sql/base/dbc/original_data/*.sql); do mysql -uroot -p --database=classicmangos < $sql_file ; done++
-
-* ++for sql_file in $(ls mangos/sql/base/dbc/cmangos_fixes/*.sql); do mysql -uroot -p --database=classicmangos < $sql_file ; done++
-
-**If you're working with mangos-tbc:**
-
-* ++for sql_file in $(ls mangos/sql/base/dbc/original_data/*.sql); do mysql -uroot -p --database=tbcmangos < $sql_file ; done++
-
-* ++for sql_file in $(ls mangos/sql/base/dbc/cmangos_fixes/*.sql); do mysql -uroot -p --database=tbcmangos < $sql_file ; done++
 
 Initialize characters database:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
