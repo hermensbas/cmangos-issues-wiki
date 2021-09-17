@@ -230,7 +230,7 @@ Compiling CMaNGOS
 -----------------
 
 Installing and Configuring boost (*nix and MacOS)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The CMaNGOS cmake scripts should automatically detect the location of your boost installation, and configure the build accordingly.  If it is not detected, please ensure that your BOOST_ROOT environment variable is set properly.
 
 On most *nix you just have to install boost development libraries from your distribution package repositories.
