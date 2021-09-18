@@ -331,15 +331,14 @@ git clone https://github.com/cmangos/wotlk-db.git
 
 ### Initialisation
 
-- **Double-Click** the `mangos` database in the Schemas overview so that its name is written in bold. This marks the database as active, which means that table-specific SQL commands will be run on this database. If the database name is not written in a bold text after double-clicking it, restart Workbench and **double-click** again.
+- **Double-Click** the `characters` database in the Schemas overview so that its name is written in bold. This marks the database as active, which means that table-specific SQL commands will be run on this database. If the database name is not written in a bold text after double-clicking it, restart Workbench and **double-click** again.
 - Click the **Open script file** button above the editor:
 
   ![mysql12 1](https://user-images.githubusercontent.com/8838573/27504191-c818d0f0-5885-11e7-9205-091aeb828ed7.png)
 
-- Execute the `mangos.sql` file found in `C:\mangos\mangos-VERSION\sql\base\`. (See output at bottom of the window to know when it is finished.)
-- Execute all scripts in the `C:\mangos\mangos-VERSION\sql\base\dbc\original_data` directory (currently `DungeonEncounter.sql` and `Spell.sql`).
-- **Double-Click** the `characters` database in the Schemas overview and execute the `characters.sql` file found in `C:\mangos\mangos-VERSION\sql\base\`.
+- **Double-Click** the `characters` database in the Schemas overview and execute the `characters.sql` file found in `C:\mangos\mangos-VERSION\sql\base\`. (See output at bottom of the window to know when it is finished.)
 - **Double-Click** the `realmd` database in the Schemas overview and execute the `realmd.sql` file found in `C:\mangos\mangos-VERSION\sql\base\`.
+- **Double-Click** the `logs` database in the Schemas overview and execute the `logs.sql` file found in `C:\mangos\mangos-VERSION\sql\base\`.
 - You can now close Workbench.
 
 ### Filling
