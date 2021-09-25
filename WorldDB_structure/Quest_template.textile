@@ -176,7 +176,7 @@ h4. Type
 These values are ID taken from QuestInfo.dbc
 
 |ID|Name|
-|1|Group|
+|1|Group/"Elite"|
 |21|Life|
 |41|PvP|
 |62|Raid|
