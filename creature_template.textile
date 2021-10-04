@@ -470,7 +470,7 @@ In Classic and TBC There Are 3 Possible NPC Classes Available For Creatures:
 |CLASS_ROGUE|4|
 |CLASS_MAGE|8|
 
-This Value is Contained in Sniff Data: UNIT_FIELD_BYTES_0 - UNIT_BYTES_0_OFFSET_CLASS located in SMSG_UPDATE_OBJECT
+This Value is Contained in Sniff Data: UNIT_FIELD_BYTES_0_1 (2) - UNIT_BYTES_0_OFFSET_CLASS located in SMSG_UPDATE_OBJECT
 It is a Critical Field in Determining Class Level Stats For the NPC. 
 
 NOTE: Typically ONLY Vehicles Are Class=4
@@ -551,7 +551,7 @@ h4. PowerMultiplier
 
 This Value Comes From WDB and Sniff Data. This Is The PRIMARY DB Value That Calculates An NPC's Specific Mana Value. All NPC Have Nice Rounded Values For PowerMultipliers.
 
-UNIT_FIELD_BYTES_0, UNIT_BYTES_0_OFFSET_POWER_TYPE
+UNIT_FIELD_BYTES_0_3 (4), UNIT_BYTES_0_OFFSET_POWER_TYPE
 
 This Is The Multiplier Used Against The BaseMana Value From "Creature_Template_ClassLevelStats":Creature_Template_ClassLevelStats To Calculate An NPC's Final Mana Values. 
 
