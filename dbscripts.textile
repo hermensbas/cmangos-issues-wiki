@@ -188,7 +188,7 @@ The following commands can be used (enum ScriptCommand):
 |36|SCRIPT_COMMAND_SET_FACING|Turn resulting source to resulting target.|
 |37|SCRIPT_COMMAND_MOVE_DYNAMIC|Move resulting source to a random point around resulting target or to resulting target.|
 |38|SCRIPT_COMMAND_SEND_MAIL|Send mail from resulting source to resulting target.|
-|39|SCRIPT_COMMAND_SET_FLY|Makes a creature start or stop flying.|
+|39|SCRIPT_COMMAND_SET_HOVER|Makes a creature start or stop flying.|
 |40|SCRIPT_COMMAND_DESPAWN_GO|Despawns a gameobject.|
 |41|SCRIPT_COMMAND_RESPAWN|Respawns a creature.|
 |42|SCRIPT_COMMAND_SET_EQUIPMENT_SLOTS|Change equipment slots of the resulting source.|
@@ -524,7 +524,7 @@ _Side note: Only available on wotlk version._
 ** datalong2: AlternativeSenderEntry. Use as sender-Entry of the sent mail
 ** dataint1: Delay (>= 0) in Seconds
 
-* *SCRIPT_COMMAND_SET_FLY = 39*
+* *SCRIPT_COMMAND_SET_HOVER = 39*
 ** Resulting source must be a creature.
 ** datalong = bool 0=off, 1=on
 ** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL (8) set/unset byte flag UNIT_BYTE1_FLAG_FLY_ANIM
