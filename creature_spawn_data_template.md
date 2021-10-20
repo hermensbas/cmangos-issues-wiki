@@ -27,9 +27,10 @@ To avoid conflicts between Expansions, please use:
 
 | Version:             | Range         |
 | ---------------------|---------------|
-| Vanilla:             | 0 - 9999      |
-| TBC:                 |10000 - 19999  |
-| WotLK:               |20000 +        |
+| Generic:             | 0- 999        |
+| Vanilla:             | 1000 - 9999   |
+| TBC:                 | 10000 - 19999 |
+| WotLK:               | 20000 +       |
 
 #### UnitFlags
 
