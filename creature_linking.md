@@ -42,4 +42,4 @@ flag - describing what should happen when
 | 2048  | FLAG\_CANT\_SPAWN\_IF\_BOSS\_ALIVE       | the slave cannot respawn while boss is alive                                      |
 | 4096  | FLAG\_DESPAWN\_ON\_EVADE                 | the slave despawn after the master evade                                          |
 | 8192  | FLAG\_DESPAWN\_ON\_DESPAWN               | the slave despawn after the master despawns                                       |
-| 16384 | NOT\_IMPLEMENTED\_FLAG\_EVADE\_ON\_EVADE | the slave evades on master evade                                                  |
+| 16384 | FLAG\_EVADE\_ON\_EVADE                   | the slave evades on master evade                                                  |
