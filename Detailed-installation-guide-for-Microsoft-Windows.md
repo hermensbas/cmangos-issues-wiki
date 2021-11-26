@@ -69,7 +69,7 @@ There are three versions of CMaNGOS: **Classic**, **The Burning Crusade**, and *
 
 The compilation of the server core and extractor tool binaries is optional. If you do not plan on changing the code yourself, you can download the precompiled binaries from the release pages of the core repositories on Github. Here are the links to the download pages:
 
-* https://github.com/cmangos/mangos-classic/releases
+* [https://github.com/cmangos/mangos-classic/releases](https://linkify.me/Dt19dgh)
 * https://github.com/cmangos/mangos-tbc/releases
 * https://github.com/cmangos/mangos-wotlk/releases
 
@@ -103,7 +103,7 @@ These are programs you will need to set up the database and compile the core. Th
 
 ## Boost
 
-- Go to: http://sourceforge.net/projects/boost/files/boost-binaries/
+- Go to: [http://sourceforge.net/projects/boost/files/boost-binaries/](https://linkify.me/AxSRpv8)
 - Select a version number not ending in `_bX` (those are beta versions), e.g. click `1.69.0`. (Confirmed working as of 2019-01-09.)
 - Download the executable file containing `msvc-14.1-64`, e.g. `boost_1_69_0-msvc-14.1-64.exe`. (MSVC-14.1 is the Visual Studio 2017 C++ compiler, 64 stands for the 64-bit architecture. If using Visual Studio 2019, try MSVC-14.2 rather than MSVC-14.1)
 - Execute the downloaded file. During the installation you will be asked to set the installation path, if you change it, remember it. It is needed in the next step.
@@ -120,12 +120,12 @@ These are programs you will need to set up the database and compile the core. Th
 
 ## CMake
 
-- Go to: https://cmake.org/download/#latest
+- Go to: [https://cmake.org/download/#latest](https://linkify.me/8NcB9r6)
 - Download the **Windows win64-x64 Installer** (currently `cmake-3.8.2-win64-x64.msi`) and install it.
 
 ## Git
 
-- Go to: https://git-scm.com/download/win
+- Go to: [https://git-scm.com/download/win](https://linkify.me/uRS1bFS)
 - Confirm the download if it is the architecture you want (32 or 64 bit). Otherwise, abort and select the correct version.
 - During installation make sure the following options are checked:
   - Git Bash Here:
