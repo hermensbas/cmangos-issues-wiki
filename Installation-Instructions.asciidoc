@@ -442,6 +442,10 @@ From the C:\Mangos folder invoke (in Git bash):
 **If you're working with mangos-tbc:**
 
 * ++mysql -uroot -p tbccharacters < mangos/sql/base/characters.sql++
+
+**If you're working with mangos-woltk:**
+
+* ++mysql -uroot -p wotlkcharacters < mangos/sql/base/characters.sql++
 +
 This will create an empty characters database.
 
@@ -454,6 +458,10 @@ From the C:\Mangos folder invoke (in Git bash):
 **If you're working with mangos-tbc:**
 
 * ++mysql -uroot -p tbclogs < mangos/sql/base/logs.sql++
+
+**If you're working with mangos-woltk:**
+
+* ++mysql -uroot -p wotlklogs < mangos/sql/base/logs.sql++
 +
 This will create an empty logs database.
 
@@ -466,6 +474,10 @@ From the C:\Mangos folder invoke (in Git bash):
 **If you're working with mangos-tbc:**
 
 * ++mysql -uroot -p tbcrealmd < mangos/sql/base/realmd.sql++
+
+**If you're working with mangos-wotlk:**
+
+* ++mysql -uroot -p wotlkrealmd < mangos/sql/base/realmd.sql++
 +
 This will create an empty realmd database.
 
