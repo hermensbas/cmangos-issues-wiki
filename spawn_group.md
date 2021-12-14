@@ -4,3 +4,15 @@ spawn_group
 spawn_group_spawn  
 spawn_group_entry  
 
+Logically a replacement of linking and pooling. Groups spawns into a logical group, which can behave differently. Benefits are much easier handling in core and during creation of new entries. Also introduces conditional spawning through worldstate alteration.
+
+spawn_group  
+Id - Spawn Group ID - 1-9999 for anything in vanilla, 10000-19999 TBC, 20000-29999 WOTLK
+Name - Mandatory name restricted to 200 characters. Name structure example: EPL - Musty Tome - Annals of Darrowshire  
+MaxCount - Maximum count of spawns that can be spawned at a time for whole group. If set to 0, automatically calculated from either spawns or entries, whichever lower.  
+WorldState - If a given worldstate is set to 1, the group will automatically spawn. When set to 0, it will no longer respawn. Usable for many dungeon packs or scripts. Defining own worldstates is vague to existence of official worldstates. Must be done in core C++ currently through WorldStateVariableManager. Ask your friendly neighbourhood c++ coder.  
+Flags - enum CreatureGroupFlags (GO groups currently have no flags)  
+
+
+
+
