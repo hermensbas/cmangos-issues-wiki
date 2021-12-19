@@ -456,21 +456,22 @@ The NPC Unit Class. This Field is a Critical Value That Dictates An NPC's Base S
 
 An NPC's Unit Class Is A Corner Stone Value Used In "Creature_Template_Classlevelstats":Creature_Template_Classlevelstats To Determine An NPC's Stats.
 
+This Value is Contained in Sniff Data: UNIT_FIELD_BYTES_0_1 - UNIT_BYTES_0_OFFSET_CLASS located in SMSG_UPDATE_OBJECT
+
+|_. enum UnitBytes0Offsets|_. Name|
+|UNIT_BYTES_0_OFFSET_RACE|0|
+|UNIT_BYTES_0_OFFSET_CLASS|1|
+|UNIT_BYTES_0_OFFSET_GENDER|2|
+|UNIT_BYTES_0_OFFSET_POWER_TYPE|3|
+
 NPC Stats Refers To: (Health/Mana/Damage/Armor).
 
-In WOTLK and CATA There Are 4 Possible NPC Classes Available For Creatures:
-(Class: 1,2,4,8)
+|_. ID|_. Name|_. Comment|
+|1|CLASS_WARRIOR||
+|2|CLASS_PALADIN||
+|4|CLASS_ROGUE|wotlk+|
+|8|CLASS_MAGE||
 
-In Classic and TBC There Are 3 Possible NPC Classes Available For Creatures:
-(Class: 1,2,8)
-
-|_. ID|_. Name|
-|CLASS_WARRIOR|1|
-|CLASS_PALADIN|2|
-|CLASS_ROGUE|4|
-|CLASS_MAGE|8|
-
-This Value is Contained in Sniff Data: UNIT_FIELD_BYTES_0_1 (2) - UNIT_BYTES_0_OFFSET_CLASS located in SMSG_UPDATE_OBJECT
 It is a Critical Field in Determining Class Level Stats For the NPC. 
 
 NOTE: Typically ONLY Vehicles Are Class=4
