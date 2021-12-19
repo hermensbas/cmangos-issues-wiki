@@ -281,7 +281,7 @@ Only one Gameobject with this type (21680) and no data data
 Only one Gameobject with this type (35591) and no data data
 
 * *GAMEOBJECT_TYPE_RITUAL = 18*
-** data0: casters?
+** data0: casters/clickers
 ** data1: spell (Spell Id from spell.dbc)
 ** data2: animSpell (Spell Id from spell.dbc)
 ** data3: ritualPersistent (Boolean flag)
