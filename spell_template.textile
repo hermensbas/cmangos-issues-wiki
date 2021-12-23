@@ -800,10 +800,11 @@ h4. RangeIndex
     FIFTEEN_YARDS               = 11,
     INTERACT_RANGE              = 12, //0-5y
     ANYWHERE                    = 13,
+    EXTRA_LONG_RANGE            = 14, // 0-60y
     TWENTY_FIVE_YARDS           = 34,
     MEDIUM_LONG_RANGE           = 35,
     LONGER_RANGE                = 36,
-    EXTENDED_RANGE              = 37,
+    EXTENDED_RANGE              = 37, // 0-50y
     MIN_RANGE_10_25             = 38,
     MONSTER_SHOOT               = 54,
     RANGED_WEAPON               = 74,
