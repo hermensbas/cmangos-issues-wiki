@@ -48,6 +48,8 @@ h3. Structure
 
 h3. Description of the fields
 
+GAMEOBJECT_BYTES_1: State/Type/Artkit/Animprogress - wotlk+
+
 h4. entry
 
 Id of the gameobject template
