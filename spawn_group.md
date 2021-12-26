@@ -7,7 +7,15 @@ spawn_group_entry
 Logically a replacement of linking and pooling. Groups spawns into a logical group, which can behave differently. Benefits are much easier handling in core and during creation of new entries. Also introduces conditional spawning through worldstate alteration.
 
 spawn_group  
-Id - Spawn Group ID - 1-9999 for anything in vanilla, 10000-19999 TBC, 20000-29999 WOTLK
+Id - Spawn Group ID
+
+```
+1-9999 for anything in vanilla (Eastern Kingdoms 0 & Kalimdor 1)
+10000-19999 TBC (Outland 530)
+20000-29999 WOTLK (Northrend 571)
+30000+ Instance Files
+```
+
 Name - Mandatory name restricted to 200 characters. Name structure example: EPL - Musty Tome - Annals of Darrowshire  
 Type - Type of group - 0 creature, 1 gameobject (enum SpawnGroupType)
 
