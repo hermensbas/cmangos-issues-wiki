@@ -157,6 +157,7 @@ h3. This is the list of tables in the regular 'mangos' database
 |"skill_extra_item_template":https://github.com/cmangos/issues/wiki/skill_extra_item_template|holds information about when using certain profession spells, you have the chance of creating more than one copy of the item.|
 |"skill_fishing_base_level":https://github.com/cmangos/issues/wiki/skill_fishing_base_level|controls the minimum skill level required in fishing to fish in a certain area.|
 |"skinning_loot_template":https://github.com/cmangos/issues/wiki/skinning_loot_template|Skinning loot|
+|"spawn_group":https://github.com/cmangos/issues/wiki/spawn_group|Defines how groups of entities spawn|
 |"spell_affect":https://github.com/cmangos/issues/wiki/spell_affect (Reloadable)|holds information on what spells are affected by what spell mods.|
 |"spell_area":https://github.com/cmangos/issues/wiki/spell_area (Reloadable)|holds information on what spells are applied to npcs/players in some areas.|
 |"spell_bonus_data":https://github.com/cmangos/issues/wiki/spell_bonus_data (Reloadable)|is used for storing custom damage/healing bonus coefficients.|
