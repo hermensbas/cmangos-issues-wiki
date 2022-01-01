@@ -13,7 +13,7 @@ h3. Structure
 |"address":Realmlist#address|varchar(32)|NO||127.0.0.1||
 |"port":Realmlist#port|int(11)|NO||8085||
 |"icon":Realmlist#icon|tinyint(3) unsigned|NO||0||
-|"color":Realmlist#color|tinyint(3) unsigned|NO||2||
+|"realmflags":Realmlist#realmflags|tinyint(3) unsigned|NO||2||
 |"timezone":Realmlist#timezone|tinyint(3) unsigned|NO||0||
 |"allowedSecurityLevel":Realmlist#allowedsecuritylevel|tinyint(3) unsigned|NO||0||
 |"population":Realmlist#population|float unsigned|NO||0||
@@ -49,7 +49,14 @@ The icon of the realm.
 |8|RP PvP|
 
 
-h4. color
+h4. realmflags
+
+|_. flag|_. comment|
+|0x1|invalid, not show in realm list|
+|0x2|offline, set by mangosd|
+|0x4|show version and build|
+|0x20|new players|
+|0x40|recommended|
 
 The color denoting how &quot;full&quot; you want the realm to be displayed as.
 
