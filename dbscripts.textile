@@ -6,43 +6,46 @@ The manual reference for these tables is located in the "doc/script_commands.txt
 
 This table format is used for different tables to control possible scripts activated by different actions:
 
-* *dbscripts_on_go_[template]_use:* 
-    Holds possible scripts activated by gameobjects.
-    Source: object user (unit); Target: gameobject.
-    ** dbscripts_on_go_template_use can be used for any type of gameobject.
-    ** dbscripts_on_go_use can be used only for GAMEOBJECT_TYPE_DOOR (0) and GAMEOBJECT_TYPE_BUTTON (1)
+* *dbscripts_on_quest_start:*
+    Holds scripts activated when a player accepts a quest.
+    Source: quest giver (creature); Target: player; Script execution unique by source.
+    The usage of IDs is as following: Quest Entry
+---
+* *dbscripts_on_quest_end:* 
+    Holds scripts activated when a player finishes a quest.
+    Source: quest taker (creature); Target: player; Script execution unique by source.
+    The usage of IDs is as following: Quest Entry
 
+---
+* *dbscripts_on_creature_movement:* 
+    Holds scripts activated while a npc is moving.
+    Source: moving creature; Target moving creature.
+    The usage of IDs is as following: Creature Entry * 100 + (1 - 99)
+
+---
+* *dbscripts_on_creature_death:* 
+    Holds scripts activated when a creature dies.
+    Source: killed creature; Target: responsible killer (unit or player).
+    The usage of IDs is as following: Creature Entry
+
+---
+* *dbscripts_on_gossip:*
+   Holds scripts activated on gossip_menu_option or gossip_menu.
+    ** For gossip_menu - Source: player; Target: gossip holder (creature or gameobject); Script execution unique by target.
+    ** For gossip_menu_option when gossip holder is creature - Source: gossip holder (creature); Target: player; Script execution unique by source.
+    ** For gossip_menu_option when gossip holder is gameobject - Source: player; Target: gossip holder (gameobject); Script execution unique by target.
+    The usage of IDs is as following: gossip_menu / gossip_menu_option * 100 + (1-99)
+
+---
 * *dbscripts_on_spell:*
     Holds scripts that can be activated by spells with the following spell effects:
     ** SPELL_EFFECT_DUMMY (3)
     ** SPELL_EFFECT_TRIGGER_SPELL (64) - only for missing triggered spells
     ** SPELL_EFFECT_SCRIPT_EFFECT (77)
     Source: caster; Target: target.
+    The usage of IDs is as following: Spell Id
 
-* *dbscripts_on_relay:* 
-    Holds scripts that can be activated by AI or other dbscripts.
-    The usage of IDs is as following:
-    ** Vanilla: 0 - 9999
-    ** TBC: 10000 - 19999
-    ** WoTLK 20000 +
-    Source and Target are defined by the mechanism that launched it.
-
-* *dbscripts_on_quest_start:*
-    Holds scripts activated when a player accepts a quest.
-    Source: quest giver (creature); Target: player; Script execution unique by source.
-
-* *dbscripts_on_quest_end:* 
-    Holds scripts activated when a player finishes a quest.
-    Source: quest taker (creature); Target: player; Script execution unique by source.
-
-* *dbscripts_on_creature_movement:* 
-    Holds scripts activated while a npc is moving.
-    Source: moving creature; Target moving creature.
-
-* *dbscripts_on_creature_death:* 
-    Holds scripts activated when a creature dies.
-    Source: killed creature; Target: responsible killer (unit or player).
-
+---
 * *dbscripts_on_event:* 
    Holds scripts activated whenever an event is activated by spell, gameobject or taxi waypoints.
    The following spell effects and gameobjects can activate an event:
@@ -56,24 +59,39 @@ This table format is used for different tables to control possible scripts activ
     ** GAMEOBJECT_TYPE_CAPTURE_POINT (29)
     ** GAMEOBJECT_TYPE_DESTRUCTIBLE_BUILDING (33)
     Source, Target and Script execution can be different based on the event activation source.
+    The usage of IDs is as following: EffectMiscValueA: EventID
 
-* *dbscripts_on_gossip:*
-   Holds scripts activated on gossip_menu_option or gossip_menu.
-    ** For gossip_menu - Source: player; Target: gossip holder (creature or gameobject); Script execution unique by target.
-    ** For gossip_menu_option when gossip holder is creature - Source: gossip holder (creature); Target: player; Script execution unique by source.
-    ** For gossip_menu_option when gossip holder is gameobject - Source: player; Target: gossip holder (gameobject); Script execution unique by target.
+---
+* *dbscripts_on_go_[template]_use:* 
+    Holds possible scripts activated by gameobjects.
+    Source: object user (unit); Target: gameobject.
+    ** dbscripts_on_go_template_use can be used for any type of gameobject.
+    ** dbscripts_on_go_use can be used only for GAMEOBJECT_TYPE_DOOR (0) and GAMEOBJECT_TYPE_BUTTON (1)
+    The usage of IDs is as following: (gameobject.guid) / (gameobject_tempate.entry), always try to use entry if possible
 
+---
 * *dbscript_random_templates*
    Holds scripts that can be activated by AI or other dbscripts.
    The usage of IDs is as following:
    ** Vanilla: 0 - 9999
    ** TBC: 10000 - 19999
    ** WoTLK 20000 +
-
    Source and Target are defined by the mechanism that launched it.
 
    Holds broadcast_text     for type = 0
    Holds dbscripts_on_relay for type = 1
+
+---
+* *dbscripts_on_relay:* 
+    Holds scripts that can be activated by AI or other dbscripts.
+    The usage of IDs is as following:
+    ** Vanilla: 0 - 9999
+    ** TBC: 10000 - 19999
+    ** WoTLK 20000 +
+    Source and Target are defined by the mechanism that launched it.
+
+---
+* *Other Ways to launch dbscripts* 
 
    ** For creature_ai_scripts - ACTION_T_TEXT_NEW.param3 to launch dbscript_random_templates.type = 0, broadcast_text
    ** For creature_ai_scripts - ACTION_T_START_RELAY_SCRIPT to launch type = 2, dbscripts_on_relay
@@ -81,7 +99,12 @@ This table format is used for different tables to control possible scripts activ
    ** For SCRIPT_COMMAND_TALK to launch dbscript_random_templates.type = 0, broadcast_text
    ** For SCRIPT_COMMAND_START_RELAY_SCRIPT to launch type = 2, dbscripts_on_relay
 
-*NOTE:* An entry in this table may have more than one row as a script may do more than just one action. Also each action the script may make can have a separate "delay":dbscripts#delay attached to it. In that case, the core will activate the appropriate action after the correct "delay":dbscripts#delay.
+---
+
+*NOTE:*
+An entry in this table may have more than one row as a script may do more than just one action.
+Also each action the script may make can have a separate "delay":dbscripts#delay attached to it.
+In that case, the core will activate the appropriate action after the correct "delay":dbscripts#delay and "priority":dbscripts#priority.
 
 h3. Structure
 
@@ -104,6 +127,7 @@ h3. Structure
 |"y":dbscripts#otherfields|float|NO||0||
 |"z":dbscripts#otherfields|float|NO||0||
 |"o":dbscripts#otherfields|float|NO||0||
+|"condition_id":dbscripts#condition_id|mediumint(8) unsigned|NO||0|"condition":Conditions#condition_entry|
 |"comments":dbscripts#otherfields|VARCHAR(255)|NO||NULL||
 
 h3. Description of the fields
@@ -111,7 +135,7 @@ h3. Description of the fields
 h4. id
 
 For *dbscripts_on_creature_death*, it is the entry of the creature. See "creature_template.entry":creature_template#entry.
-For *dbscripts_on_creature_movement*, it is the "script id":Creature_movement#script_id of the waypoint.
+For *dbscripts_on_creature_movement*, it is the "script id":Creature_movement#script_id of the waypoint. (creature entry * 100 + (1 - 99)) e.g: entry = 474 * 100 + (1-99) = 474101 - 474199
 * The PROPER formatting for the ID field is as follows: Creature_entry + 2-Digit Script ID (Starting at 01). Example: c.1234 has few movement_scripts, so 1234+01 = 123401 ... 123402 ..etc
 
 For *dbscripts_on_event*, it is the event ID. There doesn't exist currently a full list of events. In any case, the event IDs are taken directly from gameobject WDB data or spell effect data. If both a gameobject and a spell activate the same event, the IDs will match.
@@ -141,6 +165,14 @@ Example: Script 1 Has 5 seconds (5000ms) delay and then if you want script 2 to 
 h4. priority
 
 priority of the event, lower number higher priority if delay is the same. Used for adjusting execution order of events taking place at the same time
+
+h4. condition_id
+
+"condition":Conditions#condition_entry which decides if this line is executed. 
+
+h4. comments
+
+Description of the executed line, "who does what".
 
 h4. command
 
@@ -197,8 +229,9 @@ The following commands can be used (enum ScriptCommand):
 |45|SCRIPT_COMMAND_START_RELAY_SCRIPT|Launch relay script or relay template.|
 |46|SCRIPT_COMMAND_CAST_CUSTOM_SPELL|resSource = Unit, cast spell at resTarget = Unit|
 |47|SCRIPT_COMMAND_INTERRUPT_SPELL|resSource = Unit, interrupt spell in specific slot|
-|48|SCRIPT_COMMAND_MODIFY_UNIT_FLAGS|Change Unit flags of a creature.|
-|49|SCRIPT_UNK_2|reserved|
+|48|SCRIPT_COMMAND_MODIFY_UNIT_FLAGS|Change UnitFlags of a creature.|
+|49|SCRIPT_COMMAND_SET_DATA_64|Set instance data if it exists - datalong - param1 datalong2 - param2|
+|50|SCRIPT_COMMAND_ZONE_PULSE|Pulses zone for combat and attacks closest enemy|
 
 h4. buddy_entry
 
@@ -212,38 +245,44 @@ Possible combinations of the "data_flags":dbscripts#data_flags |SCRIPT_FLAG_BUDD
 
 Where "A -> B" means that the "command":dbscripts#command is executed from A with B as target.
 
-|Hex|A -> B|
-|0x00|originalSource / buddyIfProvided -> originalTarget|
-|0x01|originalSource -> buddy|
-|0x02|originalTarget -> originalSource / buddyIfProvided|
-|0x03|buddy -> originalSource|
-|0x04|originalSource / buddyIfProvided -> originalSource / buddyIfProvided|
-|0x05|originalSource -> originalSource|
-|0x06|originalTarget -> originalTarget|
-|0x07|buddy -> buddy|
+|Value|A -> B|Comment|
+|0|originalSource / buddyIfProvided -> originalTarget|DEFAULT|
+|1|originalSource -> buddy|SCRIPT_FLAG_BUDDY_AS_TARGET|
+|2|originalTarget -> originalSource / buddyIfProvided|SCRIPT_FLAG_REVERSE_DIRECTION|
+|3|buddy -> originalSource|SCRIPT_FLAG_BUDDY_AS_TARGET + SCRIPT_FLAG_REVERSE_DIRECTION|
+|4|originalSource / buddyIfProvided -> originalSource / buddyIfProvided|SCRIPT_FLAG_SOURCE_TARGETS_SELF|
+|5|originalSource -> originalSource|SCRIPT_FLAG_BUDDY_AS_TARGET + SCRIPT_FLAG_SOURCE_TARGETS_SELF|
+|6|originalTarget -> originalTarget|SCRIPT_FLAG_REVERSE_DIRECTION + SCRIPT_FLAG_SOURCE_TARGETS_SELF|
+|7|buddy -> buddy|SCRIPT_FLAG_BUDDY_AS_TARGET + SCRIPT_FLAG_REVERSE_DIRECTION + SCRIPT_FLAG_SOURCE_TARGETS_SELF|
 
 h4. search_radius
 
-Range in which the buddy defined in "buddy_entry":dbscripts#buddy_entry will be searched by "creature_template.entry":creature_template#entry.
+Range in which the buddy defined in "buddy_entry":dbscripts#buddy_entry will be searched by the entity executing the dbscript.
 
 |& data_flags|Description|
 |& SCRIPT_FLAG_BUDDY_BY_GUID|"creature.guid":creature#guid instead of "creature_template.entry":creature_template#entry|
+|& SCRIPT_FLAG_BUDDY_IS_DESPAWNED|Dead or Despawned "creature_template.entry":creature_template#entry|
 |& SCRIPT_FLAG_BUDDY_BY_POOL|"pool_creature.pool_entry":pool_creature#pool_entry instead of "creature_template.entry":creature_template#entry|
+|& SCRIPT_FLAG_BUDDY_BY_SPAWN_GROUP|Buddy is part of "spawn_group":spawn_group|
+|& SCRIPT_FLAG_BUDDY_BY_GO|"gameobject_template.entry":gameobject_template#entry instead of "creature_template.entry":creature_template#entry|
 
 h4. data_flags
 
 Defined in "enum ScriptInfoDataFlags"
 
 |Decimal|Hex|Type|Description|
-|0|0x00|DEFAULT|s/b -> t|
-|1|0x01|SCRIPT_FLAG_BUDDY_AS_TARGET|s -> b|
-|2|0x02|SCRIPT_FLAG_REVERSE_DIRECTION|t* -> s* (* result after previous flag is evaluated)|
-|4|0x04|SCRIPT_FLAG_SOURCE_TARGETS_SELF|s* -> s* (* result after previous flag is evaluated)|
-|8|0x08|SCRIPT_FLAG_COMMAND_ADDITIONAL|Only for some commands possible.|
-|16|0x10|SCRIPT_FLAG_BUDDY_BY_GUID|Interpret "search_radius":dbscripts#search_radius as "buddy_entry":dbscripts#buddy_entry GUID.|
-|32|0x20|SCRIPT_FLAG_BUDDY_IS_PET|Do not search for an npc, but for a pet.|
-|64|0x40|SCRIPT_FLAG_BUDDY_IS_DESPAWNED|Search for a creature that is despawned or dead.|
-|128|0x80|SCRIPT_FLAG_BUDDY_BY_POOL|buddy should be part of a pool|
+|0|0x000|DEFAULT|s/b -> t|
+|1|0x001|SCRIPT_FLAG_BUDDY_AS_TARGET|s -> b|
+|2|0x002|SCRIPT_FLAG_REVERSE_DIRECTION|t* -> s* (* result after previous flag is evaluated)|
+|4|0x004|SCRIPT_FLAG_SOURCE_TARGETS_SELF|s* -> s* (* result after previous flag is evaluated)|
+|8|0x008|SCRIPT_FLAG_COMMAND_ADDITIONAL|Only for some commands possible.|
+|16|0x010|SCRIPT_FLAG_BUDDY_BY_GUID|Interpret "search_radius":dbscripts#search_radius as "buddy_entry":dbscripts#buddy_entry GUID.|
+|32|0x020|SCRIPT_FLAG_BUDDY_IS_PET|Do not search for an npc, but for a pet.|
+|64|0x040|SCRIPT_FLAG_BUDDY_IS_DESPAWNED|Search for a creature that is despawned or dead.|
+|128|0x080|SCRIPT_FLAG_BUDDY_BY_POOL|buddy should be part of a pool|
+|256|0x100|SCRIPT_FLAG_BUDDY_BY_SPAWN_GROUP|buddy is from spawn group|
+|512|0x200|SCRIPT_FLAG_ALL_ELIGIBLE_BUDDIES|multisource/multitarget - will execute for each eligible|
+|1024|0x400|SCRIPT_FLAG_BUDDY_BY_GO|take the buddy by GO (for commands which can target both creature and GO)|
 
 h4. OtherFields
 
@@ -252,28 +291,30 @@ Depending on what "command":dbscripts#command was used, the meaning and use for 
 * *SCRIPT_COMMAND_TALK = 0*
 ** All information of the text (type, language, associated sound, emote) is stored in the "dbscript_string.":dbscript_string table
 ** datalong: "dbscript_random_templates.id":dbscript_random_templates#id - will randomize between all dbscript_strings in given template.
-** dataint - 4: The text ID that the creature will say. See "dbscript_string.":dbscript_string.In case more then only dataint field is filled the texts will be used randomly.
+** dataint - dataint4: The text ID that the creature will say. See "dbscript_string.":dbscript_string.In case more then only dataint field is filled the texts will be used randomly.
 
 * *SCRIPT_COMMAND_EMOTE = 1*
 ** datalong: The "emote ID":Emote to play.
-** dataint1-dataint4 optionally, for random selection of emote
+** dataint - dataint4 optionally, for random selection of emote
 ** Resulting source must be a unit.
 
-* *SCRIPT_COMMAND_FIELD_SET = 2*
+* *SCRIPT_COMMAND_FIELD_SET = 2* - *Deprecated* - e.g use SCRIPT_COMMAND_MODIFY_UNIT_FLAGS
 ** datalong: Index of the field.
 ** datalong2: Value to place at the index.
 
 * *SCRIPT_COMMAND_MOVE_TO = 3*
+** datalong: dbscripts_on_relay id - executed for source and target same as this script
 ** datalong2: Length of the motion. This calculates as travel_speed*100. Use 0 for creature default movement.
+** datalong3: "enum ForcedMovement":dbscripts#ForcedMovement
 ** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL (8) will teleport the creature to the given location.
-** x: X position to move to.
+** x: X position to move to. If position is very near to current position, or x=y=z=0, then only orientation is changed
 ** y: Y position to move to.
-** z: Z position to move to.
+** z: Z position to move to. If x=y=0 and z !=0, then only Z position is changed (new value will be added to current 'z' position
 ** o: Orientation to face.
 ** Resulting source must be a creature.
 _Side note: If position is very near to current position, or x=y=z=0, then only orientation is changed._
 
-* *SCRIPT_COMMAND_FLAG_SET = 4*
+* *SCRIPT_COMMAND_FLAG_SET = 4* - *Deprecated* - e.g use SCRIPT_COMMAND_MODIFY_UNIT_FLAGS
 ** datalong: Field index to be set.
 ** datalong2: Flag bit(s) to set.
 
@@ -281,11 +322,12 @@ _Side note: If position is very near to current position, or x=y=z=0, then only 
 |UNIT_FIELD_HEALTH|22|22|24|Health|
 |UNIT_FIELD_POWER1|23|23|25|Mana|
 |UNIT_FIELD_LEVEL|34|34|54|Level|
+|UNIT_FIELD_FLAGS|.|.|.|*SCRIPT_COMMAND_MODIFY_UNIT_FLAGS*|
 |UNIT_FIELD_BOUNDINGRADIUS|129|150|65|bounding_radius|
 |UNIT_FIELD_COMBATREACH|130|151|66|combat_reach|
-|UNIT_FIELD_BYTES_1|138|159|74|bytes1|
+|UNIT_FIELD_BYTES_1|.|.|.|*SCRIPT_COMMAND_STAND_STATE*|
 |UNIT_DYNAMIC_FLAGS|143|164|79|DynamicFlags|
-|UNIT_NPC_FLAGS|147|168|82|NpcFlags|
+|UNIT_NPC_FLAGS|.|.|.|*SCRIPT_COMMAND_MODIFY_NPC_FLAGS*|
 
 More Examples Can Be Found At: UpdateFields.h In Core
 
@@ -317,7 +359,7 @@ More Examples Can Be Found At: UpdateFields.h In Core
 
 * *SCRIPT_COMMAND_TEMP_SPAWN_CREATURE = 10*
 ** datalong: Entry of the summoned creature from "creature_template.entry":creature_template#entry.
-** datalong2: Despawn time (MILLIESECONDS). If set to 0 then the creature will be despawned only when killed.
+** datalong2: despawn_delay (MILLIESECONDS). If set to 0 then the creature will be despawned only when killed.
 ** datalong3: The "pathId":creature_movement_template#pathId you want the creature to immediately start moving on (if MovementType=2)
 ** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL (8) will summon the creature as active object.
 ** dataint: SetRun (bool). 0 = off (default), 1 = on
@@ -331,6 +373,7 @@ More Examples Can Be Found At: UpdateFields.h In Core
 * *SCRIPT_COMMAND_OPEN_DOOR = 11*
 ** datalong: Guid of the activated door. It's a "gameobject.guid":gameobject#guid. Can be skipped for buddy.
 ** datalong2: Delay before closing again the door. If the value is &lt; 15 seconds then 15 seconds is used instead.
+** datalong3: alternate state - bool 0 or 1
 
 * *SCRIPT_COMMAND_CLOSE_DOOR = 12*
 ** datalong: Guid of the activated door. It's a "gameobject.guid":gameobject#guid.  Can be skipped for buddy.
@@ -351,7 +394,7 @@ warning - if used with a channeled spell will not interrupt channel
 ** datalong2: "TriggerCastFlags":dbscripts#TriggerCastFlags
 ** buddy_entry: "entry":creature_template#entry of the target
 ** search_radius: radius to search for "buddy_entry":dbscripts#buddy_entry or "guid":creature#guid of the specific guid if "data_flags":dbscripts#data_flags|16 is set
-** dataint1-dataint4 optional. If some of these are set to a spell id, a random spell out of datalong, datint1, ..,dataintX is cast.
+** dataint - dataint4 optional. If some of these are set to a spell id, a random spell out of datalong, dataint - dataint4 is cast.
 
 h4. TriggerCastFlags
 
@@ -393,16 +436,27 @@ h4. TriggerCastFlags
 ** datalong2: Wander distance (for random movement), "creature_movement_template.pathId":creature_movement_template#pathId (for waypoint movement).
 ** datalong3: timer (in milliseconds) - use in conjunction with MoveRandomAroundPoint to trigger usage of TimedWanderMovementGenerator
 ** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL (8) will set random movement around the current position.
+** dataint: "enum ForcedMovement":dbscripts#ForcedMovement
 ** Resulting source must be a creature.
 
+h4. ForcedMovement
+
+|_. Value|_. Name|_. Description|
+|0|FORCED_MOVEMENT_NONE|Default|
+|1|FORCED_MOVEMENT_WALK|Walk|
+|2|FORCED_MOVEMENT_RUN|Run|
+|3|FORCED_MOVEMENT_FLIGHT|Fly|
+
 * *SCRIPT_COMMAND_SET_ACTIVEOBJECT = 21*
-** datalong: Can be defined as 1 = On or 0 = Off. Set a creature as active object, depending on the datalong value.
+** datalong: 0 = Off, 1 = On. Set a creature as active object, depending on the datalong value.
 ** Resulting source must be creature.
 
 * *SCRIPT_COMMAND_SET_FACTION = 22*
 ** datalong: "Faction Id":FactionTemplate.dbc. If set to 0 will restore original faction from creature_template.
 ** Resulting source must be a creature.
-** datalong2: Temporary faction flags
+** datalong2: "enum TemporaryFactionFlags":dbscripts#TemporaryFactionFlags
+
+h4. TemporaryFactionFlags
 
 |Bit|Hex|Description|
 |0|0x00|TEMPFACTION_NONE|When no flag is used in temporary faction change, faction will be persistent. It will then require manual change back to default/another faction when changed once.|
@@ -444,7 +498,9 @@ h4. TriggerCastFlags
 
 * *SCRIPT_COMMAND_STAND_STATE = 28*
 ** Resulting source must be a creature.
-** datalong: stand state (enum UnitStandStateType)
+** datalong: "enum UnitStandStateType":dbscripts#UnitStandStateType
+
+h4. UnitStandStateType
 
 |Bit|Name|Comment|
 |0|UNIT_STAND_STATE_STAND|normal behavior|
@@ -461,12 +517,7 @@ h4. TriggerCastFlags
 * *SCRIPT_COMMAND_MODIFY_NPC_FLAGS = 29*
 ** Resulting source must be a creature.
 ** datalong: NPC Flags
-** datalong2:
-
-|Value|Action|
-|0|Remove|
-|1|Add|
-|2|Toggle|
+** datalong2: 0 Remove, 1 Add
 
 * *SCRIPT_COMMAND_SEND_TAXI_PATH = 30*
 ** datalong: "Taxi path id":TaxiPath.dbc#Content.
@@ -475,12 +526,15 @@ h4. TriggerCastFlags
 * *SCRIPT_COMMAND_TERMINATE_SCRIPT = 31*
 ** datalong: "Creature entry":creature_template#entry if provided. (Or pool ID if SCRIPT_FLAG_BUDDY_BY_POOL)
 ** datalong2: Search distance.
+** datalong3: pool id
 ** dataint: Change of "waittime":creature_movement#waittime (MILLISECONDS) of a current waypoint movement type. Negative values will decrease time.
 ** "data_flags":dbscripts#data_flags
 
 |& data_flags|Description|
 |& SCRIPT_FLAG_COMMAND_ADDITIONAL 8 0x08|If creature is found and alive, terminate script.|
 |! SCRIPT_FLAG_COMMAND_ADDITIONAL|If creature is not found or not alive, terminate script.|
+
+** when used with guid or entry search, can also search for GO guid through SCRIPT_FLAG_BUDDY_BY_GO
 
 * *SCRIPT_COMMAND_PAUSE_WAYPOINTS = 32*
 ** datalong: 1 = Pause or 0 = Unpause waypoint movement.
@@ -503,26 +557,32 @@ _Side note: Only available on wotlk version._
 * *SCRIPT_COMMAND_SEND_AI_EVENT = 35*
 ** datalong: AI event id. Only EventAI events are accepted. Supported types see CreatureAI.h enum AIEventType.
 ** datalong2: Radius. If radius isn't provided and the target is a creature, then send AIEvent to target.
+** datalong3: miscvalue - uint32 - for use in ReceiveAIEvent handler
 ** Source and target must be a creature.
 
 * *SCRIPT_COMMAND_SET_FACING = 36*
 ** Resulting source must be a creature; Resulting target must be a Worldobject.
 ** datalong != 0 Reset orientation
 
+|& data_flags|Description|
+|& SCRIPT_FLAG_COMMAND_ADDITIONAL 8 0x08|Also set TargetGuid of resultingSource to resultingTarget (MUST be Creature/ Player)|
+
 * *SCRIPT_COMMAND_MOVE_DYNAMIC = 37*
 ** Resulting source must be a creature; Resulting target must be a Worldobject.
 ** datalong = 0:  Move resulting source towards resulting target
-** datalong != 0: Move resulting source to a random point between datalong2..datalong around resulting target.
+** datalong != 0: Move resulting source to a random point between datalong2 and datalong around resulting target.
 ** datalong3 = Exact contact point distance, to be used when you want to stop moving as soon as you're within this distance of the target
 ** orientation != 0: Obtain a random point around resulting target in direction of orientation
 ** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL (8) Obtain a point in direction of resulting target->GetOrientation + orientation
 ** for resulting target == resulting source and orientation == 0 this will mean resulting source moving forward
+** dataint: "enum ForcedMovement":dbscripts#ForcedMovement
+** dataint2: dbscripts_on_relay id
 
 * *SCRIPT_COMMAND_SEND_MAIL = 38*
 ** Resulting source should be a Creature OR NULL. Resulting target must be Player
 ** datalong = mailTemplateId
 ** datalong2: AlternativeSenderEntry. Use as sender-Entry of the sent mail
-** dataint1: Delay (>= 0) in Seconds
+** dataint: Delay (>= 0) in Seconds
 
 * *SCRIPT_COMMAND_SET_HOVER = 39*
 ** Resulting source must be a creature.
@@ -538,7 +598,9 @@ _Side note: Only available on wotlk version._
 * *SCRIPT_COMMAND_SET_EQUIPMENT_SLOTS = 42*
 ** Resulting source must be a creature.
 ** datalong = resetDefault: bool 0=false, 1=true
-** dataint = main hand slot; dataint2 = off hand slot; dataint3 = ranged slot
+** dataint = main hand slot
+** dataint2 = off hand slot
+** dataint3 = ranged slot
 
 * *SCRIPT_COMMAND_RESET_GO = 43*
 ** Resulting target must be a Gameobject. Only works for Gameobject which are doors or buttons (GO type 0 and 1)
@@ -557,19 +619,30 @@ _Side note: Only available on wotlk version._
 ** Resulting source must be a Unit. Target is Unit.
 ** datalong = spellid
 ** datalong2 = castFlags, enum "TriggerCastFlags":dbscripts#TriggerCastFlags
-** dataint1-3 define the &bp value for the spell. At least one field is required.
+** dataint - dataint3 define the &bp value for the spell. At least one field is required.
 
 * *SCRIPT_COMMAND_INTERRUPT_SPELL= 47*
 ** Resulting source must be a Unit.
-** datalong = SpellType, enum "CurrentSpellTypes":/mangos-wotlk/blob/master/src/game/Entities/Unit.h#L1074
+** datalong = "enum CurrentSpellTypes":dbscripts#CurrentSpellTypes
+
+h4. CurrentSpellTypes
+
+|Value|Name|
+|0|CURRENT_MELEE_SPELL|
+|1|CURRENT_GENERIC_SPELL|
+|2|CURRENT_AUTOREPEAT_SPELL|
+|3|CURRENT_CHANNELED_SPELL|
 
 * *SCRIPT_COMMAND_MODIFY_UNIT_FLAGS = 48*
 ** Resulting source must be a creature.
-** datalong: Unit Flags
-** datalong2:
+** datalong: UnitFlags
+** datalong2: 0 Remove, 1 Add
 
-|Value|Action|
-|0|Remove|
-|1|Add|
-|2|Toggle|
+* *SCRIPT_COMMAND_SET_DATA_64 = 49*
+** Set instance data if it exists
+** datalong - param1
+** datalong2 - param2
+
+* *SCRIPT_COMMAND_ZONE_PULSE = 50*
+** Pulses zone for combat and attacks closest enemy
 
