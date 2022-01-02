@@ -10,6 +10,7 @@ This table format is used for different tables to control possible scripts activ
     Holds scripts activated when a player accepts a quest.
     Source: quest giver (creature); Target: player; Script execution unique by source.
     The usage of IDs is as following: Quest Entry
+
 ---
 * *dbscripts_on_quest_end:* 
     Holds scripts activated when a player finishes a quest.
