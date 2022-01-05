@@ -363,8 +363,7 @@ More Examples Can Be Found At: UpdateFields.h In Core
 ** datalong3: The "pathId":creature_movement_template#pathId you want the creature to immediately start moving on (if MovementType=2)
 ** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL (8) will summon the creature as active object.
 ** dataint: SetRun (bool). 0 = off (default), 1 = on
-** dataint2 = factionId - if 0 is set, faction is from DB entry - *Deprecated, Do not use*
-** dataint3 = modelId - if 0 is set, model is from DB entry - *Deprecated, Do not use*
+** dataint4 = creature_spawn_data_template entry - enables customization of faction, model, equipment and more
 ** x: Summon target x coordinate.
 ** y: Summon target y coordinate.
 ** z: Summon target z coordinate.
