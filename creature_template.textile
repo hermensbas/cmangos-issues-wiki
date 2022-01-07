@@ -262,38 +262,40 @@ This Field Is a Bitmask That Represents What NPC Flags The Creature Has Assigned
 
 *Note:* These are the values for TBC/WotLK, for Vanilla values see the <code>NPCFlags</code> enum in "Unit.h":https://github.com/cmangos/mangos-classic/blob/172c005b0a69e342e908f4589b24a6f18246c95e/src/game/Entities/Unit.h#L536
 
-|_. Bit|_. Value|_. Flag|_. Comment|
-|0|1|Gossip|If creature has more gossip options, add this flag to bring up a menu.|
-|1|2|Quest Giver|Any creature giving or taking quests needs to have this flag.|
-|4|16|Trainer|Allows the creature to have a trainer list to teach spells|
-|5|32|Trainer_Class|Allows the creature to have a class trainer list to teach spells.
+|_. BitMask|_. Value|_. Flag|_. Comment|
+|0x00000000|0|UNIT_NPC_FLAG_NONE|None|
+|0x00000001|1|UNIT_NPC_FLAG_GOSSIP|If creature has more gossip options, add this flag to bring up a menu.|
+|0x00000002|2|UNIT_NPC_FLAG_QUESTGIVER|Any creature giving or taking quests needs to have this flag.|
+|0x00000004|4|UNIT_NPC_FLAG_UNK1|Unused|
+|0x00000008|8|UNIT_NPC_FLAG_UNK2|Unused|
+|0x00000010|16|UNIT_NPC_FLAG_TRAINER|Allows the creature to have a trainer list to teach spells|
+|0x00000020|32|UNIT_NPC_FLAG_TRAINER_CLASS|Allows the creature to have a class trainer list to teach spells.
 (MUST USE WITH FLAG: 16)|
-|6|64|Trainer_Profession|Allows the creature to have a profession trainer list to teach spells.
+|0x00000040|64|UNIT_NPC_FLAG_TRAINER_PROFESSION|Allows the creature to have a profession trainer list to teach spells.
 (MUST USE WITH FLAG: 16)|
-|7|128|Vendor|Any creature selling items needs to have this flag.|
-|8|256|Vendor_Ammo|Any creature selling ammo items needs to have this flag. 
+|0x00000080|128|UNIT_NPC_FLAG_VENDOR|Any creature selling items needs to have this flag.|
+|0x00000100|256|UNIT_NPC_FLAG_VENDOR_AMMO|Any creature selling ammo items needs to have this flag. 
 (MUST USE WITH FLAG: 128)|
-|9|512|Vendor_Food|Any creature selling food items needs to have this flag.
+|0x00000200|512|UNIT_NPC_FLAG_VENDOR_FOOD|Any creature selling food items needs to have this flag.
 (MUST USE WITH FLAG: 128)|
-|10|1024|Vendor_Poison|Any creature selling poison items needs to have this flag.
+|0x00000400|1024|UNIT_NPC_FLAG_VENDOR_POISON|Any creature selling poison items needs to have this flag.
 (MUST USE WITH FLAG: 128)|
-|11|2048|Vendor_Reagent|Any creature selling reagent items needs to have this flag.
+|0x00000800|2048|UNIT_NPC_FLAG_VENDOR_REAGENT|Any creature selling reagent items needs to have this flag.
 (MUST USE WITH FLAG: 128)|
-|12|4096|Repairer|Creatures with this flag can repair items.|
-|13|8192|Flight Master|Any creature serving as fly master has this.|
-|14|16384|Spirit Healer|Makes the creature invisible to alive characters and has the resurrect function.|
-|15|32768|Spirit Guide||
-|16|65536|Innkeeper|Creatures with this flag can set hearthstone locations.|
-|17|131072|Banker|Creatures with this flag can show the bank|
-|18|262144|Petitioner||
-|19|524288|Tabard Designer|Allows the designing of guild tabards.|
-|20|1048576|Battlemaster|Creatures with this flag port players to battlegrounds.|
-|21|2097152|Auctioneer|Allows creature to display auction list.|
-|22|4194304|Stable Master|Has the option to stable pets for hunters.|
-|23|8388608|Guild Banker|cause client to send 997 opcode|
-|24|16777216|SpellClick/Instantloot|cause client to send 1015 opcode (spell click), dynamic, set at loading and don't must be set in DB. (Npc_spellclick_spells)|
-|25|33554432|Player Vehicle|players with mounts that have vehicle data should have it set|
-|26|268435456|Guard ?|Creatures with this flag act as guards in cities.|
+|0x00001000|4096|UNIT_NPC_FLAG_REPAIR|Creatures with this flag can repair items.|
+|0x00002000|8192|UNIT_NPC_FLAG_FLIGHTMASTER|Any creature serving as fly master has this.|
+|0x00004000|16384|UNIT_NPC_FLAG_SPIRITHEALER|Makes the creature invisible to alive characters and has the resurrect function.|
+|0x00008000|32768|UNIT_NPC_FLAG_SPIRITGUIDE||
+|0x00010000|65536|UNIT_NPC_FLAG_INNKEEPER|Creatures with this flag can set hearthstone locations.|
+|0x00020000|131072|UNIT_NPC_FLAG_BANKER|Creatures with this flag can show the bank|
+|0x00040000|262144|UNIT_NPC_FLAG_PETITIONER|0xC0000 = guild petitions, 0x40000 = arena team petitions|
+|0x00080000|524288|UNIT_NPC_FLAG_TABARDDESIGNER|Allows the designing of guild tabards.|
+|0x00100000|1048576|UNIT_NPC_FLAG_BATTLEMASTER|Creatures with this flag port players to battlegrounds.|
+|0x00200000|2097152|UNIT_NPC_FLAG_AUCTIONEER|Allows creature to display auction list.|
+|0x00400000|4194304|UNIT_NPC_FLAG_STABLEMASTER|Has the option to stable pets for hunters.|
+|0x00800000|8388608|UNIT_NPC_FLAG_GUILD_BANKER|cause client to send 997 opcode|
+|0x01000000|16777216|UNIT_NPC_FLAG_SPELLCLICK / Instantloot|cause client to send 1015 opcode (spell click), dynamic, set at loading and don't must be set in DB. (Npc_spellclick_spells)|
+|0x02000000|33554432|UNIT_NPC_FLAG_PLAYER_VEHICLE|players with mounts that have vehicle data should have it set|
 
 EXAMPLE:
 So If You Want An NPC That Is a Quest Giver, a Vendor And Can Also Repair You Just Add The Specific Flags Together: 
