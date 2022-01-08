@@ -88,7 +88,7 @@ enum SpawGroupFormationOptions
 |BitMask|Name|
 |---|---|
 |0x00|SPAWN_GROUP_FORMATION_OPTION_NONE           |
-|0x01|SPAWN_GROUP_FORMATION_OPTION_KEEP_CONPACT   |
+|0x01|SPAWN_GROUP_FORMATION_OPTION_KEEP_COMPACT   |
 
 #### MovementID
 
@@ -96,7 +96,7 @@ Id from waypoint_path path
 
 #### MovementType
 
-MovementType of the Formation, Overwrites creature.MovementType
+MovementType of the Formation, Overwrites creature.MovementType. 0 (Idle) 2 (waypoint movement) 3 (path movement) or 4 (linear movement) are applicable
 
 #### Comment
 
