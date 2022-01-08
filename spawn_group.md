@@ -1,12 +1,18 @@
 Tables:
 
-spawn_group  
-spawn_group_spawn  
-spawn_group_entry  
+[spawn_group](https://github.com/cmangos/issues/wiki/spawn_group#spawn_group)  
+[spawn_group_spawn](https://github.com/cmangos/issues/wiki/spawn_group#spawn_group_spawn)  
+[spawn_group_entry](https://github.com/cmangos/issues/wiki/spawn_group#spawn_group_entry)  
+[spawn_group_formation](https://github.com/cmangos/issues/wiki/spawn_group#spawn_group_formation)  
+[spawn_group_linked_group](https://github.com/cmangos/issues/wiki/spawn_group#spawn_group_linked_group)  
+[spawn_group_spawn](https://github.com/cmangos/issues/wiki/spawn_group#spawn_group_spawn)  
+[waypoint_path](https://github.com/cmangos/issues/wiki/spawn_group#waypoint_path) - paths for spawn_group_formation.PathId  
 
 Logically a replacement of linking and pooling. Groups spawns into a logical group, which can behave differently. Benefits are much easier handling in core and during creation of new entries. Also introduces conditional spawning through worldstate alteration.
 
-spawn_group  
+---
+## spawn_group
+
 Id - Spawn Group ID
 
 ```
@@ -34,14 +40,63 @@ Flags - enum CreatureGroupFlags (GO groups currently have no flags)
     CREATURE_GROUP_EVADE_TOGETHER   = 0x04,
 ```
 
-spawn_group_spawn  
+---
+## spawn_group_spawn
+
 Id - Spawn Group ID  
 Guid - Guid in Creature or GameObject table, used as DbGuid in core, due to SpawnGroups automatically using Dynamic Guid system (when spawned, has unique guid)  
 
-spawn_group_entry - non mandatory  
-Id - Spawn Group ID  
-Entry - Entry for picking on spawn from creature_template or gameobject_template  
-MinCount - Minimum count of entries before random chances or other entries become eligible  
-MaxCount - Maximum count of given entry in the world for whole spawn group  
-Chance - Chance of entry to be picked over other chanced entries. First chanced entries are tried and then all chanced with 0. MinCount overrides this  
+---
+## spawn_group_entry
 
+not mandatory, only for randomization of spawns
+
+#### Id - Spawn Group ID  
+#### Entry - Entry for picking on spawn from creature_template or gameobject_template  
+#### MinCount - Minimum count of entries before random chances or other entries become eligible  
+#### MaxCount - Maximum count of given entry in the world for whole spawn group  
+#### Chance - Chance of entry to be picked over other chanced entries. First chanced entries are tried and then all chanced with 0. MinCount overrides this  
+
+---
+## spawn_group_formation
+
+#### SpawnGroupID
+
+#### FormationType
+
+enum SpawnGroupFormationType
+
+|Value|Name|
+|---|---|
+|0|SPAWN_GROUP_FORMATION_TYPE_RANDOM              |
+|1|SPAWN_GROUP_FORMATION_TYPE_SINGLE_FILE         |
+|2|SPAWN_GROUP_FORMATION_TYPE_SIDE_BY_SIDE        |
+|3|SPAWN_GROUP_FORMATION_TYPE_LIKE_GEESE          |
+|4|SPAWN_GROUP_FORMATION_TYPE_FANNED_OUT_BEHIND   |
+|5|SPAWN_GROUP_FORMATION_TYPE_FANNED_OUT_IN_FRONT |
+|6|SPAWN_GROUP_FORMATION_TYPE_CIRCLE_THE_LEADER   |
+
+#### FormationSpread
+
+Distance between formation members, Value between 0.5 and 15
+
+#### FormationOptions
+
+enum SpawGroupFormationOptions
+
+|BitMask|Name|
+|---|---|
+|0x00|SPAWN_GROUP_FORMATION_OPTION_NONE           |
+|0x01|SPAWN_GROUP_FORMATION_OPTION_KEEP_CONPACT   |
+
+#### MovementID
+
+Id from waypoint_path path
+
+#### MovementType
+
+MovementType of the Formation, Overwrites creature.MovementType
+
+#### Comment
+
+Same as [`spawn_group`.`Name`](https://github.com/cmangos/issues/wiki/spawn_group#Name)
