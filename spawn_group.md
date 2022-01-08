@@ -4,8 +4,7 @@ Tables:
 [spawn_group_spawn](https://github.com/cmangos/issues/wiki/spawn_group#spawn_group_spawn)  
 [spawn_group_entry](https://github.com/cmangos/issues/wiki/spawn_group#spawn_group_entry)  
 [spawn_group_formation](https://github.com/cmangos/issues/wiki/spawn_group#spawn_group_formation)  
-[spawn_group_linked_group](https://github.com/cmangos/issues/wiki/spawn_group#spawn_group_linked_group)  
-[spawn_group_spawn](https://github.com/cmangos/issues/wiki/spawn_group#spawn_group_spawn)  
+[spawn_group_linked_group](https://github.com/cmangos/issues/wiki/spawn_group#spawn_group_linked_group)   
 [waypoint_path](https://github.com/cmangos/issues/wiki/spawn_group#waypoint_path) - paths for spawn_group_formation.PathId  
 
 Logically a replacement of linking and pooling. Groups spawns into a logical group, which can behave differently. Benefits are much easier handling in core and during creation of new entries. Also introduces conditional spawning through worldstate alteration.
