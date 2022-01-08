@@ -66,7 +66,7 @@ not mandatory, only for randomization of spawns
 enum SpawnGroupFormationType
 
 |Value|Name|Example|
-|---|---|
+|---|---|---|
 |0|SPAWN_GROUP_FORMATION_TYPE_RANDOM              ||
 |1|SPAWN_GROUP_FORMATION_TYPE_SINGLE_FILE         ||
 |2|SPAWN_GROUP_FORMATION_TYPE_SIDE_BY_SIDE        ||
