@@ -65,19 +65,21 @@ not mandatory, only for randomization of spawns
 
 enum SpawnGroupFormationType
 
-|Value|Name|
+|Value|Name|Example|
 |---|---|
-|0|SPAWN_GROUP_FORMATION_TYPE_RANDOM              |
-|1|SPAWN_GROUP_FORMATION_TYPE_SINGLE_FILE         |
-|2|SPAWN_GROUP_FORMATION_TYPE_SIDE_BY_SIDE        |
-|3|SPAWN_GROUP_FORMATION_TYPE_LIKE_GEESE          |
-|4|SPAWN_GROUP_FORMATION_TYPE_FANNED_OUT_BEHIND   |
-|5|SPAWN_GROUP_FORMATION_TYPE_FANNED_OUT_IN_FRONT |
-|6|SPAWN_GROUP_FORMATION_TYPE_CIRCLE_THE_LEADER   |
+|0|SPAWN_GROUP_FORMATION_TYPE_RANDOM              ||
+|1|SPAWN_GROUP_FORMATION_TYPE_SINGLE_FILE         ||
+|2|SPAWN_GROUP_FORMATION_TYPE_SIDE_BY_SIDE        ||
+|3|SPAWN_GROUP_FORMATION_TYPE_LIKE_GEESE          ||
+|4|SPAWN_GROUP_FORMATION_TYPE_FANNED_OUT_BEHIND   ||
+|5|SPAWN_GROUP_FORMATION_TYPE_FANNED_OUT_IN_FRONT ||
+|6|SPAWN_GROUP_FORMATION_TYPE_CIRCLE_THE_LEADER   ||
 
 #### FormationSpread
 
-Distance between formation members, Value between 0.5 and 15
+Distance between formation members, Value between 0.5 and 15 - raw distance ingame
+
+Humanoid Npcs 3 minimum, then target circles tangate each other. 5 good default value for SPAWN_GROUP_FORMATION_TYPE_SINGLE_FILE to not make it look too stacked
 
 #### FormationOptions
 
