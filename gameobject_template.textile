@@ -2,7 +2,7 @@ Back to "world database":mangosdb_struct list of tables.
 
 h2. The `gameobject_template` table
 
-Contains template off all world's objects
+Contains template of all world's objects
 
 h3. Structure
 
