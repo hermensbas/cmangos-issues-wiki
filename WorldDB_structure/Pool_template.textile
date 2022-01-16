@@ -2,6 +2,8 @@ Back to "world database":mangosdb_struct list of tables.
 
 h2. The `pool&#95;template` table
 
+DEPRECATED : Use "`spawn_group`":https://github.com/cmangos/issues/wiki/spawn_group instead. Pooling is also dynguid incompatbile.
+
 Contains all pool instances that participate to any game event.
 
 h3. Structure
