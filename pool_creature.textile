@@ -2,7 +2,7 @@ Back to "world database":mangosdb_struct list of tables.
 
 h2. The `pool_creature` table
 
-DEPRECATED : Use https://github.com/cmangos/issues/wiki/spawn_group instead. Pooling is also dynguid incompatbile.
+DEPRECATED : Use [`spawn_group`](https://github.com/cmangos/issues/wiki/spawn_group) instead. Pooling is also dynguid incompatbile.
 
 Contains all creatures pooled by their "`creature`.`guid`":Creature#guid.
 
