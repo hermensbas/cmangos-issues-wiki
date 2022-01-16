@@ -2,6 +2,8 @@ Back to "world database":mangosdb_struct list of tables.
 
 h2. The `pool&#95;pool` table
 
+DEPRECATED : Use "`spawn_group`":https://github.com/cmangos/issues/wiki/spawn_group instead. Pooling is also dynguid incompatbile.
+
 This is the pool of pools table. You can create a pool with a chance of a range of pools in that pool being activated.
 
 h3. Structure
