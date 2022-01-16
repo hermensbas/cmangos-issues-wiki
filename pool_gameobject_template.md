@@ -2,7 +2,7 @@ Back to [world database](https://github.com/cmangos/issues/wiki/Mangosdb_struct)
 
 ## The `pool_gameobject_template` table
 
-DEPRECATED : Use "`spawn_group`":https://github.com/cmangos/issues/wiki/spawn_group instead. Pooling is also dynguid incompatbile.
+DEPRECATED : Use [`spawn_group`](https://github.com/cmangos/issues/wiki/spawn_group) instead. Pooling is also dynguid incompatbile.
 
 holds data on gameobjects that are pooled by their [`gameobject_template`.`entry`](gameobject_template#entry).
 
