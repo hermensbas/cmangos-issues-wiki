@@ -79,7 +79,7 @@ This table format is used for different tables to control possible scripts activ
    ** WoTLK 20000 +
    Source and Target are defined by the mechanism that launched it.
 
-   Holds *"broadcast_text.id":broadcast_text#id for type = 0* or holds *dbscripts_on_relay.id for type = 1*
+   Holds *[[ broadcast_text.id | broadcast_text#id ]] for type = 0* or holds *dbscripts_on_relay.id for type = 1*
 
 ---
 * *dbscripts_on_relay:* 
@@ -93,10 +93,10 @@ This table format is used for different tables to control possible scripts activ
 ---
 * *Other Ways to launch dbscripts* 
 
-   ** For creature_ai_scripts - ACTION_T_TEXT_NEW.param3 to launch dbscript_random_templates.type = 0, "broadcast_text":broadcast_text#id
+   ** For creature_ai_scripts - ACTION_T_TEXT_NEW.param3 to launch dbscript_random_templates.type = 0, [[ broadcast_text.id | broadcast_text#id ]]
    ** For creature_ai_scripts - ACTION_T_START_RELAY_SCRIPT to launch type = 2, dbscripts_on_relay
 	
-   ** For SCRIPT_COMMAND_TALK to launch dbscript_random_templates.type = 0, "broadcast_text":broadcast_text#id
+   ** For SCRIPT_COMMAND_TALK to launch dbscript_random_templates.type = 0, [[ broadcast_text.id | broadcast_text#id ]]
    ** For SCRIPT_COMMAND_START_RELAY_SCRIPT to launch type = 2, dbscripts_on_relay
 
 ---
@@ -289,9 +289,9 @@ h4. Usage
 Depending on what "command":dbscripts#command was used (enum ScriptCommand), the meaning and use of the fields can vary:
 
 * *SCRIPT_COMMAND_TALK = 0*
-** All information of the text (type, language, associated sound, emote) is stored in the "dbscript_string.":dbscript_string table
-** datalong: "dbscript_random_templates.id":dbscript_random_templates#id - will randomize between all "broadcast_text.id":broadcast_text#id in given template.
-** dataint - dataint4: The text ID that the creature will say. See "broadcast_text.id":broadcast_text#id. In case more then only dataint field is filled the texts will be used randomly.
+** All information of the text (type, language, associated sound, emote) is stored in the [[ broadcast_text.id | broadcast_text#id ]] table
+** datalong: "dbscript_random_templates.id":dbscript_random_templates#id - will randomize between all [[ broadcast_text.id | broadcast_text#id ]] in given template.
+** dataint - dataint4: The text ID that the creature will say. See [[ broadcast_text.id | broadcast_text#id ]]. In case more then only dataint field is filled the texts will be used randomly.
 
 * *SCRIPT_COMMAND_EMOTE = 1*
 ** datalong: The "emote ID":Emote to play.
