@@ -67,19 +67,22 @@ enum SpawnGroupFormationType
 
 |Value|Name|Example|
 |---|---|---|
-|0|SPAWN_GROUP_FORMATION_TYPE_RANDOM              | |
-|1|SPAWN_GROUP_FORMATION_TYPE_SINGLE_FILE         | |
-|2|SPAWN_GROUP_FORMATION_TYPE_SIDE_BY_SIDE        | |
-|3|SPAWN_GROUP_FORMATION_TYPE_LIKE_GEESE          | |
-|4|SPAWN_GROUP_FORMATION_TYPE_FANNED_OUT_BEHIND   | |
-|5|SPAWN_GROUP_FORMATION_TYPE_FANNED_OUT_IN_FRONT | |
-|6|SPAWN_GROUP_FORMATION_TYPE_CIRCLE_THE_LEADER   | |
+|0|SPAWN_GROUP_FORMATION_TYPE_RANDOM              | ![](https://i.imgur.com/6ta9ZNX.png) |
+|1|SPAWN_GROUP_FORMATION_TYPE_SINGLE_FILE         | ![](https://i.imgur.com/9p8LiFU.png) |
+|2|SPAWN_GROUP_FORMATION_TYPE_SIDE_BY_SIDE        | ![](https://i.imgur.com/dmO3eT6.png) |
+|3|SPAWN_GROUP_FORMATION_TYPE_LIKE_GEESE          | ![](https://i.imgur.com/LjPVReZ.png) |
+|4|SPAWN_GROUP_FORMATION_TYPE_FANNED_OUT_BEHIND   | ![](https://i.imgur.com/i5OAJGc.png) |
+|5|SPAWN_GROUP_FORMATION_TYPE_FANNED_OUT_IN_FRONT | ![](https://i.imgur.com/ihGrdDu.png) |
+|6|SPAWN_GROUP_FORMATION_TYPE_CIRCLE_THE_LEADER   | ![](https://i.imgur.com/lUqwMHw.png) |
 
 #### FormationSpread
 
-Distance between formation members, Value between 0.5 and 15 - raw distance ingame
+Distance between formation members, Value between -15 and 15 - raw distance ingame
+Only positive make sense for all formation except random(0)
+For random position spread mean the distance from leader and the pack of members.
+By using negative spread in that case we can push the pack above leader.
 
-Humanoid Npcs 3 minimum, then target circles tangate each other. 5 good default value for SPAWN_GROUP_FORMATION_TYPE_SINGLE_FILE to not make it look too stacked
+Humanoid Npcs 2 minimum, then target circles tangate each other. 5 good default value for SPAWN_GROUP_FORMATION_TYPE_SINGLE_FILE to not make it look too stacked
 
 #### FormationOptions
 
