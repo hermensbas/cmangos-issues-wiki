@@ -69,7 +69,7 @@ enum SpawnGroupFormationType
 
 |Value|Name|Example|
 |---|---|---|
-|0|SPAWN_GROUP_FORMATION_TYPE_RANDOM              | ![](https://i.imgur.com/6ta9ZNX.png) |
+|0|SPAWN_GROUP_FORMATION_TYPE_RANDOM(subject to change)| ![](https://i.imgur.com/6ta9ZNX.png) |
 |1|SPAWN_GROUP_FORMATION_TYPE_SINGLE_FILE         | ![](https://i.imgur.com/9p8LiFU.png) |
 |2|SPAWN_GROUP_FORMATION_TYPE_SIDE_BY_SIDE        | ![](https://i.imgur.com/dmO3eT6.png) |
 |3|SPAWN_GROUP_FORMATION_TYPE_LIKE_GEESE          | ![](https://i.imgur.com/LjPVReZ.png) |
