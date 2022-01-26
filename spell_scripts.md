@@ -35,4 +35,20 @@ struct EntangleFankriss : public SpellScript
     }
 };
 ```
-This script picks a random spell to be cast and caster casts it when Effect 0 is executed.
+This script picks a random spell to be cast and caster casts it when Effect 0 is executed.  
+
+```cpp
+struct GammeritaTurtleCamera : public SpellScript
+{
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const override
+    {
+        Unit* target = spell->m_targets.getUnitTarget();
+        // Gammerita Turtle Camera can be cast only on this target
+        if (!target || target->GetEntry() != 7977)
+            return SPELL_FAILED_BAD_TARGETS;
+
+        return SPELL_CAST_OK;
+    }
+};
+```
+This script restricts it to only work on Gammerita. There are many single target quest or other custom spells which need to work only on a specific target.  
