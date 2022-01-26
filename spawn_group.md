@@ -61,7 +61,7 @@ not mandatory, only for randomization of spawns
 ---
 ## spawn_group_formation
 
-#### SpawnGroupID
+#### Id - Spawn Group ID
 
 #### FormationType
 
@@ -109,3 +109,9 @@ MovementType of the Formation, Overwrites creature.MovementType. 0 (Idle) 2 (way
 Same as [`spawn_group`.`Name`](https://github.com/cmangos/issues/wiki/spawn_group#Name)
 
 ## spawn_group_linked_group
+
+#### Id - Spawn Group ID
+
+#### LinkedId - Linked spawn group ID
+
+One directional linkage to another spawn group for aggro. In some dungeons, you are forced to clear packs in iterative order or boss pull triggers aggro on several other groups. When Spawn Group with Id aggroes, LinkedId Spawn Group also aggroes.
