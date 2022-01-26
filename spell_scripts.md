@@ -15,7 +15,7 @@ RegisterSpellScript<EntangleFankriss>("spell_entangle_fankriss");
 
 The above registers the script to ScriptName "spell_entangle_fankriss".  
 And this is its script:  
-`
+`cpp
     struct EntangleFankriss : public SpellScript    
     {  
         void OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const override  
