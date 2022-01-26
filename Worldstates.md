@@ -14,3 +14,5 @@ Such predefined serverside worldstates are for boss kills which are in the follo
 + 0 variable is set to 1 when given boss dies. + 1 variable is set to 1 when given boss is alive. So variable 16500 would be 1 when boss Cookie dies and 16501 would be 1 when boss Cookie is alive.
 
 Custom worldstates can be also defined in C++ in WorldStateDefines.h and used in a C++ script. Such example is "WORLD_STATE_CUSTOM_SPAWN_MALACRASS = 10000" which is set to 1 when Zul'Aman first 4 bosses are dead, which triggers automatic spawning of Malacrass. He is despawned by default to prevent griefing through door. (actual official fix)
+
+Example of cMaNGOS use of worldstates is in [`spawn_group`](https://github.com/cmangos/issues/wiki/spawn_group) 
