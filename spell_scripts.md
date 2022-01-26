@@ -4,7 +4,7 @@ ScriptName - Assigned script name in core
 
 Assignment .sql file located in each repo under sql/scriptdev2/spell.sql  
 
-Used to add custom behaviour to any spell. List of all available hooks can be found in core in SpellScript.h. There are two types, SpellScript or AuraScript.
+Used to add custom behaviour to any spell. List of all available hooks can be found in core in SpellScript.h. This file contains a thorough explanation of when they occur. There are two types, SpellScript or AuraScript.
 
 Examples:
 
@@ -52,3 +52,15 @@ struct GammeritaTurtleCamera : public SpellScript
 };
 ```
 This script restricts it to only work on Gammerita. There are many single target quest or other custom spells which need to work only on a specific target.  
+
+```cpp
+struct CallOfTheBeast : public AuraScript
+{
+    void OnApply(Aura* aura, bool apply) const override
+    {
+        if (apply)
+            aura->GetTarget()->CastSpell(nullptr, SPELL_CALL_OF_THE_BEAST, TRIGGERED_OLD_TRIGGERED);
+    }
+};
+```
+This script triggers a cast of another spell on receiving an aura. A very common occurence.  
