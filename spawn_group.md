@@ -31,7 +31,7 @@ Type - Type of group - 0 creature, 1 gameobject (enum SpawnGroupType)
 
 MaxCount - Maximum count of spawns that can be spawned at a time for whole group. If set to 0, automatically calculated from either spawns or entries, whichever lower.  
 
-WorldState - If a given worldstate is set to 1, the group will automatically spawn. When set to 0, it will no longer respawn. Usable for many dungeon packs or scripts. Defining own worldstates is vague to existence of official worldstates. Must be done in core C++ currently through WorldStateVariableManager. Ask your friendly neighbourhood c++ coder. Consult [spawn_group](https://github.com/cmangos/issues/wiki/Worldstates) for more information.  
+WorldState - If a given worldstate is set to 1, the group will automatically spawn. When set to 0, it will no longer respawn. Usable for many dungeon packs or scripts. Defining own worldstates is vague to existence of official worldstates. Must be done in core C++ currently through WorldStateVariableManager. Ask your friendly neighbourhood c++ coder. Consult [worldstate](https://github.com/cmangos/issues/wiki/Worldstates) for more information.  
 
 Flags - enum CreatureGroupFlags (GO groups currently have no flags)  
 
