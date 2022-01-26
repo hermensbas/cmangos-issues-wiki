@@ -36,7 +36,7 @@ struct EntangleFankriss : public SpellScript
     }
 };
 ```
-This script picks a random spell to be cast and caster casts it when Effect 0 is executed.  
+This script picks a spell, based on which spell is casting it, to be cast and caster casts it when Effect 0 is executed. It is used by three spells with similar behaviour hence the switch case.  
 
 ```cpp
 struct GammeritaTurtleCamera : public SpellScript
