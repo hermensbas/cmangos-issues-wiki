@@ -4,11 +4,11 @@ ScriptName - Assigned script name in core
 
 Assignment .sql file located in each repo under sql/scriptdev2/spell.sql  
 
-Used to add custom behaviour to any spell. List of all available hooks can be found in core in SpellScript.h. This file contains a thorough explanation of when they occur. There are two types, SpellScript or AuraScript.
+Used to add custom behaviour to any spell. List of all available hooks can be found in core in SpellScript.h. This file contains a thorough explanation of when they occur. There are two types, SpellScript or AuraScript. Both auras have a plethora of examples available. Almost all variables which are meant to be alterable in spellscripts have an appropriate public function in Spell, Aura and SpellAuraHolder. Currently there is no DB equivalent to this system, mainly due to reverse engineering.
 
 Examples:
 
-Registering a script works using functions RegisterSpellScript, RegisterAuraScript or RegisterScript(this one is when its both aura and spellscript).  
+Registering a script works using functions RegisterSpellScript, RegisterAuraScript or RegisterScript(this one is when its both aura and spellscript). By searching for these functions its also possible to find hundreds of examples. 
 `
 RegisterSpellScript<EntangleFankriss>("spell_entangle_fankriss");
 `
