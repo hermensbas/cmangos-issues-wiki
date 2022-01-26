@@ -8,7 +8,7 @@ Used to add custom behaviour to any spell. List of all available hooks can be fo
 
 Examples:
 
-Registering a script works using functions RegisterSpellScript, RegisterAuraScript or RegisterScript(this one is when its both aura and spellscript).
+Registering a script works using functions RegisterSpellScript, RegisterAuraScript or RegisterScript(this one is when its both aura and spellscript).  
 `
 RegisterSpellScript<EntangleFankriss>("spell_entangle_fankriss");
 `
