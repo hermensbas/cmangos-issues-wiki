@@ -8,10 +8,11 @@ Used to add custom behaviour to any spell. List of all available hooks can be fo
 
 Examples:
 
-Registering a script works using functions RegisterSpellScript, RegisterAuraScript or RegisterScript(this one is when its both aura and spellscript). By searching for these functions its also possible to find hundreds of examples. 
-`
+Registering a script works using functions RegisterSpellScript, RegisterAuraScript or RegisterScript(this one is when its both aura and spellscript). By searching for these functions its also possible to find hundreds of examples.  
+Code example of registering:  
+```cpp
 RegisterSpellScript<EntangleFankriss>("spell_entangle_fankriss");
-`
+```
 
 The above registers the script to ScriptName "spell_entangle_fankriss".  
 And this is its script:  
