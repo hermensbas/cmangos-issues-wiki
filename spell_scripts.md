@@ -35,3 +35,4 @@ struct EntangleFankriss : public SpellScript
     }
 };
 ```
+This script picks a random spell to be cast and caster casts it when Effect 0 is executed.
