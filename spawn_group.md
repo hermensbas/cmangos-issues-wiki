@@ -107,3 +107,5 @@ MovementType of the Formation, Overwrites creature.MovementType. 0 (Idle) 2 (way
 #### Comment
 
 Same as [`spawn_group`.`Name`](https://github.com/cmangos/issues/wiki/spawn_group#Name)
+
+## spawn_group_linked_group
