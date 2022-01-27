@@ -610,6 +610,8 @@ So you need to:
 * Apply the latest release file
 * Apply all following updatepack files (always corepatches before updatepacks)
 * Apply the remaining updates from the core (located in C:\Mangos\mangos\sql\updates
+
+* Note: For those wishing to run the core in debug mode, InstallFullDB.sh have a hidden config option for LOCALES="NO" which does not install locale translations and significantly lowers core load time when repeatedly restarting. Only recommended for developers.
 ---------------------------------
 
 Configuring CMaNGOS
