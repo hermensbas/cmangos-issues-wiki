@@ -902,10 +902,12 @@ h4. MovementType
 
 The NPC's default Movement Type.
 
-|_. ID|_. Type|
-|0|Idle - Stand Still (Stationary)|
-|1|Random Movement - Random Move Inside SpawnDist Radius|
-|2|Waypoint Movement - Move Along Waypoint Path Defined|
+|_. ID|_. Name|_. Type|
+|0|IDLE_MOTION_TYPE|Idle - Stand Still (Stationary)|
+|1|RANDOM_MOTION_TYPE|Random Movement - Random Move Inside SpawnDist Radius|
+|2|WAYPOINT_MOTION_TYPE|Waypoint Movement - Move Along Waypoint Path Defined|
+|3|PATH_MOTION_TYPE|Cylic Spline|
+|4|LINEAR_WP_MOTION_TYPE|Moves Points 1,2,3,2,1|
 
 h4. MovementTemplateId
 
