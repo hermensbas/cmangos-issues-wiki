@@ -67,7 +67,16 @@ You will need Git, GCC, CMake, MySQL, Boost and a few libraries.
 
   dnf install git make cmake gcc patch autoconf mariadb-server mariadb-devel libtool zfstream gcc-c++ subversion boost-devel boost-static
 
-_Note: precompiled headers require a cmake that is version 3.16 or newer. You can compile from source or get binary releases on this page: https://cmake.org/download/
+### Arch Linux
+
+  pacman -Syu base-devel git cmake mariadb mariadb-libs boost boost-libs
+
+_Note: precompiled headers require a cmake that is version 3.16 or newer. You can compile from source or get binary releases on this page:_
+https://cmake.org/download/
+
+_Note: Some distributions ship with very old but guaranteed stable packages. CMaNGOS may require more recent versions of these packages._
+
+_Note: CMaNGOS links against static Boost libraries. Make sure you have static Boost libraries installed._
 
 Software requirements (MacOS)
 ----------------------------
