@@ -396,6 +396,12 @@ Extract files from the client
 
 Note that extracting *mmaps* might take a long time depending on your CPU, you will want to give it as many CPU cores as you can. While *mmaps* are optional, their use is advised, as they improve AI pathfinding. You will be prompted whether you want to extract them or not by the extraction script.
 
+*Note:* The extractors work only on the system on which they are compiled on. If you have your client files on Windows but built CMaNGOS on Linux, you can download pre-compiled Extractors depending on your version from:
+
+* https://github.com/cmangos/mangos-classic/releases/tag/Last_mangos-classic_PreBuild[Classic Server Release]
+* https://github.com/cmangos/mangos-tbc/releases/tag/Last_mangos-tbc_PreBuild[TBC Server Release]
+* https://github.com/cmangos/mangos-wotlk/releases/tag/Last_mangos-wotlk_PreBuild[WotLK Server Release]
+
 Extraction on Windows
 ~~~~~~~~~~~~~~~~~~~~~
 
@@ -417,6 +423,8 @@ If you followed this guide you should find all the extractor files in ++/home/ma
 * Set the executable flag on the shell scripts:
 
  chmod +x ExtractResources.sh MoveMapGen.sh
+
+* Make sure the `Data` directory starts with an uppercase `D` because extraction is case-sensitive on Linux
 
 * Run the data extraction:
 
