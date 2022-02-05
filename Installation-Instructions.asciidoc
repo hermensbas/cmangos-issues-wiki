@@ -58,7 +58,7 @@ You will need Git, GCC, CMake, MySQL, Boost and a few libraries.
 ### Ubuntu (18.04)
 
   sudo add-apt-repository universe
-  sudo apt-get install build-essential gcc g++ automake git-core autoconf make patch libmysql++-dev mysql-server libtool libssl-dev grep binutils zlibc libbz2-dev cmake libboost-all-dev
+  sudo apt install build-essential gcc g++ automake git-core autoconf make patch libmysql++-dev mysql-server libtool libssl-dev grep binutils zlibc libbz2-dev cmake libboost-all-dev
 
 ### Debian
 
