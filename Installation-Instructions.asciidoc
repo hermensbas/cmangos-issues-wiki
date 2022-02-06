@@ -352,20 +352,25 @@ We assume you have followed the instructions above, i.e. created the ++mangos++ 
   - ++-DPCH=1++ to compile with PCH mode (much faster after updates).
   - ++-DDEBUG=0++ to remove debug mode from compiling (recommended)
   - ++-DBUILD_PLAYERBOT=ON++ to build with playerbots enabled
-
-  - *examples:*
-
-  - Just want to compile CMaNGOS (e.g. for updates)
+  - Switch compiler. If for whatever reason you want to use another compiler add two options like this:
+    ** ++-DCMAKE_C_COMPILER=/path/to/compiler++
+    ** ++-DCMAKE_CXX_COMPILER=/path/to/compiler++
+  - *Examples:*
+    ** Just want to compile CMaNGOS (e.g. for updates)
 
  cmake ../mangos -DCMAKE_INSTALL_PREFIX=\../mangos/run -DPCH=1 -DDEBUG=0
 
-  - Want compile CMaNGOS & the map extraction tools (recommended for first time setup)
+    ** Want compile CMaNGOS & the map extraction tools (recommended for first time setup)
 
  cmake ../mangos -DCMAKE_INSTALL_PREFIX=\../mangos/run -DBUILD_EXTRACTORS=ON -DPCH=1 -DDEBUG=0
 
-  - Want compile CMaNGOS & the map extraction tools & playerbots (playerbots let players summon other characters from their account as bots)
+    ** Want compile CMaNGOS & the map extraction tools & playerbots (playerbots let players summon other characters from their account as bots)
 
  cmake ../mangos -DCMAKE_INSTALL_PREFIX=\../mangos/run -DBUILD_EXTRACTORS=ON -DPCH=1 -DDEBUG=0 -DBUILD_PLAYERBOT=ON
+
+    ** Want to switch to gcc 9. This assumes the binaries are in your `PATH` variable.
+
+ cmake ../mangos -DCMAKE_C_COMPILER=gcc9 -DCMAKE_CXX_COMPILER=g++9
 
 * Invoke ++make++ to compile CMaNGOS and ScriptDev2
 
