@@ -368,9 +368,9 @@ We assume you have followed the instructions above, i.e. created the ++mangos++ 
 
  cmake ../mangos -DCMAKE_INSTALL_PREFIX=\../mangos/run -DBUILD_EXTRACTORS=ON -DPCH=1 -DDEBUG=0 -DBUILD_PLAYERBOT=ON
 
-    ** Want to switch to gcc 9. This assumes the binaries are in your `PATH` variable.
+    ** Want to switch to gcc 9
 
- cmake ../mangos -DCMAKE_C_COMPILER=gcc9 -DCMAKE_CXX_COMPILER=g++9
+ cmake ../mangos -DCMAKE_C_COMPILER=gcc-9 -DCMAKE_CXX_COMPILER=g++-9
 
 * Invoke ++make++ to compile CMaNGOS and ScriptDev2
 
