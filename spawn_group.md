@@ -16,9 +16,10 @@ Id - Spawn Group ID
 
 ```
 1-9999 for anything in vanilla (Eastern Kingdoms 0 & Kalimdor 1)
-10000-19999 TBC (Outland 530)
-20000-29999 WOTLK (Northrend 571)
-30000+ Instance Files
+10000-19999 Classic only
+20000-29999 TBC (Outland 530)
+30000-39999 WOTLK (Northrend 571)
+3000000+ Instance Files
 ```
 
 Name - Mandatory name restricted to 200 characters. Name structure example: EPL - Musty Tome - Annals of Darrowshire  
