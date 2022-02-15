@@ -232,6 +232,7 @@ The following commands can be used (enum ScriptCommand):
 |48|SCRIPT_COMMAND_MODIFY_UNIT_FLAGS|Change UnitFlags of a creature.|
 |49|SCRIPT_COMMAND_SET_DATA_64|Set instance data if it exists - datalong - param1 datalong2 - param2|
 |50|SCRIPT_COMMAND_ZONE_PULSE|Pulses zone for combat and attacks closest enemy|
+|52|SCRIPT_COMMAND_SET_GOSSIP_MENU|Change default gossip menu id of a creature.|
 
 h4. buddy_entry
 
@@ -661,3 +662,6 @@ h4. CurrentSpellTypes
 * *SCRIPT_COMMAND_ZONE_PULSE = 50*
 ** Pulses zone for combat and attacks closest enemy
 
+* *SCRIPT_COMMAND_SET_GOSSIP_MENU = 52*
+** Resulting target must be a creature.
+** datalong: gossipMenuId
