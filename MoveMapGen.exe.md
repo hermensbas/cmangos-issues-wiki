@@ -1,6 +1,6 @@
 With cmake Option "BUILD_EXTRACTORS" turned on, you will be able to built required data for your CMaNGOS Server to be fully functional.
 
-Default mmap Extraction Values, which can be adjusted per map and tile in config.json
+Default mmap Extraction Values, which can be adjusted per [map](https://github.com/cmangos/issues/wiki/Map.dbc) and tile in config.json
 
 Generator command line args
 
@@ -32,7 +32,7 @@ Generator command line args
                                     must specify a map number (see below)
                                     if this option is not used, all tiles are built
 
-[MAPID]                             Build only the map specified by MAPID
+[MAPID](https://github.com/cmangos/issues/wiki/Map.dbc)                             Build only the map specified by MAPID
                                     this command will build the map regardless of --skip* option settings
                                     If you do not specify a map number, builds all maps that pass the filters specified by --skip* options
                                     Maps that only consists of a wmo and no terrain will not be built unless specified with ID. Ex. Ragefire Chasm
