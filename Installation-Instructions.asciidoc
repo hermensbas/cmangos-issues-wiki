@@ -437,6 +437,11 @@ If you followed this guide you should find all the extractor files in ++/home/ma
 
 * When finished, move the folders ++maps++, ++dbc++, and ++vmaps++ - optionally ++mmaps++ and ++Cameras++ - that have been created to ++/home/mangos/mangos/run/bin++ (the buildings folder is not required and can be deleted).
 
+Further Information:
+~~~~~~~~~~~~~~~~~~~~~
+
+* https://github.com/cmangos/issues/wiki/MoveMapGen.exe[MoveMapGen.exe] - How to Improve Pathfinding
+
 Install databases
 -----------------
 For this section it is assumed you have already installed your MySQL server, and have a password for "root" user.
