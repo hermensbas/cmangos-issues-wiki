@@ -1,4 +1,4 @@
-With cmake Option "BUILD_EXTRACTORS" turned on, you will be able to built required data for your CMaNGOS Server to be fully functional.
+With cmake Option "BUILD_EXTRACTORS" turned on, you will be able to build required data for your CMaNGOS Server to be fully functional.
 
 Default mmap Extraction Values, which can be adjusted per [map](https://github.com/cmangos/issues/wiki/Map.dbc) and tile in config.json
 
