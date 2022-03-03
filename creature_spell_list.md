@@ -4,6 +4,8 @@ Back to [world database](https://github.com/cmangos/issues/wiki/mangosdb_struct)
 
 holds basic creature combat spell_lists previously held by `creature_ai_scripts` "(EventAI / ACID)".
 
+https://github.com/cmangos/mangos-tbc/blob/master/doc/SpellLists.txt
+
 ### Structure
 
 | Field| Type| Null| Key| Default| Comment|
