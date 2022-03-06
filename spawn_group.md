@@ -46,7 +46,8 @@ Flags - enum CreatureGroupFlags (GO groups currently have no flags)
 ## spawn_group_spawn
 
 Id - Spawn Group ID  
-Guid - Guid in Creature or GameObject table, used as DbGuid in core, due to SpawnGroups automatically using Dynamic Guid system (when spawned, has unique guid)  
+Guid - Guid in Creature or GameObject table, used as DbGuid in core, due to SpawnGroups automatically using Dynamic Guid system (when spawned, has unique guid)
+SlotId - Formation Slot, -1 for gameobjects or creatures that are not in formation but part of a spawn group.
 
 ---
 ## spawn_group_entry
