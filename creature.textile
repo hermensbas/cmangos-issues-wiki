@@ -121,4 +121,13 @@ h4. MovementType
 
 See "creature_template.MovementType":creature_template#MovementType for possible values.
 
-creature_movement and creature_movement_template need to have MovementType set to 2 for a guid.
+creature_movement and creature_movement_template need to have MovementType set to 2,3,4 for a guid.
+
+waypoint_path need to have MovementType set to 0 for all creatures of that spawn_group.
+
+|_. Value|_. Name|_. Comment|
+|0|IDLE_MOTION_TYPE|No Movement - IdleMovementGenerator|
+|1|RANDOM_MOTION_TYPE|Random Movement with spawndist - RandomMovementGenerator|
+|2|WAYPOINT_MOTION_TYPE|123.123 - WaypointMovementGenerator|
+|3|PATH_MOTION_TYPE|123.123 - Spline Movement, All Waypoints are send in creature update packet (e.g flight paths) - PathMovementGenerator|
+|4|LINEAR_WP_MOTION_TYPE|123.21.23.21.23.21 - WaypointMovementGenerator|
