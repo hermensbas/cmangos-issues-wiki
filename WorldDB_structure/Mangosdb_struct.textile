@@ -23,7 +23,6 @@ h3. This is the list of tables in the regular 'mangos' database
 |"creature_addon":https://github.com/cmangos/issues/wiki/creature_template_addon|defines different things that are applied on creature with a certain GUID when it is loaded.|
 |"creature_ai_scripts":https://github.com/cmangos/issues/wiki/creature_ai_scripts (Reloadable)|ACID (Artificial Creature Intelligence Database) EventAI|
 |"creature_ai_summons":https://github.com/cmangos/issues/wiki/creature_ai_summons (Reloadable)|is used to provide NPC support for an event using action 32 = ACTION_T_SUMMON as one of its Actions.|
-|(Deprecated) "creature_ai_texts":https://github.com/cmangos/issues/wiki/creature_ai_texts|See "broadcast_text":https://github.com/cmangos/issues/wiki/broadcast_text|
 |"creature_battleground":https://github.com/cmangos/issues/wiki/creature_battleground|contains the description of creatures spawned on battlegrounds.|
 |"creature_conditional_spawn":https://github.com/cmangos/issues/wiki/creature_conditional_spawn| contains creatures GUID that is spawned in INSTANCES depends of PLAYERS Faction Alliance/Horde.|
 |"creature_cooldowns":https://github.com/cmangos/issues/wiki/creature_cooldowns|?|
