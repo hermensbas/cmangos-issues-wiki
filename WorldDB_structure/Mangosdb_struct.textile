@@ -47,7 +47,6 @@ h3. This is the list of tables in the regular 'mangos' database
 |"creature_template_classlevelstats":https://github.com/cmangos/issues/wiki/creature_template_classlevelstats|Unit Base Stats|
 |"creature_template_spells":https://github.com/cmangos/issues/wiki/creature_template_spells|holds creature spell data|
 |"costum_texts":https://github.com/cmangos/issues/wiki/costum_texts|?|
-|(Deprecated) "dbscript_string":https://github.com/cmangos/issues/wiki/dbscript_string|See "broadcast_text":https://github.com/cmangos/issues/wiki/broadcast_text|
 |"db_version":https://github.com/cmangos/issues/wiki/db_version|contains the version of the DB in use.|
 |"dbscript_random_templates":https://github.com/cmangos/issues/wiki/dbscript_random_templates|holds randomize texts and relay scripts|
 |"dbscripts_on_creature_death":https://github.com/cmangos/issues/wiki/DBScripts (Reloadable)|holds scripts activated when a creature dies.|
