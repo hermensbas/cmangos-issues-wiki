@@ -81,6 +81,7 @@ h3. This is the list of tables in the regular 'mangos' database
 |"gameobject_questrelation":https://github.com/cmangos/issues/wiki/gameobject_questrelation (Reloadable)|holds game object quest giver relations.|
 |"gameobject_spawn_entry":https://github.com/cmangos/issues/wiki/gameobject_spawn_entry|holds multiple gameobject_template.entry a gameobject.guid can be spawned as. *gameobject.id = 0*|
 |"gameobject_template":https://github.com/cmangos/issues/wiki/gameobject_template|contains template off all world’s objects.|
+|"gameobject_template_addon":https://github.com/cmangos/issues/wiki/gameobject_template_addon|Artkit Data|
 |"gossip_menu":https://github.com/cmangos/issues/wiki/gossip_menu (Reloadable)|contains displayed gossip when a player talks to an NPC.|
 |"gossip_menu_option":https://github.com/cmangos/issues/wiki/gossip_menu_option (Reloadable)|holds infos about menu options a gossip NPC can have.|
 |"gossip_texts":https://github.com/cmangos/issues/wiki/gossip_texts|holds gossip texts used in ScriptDevAI.|
