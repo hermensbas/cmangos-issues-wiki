@@ -87,10 +87,10 @@ h3. This is the list of tables in the regular 'mangos' database
 |"gossip_texts":https://github.com/cmangos/issues/wiki/gossip_texts|holds gossip texts used in ScriptDevAI.|
 |"instance_dungeon_encounters":https://github.com/cmangos/issues/wiki/instance_dungeon_encounters|?|
 |"instance_encounters":https://github.com/cmangos/issues/wiki/instance_encounters|?|
-|"instance_template":https://github.com/cmangos/issues/wiki/instance_template|contains all the templates for every instance.|
+|"instance_template":https://github.com/cmangos/issues/wiki/instance_template (Core)|contains all the templates for every instance.|
 |"item_convert":https://github.com/cmangos/issues/wiki/item_convert|?|
 |"item_enchantment_template":https://github.com/cmangos/issues/wiki/item_enchantment_template|holds enchantment chance information for items that should have either a random property or a random suffix attached to them.|
-|"item_expire_convert":https://github.com/cmangos/issues/wiki/item_expire_convert (Reloadable) (Core)|contains pairs of times which turn into an other item after a certain amount of time.|
+|"item_expire_convert":https://github.com/cmangos/issues/wiki/item_expire_convert (Reloadable)|contains pairs of times which turn into an other item after a certain amount of time.|
 |"item_loot_template":https://github.com/cmangos/issues/wiki/item_loot_template (Reloadable)|Item loot|
 |"item_required_target":https://github.com/cmangos/issues/wiki/item_required_target (Reloadable)|These spell effects require a specific target in either alive or dead state (for creatures).|
 |"item_template":https://github.com/cmangos/issues/wiki/item_template|holds information on every item that exists in the game.|
@@ -124,14 +124,14 @@ h3. This is the list of tables in the regular 'mangos' database
 |"pet_name_generation":https://github.com/cmangos/issues/wiki/pet_name_generation|holds pieces of names (first and last half) that are use for pet name generation.|
 |"petcreateinfo_spell":https://github.com/cmangos/issues/wiki/petcreateinfo_spell|controls what spells a tameable beast will have once tamed.|
 |"pickpocketing_loot_template":https://github.com/cmangos/issues/wiki/pickpocketing_loot_template (Reloadable)|Pickpocketing loot|
-|"player_classlevelstats":https://github.com/cmangos/issues/wiki/player_classlevelstats (Core)|holds information on the base health and mana of characters when they level up. Each class has different level stats.|
-|"player_levelstats":https://github.com/cmangos/issues/wiki/player_levelstats (Core)|holds information on the base health and mana of characters when they level up. Each class has different level stats.|
-|"player_xp_for_level":https://github.com/cmangos/issues/wiki/player_xp_for_level (Core)|includes information on how much experience needed for next level. Comes from sniffs.|
-|"playercreateinfo":https://github.com/cmangos/issues/wiki/playercreateinfo (Core)|holds the start positions of each class-race combinations for all newly created characters.|
-|"playercreateinfo_action":https://github.com/cmangos/issues/wiki/playercreateinfo_action (Core)|holds information on what default actions a brand new character should start out with.|
-|"playercreateinfo_item":https://github.com/cmangos/issues/wiki/playercreateinfo_item (Core)|holds information on what items each race-class combination of a new character starts out with.|
-|"playercreateinfo_skills":https://github.com/cmangos/issues/wiki/playercreateinfo_skills (Core)|holds information on what skills newly created characters should start out with.|
-|"playercreateinfo_spell":https://github.com/cmangos/issues/wiki/playercreateinfo_spell (Core)|holds information on what spells newly created characters should start out with.|
+|"player_classlevelstats":https://github.com/cmangos/issues/wiki/player_classlevelstats|holds information on the base health and mana of characters when they level up. Each class has different level stats.|
+|"player_levelstats":https://github.com/cmangos/issues/wiki/player_levelstats|holds information on the base health and mana of characters when they level up. Each class has different level stats.|
+|"player_xp_for_level":https://github.com/cmangos/issues/wiki/player_xp_for_level|includes information on how much experience needed for next level. Comes from sniffs.|
+|"playercreateinfo":https://github.com/cmangos/issues/wiki/playercreateinfo|holds the start positions of each class-race combinations for all newly created characters.|
+|"playercreateinfo_action":https://github.com/cmangos/issues/wiki/playercreateinfo_action|holds information on what default actions a brand new character should start out with.|
+|"playercreateinfo_item":https://github.com/cmangos/issues/wiki/playercreateinfo_item|holds information on what items each race-class combination of a new character starts out with.|
+|"playercreateinfo_skills":https://github.com/cmangos/issues/wiki/playercreateinfo_skills|holds information on what skills newly created characters should start out with.|
+|"playercreateinfo_spell":https://github.com/cmangos/issues/wiki/playercreateinfo_spell|holds information on what spells newly created characters should start out with.|
 |"points_of_interest":https://github.com/cmangos/issues/wiki/points_of_interest (Reloadable)|comes from sniffs.|
 |"pool_creature":https://github.com/cmangos/issues/wiki/pool_creature|contains all pooled creatures by GUID that are part of a pool_template.|
 |"pool_creature_template":https://github.com/cmangos/issues/wiki/pool_creature_template|contains all pooled creatures by ENTRY that are part of a pool_template.|
@@ -184,4 +184,4 @@ h3. This is the list of tables in the regular 'mangos' database
 |"warden_scans":https://github.com/cmangos/issues/wiki/warden_scans|Anticheat|
 |"waypoint_path":https://github.com/cmangos/issues/wiki/spawn_group|paths linked to "spawn_groups":https://github.com/cmangos/issues/wiki/spawn_group|
 |"world_safe_locs":https://github.com/cmangos/issues/wiki/world_safe_locs|?|
-|"world_template":https://github.com/cmangos/issues/wiki/world_template|holds the ScriptNames of the world maps 0, 1, 530, 571|
+|"world_template":https://github.com/cmangos/issues/wiki/world_template (Core)|holds the ScriptNames of the world maps 0, 1, 530, 571|
