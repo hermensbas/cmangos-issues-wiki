@@ -2,6 +2,8 @@ Back to [world database](mangosdb_struct) list of tables.
 
 ## The \`creature\_equip\_template\` table
 
+creature_equip_template_raw has to be converted to this new file format!
+
 This table contains all equipment mobs can wear.
 
 ### Structure
