@@ -156,8 +156,9 @@ h3. This is the list of tables in the regular 'mangos' database
 |"skill_discovery_template":https://github.com/cmangos/issues/wiki/skill_discovery_template (Reloadable)|controls the so called "discovery" system of learning spells.|
 |"skill_extra_item_template":https://github.com/cmangos/issues/wiki/skill_extra_item_template|holds information about when using certain profession spells, you have the chance of creating more than one copy of the item.|
 |"skill_fishing_base_level":https://github.com/cmangos/issues/wiki/skill_fishing_base_level|controls the minimum skill level required in fishing to fish in a certain area.|
+|"spam_records":https://github.com/cmangos/issues/wiki/spam_records|Anticheat|
 |"skinning_loot_template":https://github.com/cmangos/issues/wiki/skinning_loot_template|Skinning loot|
-|"spawn_group":https://github.com/cmangos/issues/wiki/spawn_group|Defines how groups of entities spawn|
+|"spawn_group":https://github.com/cmangos/issues/wiki/spawn_group|Defines how groups of entities spawn spawn_group_entry, spawn_group_formation, spawn_group_linked_group, spawn_group_spawn|
 |"spell_affect":https://github.com/cmangos/issues/wiki/spell_affect (Reloadable)|holds information on what spells are affected by what spell mods.|
 |"spell_area":https://github.com/cmangos/issues/wiki/spell_area (Reloadable)|holds information on what spells are applied to npcs/players in some areas.|
 |"spell_bonus_data":https://github.com/cmangos/issues/wiki/spell_bonus_data (Reloadable)|is used for storing custom damage/healing bonus coefficients.|
@@ -180,6 +181,7 @@ h3. This is the list of tables in the regular 'mangos' database
 |"trainer_greeting":https://github.com/cmangos/issues/wiki/trainer_greeting|?|
 |"transports":https://github.com/cmangos/issues/wiki/transports|contains all type 15 transports (Boats and Zeppelins).|
 |"vehicle_accessory":https://github.com/cmangos/issues/wiki/vehicle_accessory|?|
-|"warden_scans":https://github.com/cmangos/issues/wiki/warden_scans|?|
+|"warden_scans":https://github.com/cmangos/issues/wiki/warden_scans|Anticheat|
+|"waypoint_path":https://github.com/cmangos/issues/wiki/spawn_group|paths linked to "spawn_groups":https://github.com/cmangos/issues/wiki/spawn_group|
 |"world_safe_locs":https://github.com/cmangos/issues/wiki/world_safe_locs|?|
 |"world_template":https://github.com/cmangos/issues/wiki/world_template|holds the ScriptNames of the world maps 0, 1, 530, 571|
