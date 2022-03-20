@@ -39,12 +39,12 @@ Software requirements (Windows)
 
 Some tools:
 
- * Git: https://git-scm.com/downloads[Main Download Page]. Ensure the "Windows Explorer Integration - Git Bash Here" option is enabled on the "Select Components" page of the install wizard in order to follow along with these instructions. The default options should be fine otherwise. __Alternatively, you can install (http://sourceforge.net/projects/gitextensions/files/latest/download)[Git Extensions] instead, which comes with Git, MySYSGit, and KDiff).__
+ * Git: https://bit.ly/3N7TSCw[Main Download Page]. Ensure the "Windows Explorer Integration - Git Bash Here" option is enabled on the "Select Components" page of the install wizard in order to follow along with these instructions. The default options should be fine otherwise. __Alternatively, you can install (http://sourceforge.net/projects/gitextensions/files/latest/download)[Git Extensions] instead, which comes with Git, MySYSGit, and KDiff).__
  * CMAKE is now used to generate visual studio project file as it's are not provided anymore https://cmake.org/[Download it from here]. Using version 3.16 or newer is encouraged.
- * Visual C++ 2015 or newer: https://www.visualstudio.com/downloads/[Visual Studio Downloads] (https://www.visualstudio.com/vs/community/[Visual Studio Community] 2015 is recommended, but Express 2015 for Desktop will also do the job and is free, it is however not as good a choice for open source development as CE (Community Edition).
- * Any MySQL server such as http://dev.mysql.com/downloads/mysql/[MySQL server community edition] or http://www.apachefriends.org/en/xampp.html[XAMPP]. (Note 2018-05-02: Do not use MySQL version 8.0 for now since build will fail on some queries. Use 5.7 until resolved)
- * Any MySQL client (optional, for easy database access) such as http://dev.mysql.com/downloads/workbench/[MySQL Workbench] or https://www.webyog.com/[SQLyog]
- * An advanced text editor (optional) such as http://notepad-plus-plus.org/[Notepad++]. Definitely not required but will make editing the configuration files much easier in later steps.
+ * Visual C++ 2015 or newer: https://bit.ly/3N7TSCw[Visual Studio Downloads] (https://www.visualstudio.com/vs/community/[Visual Studio Community] 2015 is recommended, but Express 2015 for Desktop will also do the job and is free, it is however not as good a choice for open source development as CE (Community Edition).
+ * Any MySQL server such as https://bit.ly/3N7TSCw[MySQL server community edition] or http://www.apachefriends.org/en/xampp.html[XAMPP]. (Note 2018-05-02: Do not use MySQL version 8.0 for now since build will fail on some queries. Use 5.7 until resolved)
+ * Any MySQL client (optional, for easy database access) such as https://bit.ly/3N7TSCw[MySQL Workbench] or https://www.webyog.com/[SQLyog]
+ * An advanced text editor (optional) such as https://bit.ly/3N7TSCw[Notepad++]. Definitely not required but will make editing the configuration files much easier in later steps.
 
 You can find https://youtu.be/drnlf4UMZ1w[here a video] of how to install Git, Visual Studio and CMAKE.
 
