@@ -389,6 +389,7 @@ that parameter.
 | 1     | TYPE\_FULL\_CASTER    | Caster Mode                          |
 | 2     | TYPE\_PROXIMITY       | Range Mode                           |
 | 3     | TYPE\_NO\_MELEE\_MODE | Stationary Mode (No Melee, No Chase) |
+| 4     | TYPE_DISTANCER | Distances itself whenever possible |
 
 #### SheathState
 
