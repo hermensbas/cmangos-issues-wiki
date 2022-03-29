@@ -39,8 +39,9 @@ Software requirements (Windows)
 
 Some tools:
 
- * Git: https://bit.ly/3N7TSCw[Main Download Page]. Ensure the "Windows Explorer Integration - Git Bash Here" option is enabled on the "Select Components" page of the install wizard in order to follow along with these instructions. The default options should be fine otherwise. __Alternatively, you can install (http://sourceforge.net/projects/gitextensions/files/latest/download)[Git Extensions] instead, which comes with Git, MySYSGit, and KDiff).__
- * CMAKE is now used to generate visual studio project file as it's are not provided anymore https://cmake.org/[Download it from here]. Using version 3.16 or newer is encouraged.
+ * https://git-scm.com/downloads[Git] - Ensure the "Windows Explorer Integration - Git Bash Here" option is enabled on the "Select Components" page of the install wizard in order to follow along with these instructions. The default options should be fine otherwise. __Alternatively, you can install (http://sourceforge.net/projects/gitextensions/files/latest/download)[Git Extensions] instead, which comes with Git, MySYSGit, and KDiff).__
+ * https://cmake.org[CMake] is now used to generate visual studio project file as it's are not provided anymore. *Using version 3.22.1 or newer is encouraged.*
+ * https://www.boost.org/users/download[Boost] is a set of libraries for the C++ programming language that provides support for tasks and structures such as linear algebra, pseudorandom number generation, multithreading, image processing, regular expressions, and unit testing. It contains 164 individual libraries. *Using version 1.75.0 or newer is encouraged.*
  * Visual C++ 2015 or newer: https://bit.ly/3N7TSCw[Visual Studio Downloads] (https://www.visualstudio.com/vs/community/[Visual Studio Community] 2015 is recommended, but Express 2015 for Desktop will also do the job and is free, it is however not as good a choice for open source development as CE (Community Edition).
  * Any MySQL server such as https://bit.ly/3N7TSCw[MySQL server community edition] or http://www.apachefriends.org/en/xampp.html[XAMPP]. (Note 2018-05-02: Do not use MySQL version 8.0 for now since build will fail on some queries. Use 5.7 until resolved)
  * Any MySQL client (optional, for easy database access) such as https://bit.ly/3N7TSCw[MySQL Workbench] or https://www.webyog.com/[SQLyog]
@@ -264,7 +265,6 @@ Video Guide::
 Step-by-step Guide::
 
 - Go to https://sourceforge.net/projects/boost/files/boost-binaries
- * Version 1.69.0 is working as of 2019-01-08.
 - *Or* https://cmangos.net/archive/showthread.php?tid=7365[compile yourself]
  * boost version older than 1.66 will throw "unknown compiler" errors when using VS 2017, ignore it.
 - Download the correct version as indicated in the table below *or* the ++boost_x_xx_x-bin-msvc-all-32-64.7z++ (the x_xx_x part is the boost version). If you need the Win32 or x64 version depends on what architecture you would like your compiled server executable to use. For most people x64 is fine.
@@ -284,7 +284,7 @@ Step-by-step Guide::
 - Click on *Environment Variables*
 - At the bottom under *System variables* click *New*
  * Name: *BOOST_ROOT*
- * Value: *C:\local\boost_x_xx_x* _Replace the x with the version number you downloaded, e.g. boost_1_64_0._
+ * Value: *C:\local\boost_x_xx_x* _Replace the x with the version number you downloaded, e.g. boost_1_75_0._
 +
 --
   - If you changed the path while installing the binaries, you will have to do that here as well.
