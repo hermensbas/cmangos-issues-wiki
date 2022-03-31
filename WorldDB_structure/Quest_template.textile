@@ -198,19 +198,24 @@ h4. RequiredRaces
 
 Races required to get the quest. 0 means available for all races. Field's value is a decimal value that must be transform to a 8 bits binary in order to be understandable. In binary form, each different bit represent a different race. They're assigned as follow :
 
-h3. Race
-
 These values are 2^ID taken from "CharRaces.dbc":CharRaces.dbc
 
-NOTE: For Cataclysm Client Goblin=256 and Worgen=2097152
-
-<big>Examples</big>
-
-0,1791 = All Races
-
-690 (2 + 16 + 32 + 128 + 512) = Horde Quest
-
-1101 (1 + 4 + 8 + 64 + 1024) = Alliance Quest
+|*Value*|*Name*|
+|0|All Races|
+|1|Human|
+|2|Orc|
+|4|Dwarf|
+|8|Night Elf|
+|16|Undead|
+|32|Tauren|
+|64|Gnome|
+|128|Troll|
+|256|Goblin|
+|512|Blood Elf|
+|690|Horde Quest (Until Cata)|
+|1024|Draenei|
+|1101|Alliance Quest (Until Cata)|
+|2097152|Worgen|
 
 h4. RequiredSkillValue
 
