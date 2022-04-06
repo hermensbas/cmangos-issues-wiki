@@ -804,12 +804,12 @@ If the item is a container that can contain money, then this field defines the m
 
 h4. Duration
 
-The duration of the item in seconds. If positive, it is the duration measured in ingame time. If you need realtime duration then ExtraFlags = 2
+The duration of the item in seconds. If positive, it is the duration measured in ingame time. If you need realtime duration then ExtraFlags = 1.
 
 h4. ExtraFlags
 
 |_. ID|_. Type|
 |0|None|
-|1|None Consumable|
-|2|Realtime Duration|
+|1|Realtime Duration|
+|2|Queststarter item will ignore related quest's status when deciding if player can loot it or not|
 
