@@ -38,7 +38,7 @@ Software requirements (Windows)
 -------------------------------
 ### Install with https://chocolatey.org/install#individual[Chocolatey]:
 ```
-choco install -y git cmake boost-msvc-14.2 vcredist-all mysql vscode dbeaver
+choco install -y git cmake make boost-msvc-14.2 vcredist-all mysql vscode dbeaver
 ```
 Notes:
 
