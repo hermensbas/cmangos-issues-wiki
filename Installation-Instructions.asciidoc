@@ -43,6 +43,7 @@ choco install -y git cmake make boost-msvc-14.1 vcredist-all mysql vscode dbeave
 Notes:
 
 - You'll need to add cmake to https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/[PATH] after installing. Default install location is `C:\Program Files\CMake\bin`.
+- You also need to add `BOOST_ROOT` to your environment variables. Boost is located in `C:/local/boost_SOMEVERSION`.
 - This might not be everything that you need. When in doubt, follow the https://github.com/cmangos/issues/wiki/Detailed-installation-guide-for-Microsoft-Windows[detailed Windows guide]. 
 
 ### Install manually:
