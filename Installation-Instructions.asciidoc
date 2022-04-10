@@ -36,12 +36,14 @@ Game client of:
 
 Software requirements (Windows)
 -------------------------------
-Install with https://chocolatey.org/install#individual[Chocolatey]:
+### Install with https://chocolatey.org/install#individual[Chocolatey]:
 ```
 choco install -y git cmake boost-msvc-14.2 vcredist-all mysql vscode dbeaver
 ```
+Note: You'll need to add cmake to https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/[PATH] after installing. Default install location is `C:\Program Files\CMake\bin`.
 
-Install manually:
+
+### Install manually:
 
  * https://git-scm.com/downloads[Git] - Ensure the "Windows Explorer Integration - Git Bash Here" option is enabled on the "Select Components" page of the install wizard in order to follow along with these instructions. The default options should be fine otherwise. __Alternatively, you can install (http://sourceforge.net/projects/gitextensions/files/latest/download)[Git Extensions] instead, which comes with Git, MySYSGit, and KDiff).__
  * https://cmake.org[CMake] is now used to generate visual studio project file as it's are not provided anymore. *Using version 3.22.1 or newer is encouraged.*
