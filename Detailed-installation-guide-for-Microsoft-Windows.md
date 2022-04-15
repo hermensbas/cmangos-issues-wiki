@@ -286,7 +286,7 @@ git clone https://github.com/cmangos/wotlk-db.git
 
   ![cmake2](https://user-images.githubusercontent.com/8838573/27503270-fcf143da-587a-11e7-9f11-a6f8e5fe4e81.PNG)
 
-- Make sure the **BUILD_EXTRACTORS** option is checked. Then click **Generate**. *FYI: You can also activate the `BUILD_PLAYERBOT` option. Playerbot allows you to add other characters in your account as AI-controlled bots that follow you around.*
+- Make sure the **BUILD_EXTRACTORS** option is checked. Then click **Generate**. *FYI: You can also activate the `BUILD_PLAYERBOT` or the `BUILD_AHBOT` option. Playerbot allows you to add other characters in your account as AI-controlled bots that follow you around. AHBot automatically adds new items to the auction house for reasonable prices to simulate an economy.*
 
   ![cmake3 x](https://user-images.githubusercontent.com/8838573/27503421-24a974f0-587c-11e7-93bb-91fe2d98aaa5.PNG)
 
