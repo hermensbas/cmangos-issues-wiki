@@ -455,6 +455,8 @@ Install databases
 -----------------
 For this section it is assumed you have already installed your MySQL server, and have a password for "root" user.
 
+*Following instruction are still working but included tool in database repository can now handle a full installation of the DB*
+
 To make use of some additional installation helper scripts it is HIGHLY suggested when installing MYSQL you include the command path to the BIN folder (Option during Install). If this option was not available or if you missed it please follow the instructions found http://dev.mysql.com/doc/mysql-windows-excerpt/5.1/en/mysql-installation-windows-path.html[here] before proceeding. If you don't have this configured properly then you will not be able to follow along with the command-line steps below in the guide because the command prompt will not recognize "mysql" as a valid command.
 
 Create empty databases
