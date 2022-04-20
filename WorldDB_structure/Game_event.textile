@@ -6,17 +6,15 @@ This table is contains definitions for all game events that are activated or dea
 
 h3. Structure
 
-
 |*Field*|*Type*|*Null*|*Key*|*Default*|*Extra*|
-|"entry":Game_event#entry|mediumint(8) unsigned|NO|PRI|||
-|"start_time":Game_event#start_time|timestamp|NO||0000-00-00 00:00:00||
-|"end_time":Game_event#end_time|timestamp|NO||0000-00-00 00:00:00||
-|"occurence":Game_event#occurence|bigint(20) unsigned|NO||5184000||
-|"holiday":Game_event#holiday|mediumint(8) unsigned|NO||0||
-|"linkedTo":Game_event#linkedTo|mediumint(8) unsigned|NO||0||
+|"entry":Game_event#entry|mediumint(8) unsigned|NO|PRIMARY KEY||Entry of the game event|
+|"schedule_type":Game_event#schedule_type|int(11)|NO||0|enum GameEventScheduleType|
+|"occurence":Game_event#occurence|bigint(20) unsigned|NO||5184000|Delay in minutes between occurences of the event|
+|"length":Game_event#length|bigint(20) unsigned|NO||2592000|Length in minutes of the event|
+|"holiday":Game_event#holiday|mediumint(8) unsigned|NO||0|Client side holiday id|
+|"linkedTo":Game_event#linkedTo|mediumint(8) unsigned|NO||0|This event starts only if defined LinkedTo event is started|
 |"EventGroup":Game_event#EventGroup|mediumint(8) unsigned|NO||0||
-|"description":Game_event#description|varchar(255)|YES||None||
-
+|"description":Game_event#description|varchar(255)|YES||None|Description of the event displayed in console|
 
 h3. Description of the fields
 
@@ -24,13 +22,26 @@ h4. entry
 
 Entry of the event. Keep it as low as possible and prevent making holes in the list. Higher the max id is, the more memory will be used to store the event data.
 
-h4. start&#95;time
+h4. schedule_type
 
-Absolute start date of the event. The event will start occurring only if the local time at the server is after the one set here.
+See enum GameEventScheduleType
 
-h4. end&#95;time
-
-Absolute end date of the event. The event will stop occurring if the local time at the server is after the one set here.
+```
+    GAME_EVENT_SCHEDULE_SERVERSIDE  = 0, // completely handled by the server - start and end
+    GAME_EVENT_SCHEDULE_DATE        = 1, // old start and end date behaviour
+    GAME_EVENT_SCHEDULE_DMF_1       = 2, // first Darkmoon Faire event - first whole week of the month
+    GAME_EVENT_SCHEDULE_DMF_2       = 3, // second Darkmoon Faire event
+    GAME_EVENT_SCHEDULE_DMF_3       = 4, // third Darkmoon Faire event
+    GAME_EVENT_SCHEDULE_DMF_BUILDING_STAGE_1_1 = 5, // first Darkmoon Faire building event
+    GAME_EVENT_SCHEDULE_DMF_BUILDING_STAGE_1_2 = 6,
+    GAME_EVENT_SCHEDULE_DMF_BUILDING_STAGE_1_3 = 7,
+    GAME_EVENT_SCHEDULE_DMF_BUILDING_STAGE_2_1 = 8,
+    GAME_EVENT_SCHEDULE_DMF_BUILDING_STAGE_2_2 = 9,
+    GAME_EVENT_SCHEDULE_DMF_BUILDING_STAGE_2_3 = 10,
+    GAME_EVENT_SCHEDULE_YEARLY      = 11,
+    GAME_EVENT_SCHEDULE_LUNAR_NEW_YEAR  = 12,
+    GAME_EVENT_SCHEDULE_EASTER          = 13,
+```
 
 h4. occurence
 
