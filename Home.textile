@@ -1,4 +1,4 @@
-h3. General
+h3. General1
 * "About Continued MaNGOS":https://github.com/cmangos/mangos-wotlk#readme
 * "Beginner's Guide":https://github.com/cmangos/issues/wiki/Beginners-Guide-Home
 * "Installation Instructions":https://github.com/cmangos/issues/wiki/Installation-Instructions
