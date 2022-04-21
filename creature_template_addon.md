@@ -1,14 +1,14 @@
 Back to [world database](mangosdb_struct) list of tables.
 
-## The \`creature\_(template\_)addon\` tables
+## The `creature_(template_)addon` tables
 
 define different things that are applied on creatures when they are
 loaded, either by
-[\`creature\`.\`guid\`](https://github.com/cmangos/issues/wiki/Creature#guid)
+[`creature`.`guid`](https://github.com/cmangos/issues/wiki/Creature#guid)
 or
-[\`creature\_template\`.\`entry\`](https://github.com/cmangos/issues/wiki/Creature_template#entry).  
-So two creatures using the same creature\_template\_addon can look
-different, if one is additionally defined in creature\_addon.
+[`creature_template`.`entry`](https://github.com/cmangos/issues/wiki/Creature_template#entry).  
+So two creatures using the same creature_template_addon can look
+different, if one is additionally defined in creature_addon.
 
 Through the use of the fields in this table, many things can be changed
 about the outward visual appearance of the creature. Potential usage
@@ -16,69 +16,75 @@ examples are: to have the creature be mounted, to have it emote
 something, to have it display an aura effect, etc.
 
 NOTE:
-
-  - A creature\_addon record will override a creature\_template\_addon
+  - A creature_addon record will override a creature_template_addon
     record should they overlap on the same creature.
   - The data for this table is largely incomplete and is mostly just a
     regurgitation of what the client receives from the server. This
     article is a WIP as to what all the possible values are.
+  - If a creature has the same data in creature_addon and it's entry creature_template_addon, there will be an error.
 
 ### Structure
 
 | Field                                                | Type                  | Null | Key | Default | Extra |
 | ---------------------------------------------------- | --------------------- | ---- | --- | ------- | ----- |
-| [entry/guid](creature_template_addon#entry/guid)     | mediumint(8) unsigned | NO   | PRI | 0       |       |
-| [mount](creature_template_addon#mount)               | mediumint(8) unsigned | NO   |     | 0       |       |
-| [bytes1](creature_template_addon#bytes1)             | int(10) unsigned      | NO   |     | 0       |       |
-| [b2\_0\_sheath](creature_template_addon#b2_0_sheath) | tinyint(3) unsigned   | NO   |     | 0       |       |
-| [b2\_1\_flags](creature_template_addon#b2_1_flags)   | tinyint(3) unsigned   | NO   |     | 0       |       |
-| [emote](creature_template_addon#emote)               | mediumint(8) unsigned | NO   |     | 0       |       |
-| [moveflags](creature_template_addon#moveflags)       | int(10) unsigned      | NO   |     | 0       |       |
-| [auras](creature_template_addon#auras)               | text                  | YES  |     |         |       |
+| [entry/guid](creature_template_addon#entry/guid)     | mediumint(8) / int(10) unsigned | NO   | PRI | 0       ||
+| [mount](creature_template_addon#mount)               | mediumint(8) unsigned | NO   |     | 0       ||
+| [bytes1](creature_template_addon#bytes1)             | int(10) unsigned      | NO   |     | 0       ||
+| [b2_0_sheath](creature_template_addon#b2_0_sheath)   | tinyint(3) unsigned   | NO   |     | 0       ||
+| [b2_1_flags](creature_template_addon#b2_1_flags)     | tinyint(3) unsigned   | NO   |     | 0       |Dont use if possible|
+| [emote](creature_template_addon#emote)               | mediumint(8) / int(10) unsigned | NO   |     | 0       ||
+| [moveflags](creature_template_addon#moveflags)       | int(10) unsigned      | NO   |     | 0       |Dont use if possible|
+| [auras](creature_template_addon#auras)               | text                  | YES  |     | NULL ||
 
 ### Description of the fields
 
 #### entry/guid
 
-For creature\_template\_addon, this field signifies the creature
-template ID. It will affect all spawned creatures using that template
-ID. For creature\_addon, this field signifies a unique creature guid. It
-will affect just that creature whose GUID matches the one specified
-here.
+For `creature_(template_)addon`, this field signifies the creature.guid for creature_addon or the creature.id for creature_template.entry
 
 #### mount
 
 The model ID of the mount to be used to make the creature appear
 mounted. The value here overrides the value for the creature’s unit
-field UNIT\_FIELD\_MOUNTDISPLAYID. List of known values and what their
+field UNIT_FIELD_MOUNTDISPLAYID. List of known values and what their
 visual effects on the creature
+
+### enum UnitBytes1Offsets
+
+```
+    UNIT_BYTES_1_OFFSET_STAND_STATE     = 0,
+    UNIT_BYTES_1_OFFSET_PET_LOYALTY     = 1,
+    UNIT_BYTES_1_OFFSET_VIS_FLAGS       = 2,
+    UNIT_BYTES_1_OFFSET_MISC_FLAGS      = 3,
+```
 
 #### bytes1
 
-(UNIT\_FIELD\_BYTES\_1,0) - StandState
+(UNIT_BYTES_1_OFFSET_STAND_STATE) - enum UnitStandStateType
 
-| Bit | Name                                   | Comment                                                             |
-| --- | -------------------------------------- | ------------------------------------------------------------------- |
-| 0   | UNIT\_STAND\_STATE\_STAND              | normal behavior                                                     |
-| 1   | UNIT\_STAND\_STATE\_SIT                | sitting on ground                                                   |
-| 2   | UNIT\_STAND\_STATE\_SIT\_CHAIR         | sitting on normal chair                                             |
-| 3   | UNIT\_STAND\_STATE\_SLEEP              | sleeping                                                            |
-| 4   | UNIT\_STAND\_STATE\_SIT\_LOW\_CHAIR    | sitting on low chair                                                |
-| 5   | UNIT\_STAND\_STATE\_SIT\_MEDIUM\_CHAIR | sitting on medium chair                                             |
-| 6   | UNIT\_STAND\_STATE\_SIT\_HIGH\_CHAIR   | sitting on high chair                                               |
-| 7   | UNIT\_STAND\_STATE\_DEAD               | play dead                                                           |
-| 8   | UNIT\_STAND\_STATE\_KNEEL              | kneel                                                               |
-| 9   | UNIT\_STAND\_STATE\_CUSTOM             | Depends on model animation. Submerge, freeze, hide, hibernate, rest |
+| Bit | Name                              | Comment                                                             |
+| --- | ----------------------------------| ------------------------------------------------------------------- |
+| 0   | UNIT_STAND_STATE_STAND            | normal behavior                                                     |
+| 1   | UNIT_STAND_STATE_SIT              | sitting on ground                                                   |
+| 2   | UNIT_STAND_STATE_SIT_CHAIR        | sitting on normal chair                                             |
+| 3   | UNIT_STAND_STATE_SLEEP            | sleeping                                                            |
+| 4   | UNIT_STAND_STATE_SIT_LOW_CHAIR    | sitting on low chair                                                |
+| 5   | UNIT_STAND_STATE_SIT_MEDIUM_CHAIR | sitting on medium chair                                             |
+| 6   | UNIT_STAND_STATE_SIT_HIGH_CHAIR   | sitting on high chair                                               |
+| 7   | UNIT_STAND_STATE_DEAD             | play dead                                                           |
+| 8   | UNIT_STAND_STATE_KNEEL            | kneel                                                               |
+| 9   | UNIT_STAND_STATE_CUSTOM           | Depends on model animation. Submerge, freeze, hide, hibernate, rest |
 
-#### bytes1\_flags
+#### bytes1_flags
 
-(UNIT\_FIELD\_BYTES\_1,3) used instead of bytes1 in some cases.
+(UNIT_FIELD_BYTES_1,3) used instead of bytes1 in some cases.
 
 |Bitmask / Value|Name|Comment|
 | -------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0x01     | UNIT\_BYTE1\_FLAG\_ALWAYS\_STAND | always stand state                                                                                                                            |
-| 0x02     | UNIT\_BYTE1\_FLAG\_FLY\_ANIM     | Creature that can fly and are not on the ground appear to have this flag. If they are on the ground, flag is not present.                     |
-| 0x04     | UNIT\_BYTE1\_FLAG\_UNTRACKABLE   | untrackable                                                                                                                                   |
+| 0x01     | UNIT_BYTE1_FLAG_ALWAYS_STAND     | always stand state                                                                                                                            |
+| 0x02     | UNIT_BYTE1_FLAG_FLY_ANIM         | Creature that can fly and are not on the ground appear to have this flag. If they are on the ground, flag is not present.                     |
+| 0x04     | UNIT_BYTE1_FLAG_UNTRACKABLE      | untrackable                                                                                                                                   |
+| 0x08     | ? | ? |
 |0x200|?|related to player controlled pet LoyaltyLevel?|
 |0x400|?|related to player controlled pet LoyaltyLevel?|
 |1536|?|related to player controlled pet LoyaltyLevel?|
@@ -88,6 +94,15 @@ visual effects on the creature
 |1114112|?| Linked to Battle Stance (not actively added flag?) StandMiscFlags|
 |33554432|?| Linked to Stealth? (not actively added flag?) StandMiscFlags|
 |0xFF| UNIT\_BYTE1\_FLAG\_ALL|all|
+
+### enum UnitBytes2Offsets
+
+```
+    UNIT_BYTES_2_OFFSET_SHEATH_STATE = 0,
+    UNIT_BYTES_2_OFFSET_DEBUFF_LIMIT = 1,
+    UNIT_BYTES_2_OFFSET_PET_FLAGS    = 2,
+    UNIT_BYTES_2_OFFSET_SHAPESHIFT   = 3,
+```
 
 #### b2\_0\_sheath
 
@@ -112,124 +127,74 @@ visual effects on the creature
 
 Emote ID that the creature should continually perform.
 
-COMPLETE LIST OF EMOTES CAN BE FOUND IN: Emotes.dbc  
-(They Are Different Between Client Versions
-[classic](https://github.com/cmangos/mangos-classic/blob/master/src/game/Globals/SharedDefines.h#L1091),
-[tbc](https://github.com/cmangos/mangos-tbc/blob/master/src/game/Globals/SharedDefines.h#L1227),
-[wotlk](https://github.com/cmangos/mangos-wotlk/blob/master/src/game/Globals/SharedDefines.h#L1418\))
+COMPLETE LIST OF EMOTES CAN BE FOUND IN: Emotes.dbc
 
-| Bit | Name                                    | Bit | Name                                   |
-| --- | --------------------------------------- | --- | -------------------------------------- |
-| 0   | EMOTE\_ONESHOT\_NONE                    | 400 | EMOTE\_STATE\_DANCESPECIAL             |
-| 1   | EMOTE\_ONESHOT\_TALK                    | 401 | EMOTE\_ONESHOT\_DANCESPECIAL           |
-| 2   | EMOTE\_ONESHOT\_BOW                     | 402 | EMOTE\_ONESHOT\_CUSTOMSPELL01          |
-| 3   | EMOTE\_ONESHOT\_WAVE                    | 403 | EMOTE\_ONESHOT\_CUSTOMSPELL02          |
-| 4   | EMOTE\_ONESHOT\_CHEER                   | 404 | EMOTE\_ONESHOT\_CUSTOMSPELL03          |
-| 5   | EMOTE\_ONESHOT\_EXCLAMATION             | 405 | EMOTE\_ONESHOT\_CUSTOMSPELL04          |
-| 6   | EMOTE\_ONESHOT\_QUESTION                | 406 | EMOTE\_ONESHOT\_CUSTOMSPELL05          |
-| 7   | EMOTE\_ONESHOT\_EAT                     | 407 | EMOTE\_ONESHOT\_CUSTOMSPELL06          |
-| 10  | EMOTE\_STATE\_DANCE                     | 408 | EMOTE\_ONESHOT\_CUSTOMSPELL07          |
-| 11  | EMOTE\_ONESHOT\_LAUGH                   | 409 | EMOTE\_ONESHOT\_CUSTOMSPELL08          |
-| 12  | EMOTE\_STATE\_SLEEP                     | 410 | EMOTE\_ONESHOT\_CUSTOMSPELL09          |
-| 13  | EMOTE\_STATE\_SIT                       | 411 | EMOTE\_ONESHOT\_CUSTOMSPELL10          |
-| 14  | EMOTE\_ONESHOT\_RUDE                    | 412 | EMOTE\_STATE\_EXCLAIM                  |
-| 15  | EMOTE\_ONESHOT\_ROAR                    | 415 | EMOTE\_STATE\_SIT\_CHAIR\_MED          |
-| 16  | EMOTE\_ONESHOT\_KNEEL                   | 422 | EMOTE\_STATE\_SPELLEFFECT\_HOLD        |
-| 17  | EMOTE\_ONESHOT\_KISS                    | 423 | EMOTE\_STATE\_EAT\_NO\_SHEATHE         |
-| 18  | EMOTE\_ONESHOT\_CRY                     | 424 | EMOTE\_STATE\_MOUNT                    |
-| 19  | EMOTE\_ONESHOT\_CHICKEN                 | 425 | EMOTE\_STATE\_READY2HL                 |
-| 20  | EMOTE\_ONESHOT\_BEG                     | 426 | EMOTE\_STATE\_SIT\_CHAIR\_HIGH         |
-| 21  | EMOTE\_ONESHOT\_APPLAUD                 | 427 | EMOTE\_STATE\_FALL                     |
-| 22  | EMOTE\_ONESHOT\_SHOUT                   | 428 | EMOTE\_STATE\_LOOT                     |
-| 23  | EMOTE\_ONESHOT\_FLEX                    | 429 | EMOTE\_STATE\_SUBMERGED\_NEW           |
-| 24  | EMOTE\_ONESHOT\_SHY                     | 430 | EMOTE\_ONESHOT\_COWER                  |
-| 25  | EMOTE\_ONESHOT\_POINT                   | 431 | EMOTE\_STATE\_COWER                    |
-| 26  | EMOTE\_STATE\_STAND                     | 432 | EMOTE\_ONESHOT\_USESTANDING            |
-| 27  | EMOTE\_STATE\_READYUNARMED              | 433 | EMOTE\_STATE\_STEALTH\_STAND           |
-| 28  | EMOTE\_STATE\_WORK                      | 434 | EMOTE\_ONESHOT\_OMNICAST\_GHOUL        |
-| 29  | EMOTE\_STATE\_POINT                     | 435 | EMOTE\_ONESHOT\_ATTACKBOW              |
-| 30  | EMOTE\_STATE\_NONE                      | 436 | EMOTE\_ONESHOT\_ATTACKRIFLE            |
-| 33  | EMOTE\_ONESHOT\_WOUND                   | 437 | EMOTE\_STATE\_SWIM\_IDLE               |
-| 34  | EMOTE\_ONESHOT\_WOUNDCRITICAL           | 438 | EMOTE\_STATE\_ATTACK\_UNARMED          |
-| 35  | EMOTE\_ONESHOT\_ATTACKUNARMED           | 439 | EMOTE\_ONESHOT\_SPELLCAST\_W\_SOUND    |
-| 36  | EMOTE\_ONESHOT\_ATTACK1H                | 440 | EMOTE\_ONESHOT\_DODGE                  |
-| 37  | EMOTE\_ONESHOT\_ATTACK2HTIGHT           | 441 | EMOTE\_ONESHOT\_PARRY1H                |
-| 38  | EMOTE\_ONESHOT\_ATTACK2HLOOSE           | 442 | EMOTE\_ONESHOT\_PARRY2H                |
-| 39  | EMOTE\_ONESHOT\_PARRYUNARMED            | 443 | EMOTE\_ONESHOT\_PARRY2HL               |
-| 43  | EMOTE\_ONESHOT\_PARRYSHIELD             | 444 | EMOTE\_STATE\_FLYFALL                  |
-| 44  | EMOTE\_ONESHOT\_READYUNARMED            | 445 | EMOTE\_ONESHOT\_FLYDEATH               |
-| 45  | EMOTE\_ONESHOT\_READY1H                 | 446 | EMOTE\_STATE\_FLY\_FALL                |
-| 48  | EMOTE\_ONESHOT\_READYBOW                | 447 | EMOTE\_ONESHOT\_FLY\_SIT\_GROUND\_DOWN |
-| 50  | EMOTE\_ONESHOT\_SPELLPRECAST            | 448 | EMOTE\_ONESHOT\_FLY\_SIT\_GROUND\_UP   |
-| 51  | EMOTE\_ONESHOT\_SPELLCAST               | 449 | EMOTE\_ONESHOT\_EMERGE                 |
-| 53  | EMOTE\_ONESHOT\_BATTLEROAR              | 450 | EMOTE\_ONESHOT\_DRAGONSPIT             |
-| 54  | EMOTE\_ONESHOT\_SPECIALATTACK1H         | 451 | EMOTE\_STATE\_SPECIALUNARMED           |
-| 60  | EMOTE\_ONESHOT\_KICK                    | 452 | EMOTE\_ONESHOT\_FLYGRAB                |
-| 61  | EMOTE\_ONESHOT\_ATTACKTHROWN            | 453 | EMOTE\_STATE\_FLYGRABCLOSED            |
-| 64  | EMOTE\_STATE\_STUN                      | 454 | EMOTE\_ONESHOT\_FLYGRABTHROWN          |
-| 65  | EMOTE\_STATE\_DEAD                      | 455 | EMOTE\_STATE\_FLY\_SIT\_GROUND         |
-| 66  | EMOTE\_ONESHOT\_SALUTE                  | 456 | EMOTE\_STATE\_WALKBACKWARDS            |
-| 68  | EMOTE\_STATE\_KNEEL                     | 457 | EMOTE\_ONESHOT\_FLYTALK                |
-| 69  | EMOTE\_STATE\_USESTANDING               | 458 | EMOTE\_ONESHOT\_FLYATTACK1H            |
-| 70  | EMOTE\_ONESHOT\_WAVE\_NOSHEATHE         | 459 | EMOTE\_STATE\_CUSTOMSPELL08            |
-| 71  | EMOTE\_ONESHOT\_CHEER\_NOSHEATHE        | 460 | EMOTE\_ONESHOT\_FLY\_DRAGONSPIT        |
-| 92  | EMOTE\_ONESHOT\_EAT\_NOSHEATHE          | 461 | EMOTE\_STATE\_SIT\_CHAIR\_LOW          |
-| 93  | EMOTE\_STATE\_STUN\_NOSHEATHE           | 462 | EMOTE\_ONE\_SHOT\_STUN                 |
-| 94  | EMOTE\_ONESHOT\_DANCE                   | 463 | EMOTE\_ONESHOT\_SPELLCAST\_OMNI        |
-| 113 | EMOTE\_ONESHOT\_SALUTE\_NOSHEATH        | 465 | EMOTE\_STATE\_READYTHROWN              |
-| 133 | EMOTE\_STATE\_USESTANDING\_NOSHEATHE    | 466 | EMOTE\_ONESHOT\_WORK\_CHOPWOOD         |
-| 153 | EMOTE\_ONESHOT\_LAUGH\_NOSHEATHE        | 467 | EMOTE\_ONESHOT\_WORK\_MINING           |
-| 173 | EMOTE\_STATE\_WORK\_NOSHEATHE           | 468 | EMOTE\_STATE\_SPELL\_CHANNEL\_OMNI     |
-| 193 | EMOTE\_STATE\_SPELLPRECAST              | 469 | EMOTE\_STATE\_SPELL\_CHANNEL\_DIRECTED |
-| 213 | EMOTE\_ONESHOT\_READYRIFLE              | 470 | EMOTE\_STAND\_STATE\_NONE              |
-| 214 | EMOTE\_STATE\_READYRIFLE                | 471 | EMOTE\_STATE\_READYJOUST               |
-| 233 | EMOTE\_STATE\_WORK\_NOSHEATHE\_MINING   | 473 | EMOTE\_STATE\_STRANGULATE              |
-| 234 | EMOTE\_STATE\_WORK\_NOSHEATHE\_CHOPWOOD | 474 | EMOTE\_STATE\_READYSPELLOMNI           |
-| 253 | EMOTE\_zzOLDONESHOT\_LIFTOFF            | 475 | EMOTE\_STATE\_HOLD\_JOUST              |
-| 254 | EMOTE\_ONESHOT\_LIFTOFF                 | 476 | EMOTE\_ONESHOT\_CRY\_JAINA             |
-| 273 | EMOTE\_ONESHOT\_YES                     |     |                                        |
-| 274 | EMOTE\_ONESHOT\_NO                      |     |                                        |
-| 275 | EMOTE\_ONESHOT\_TRAIN                   |     |                                        |
-| 293 | EMOTE\_ONESHOT\_LAND                    |     |                                        |
-| 313 | EMOTE\_STATE\_AT\_EASE                  |     |                                        |
-| 333 | EMOTE\_STATE\_READY1H                   |     |                                        |
-| 353 | EMOTE\_STATE\_SPELLKNEELSTART           |     |                                        |
-| 373 | EMOTE\_STATE\_SUBMERGED                 |     |                                        |
-| 374 | EMOTE\_ONESHOT\_SUBMERGE                |     |                                        |
-| 375 | EMOTE\_STATE\_READY2H                   |     |                                        |
-| 376 | EMOTE\_STATE\_READYBOW                  |     |                                        |
-| 377 | EMOTE\_ONESHOT\_MOUNTSPECIAL            |     |                                        |
-| 378 | EMOTE\_STATE\_TALK                      |     |                                        |
-| 379 | EMOTE\_STATE\_FISHING                   |     |                                        |
-| 380 | EMOTE\_ONESHOT\_FISHING                 |     |                                        |
-| 381 | EMOTE\_ONESHOT\_LOOT                    |     |                                        |
-| 382 | EMOTE\_STATE\_WHIRLWIND                 |     |                                        |
-| 383 | EMOTE\_STATE\_DROWNED                   |     |                                        |
-| 384 | EMOTE\_STATE\_HOLD\_BOW                 |     |                                        |
-| 385 | EMOTE\_STATE\_HOLD\_RIFLE               |     |                                        |
-| 386 | EMOTE\_STATE\_HOLD\_THROWN              |     |                                        |
-| 387 | EMOTE\_ONESHOT\_DROWN                   |     |                                        |
-| 388 | EMOTE\_ONESHOT\_STOMP                   |     |                                        |
-| 389 | EMOTE\_ONESHOT\_ATTACKOFF               |     |                                        |
-| 390 | EMOTE\_ONESHOT\_ATTACKOFFPIERCE         |     |                                        |
-| 391 | EMOTE\_STATE\_ROAR                      |     |                                        |
-| 392 | EMOTE\_STATE\_LAUGH                     |     |                                        |
-| 393 | EMOTE\_ONESHOT\_CREATURE\_SPECIAL       |     |                                        |
-| 394 | EMOTE\_ONESHOT\_JUMPLANDRUN             |     |                                        |
-| 395 | EMOTE\_ONESHOT\_JUMPEND                 |     |                                        |
-| 396 | EMOTE\_ONESHOT\_TALK\_NOSHEATHE         |     |                                        |
-| 397 | EMOTE\_ONESHOT\_POINT\_NOSHEATHE        |     |                                        |
-| 398 | EMOTE\_STATE\_CANNIBALIZE               |     |                                        |
-| 399 | EMOTE\_ONESHOT\_JUMPSTART               |     |                                        |
+They Are Different Between Client Versions: [classic](https://github.com/cmangos/mangos-classic/blob/master/src/game/Globals/SharedDefines.h#L747), [tbc](https://github.com/cmangos/mangos-tbc/blob/master/src/game/Globals/SharedDefines.h#L773), [wotlk](https://github.com/cmangos/mangos-wotlk/blob/master/src/game/Globals/SharedDefines.h#L799)
+
+| Bit | Name                                    | Bit | Name                                    | Bit | Name                                   |
+| --- | --------------------------------------- | --- | --------------------------------------  | --- | -------------------------------------- |
+| 0   | EMOTE\_ONESHOT\_NONE                    | 113 | EMOTE\_ONESHOT\_SALUTE\_NOSHEATH        | 411 | EMOTE\_ONESHOT\_CUSTOMSPELL10          |
+| 1   | EMOTE\_ONESHOT\_TALK                    | 133 | EMOTE\_STATE\_USESTANDING\_NOSHEATHE    | 412 | EMOTE\_STATE\_EXCLAIM                  |
+| 2   | EMOTE\_ONESHOT\_BOW                     | 153 | EMOTE\_ONESHOT\_LAUGH\_NOSHEATHE        | 415 | EMOTE\_STATE\_SIT\_CHAIR\_MED          |
+| 3   | EMOTE\_ONESHOT\_WAVE                    | 173 | EMOTE\_STATE\_WORK\_NOSHEATHE           | 422 | EMOTE\_STATE\_SPELLEFFECT\_HOLD        |
+| 4   | EMOTE\_ONESHOT\_CHEER                   | 193 | EMOTE\_STATE\_SPELLPRECAST              | 423 | EMOTE\_STATE\_EAT\_NO\_SHEATHE         |
+| 5   | EMOTE\_ONESHOT\_EXCLAMATION             | 213 | EMOTE\_ONESHOT\_READYRIFLE              | 424 | EMOTE\_STATE\_MOUNT                    |
+| 6   | EMOTE\_ONESHOT\_QUESTION                | 214 | EMOTE\_STATE\_READYRIFLE                | 425 | EMOTE\_STATE\_READY2HL                 |
+| 7   | EMOTE\_ONESHOT\_EAT                     | 233 | EMOTE\_STATE\_WORK\_NOSHEATHE\_MINING   | 426 | EMOTE\_STATE\_SIT\_CHAIR\_HIGH         |
+| 10  | EMOTE\_STATE\_DANCE                     | 234 | EMOTE\_STATE\_WORK\_NOSHEATHE\_CHOPWOOD | 427 | EMOTE\_STATE\_FALL                     |
+| 11  | EMOTE\_ONESHOT\_LAUGH                   | 253 | EMOTE\_zzOLDONESHOT\_LIFTOFF            | 428 | EMOTE\_STATE\_LOOT                     |
+| 12  | EMOTE\_STATE\_SLEEP                     | 254 | EMOTE\_ONESHOT\_LIFTOFF                 | 429 | EMOTE\_STATE\_SUBMERGED\_NEW           |
+| 13  | EMOTE\_STATE\_SIT                       | 273 | EMOTE\_ONESHOT\_YES                     | 430 | EMOTE\_ONESHOT\_COWER                  |
+| 14  | EMOTE\_ONESHOT\_RUDE                    | 274 | EMOTE\_ONESHOT\_NO                      | 431 | EMOTE\_STATE\_COWER                    |
+| 15  | EMOTE\_ONESHOT\_ROAR                    | 275 | EMOTE\_ONESHOT\_TRAIN                   | 432 | EMOTE\_ONESHOT\_USESTANDING            |
+| 16  | EMOTE\_ONESHOT\_KNEEL                   | 293 | EMOTE\_ONESHOT\_LAND                    | 433 | EMOTE\_STATE\_STEALTH\_STAND           |
+| 17  | EMOTE\_ONESHOT\_KISS                    | 313 | EMOTE\_STATE\_AT\_EASE                  | 434 | EMOTE\_ONESHOT\_OMNICAST\_GHOUL        |
+| 18  | EMOTE\_ONESHOT\_CRY                     | 333 | EMOTE\_STATE\_READY1H                   | 435 | EMOTE\_ONESHOT\_ATTACKBOW              |
+| 19  | EMOTE\_ONESHOT\_CHICKEN                 | 353 | EMOTE\_STATE\_SPELLKNEELSTART           | 436 | EMOTE\_ONESHOT\_ATTACKRIFLE            |
+| 20  | EMOTE\_ONESHOT\_BEG                     | 373 | EMOTE\_STATE\_SUBMERGED                 | 437 | EMOTE\_STATE\_SWIM\_IDLE               |
+| 21  | EMOTE\_ONESHOT\_APPLAUD                 | 374 | EMOTE\_ONESHOT\_SUBMERGE                | 438 | EMOTE\_STATE\_ATTACK\_UNARMED          |
+| 22  | EMOTE\_ONESHOT\_SHOUT                   | 375 | EMOTE\_STATE\_READY2H                   | 439 | EMOTE\_ONESHOT\_SPELLCAST\_W\_SOUND    |
+| 23  | EMOTE\_ONESHOT\_FLEX                    | 376 | EMOTE\_STATE\_READYBOW                  | 440 | EMOTE\_ONESHOT\_DODGE                  |
+| 24  | EMOTE\_ONESHOT\_SHY                     | 377 | EMOTE\_ONESHOT\_MOUNTSPECIAL            | 441 | EMOTE\_ONESHOT\_PARRY1H                |
+| 25  | EMOTE\_ONESHOT\_POINT                   | 378 | EMOTE\_STATE\_TALK                      | 442 | EMOTE\_ONESHOT\_PARRY2H                |
+| 26  | EMOTE\_STATE\_STAND                     | 379 | EMOTE\_STATE\_FISHING                   | 443 | EMOTE\_ONESHOT\_PARRY2HL               |
+| 27  | EMOTE\_STATE\_READYUNARMED              | 380 | EMOTE\_ONESHOT\_FISHING                 | 444 | EMOTE\_STATE\_FLYFALL                  |
+| 28  | EMOTE\_STATE\_WORK                      | 381 | EMOTE\_ONESHOT\_LOOT                    | 445 | EMOTE\_ONESHOT\_FLYDEATH               |
+| 29  | EMOTE\_STATE\_POINT                     | 382 | EMOTE\_STATE\_WHIRLWIND                 | 446 | EMOTE\_STATE\_FLY\_FALL                |
+| 30  | EMOTE\_STATE\_NONE                      | 383 | EMOTE\_STATE\_DROWNED                   | 447 | EMOTE\_ONESHOT\_FLY\_SIT\_GROUND\_DOWN |
+| 33  | EMOTE\_ONESHOT\_WOUND                   | 384 | EMOTE\_STATE\_HOLD\_BOW                 | 448 | EMOTE\_ONESHOT\_FLY\_SIT\_GROUND\_UP   |
+| 34  | EMOTE\_ONESHOT\_WOUNDCRITICAL           | 385 | EMOTE\_STATE\_HOLD\_RIFLE               | 449 | EMOTE\_ONESHOT\_EMERGE                 |
+| 35  | EMOTE\_ONESHOT\_ATTACKUNARMED           | 386 | EMOTE\_STATE\_HOLD\_THROWN              | 450 | EMOTE\_ONESHOT\_DRAGONSPIT             |
+| 36  | EMOTE\_ONESHOT\_ATTACK1H                | 387 | EMOTE\_ONESHOT\_DROWN                   | 451 | EMOTE\_STATE\_SPECIALUNARMED           |
+| 37  | EMOTE\_ONESHOT\_ATTACK2HTIGHT           | 388 | EMOTE\_ONESHOT\_STOMP                   | 452 | EMOTE\_ONESHOT\_FLYGRAB                |
+| 38  | EMOTE\_ONESHOT\_ATTACK2HLOOSE           | 389 | EMOTE\_ONESHOT\_ATTACKOFF               | 453 | EMOTE\_STATE\_FLYGRABCLOSED            |
+| 39  | EMOTE\_ONESHOT\_PARRYUNARMED            | 390 | EMOTE\_ONESHOT\_ATTACKOFFPIERCE         | 454 | EMOTE\_ONESHOT\_FLYGRABTHROWN          |
+| 43  | EMOTE\_ONESHOT\_PARRYSHIELD             | 391 | EMOTE\_STATE\_ROAR                      | 455 | EMOTE\_STATE\_FLY\_SIT\_GROUND         |
+| 44  | EMOTE\_ONESHOT\_READYUNARMED            | 392 | EMOTE\_STATE\_LAUGH                     | 456 | EMOTE\_STATE\_WALKBACKWARDS            |
+| 45  | EMOTE\_ONESHOT\_READY1H                 | 393 | EMOTE\_ONESHOT\_CREATURE\_SPECIAL       | 457 | EMOTE\_ONESHOT\_FLYTALK                |
+| 48  | EMOTE\_ONESHOT\_READYBOW                | 394 | EMOTE\_ONESHOT\_JUMPLANDRUN             | 458 | EMOTE\_ONESHOT\_FLYATTACK1H            |
+| 50  | EMOTE\_ONESHOT\_SPELLPRECAST            | 395 | EMOTE\_ONESHOT\_JUMPEND                 | 459 | EMOTE\_STATE\_CUSTOMSPELL08            |
+| 51  | EMOTE\_ONESHOT\_SPELLCAST               | 396 | EMOTE\_ONESHOT\_TALK\_NOSHEATHE         | 460 | EMOTE\_ONESHOT\_FLY\_DRAGONSPIT        |
+| 53  | EMOTE\_ONESHOT\_BATTLEROAR              | 397 | EMOTE\_ONESHOT\_POINT\_NOSHEATHE        | 461 | EMOTE\_STATE\_SIT\_CHAIR\_LOW          |
+| 54  | EMOTE\_ONESHOT\_SPECIALATTACK1H         | 398 | EMOTE\_STATE\_CANNIBALIZE               | 462 | EMOTE\_ONE\_SHOT\_STUN                 |
+| 60  | EMOTE\_ONESHOT\_KICK                    | 399 | EMOTE\_ONESHOT\_JUMPSTART               | 463 | EMOTE\_ONESHOT\_SPELLCAST\_OMNI        |
+| 61  | EMOTE\_ONESHOT\_ATTACKTHROWN            | 400 | EMOTE\_STATE\_DANCESPECIAL              | 465 | EMOTE\_STATE\_READYTHROWN              |
+| 64  | EMOTE\_STATE\_STUN                      | 401 | EMOTE\_ONESHOT\_DANCESPECIAL            | 466 | EMOTE\_ONESHOT\_WORK\_CHOPWOOD         |
+| 65  | EMOTE\_STATE\_DEAD                      | 402 | EMOTE\_ONESHOT\_CUSTOMSPELL01           | 467 | EMOTE\_ONESHOT\_WORK\_MINING           |
+| 66  | EMOTE\_ONESHOT\_SALUTE                  | 403 | EMOTE\_ONESHOT\_CUSTOMSPELL02           | 468 | EMOTE\_STATE\_SPELL\_CHANNEL\_OMNI     |
+| 68  | EMOTE\_STATE\_KNEEL                     | 404 | EMOTE\_ONESHOT\_CUSTOMSPELL03           | 469 | EMOTE\_STATE\_SPELL\_CHANNEL\_DIRECTED |
+| 69  | EMOTE\_STATE\_USESTANDING               | 405 | EMOTE\_ONESHOT\_CUSTOMSPELL04           | 470 | EMOTE\_STAND\_STATE\_NONE              |
+| 70  | EMOTE\_ONESHOT\_WAVE\_NOSHEATHE         | 406 | EMOTE\_ONESHOT\_CUSTOMSPELL05           | 471 | EMOTE\_STATE\_READYJOUST               |
+| 71  | EMOTE\_ONESHOT\_CHEER\_NOSHEATHE        | 407 | EMOTE\_ONESHOT\_CUSTOMSPELL06           | 473 | EMOTE\_STATE\_STRANGULATE              |
+| 92  | EMOTE\_ONESHOT\_EAT\_NOSHEATHE          | 408 | EMOTE\_ONESHOT\_CUSTOMSPELL07           | 474 | EMOTE\_STATE\_READYSPELLOMNI           |
+| 93  | EMOTE\_STATE\_STUN\_NOSHEATHE           | 409 | EMOTE\_ONESHOT\_CUSTOMSPELL08           | 475 | EMOTE\_STATE\_HOLD\_JOUST              |
+| 94  | EMOTE\_ONESHOT\_DANCE                   | 410 | EMOTE\_ONESHOT\_CUSTOMSPELL09           | 476 | EMOTE\_ONESHOT\_CRY\_JAINA             |
 
 #### moveflags
 
 Flags controlling how the creature will behave animation-wise while
-moving. <span style="color: red">This table is 100% wrong as of 3.1. It
-is still here for a period of time for reference and to convert values
+moving. This table is 100% wrong as of 3.1. It is still here for a period of time for reference and to convert values
 in DB.
-
-See the proper table under this one</span>
 
 | Bit        | Name                        | Comment                                                                                |
 | ---------- | --------------------------- | -------------------------------------------------------------------------------------- |
@@ -267,7 +232,7 @@ See the proper table under this one</span>
 | 1073741824 | MOVEMENTFLAG\_UNK9          | Causes creature to hover at stand state (not include moving)                           |
 | 2147483648 | MOVEMENTFLAG\_UNK10         | Causes creature to roll to strange angle                                               |
 
-<span style="color: red">Proper table as of 3.1</span>
+Proper table as of 3.1
 
 | Bit        | Name                         | Comment                                                                                         |
 | ---------- | ---------------------------- | ----------------------------------------------------------------------------------------------- |
@@ -310,13 +275,7 @@ Mangos
 
 #### auras
 
-This field controls any auras to be applied on the creature (both in
-effect and visually). To apply multiple auras, you can add more aura
-entries, separating each entry by a space.
+This field controls any auras a creature is spawned with, every time the guid or id is spawned.
+Mostly used for SPELL_ATTR_ABILITY, SPELL_ATTR_PASSIVE with Duration: 21 (-1)
 
-List of useful aura entries:
 
-  - ‘16380’ - Makes the creature invisible.
-  - ‘18950’ - Makes the creature detect other invisible units (players
-    or creatures).
-  - ‘37613’ - Casting teleport forever.
