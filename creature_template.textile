@@ -20,9 +20,9 @@ h3. Structure
 |"IconName":creature_template#iconname|char(100)|YES||Null||
 |"MinLevel":creature_template#minlevel|tinyint(3) unsigned|YES||1||
 |"MaxLevel":creature_template#maxlevel|tinyint(3) unsigned|YES||1||
-|"DifficultyEntry1":creature_template#difficultyentry1|mediumint(8) unsigned|NO||0||
-|"DifficultyEntry2":creature_template#difficultyentry2|mediumint(8) unsigned|NO||0||
-|"DifficultyEntry3":creature_template#difficultyentry3|mediumint(8) unsigned|NO||0||
+|"DifficultyEntry1":creature_template#difficultyentry1|mediumint(8) unsigned|NO||0|WotLK, HeroicEntry in TBC|
+|"DifficultyEntry2":creature_template#difficultyentry2|mediumint(8) unsigned|NO||0|WotLK|
+|"DifficultyEntry3":creature_template#difficultyentry3|mediumint(8) unsigned|NO||0|WotLK|
 |"ModelId1":creature_template#modelid1|mediumint(8) unsigned|NO||0||
 |"ModelId2":creature_template#modelid2|mediumint(8) unsigned|NO||0||
 |"ModelId3":creature_template#modelid3|mediumint(8) unsigned|NO||0||
@@ -36,6 +36,7 @@ h3. Structure
 |"RacialLeader":creature_template#racialleader|tinyint(3) unsigned|NO||0||
 |"NpcFlags":creature_template#npcflags|int(10) unsigned|NO||0||
 |"UnitFlags":creature_template#unitflags|int(10) unsigned|NO||0||
+|"UnitFlags2":creature_template#UnitFlags2|int(10) unsigned|NO||0|WotLK|
 |"DynamicFlags":creature_template#dynamicflags|int(10) unsigned|NO||0||
 |"ExtraFlags":creature_template#extraflags|int(10) unsigned|NO||0||
 |"CreatureTypeFlags":creature_template#creaturetypeflags|int(10) unsigned|YES||0||
@@ -76,12 +77,12 @@ h3. Structure
 |"SkinningLootId":creature_template#skinninglootid|mediumint(8) unsigned|NO||0||
 |"KillCredit1":creature_template#killcredit1|int(11) unsigned|NO||0||
 |"KillCredit2":creature_template#killcredit2|int(11) unsigned|NO||0||
-|"QuestItem1":creature_template#questitem1|int(11) unsigned|NO||0||
-|"QuestItem2":creature_template#questitem2|int(11) unsigned|NO||0||
-|"QuestItem3":creature_template#questitem3|int(11) unsigned|NO||0||
-|"QuestItem4":creature_template#questitem4|int(11) unsigned|NO||0||
-|"QuestItem5":creature_template#questitem5|int(11) unsigned|NO||0||
-|"QuestItem6":creature_template#questitem6|int(11) unsigned|NO||0||
+|"QuestItem1":creature_template#questitem1|int(11) unsigned|NO||0|WotLK|
+|"QuestItem2":creature_template#questitem2|int(11) unsigned|NO||0|WotLK|
+|"QuestItem3":creature_template#questitem3|int(11) unsigned|NO||0|WotLK|
+|"QuestItem4":creature_template#questitem4|int(11) unsigned|NO||0|WotLK|
+|"QuestItem5":creature_template#questitem5|int(11) unsigned|NO||0|WotLK|
+|"QuestItem6":creature_template#questitem6|int(11) unsigned|NO||0|WotLK|
 |"MechanicImmuneMask":creature_template#mechanicimmunemask|int(10) unsigned|NO||0||
 |"SchoolImmuneMask":creature_template#schoolimmunemask|int(10) unsigned|NO||0||
 |"ResistanceHoly":creature_template#resistanceholy|int(10) unsigned|NO||0||
@@ -92,7 +93,7 @@ h3. Structure
 |"ResistanceArcane":creature_template#resistancearcane|smallint(5)|NO||0||
 |"PetSpellDataId":creature_template#petspelldataid|mediumint(8) unsigned|NO||0||
 |"MovementType":creature_template#movementtype|tinyint(3) unsigned|NO||0||
-|"MovementTemplateId":creature_template#movementtemplateid|int(11) unsigned|NO||0||
+|"MovementTemplateId":creature_template#movementtemplateid|int(11) unsigned|NO||0|WotLK|
 |"TrainerType":creature_template#trainertype|tinyint(4)|YES||0||
 |"TrainerSpell":creature_template#trainerspell|mediumint(8) unsigned|YES||0||
 |"TrainerClass":creature_template#trainerclass|tinyint(3) unsigned|YES||0||
@@ -100,13 +101,14 @@ h3. Structure
 |"TrainerTemplateId":creature_template#trainertemplateid|mediumint(8) unsigned|NO||0||
 |"VendorTemplateId":creature_template#vendortemplateid|mediumint(8) unsigned|NO||0||
 |"EquipmentTemplateId":creature_template#equipmenttemplateid|mediumint(8) unsigned|NO||0||
-|"VehicleTemplateId":creature_template#vehicletemplateid|mediumint(8) unsigned|NO||0||
+|"VehicleTemplateId":creature_template#vehicletemplateid|mediumint(8) unsigned|NO||0|WotLK|
 |"GossipMenuId":creature_template#gossipmenuid|mediumint(8) unsigned|YES||0||
-|"visibilityDistanceType":creature_template#visibilityDistanceType|tinyint(4)|YES||0||
+|"InteractionPauseTimer	":creature_template#InteractionPauseTimer|int(10) unsigned|NO||-1|Waittimer befor npc resumes pathing after being talked to|
+|"VisibilityDistanceType":creature_template#visibilityDistanceType|tinyint(4)|YES||0||
 |"CorpseDecay":creature_template#CorpseDecay|int(10) unsigned|NO||0||
+|"SpellList":creature_template#SpellList|int(11)|NO||0|"creature_spell_list":https://github.com/cmangos/issues/wiki/creature_spell_list|
 |"AIName":creature_template#ainame|char(64)|NO||||
 |"ScriptName":creature_template#scriptname|char(64)|NO||||
-
 
 h3. Description of the fields
 
@@ -137,7 +139,7 @@ h4. MaxLevel
 
 The Maximum Level of the Creature if the Creature Has a Level Range. For Creature That Are Single Level MinLevel=MaxLevel.
 
-h4. DifficultyEntry1
+h4. HeroicEntry - DifficultyEntry1 - DifficultyEntry2 - DifficultyEntry3
 
 If This Value is NOT Zero Then This Field Refers to a Creature_Template Entry. This Field is to be Used for Specific Versions of an NPC in Certain Difficulty Settings, See Below:
 
@@ -342,6 +344,30 @@ Some Known Possible Flags Are:
 |29|536870912|UNIT_FLAG_UNK_29|used in Feing Death spell|
 |30|1073741824|UNIT_FLAG_SHEATHE||
 |31|2147483648|UNIT_FLAG_UNK_31|set skinnable icon and also changes color of portrait)(no affect in 2.4.3)|
+
+h4. UnitFlags2
+
+enum UnitFlags2
+
+```
+    UNIT_FLAG2_FEIGN_DEATH          = 0x00000001,
+    UNIT_FLAG2_HIDE_BODY            = 0x00000002,           // Hides body and body armor. Weapons and shoulder and head armor still visible
+    UNIT_FLAG2_IGNORE_REPUTATION    = 0x00000004,
+    UNIT_FLAG2_COMPREHEND_LANG      = 0x00000008,
+    UNIT_FLAG2_CLONED               = 0x00000010,           // Used in SPELL_AURA_MIRROR_IMAGE
+    UNIT_FLAG2_DO_NOT_FADE_IN       = 0x00000020,
+    UNIT_FLAG2_FORCE_MOVE           = 0x00000040,
+    UNIT_FLAG2_DISARM_OFFHAND       = 0x00000080,           // also shield case
+    UNIT_FLAG2_UNK8                 = 0x00000100,
+    UNIT_FLAG2_UNK9                 = 0x00000200,
+    UNIT_FLAG2_DISARM_RANGED        = 0x00000400,
+    UNIT_FLAG2_REGENERATE_POWER     = 0x00000800,
+    UNIT_FLAG2_SPELL_CLICK_IN_GROUP = 0x00001000,
+    UNIT_FLAG2_SPELL_CLICK_DISABLED = 0x00002000,
+    UNIT_FLAG2_INTERACT_ANY_REACTION = 0x00004000,
+    UNIT_FLAG2_UNK15                = 0x00008000,
+    UNIT_FLAG2_UNK16                = 0x00010000,
+```
 
 h4. DynamicFlags
 
@@ -971,6 +997,10 @@ h4. visibilityDistanceType
 h4. CorpseDecay
 
 Time before corpse despawns in seconds.
+
+h4. SpellList
+
+"creature_spell_list":https://github.com/cmangos/issues/wiki/creature_spell_list
 
 h4. AIName
 
