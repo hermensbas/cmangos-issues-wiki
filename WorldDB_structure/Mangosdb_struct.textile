@@ -185,3 +185,4 @@ h3. This is the list of tables in the regular 'mangos' database
 |"waypoint_path":https://github.com/cmangos/issues/wiki/spawn_group|paths linked to "spawn_groups":https://github.com/cmangos/issues/wiki/spawn_group|
 |"world_safe_locs":https://github.com/cmangos/issues/wiki/world_safe_locs|?|
 |"world_template":https://github.com/cmangos/issues/wiki/world_template (Core)|holds the ScriptNames of the world maps 0, 1, 530, 571|
+|"worldstate_name":https://github.com/cmangos/issues/wiki/worldstate_name|holds data on worldstate variables used for CONDITION_WORLDSTATE|
