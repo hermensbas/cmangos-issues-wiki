@@ -12,8 +12,8 @@ h3. Structure
 |"map":creature#map|smallint(5) unsigned|NO|MUL|0||
 |"spawnMask":creature#spawnmask|tinyint(3) unsigned|NO||1||
 |"phaseMask":creature#phasemask|smallint(5) unsigned|NO||1|(WotLK)|
-|"modelid":creature#modelid|mediumint(8) unsigned|YES||0||
-|"equipment_id":creature#equipment_id|mediumint(9)|NO||0||
+|"modelid":creature#modelid|mediumint(8) unsigned|YES||0|Dont use if possible|
+|"equipment_id":creature#equipment_id|mediumint(9)|NO||0|Dont use if possible|
 |"position_x":creature#position_x|float|NO||0||
 |"position_y":creature#position_y|float|NO||0||
 |"position_z":creature#position_z|float|NO||0||
@@ -22,9 +22,9 @@ h3. Structure
 |"spawntimesecsmax":creature#spawntimesecsmax|int(10) unsigned|NO||120||
 |"spawndist":creature#spawndist|float|NO||5||
 |"currentwaypoint":creature#currentwaypoint|mediumint(8) unsigned|NO||0||
-|"curhealth":creature#curhealth|int(10) unsigned|NO||1||
-|"curmana":creature#curmana|int(10) unsigned|NO||0||
-|"DeathState":creature#deathstate|tinyint(3) unsigned|NO||0||
+|"curhealth":creature#curhealth|int(10) unsigned|NO||1|Deprecated Dont Use|
+|"curmana":creature#curmana|int(10) unsigned|NO||0|Deprecated Dont Use|
+|"DeathState":creature#deathstate|tinyint(3) unsigned|NO||0|Deprecated Dont Use|
 |"MovementType":creature#movementtype|tinyint(3) unsigned|NO||0||
 
 h3. Description of the fields
