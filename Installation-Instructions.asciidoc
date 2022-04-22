@@ -386,6 +386,7 @@ We assume you have followed the instructions above, i.e. created the ++mangos++ 
  make
 
   - You may define the number of threads for faster compilation (e.g. ++make -j8++ for 8 threads)
+  - There is currently a bug in GCC 11.2 which causes GCC to fail compiling CMaNGOS. You can downgrade or upgrade GCC to circumvent this, or you can compile CMaNGOS with a different compiler like clang
 
 * Copy the compiled files to the installation directory (++/home/mangos/mangos/run++) by running the following command:
 
