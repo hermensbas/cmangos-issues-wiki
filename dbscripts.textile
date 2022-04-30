@@ -123,10 +123,12 @@ h3. Structure
 |"dataint2":dbscripts#otherfields|int(11)|NO||0||
 |"dataint3":dbscripts#otherfields|int(11)|NO||0||
 |"dataint4":dbscripts#otherfields|int(11)|NO||0||
+|"datafloat":dbscripts#otherfields|float|NO||0||
 |"x":dbscripts#otherfields|float|NO||0||
 |"y":dbscripts#otherfields|float|NO||0||
 |"z":dbscripts#otherfields|float|NO||0||
 |"o":dbscripts#otherfields|float|NO||0||
+|"speed":dbscripts#otherfields|float|NO||0||
 |"condition_id":dbscripts#condition_id|mediumint(8) unsigned|NO||0|"condition":Conditions#condition_entry|
 |"comments":dbscripts#otherfields|VARCHAR(255)|NO||NULL||
 
