@@ -2,7 +2,7 @@ Back to [world database](https://github.com/cmangos/issues/wiki/mangosdb_struct)
 
 ## The `creature_spawn_data_template` table
 
-Contains data to override spawned creatures `UnitFlags`,`Faction`,`ModelId`,`EquipmentId`,`CurHealth`,`CurMana`,`SpawnFlags`<br>
+Contains data to override spawned creatures `UnitFlags`,`Faction`,`ModelId`,`EquipmentId`,`CurHealth`,`CurMana`,`SpawnFlags`
 Linked to [creature_spawn_data.Id](creature_spawn_data)
 
 ### Structure
@@ -10,19 +10,20 @@ Linked to [creature_spawn_data.Id](creature_spawn_data)
 | Name                                                    | Type                  | Null | Key | Default | Extra |
 | ------------------------------------------------------- | --------------------- | ---- | --- | ------- | ----- |
 | [Entry](creature_spawn_data_template#Entry)             | int(10) unsigned      | NO   | PRI | (NULL)  |       |
-| [UnitFlags](creature_spawn_data_template#UnitFlags)     | bigint(20)            | NO   |     | -1      |       |
+| [NpcFlags](creature_spawn_data_template#NpcFlags)       | int(10)               | NO   | PRI | -1      |       |
+| [UnitFlags](creature_spawn_data_template#UnitFlags)     | bigint(20)            | NO   | PRI | -1      |       |
 | [Faction](creature_spawn_data_template#Faction)         | int(10) unsigned      | NO   |     | 0       |       |
-| [ModelId](creature_spawn_data_template#ModelId)         | mediumint(8) unsigned | NO   |     | 0       |       |
-| [EquipmentId](creature_spawn_data_template#EquipmentId) | int(10) unsigned      | NO   |     | 0       |       |
-| [CurHealth](creature_spawn_data_template#CurHealth)     | int(10) unsigned      | NO   |     | 0       |       |
-| [CurMana](creature_spawn_data_template#CurMana)         | int(10) unsigned      | NO   |     | 0       |       |
-| [SpawnFlags](creature_spawn_data_template#SpawnFlags)   | int(10) unsigned      | NO   |     | 0       |       |
+| [ModelId](creature_spawn_data_template#ModelId)         | mediumint(8) unsigned | NO   | PRI | 0       |       |
+| [EquipmentId](creature_spawn_data_template#EquipmentId) | int(10) unsigned      | NO   | PRI | 0       |       |
+| [CurHealth](creature_spawn_data_template#CurHealth)     | int(10) unsigned      | NO   | PRI | 0       |       |
+| [CurMana](creature_spawn_data_template#CurMana)         | int(10) unsigned      | NO   | PRI | 0       |       |
+| [SpawnFlags](creature_spawn_data_template#SpawnFlags)   | int(10) unsigned      | NO   | PRI | 0       |       |
 
 ### Description of the fields
 
 #### Entry
 
-Unique ID for each `creature_spawn_data_template`. Linked to [creature_spawn_data.Id](creature_spawn_data#Id)<br>
+Unique ID for each `creature_spawn_data_template`. Linked to [creature_spawn_data.Id](creature_spawn_data#Id)
 To avoid conflicts between Expansions, please use:
 
 | Version:             | Range         |
@@ -32,34 +33,39 @@ To avoid conflicts between Expansions, please use:
 | TBC:                 | 10000 - 19999 |
 | WotLK:               | 20000 +       |
 
+#### NpcFlags
+
+New value that will be applied to creature. Ref: [creature_template.NpcFlags](creature_template#NpcFlags)
+`Important` Default -1. Value `0` will remove all NpcFlags from creature
+
 #### UnitFlags
 
-New value that will be applied to creature. Ref: [creature_template.UnitFlags](creature_template#UnitFlags)<br>
-`Important` Only here default = -1. Value `0` will remove all unitFlags from creature
+New value that will be applied to creature. Ref: [creature_template.UnitFlags](creature_template#UnitFlags)
+`Important` Default -1. Value `0` will remove all UnitFlags from creature
  
 #### Faction
 
-New value that will be applied to creature. Ref: [FactionTemplate.dbc.content](FactionTemplate.dbc#content)<br>
+New value that will be applied to creature. Ref: [FactionTemplate.dbc.content](FactionTemplate.dbc#content)
 `0` - will leave creatures default value
 
 #### ModelId
 
-New value that will be applied to creature. Ref: [Creature_Model_Info.Entry](Creature_Model_Info#Entry)<br>
+New value that will be applied to creature. Ref: [Creature_Model_Info.Entry](Creature_Model_Info#Entry)
 `0` - will leave creatures default value
 
 #### EquipmentId
 
-New value that will be applied to creature. Ref: [creature_equip_template.entry](creature_equip_template#entry)<br>
+New value that will be applied to creature. Ref: [creature_equip_template.entry](creature_equip_template#entry)
 `0` - will leave creatures default value
 
 #### CurHealth
 
-New value that will be applied to creature. Ref: [Creature_Model_Info.Entry](Creature_Model_Info#Entry)<br>
+New value that will be applied to creature. Ref: [Creature_Model_Info.Entry](Creature_Model_Info#Entry)
 `0` - will leave creatures default value
 
 #### CurMana
 
-New value that will be applied to creature. Ref: [creature.curmana](creature#curmana)<br>
+New value that will be applied to creature. Ref: [creature.curmana](creature#curmana)
 `0` - will leave creatures default value
 
 #### SpawnFlags
