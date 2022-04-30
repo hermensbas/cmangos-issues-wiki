@@ -34,6 +34,7 @@ h3. Structure
 |"PrevQuestId":Quest_template#prevquestid|mediumint(9)|NO||0||
 |"NextQuestId":Quest_template#nextquestid|mediumint(9)|NO||0||
 |"ExclusiveGroup":Quest_template#exclusivegroup|mediumint(9)|NO||0||
+|"BreadcrumbForQuestId":Quest_template#BreadcrumbForQuestId|mediumint(9) unsigned|NO||0||
 |"NextQuestInChain":Quest_template#nextquestinchain|mediumint(8)|NO||0||
 |"RewXPId":Quest_template#rewxpid|tinyint(3) unsigned|NO||0|WOTLK|
 |"SrcItemId":Quest_template#srcitemid|mediumint(8) unsigned|NO||0||
@@ -325,6 +326,10 @@ Allows to define a group of quests of which only one may be chosen and completed
 Allows to define a group of quests of which all must be completed and rewarded to start next quest. E.g. if quest 1000 dependent from one of quests 1200, 1201 and 1202 and all this quests have same negative exclusive group then all this quest must be completed and rewarded before quest 1000 can be started.
 
 See the "examples section":#Examples for examples.
+
+h4. BreadcrumbForQuestId
+
+Breadcrumb Quests that lead to other quests.
 
 h4. NextQuestInChain
 
