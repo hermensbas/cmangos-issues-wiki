@@ -13,6 +13,7 @@ h3. Structure
 |"item":npc_vendor_template#item|int(10) unsigned|NO|PRI|0||
 |"maxcount":npc_vendor_template#maxcount|int(10) unsigned|NO||0||
 |"incrtime":npc_vendor_template#incrtime|int(10) unsigned|NO||0||
+|"slot":npc_vendor_template#slot|tinyint(3) unsigned|NO||0||
 |"ExtendedCost":npc_vendor_template#extendedcost|mediumint(8) unsigned|NO||0||
 |"condition_id":npc_vendor_template#condition_id|mediumint(8) unsigned|NO||0||
 |"comments":npc_vendor_template#comments|text|NO||NULL||
@@ -36,6 +37,17 @@ The maximum number of copies of the item the vendor has available to be sold. If
 h4. incrtime
 
 Combined with "maxcount":#maxcount, this field tells how often (in seconds) the vendor list is refreshed and the limited item copies are restocked. For limited item copies, every refresh, the quantity is increased by "item_template.BuyCount":item_template#BuyCount
+
+h4. slot
+
+Decides position of the sold item in the vendor menu
+
+|*slot*|*slot*|
+|1|2|
+|3|4|
+|5|6|
+|7|8|
+|9|10|
 
 h4. ExtendedCost
 
