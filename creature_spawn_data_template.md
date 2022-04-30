@@ -18,6 +18,7 @@ Linked to [creature_spawn_data.Id](creature_spawn_data)
 | [CurHealth](creature_spawn_data_template#CurHealth)     | int(10) unsigned      | NO   | PRI | 0       |       |
 | [CurMana](creature_spawn_data_template#CurMana)         | int(10) unsigned      | NO   | PRI | 0       |       |
 | [SpawnFlags](creature_spawn_data_template#SpawnFlags)   | int(10) unsigned      | NO   | PRI | 0       |       |
+| [RelayId](creature_spawn_data_template#RelayId)         | int(10) unsigned      | NO   |     | 0       | dbscripts_on_relay |
 
 ### Description of the fields
 
@@ -76,3 +77,8 @@ Special Flags applied to creature:
 | -----|-----|----------------------------|
 | 1    |0x01 |SPAWN_FLAG_RUN_ON_SPAWN     |
 | 2    |0x02 |SPAWN_FLAG_HOVER (flying)   |
+
+#### RelayId
+
+[dbscripts.id](dbscripts#id) - RelayId
+
