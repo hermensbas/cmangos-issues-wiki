@@ -319,7 +319,7 @@ If you're experiencing issues with CMake (The following Boost libraries could no
 
 Compiling CMaNGOS (Windows)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-An https://youtu.be/KlRM18SVCQA[video] of the build process is now available.
+A https://youtu.be/KlRM18SVCQA[video] of the build process is now available.
 
 * Launch cmake
 * Set the source bin to C:\Mangos\mangos
