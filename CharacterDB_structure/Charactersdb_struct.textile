@@ -2,29 +2,47 @@ h3. This is the list of tables in the 'characters' database
 
 * "account_data":account_data
 
+* "account_instances_entered":account_instances_entered
+
+* "ahbot_items":ahbot_items
+
 * "arena_team":arena_team
 
 * "arena_team_member":arena_team_member
 
 * "arena_team_stats":arena_team_stats
 
-* "auctionhouse":auctionhouse
+* "auction":auction
+
+* "auctionhouse":auctionhouse - outdated?
 
 * "bugreport":bugreport
 
-* "characters":characters
+* "character_account_data":character_account_data
 
-* "character_achievement":character_achievement
+* "character_achievement":character_achievement - Wotlk+
 
-* "character_achievement_progress":character_achievement_progress
+* "character_achievement_progress":character_achievement_progress - Wotlk+
+
+* "character_auction":character_auction
 
 * "character_action":character_action
 
 * "character_aura":character_aura
 
+* "character_battleground_data":character_battleground_data
+
+* "character_battleground_random":character_battleground_random - Wotlk+
+
+* "character_db_version":character_db_version
+
+* "character_declinedname":character_declinedname
+
+* "character_equipmentsets":character_equipmentsets
+
 * "character_gifts":character_gifts
 
-* "character_glyphs":character_glyphs
+* "character_glyphs":character_glyphs - Wotlk+
 
 * "character_homebind":character_homebind
 
@@ -34,11 +52,19 @@ h3. This is the list of tables in the 'characters' database
 
 * "character_pet":character_pet
 
+* "character_pet_declinedname":character_pet_declinedname
+
 * "character_queststatus":character_queststatus
 
 * "character_queststatus_daily":character_queststatus_daily
 
+* "character_queststatus_weekly":character_queststatus_weekly
+
+* "character_queststatus_monthly":character_queststatus_monthly
+
 * "character_reputation":character_reputation
+
+* "character_skills":character_skills
 
 * "character_social":character_social
 
@@ -46,17 +72,35 @@ h3. This is the list of tables in the 'characters' database
 
 * "character_spell_cooldown":character_spell_cooldown
 
-* "character_ticket":character_ticket
+* "character_stats":character_stats
+
+* "character_talent":character_talent - Wotlk+
+
+* "character_ticket":character_ticket - outdated?
 
 * "character_tutorial":character_tutorial
 
+* "characters":characters
+
 * "corpse":corpse
 
-* "groups":groups
+* "creature_respawn":creature_respawn
+
+* "event_group_chosen":event_group_chosen
+
+* "game_event_status":game_event_status
+
+* "gameobject_respawn":gameobject_respawn
+
+* "gm_surveys":gm_surveys
+
+* "gm_tickets":gm_tickets
 
 * "group_instance":group_instance
 
 * "group_member":group_member
+
+* "groups":groups
 
 * "guild":guild
 
@@ -80,6 +124,8 @@ h3. This is the list of tables in the 'characters' database
 
 * "item_instance":item_instance
 
+* "item_loot":item_loot
+
 * "item_text":item_text
 
 * "mail":mail
@@ -95,3 +141,21 @@ h3. This is the list of tables in the 'characters' database
 * "petition":petition
 
 * "petition_sign":petition_sign
+
+* "playerbot_quest_data":playerbot_quest_data - Wotlk+
+
+* "playerbot_saved_data":playerbot_saved_data
+
+* "playerbot_talentspec":playerbot_talentspec - Wotlk+
+
+* "pvpstats_battlegrounds":pvpstats_battlegrounds
+
+* "pvpstats_players":pvpstats_players
+
+* "saved_variables":saved_variables
+
+* "world":world
+
+* "world_state":world_state
+
+
