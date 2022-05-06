@@ -230,6 +230,8 @@ h3. *Content*
 |875|Gnomeregan Exiles|
 |876|Darkspear Trolls|
 |877|Darkspear Trolls|
+|889|Warsong Outriders enUS|
+|890|Silverwing Sentinels enUS|
 |894|Theramore|
 |914|Training Dummy|
 |934|Furbolg, Uncorrupted|
