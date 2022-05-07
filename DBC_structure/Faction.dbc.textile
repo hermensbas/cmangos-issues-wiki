@@ -194,6 +194,8 @@ h3. *Content*
 |475|Gadgetzan|
 |494|Gnomeregan Bug|
 |495|Escortee|
+|509|The League of Arathor|
+|510|The Defilers|
 |514|Harpy|
 |534|Alliance Generic|
 |554|Burning Blade|
@@ -230,8 +232,8 @@ h3. *Content*
 |875|Gnomeregan Exiles|
 |876|Darkspear Trolls|
 |877|Darkspear Trolls|
-|889|Warsong Outriders enUS|
-|890|Silverwing Sentinels enUS|
+|889|Warsong Outriders|
+|890|Silverwing Sentinels|
 |894|Theramore|
 |914|Training Dummy|
 |934|Furbolg, Uncorrupted|
