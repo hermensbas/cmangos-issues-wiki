@@ -12,6 +12,7 @@ h3. Structure
 |"id":Gossip_menu_option#id|smallint(6)|unsigned|PRI|NO|0|
 |"option_icon":Gossip_menu_option#option_icon|smallint(6)|unsigned|PRI|NO|0|
 |"option_text":Gossip_menu_option#option_text|text|signed||YES|NULL|
+|"option_broadcast_text":Gossip_menu_option#option_broadcast_text|int(11)|unsigned||NO|0|
 |"option_id":Gossip_menu_option#option_id|tinyint(3)|unsigned||NO|0|
 |"npc_option_npcflag":Gossip_menu_option#npc_option_npcflag|int(10)|unsigned||NO|0|
 |"action_menu_id":Gossip_menu_option#action_menu_id|mediumint(8)|unsigned||NO|0|
@@ -20,6 +21,7 @@ h3. Structure
 |"box_coded":Gossip_menu_option#box_coded|tinyint(3)|unsigned||NO|0|
 |"box_money":Gossip_menu_option#box_money|int(11)|unsigned||NO|0|
 |"box_text":Gossip_menu_option#box_text|text|signed||YES|NULL|
+|"box_broadcast_text":Gossip_menu_option#box_broadcast_text|int(11)|unsigned||NO|0|
 |"condition_id":Gossip_menu_option#condition_id|mediumint(8)|unsigned||NO|0|
 
 
@@ -51,7 +53,11 @@ h4. option&#95;icon
 
 h4. option&#95;text
 
-This is is the text that you want displayed for this option. Examples would be &quot;Train Me!&quot; &quot;Get off my lawn&quot;, &quot;Learn Dual Spec&quot;.
+This is the text that you want displayed for this option. Examples would be &quot;Train Me!&quot; &quot;Get off my lawn&quot;, &quot;Learn Dual Spec&quot;.
+
+h4. option&#95;broadcast&#95;text
+
+This is the broadcast&#95;text id for the text you want to be displayed in this option. Leave as 0 to give precedence to option&#95;text
 
 h4. option&#95;id
 
@@ -109,6 +115,10 @@ Money asked (in copper).
 h4. box&#95;text
 
 Confirmation text before activating the gossip.
+
+h4. box&#95;broadcast&#95;text
+
+Broadcast Text ID for the confirmation text before activating the gossip. Leave as 0 to give precedence to box&#95;text
 
 h4. condition&#95;id
 
