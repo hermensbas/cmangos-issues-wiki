@@ -15,8 +15,8 @@ Logically a replacement of linking and pooling. Groups spawns into a logical gro
 Id - Spawn Group ID
 
 ```
-1-9999 for anything in vanilla (Eastern Kingdoms 0 & Kalimdor 1)
-10000-19999 Classic only
+1-18999 for Classic (Eastern Kingdoms 0 & Kalimdor 1)
+19000-19999 for tbc-db added classic content, 19999-19000 for wotlk-db added classic content
 20000-29999 TBC (Outland 530)
 30000-39999 WOTLK (Northrend 571)
 3000000+ Instance Files
@@ -34,12 +34,18 @@ MaxCount - Maximum count of spawns that can be spawned at a time for whole group
 
 WorldState - If a given worldstate is set to 1, the group will automatically spawn. When set to 0, it will no longer respawn. Usable for many dungeon packs or scripts. Defining own worldstates is vague to existence of official worldstates. Must be done in core C++ currently through WorldStateVariableManager. Ask your friendly neighbourhood c++ coder. Consult [worldstate](https://github.com/cmangos/issues/wiki/Worldstates) for more information.  
 
-Flags - enum CreatureGroupFlags (GO groups currently have no flags)  
+Flags - enum CreatureGroupFlags
 
 ```
-    CREATURE_GROUP_AGGRO_TOGETHER   = 0x01,
-    CREATURE_GROUP_RESPAWN_TOGETHER = 0x02,
-    CREATURE_GROUP_EVADE_TOGETHER   = 0x04,
+    CREATURE_GROUP_AGGRO_TOGETHER    = 0x01,
+    CREATURE_GROUP_RESPAWN_TOGETHER  = 0x02,
+    CREATURE_GROUP_EVADE_TOGETHER    = 0x04,
+```
+
+Flags - enum SpawnGroupFlags // flags that are common between both creature and gos (GO groups currently have no unique flags)
+
+```
+    SPAWN_GROUP_DESPAWN_ON_COND_FAIL = 0x08,
 ```
 
 ---
