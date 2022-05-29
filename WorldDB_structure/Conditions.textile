@@ -114,6 +114,7 @@ This is a description of the values in "type":Conditions#type
 |39|CONDITION_SPAWN_COUNT|Returns if specified count of creature entry exists on map|
 |40|CONDITION_WORLD_SCRIPT|Check the state of a given World State|
 |41|UNUSED|Deprecated was CONDITION_GENDER_NPC replaced by CONDITION_GENDER + FLAG_SWAP_TARGETS|
+|42|CONDITION_WORLDSTATE|Checks the value of a worldstate variable in map|
 
 
 (&#42;) Meta-Condition types CONDITION_AND (-1) and CONDITION_OR (-2) which are used as: value1 (as condition_entry) AND / OR value2 (as condition_entry) AND / OR value3 (as condition_entry) AND / OR value4 (as condition_entry). With these meta-conditions it is possible to create tree like and very complicated combined conditions (like HasAura && (HasItem || HasQuest))
@@ -387,3 +388,10 @@ Note: The creature specified in value1 must have ExtraFlags CREATURE_EXTRA_FLAG_
 ** value1: transport WorldState from WorldState.h enum Conditions
 ** value2: event state value from WorldState.cpp enum
 Condition returns true if WorldState for given transport is equals to the expected event state
+
+* CONDITION_WORLDSTATE (42)
+** value1: worldstate variable Id 
+** value2: sign for operation from enum WorldStateConditionSign
+** value3: other operand
+Condition returns true if WorldState variable operation for given map is true
+Example: 10000; =; 0 - true when 10000 is zero
