@@ -2,7 +2,7 @@ Back to [world database](mangosdb_struct) list of tables.
 
 ## The `worldstate_name` tables
 
-holds data on worldstate variables used for [`conditions`.`CONDITION_WORLDSTATE` (42)](https://github.com/cmangos/issues/wiki/conditions)
+holds data on worldstate variables used for [`conditions`.`CONDITION_WORLDSTATE` (42)](https://github.com/cmangos/issues/wiki/conditions) or [`dbscripts`.`SCRIPT_COMMAND_SET_WORLDSTATE` (53)](https://github.com/cmangos/issues/wiki/DBScripts)
 
 ### Structure
 
