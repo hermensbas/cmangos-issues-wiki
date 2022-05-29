@@ -2,6 +2,8 @@ Back to [world database](mangosdb_struct) list of tables.
 To link creatures by entry, please refer to
 [creature\_linking\_template](creature_linking_template)
 
+DEPRECATED : Use [`spawn_group`](https://github.com/cmangos/issues/wiki/spawn_group) instead.
+
 ## The \`creature\_linking\` table
 
 ### Structure
