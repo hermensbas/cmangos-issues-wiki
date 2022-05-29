@@ -13,8 +13,12 @@ holds data on worldstate variables used for [`conditions`.`CONDITION_WORLDSTATE`
 
 #### Id
 
-Worldstate variable Id
+Worldstate variable Id. Can be either official or custom defined in cMaNGOS. Officially discovered ones are in src/Game/World/WorldStateDefines.h
 
 #### Name
 
-Name and use of variable
+Name and use of variable. Example: ZA - first 4 bosses dead - spawn Malacrass
+
+
+Mainly a bookkeeping table for naming and documenting uses. As we are introducing custom ones, we dont want to have undecipherable magic numbers.
+
