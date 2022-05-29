@@ -10,6 +10,8 @@ To add waypoints in-game:
 - .npc setmovetype way creature guid or select npc
 - .wp add guid or select npc
 
+Must have [waypoint_path_name](https://github.com/cmangos/issues/wiki/waypoint_path_name) record defined.
+
 ### Structure:
 
 *Field* | *Type* | *Null* | *Key* | *Default* | *Extra*
