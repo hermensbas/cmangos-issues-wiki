@@ -390,7 +390,7 @@ Note: The creature specified in value1 must have ExtraFlags CREATURE_EXTRA_FLAG_
 Condition returns true if WorldState for given transport is equals to the expected event state
 
 * CONDITION_WORLDSTATE (42)
-** value1: worldstate variable Id 
+** value1: worldstate variable Id - must have worldstate_name table entry defined - also see src/Game/World/WorldStateDefines.h for official variables
 ** value2: sign for operation from enum WorldStateConditionSign in src/Game/Globals/Conditions.h
 ** value3: other operand
 Condition returns true if WorldState variable operation for given map is true
