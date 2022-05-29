@@ -1,4 +1,4 @@
-Worldstates are serverside variables for various purposes.
+Worldstate variables are serverside variables for various purposes.
 
 Clientside worldstates can be used for 3 main purposes:
 
@@ -16,3 +16,5 @@ Such predefined serverside worldstates are for boss kills which are in the follo
 Custom worldstates can be also defined in C++ in WorldStateDefines.h and used in a C++ script. Such example is "WORLD_STATE_CUSTOM_SPAWN_MALACRASS = 10000" which is set to 1 when Zul'Aman first 4 bosses are dead, which triggers automatic spawning of Malacrass. He is despawned by default to prevent griefing through door. (actual official fix)
 
 Example of cMaNGOS use of worldstates is in [`spawn_group`](https://github.com/cmangos/issues/wiki/spawn_group) 
+
+Note: Official name WorldState specifies expressions which are determined by either map/realm/global state. Worldstate variables are a subset of Worldstates and Worldstate expression can also be "is holiday active"
