@@ -391,7 +391,7 @@ Condition returns true if WorldState for given transport is equals to the expect
 
 * CONDITION_WORLDSTATE (42)
 ** value1: worldstate variable Id 
-** value2: sign for operation from enum WorldStateConditionSign
+** value2: sign for operation from enum WorldStateConditionSign in src/Game/Globals/Conditions.h
 ** value3: other operand
 Condition returns true if WorldState variable operation for given map is true
 Example: 10000; =; 0 - true when 10000 is zero
