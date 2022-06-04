@@ -98,7 +98,7 @@ struct DirtyDeeds : public AuraScript
 }
 ```
 
-Scripts that utilize ```cpp RegisterScriptedLocationAura ``` are a bit more obtuse. They hook into Unit functions responsible for damage calculation. The registered script then calls OnDamageCalculate for the given application, and spells which it affects are defined by EffectSpellClassMask from spell_template (and in vanilla and tbc overriden in separate table spell_affect, but they function identically as fallback). They are used for conditional per-spell damage increases from either SPELL_AURA_DUMMY or SPELL_AURA_OVERRIDE_CLASS_SCRIPTS. In this specific case, Dirty Deeds applies its bonus to spells only when below 35% health.
+Scripts that utilize ``` RegisterScriptedLocationAura ``` are a bit more obtuse. They hook into Unit functions responsible for damage calculation. The registered script then calls OnDamageCalculate for the given application, and spells which it affects are defined by EffectSpellClassMask from spell_template (and in vanilla and tbc overriden in separate table spell_affect, but they function identically as fallback). They are used for conditional per-spell damage increases from either SPELL_AURA_DUMMY or SPELL_AURA_OVERRIDE_CLASS_SCRIPTS. In this specific case, Dirty Deeds applies its bonus to spells only when below 35% health.
 
 The currently defined locations are:
 
