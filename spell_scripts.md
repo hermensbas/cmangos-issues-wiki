@@ -65,3 +65,35 @@ struct CallOfTheBeast : public AuraScript
 };
 ```
 This script triggers a cast of another spell on receiving an aura. A very common occurence.  
+
+```cpp
+struct DirtyDeeds : public AuraScript
+{
+    void OnApply(Aura* aura, bool apply) const override
+    {
+        if (aura->GetEffIndex() == EFFECT_INDEX_1)
+            aura->GetTarget()->RegisterScriptedLocationAura(aura, SCRIPT_LOCATION_MELEE_DAMAGE_DONE, apply);
+        else if (aura->GetEffIndex() == EFFECT_INDEX_2)
+            aura->GetTarget()->RegisterScriptedLocationAura(aura, SCRIPT_LOCATION_MELEE_DAMAGE_DONE, apply);
+    }
+
+    void OnDamageCalculate(Aura* aura, Unit* victim, int32& /*advertisedBenefit*/, float& totalMod) const override
+    {
+        if (aura->GetEffIndex() == EFFECT_INDEX_0)
+            return;
+
+        if (victim->HasAuraState(AURA_STATE_HEALTHLESS_35_PERCENT))
+        {
+            Aura* eff0 = aura->GetHolder()->m_auras[EFFECT_INDEX_0];
+            if (!eff0)
+            {
+                sLog.outError("Spell structure of DD (%u) changed.", aura->GetId());
+                return;
+            }
+
+            // effect 0 have expected value but in negative state
+            totalMod *= (-eff0->GetModifier()->m_amount + 100.0f) / 100.0f;
+        }
+    }
+}
+```
