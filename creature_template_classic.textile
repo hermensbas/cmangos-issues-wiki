@@ -37,6 +37,11 @@ h3. Structure
 |"CreatureTypeFlags":creature_template_classic#creaturetypeflags|int(10) unsigned|YES||0||
 |"SpeedWalk":creature_template_classic#speedwalk|float|YES||1||
 |"SpeedRun":creature_template_classic#speedrun|float|YES||1.14286||
+|"Detection":creature_template_classic#detection|int|NO||20||
+|"CallForHelp":creature_template_classic#callforhelp|int|NO||0||
+|"Pursuit":creature_template_classic#pursuit|int|NO||0||
+|"Leash":creature_template_classic#leash|int|NO||0||
+|"Timeout":creature_template_classic#timeout|int|NO||0||
 |"UnitClass":creature_template_classic#unitclass|int unsigned|NO||0||
 |"Rank":creature_template_classic#rank|tinyint(3) unsigned|YES||0||
 |"HealthMultiplier":creature_template_classic#healthmultiplier|float|NO||1.0||
@@ -83,6 +88,10 @@ h3. Structure
 |"TrainerTemplateId":creature_template_classic#trainertemplateid|mediumint(8) unsigned|NO||0||
 |"VendorTemplateId":creature_template_classic#vendortemplateid|mediumint(8) unsigned|NO||0||
 |"GossipMenuId":creature_template_classic#gossipmenuid|mediumint(8) unsigned|YES||0||
+|"InteractionPauseTimer	":creature_template_classic#InteractionPauseTimer|int(10) unsigned|NO||-1|Waittimer befor npc resumes pathing after being talked to|
+|"VisibilityDistanceType":creature_template_classic#visibilityDistanceType|tinyint(4)|YES||0||
+|"CorpseDecay":creature_template_classic#CorpseDecay|int(10) unsigned|NO||0||
+|"SpellList":creature_template_classic#SpellList|int(11)|NO||0|"creature_spell_list":https://github.com/cmangos/issues/wiki/creature_spell_list|
 |"EquipmentTemplateId":creature_template_classic#equipmenttemplateid|mediumint(8) unsigned|NO||0||
 |"Civilian":creature_template_classic#civilian|tinyint(3) unsigned|YES||0||
 |"AIName":creature_template_classic#ainame|char(64)|NO||||
@@ -93,10 +102,7 @@ h3. Description of the fields
 
 h4. Entry
 
-This is the Primary NPC Entry Number and is Also the Dungeon Normal Mode / Raid 10-Man Normal Mode Entry.
-
-|DUNGEON_DIFFICULTY_NORMAL|
-|RAID_DIFFICULTY_10MAN_NORMAL|
+This is the Primary NPC Entry Number for everything in classic-db, as neither HeroicEntry nor DifficultyEntry exist in classic. (No need for "`creature`.`SpawnMask`":creature#SpawnMask
 
 h4. Name
 
@@ -104,7 +110,7 @@ Base Name of the Creature.
 
 h4. SubName
 
-The SubName of the Creature That Appears in &lt;&gt; Below the Creature's Name.
+The SubName of the Creature that appears in &lt;&gt; below the Creature's Name.
 
 h4. MinLevel
 
@@ -220,27 +226,27 @@ This Field Is a Bitmask That Represents What NPC Flags The Creature Has Assigned
 
 *_Please note that the values below are valid for classic only! For tbc and wotlk, please check their respective wiki pages ("creature_template_tbc":creature_template_tbc (for 2.4.3) "creature_template":creature_template (for 3.3.5a) )_*
 
-|_. Bit|_. Value|_. Flag|_. Comment|
-|0|1|Gossip|If creature has more gossip options, add this flag to bring up a menu.|
-|1|2|Quest Giver|Any creature giving or taking quests needs to have this flag.|
-|2|4|Vendor|Any creature selling items needs to have this flag.|
-|3|8|Flight Master|Any creature serving as fly master has this.|
-|4|16|Trainer|Allows the creature to have a trainer list to teach spells|
-|5|32|Spirit Healer|Makes the creature invisible to alive characters and has the resurrect function.|
-|6|64|Spirit Guide||
-|7|128|Innkeeper|Creatures with this flag can set hearthstone locations.|
-|8|256|Banker|Creatures with this flag can show the bank|
-|9|512|Petitioner||
-|10|1024|Tabard Designer|Allows the designing of guild tabards.|
-|11|2048|Battlemaster|Creatures with this flag port players to battlegrounds.|
-|12|4096|Auctioneer|Allows creature to display auction list.|
-|13|8192|Stable Master|Has the option to stable pets for hunters.|
-|14|16384|Repairer|Creatures with this flag can repair items.|
-||536870912|Outdoor PvP|custom flag for outdoor pvp creatures|
-
+|_. BitMask|_. Value|_. Flag|_. Comment|
+|0x00000000|0|UNIT_NPC_FLAG_NONE|None|
+|0x00000001|1|UNIT_NPC_FLAG_GOSSIP|If creature has more gossip options, add this flag to bring up a menu.|
+|0x00000002|2|UNIT_NPC_FLAG_QUESTGIVER|Any creature giving or taking quests needs to have this flag.|
+|0x00000004|4|UNIT_NPC_FLAG_VENDOR|*TBC+ uses 128* - Any creature selling items needs to have this flag.|
+|0x00000008|8|UNIT_NPC_FLAG_FLIGHTMASTER|*TBC+ uses 8192* - Any creature serving as fly master has this.|
+|0x00000010|16|UNIT_NPC_FLAG_TRAINER|Allows the creature to have a trainer list to teach spells|
+|0x00000020|32|UNIT_NPC_FLAG_SPIRITHEALER|Makes the creature invisible to alive characters and has the resurrect function.|
+|0x00000040|64|UNIT_NPC_FLAG_SPIRITGUIDE||
+|0x00000080|128|UNIT_NPC_FLAG_INNKEEPER|*TBC+ uses 65536* - Creatures with this flag can set hearthstone locations.|
+|0x00000100|256|UNIT_NPC_FLAG_BANKER|*TBC+ uses 131072* - Creatures with this flag can show the bank|
+|0x00000200|512|UNIT_NPC_FLAG_PETITIONER|*TBC+ uses 131072* - guild petitions|
+|0x00000400|1024|UNIT_NPC_FLAG_TABARDDESIGNER|*TBC+ uses 524288* - Allows the designing of guild tabards.|
+|0x00000800|2048|UNIT_NPC_FLAG_BATTLEMASTER|*TBC+ uses 1048576* - Creatures with this flag port players to battlegrounds.|
+|0x00001000|4096|UNIT_NPC_FLAG_AUCTIONEER|*TBC+ uses 2097152* - Allows creature to display auction list.|
+|0x00002000|8192|UNIT_NPC_FLAG_STABLEMASTER|*TBC+ uses 4194304* - Has the option to stable pets for hunters.|
+|0x00004000|16384|UNIT_NPC_FLAG_REPAIR|*TBC+ uses 4096* - Creatures with this flag can repair items.|
+|0x20000000|536870912|UNIT_NPC_FLAG_OUTDOORPVP|Custom flag! - for outdoor pvp creatures|
 
 EXAMPLE:
-So If You Want An NPC That Is a Quest Giver, a Vendor And Can Also Repair You Just Add The Specific Flags Together: 
+So If You Want An NPC That Is a Quest Giver (2), a Vendor (4) And Can Also Repair (16384) You Just Add The Specific Flags Together: 
 
 2 + 4 + 16384 = 16390.
 NpcFlags = 16390
@@ -251,39 +257,39 @@ This Field Allows The Manual Application Of Unit Flags To NPC. This Is a Bitmask
 
 Some Known Possible Flags Are:
 
-|*Bit*|*Flag*|*Name*|*Comments*|
-|0|1|UNIT_FLAG_UNK_0|Movement checks disabled, likely paired with loss of client control packet.|
-|1|2|UNIT_FLAG_NON_ATTACKABLE|not attackable|
-|2|4|UNIT_FLAG_CLIENT_CONTROL_LOST|Generic unspecified loss of control initiated by server script, movement checks disabled, paired with loss of client control packet.|
-|3|8|UNIT_FLAG_PLAYER_CONTROLLED|players, pets, totems, guardians, companions, charms, any units associated with players|
-|4|16|UNIT_FLAG_PET_RENAME||
-|5|32|UNIT_FLAG_PET_ABANDON||
-|6|64|UNIT_FLAG_UNK_6|Related to Movement? often paired with UNIT_FLAG_SWIMMING|
-|7|128|UNIT_FLAG_UNK_7||
-|8|256|UNIT_FLAG_IMMUNE_TO_PLAYER|Target is immune to players|
-|9|512|UNIT_FLAG_IMMUNE_TO_NPC|makes you unable to attack everything. Almost identical to our "civilian"-term. Will ignore it's surroundings and not engage in combat unless "called upon" or engaged by another unit.|
-|10|1024|UNIT_FLAG_UNK_10||
-|11|2048|UNIT_FLAG_UNK_11||
-|12|4096|UNIT_FLAG_PVP|Allows item spells to be casted upon. changed in 3.0.3|
-|13|8192|UNIT_FLAG_SILENCED|silenced, 2.1.1|
-|14|16384|UNIT_FLAG_PERSUADED|persuaded, 2.0.8|
-|15|32768|UNIT_FLAG_SWIMMING|controls water swimming animation - TODO: confirm whether dynamic or static|
-|16|65536|UNIT_FLAG_UNK_16|removes attackable icon, if on yourself, cannot assist self but can cast TARGET_SELF spells - added by SPELL_AURA_MOD_UNATTACKABLE|
-|17|131072|UNIT_FLAG_PACIFIED|pacified, 3.0.3|
-|18|262144|UNIT_FLAG_STUNNED|stunned, 2.1.1 Unit is a subject to stun, turn and strafe movement disabled|
-|19|524288|UNIT_FLAG_IN_COMBAT||
-|20|1048576|UNIT_FLAG_TAXI_FLIGHT|Unit is on taxi, paired with a duplicate loss of client control packet (likely a legacy serverside hack). Disables any spellcasts not allowed in taxi flight client-side.|
-|21|2097152|UNIT_FLAG_UNK_21||
-|22|4194304|UNIT_FLAG_CONFUSED|Unit is a subject to confused movement, movement checks disabled, paired with loss of client control packet.|
-|23|8388608|UNIT_FLAG_FLEEING|Unit is a subject to fleeing movement, movement checks disabled, paired with loss of client control packet.|
-|24|16777216|UNIT_FLAG_POSSESSED|Unit is under remote control by another unit, movement checks disabled, paired with loss of client control packet. New master is allowed to use melee attack and can't select this unit via mouse in the world (as if it was own character).|
-|25|33554432|UNIT_FLAG_NOT_SELECTABLE|Can't be selected by mouse|
-|26|67108864|UNIT_FLAG_SKINNABLE||
-|27|134217728|UNIT_FLAG_AURAS_VISIBLE|magic detect|
-|28|268435456|UNIT_FLAG_UNK_28||
-|29|536870912|UNIT_FLAG_UNK_29||
-|30|1073741824|UNIT_FLAG_SHEATHE||
-|31|2147483648|UNIT_FLAG_UNK_31|set skinnable icon and also changes color of portrait)(no affect in 2.4.3)|
+|*Bitmask*|*Decimal*|*Name*|*Comments*|
+|0x00000001|1|UNIT_FLAG_UNK_0|Movement checks disabled, likely paired with loss of client control packet. We use it to add custom cliffwalking to GM mode until actual usecases will be known.|
+|0x00000002|2|UNIT_FLAG_SPAWNING|Spawning in - other uses are wrong|
+|0x00000004|4|UNIT_FLAG_CLIENT_CONTROL_LOST|Generic unspecified loss of control initiated by server script, movement checks disabled, paired with loss of client control packet.|
+|0x00000008|8|UNIT_FLAG_PLAYER_CONTROLLED|players, pets, totems, guardians, companions, charms, any units associated with players|
+|0x00000010|16|UNIT_FLAG_PET_RENAME|Old pet rename: moved to UNIT_FIELD_BYTES_2,2 in TBC+|
+|0x00000020|32|UNIT_FLAG_PET_ABANDON|Old pet abandon: moved to UNIT_FIELD_BYTES_2,2 in TBC+|
+|0x00000040|64|UNIT_FLAG_UNK_6|Related to Movement? often paired with UNIT_FLAG_SWIMMING|
+|0x00000080|128|UNIT_FLAG_NOT_ATTACKABLE_1|TBC+|
+|0x00000100|256|UNIT_FLAG_IMMUNE_TO_PLAYER|Target is immune to players|
+|0x00000200|512|UNIT_FLAG_IMMUNE_TO_NPC|Target is immune to Non-Player Characters|
+|0x00000400|1024|UNIT_FLAG_LOOTING|TBC+|
+|0x00000800|2048|UNIT_FLAG_PET_IN_COMBAT|TBC+|
+|0x00001000|4096|UNIT_FLAG_PVP|Allows item spells to be casted upon. changed in 3.0.3|
+|0x00002000|8192|UNIT_FLAG_SILENCED|silenced, 2.1.1|
+|0x00004000|16384|UNIT_FLAG_PERSUADED|persuaded, 2.0.8|
+|0x00008000|32768|UNIT_FLAG_SWIMMING|controls water swimming animation - TODO: confirm whether dynamic or static|
+|0x00010000|65536|UNIT_FLAG_UNTARGETABLE|is not targetable by attack or spell|
+|0x00020000|131072|UNIT_FLAG_PACIFIED|pacified, 3.0.3|
+|0x00040000|262144|UNIT_FLAG_STUNNED|Unit is a subject to stun, turn and strafe movement disabled|
+|0x00080000|524288|UNIT_FLAG_IN_COMBAT||
+|0x00100000|1048576|UNIT_FLAG_TAXI_FLIGHT|Unit is on taxi, paired with a duplicate loss of client control packet (likely a legacy serverside hack). Disables any spellcasts not allowed in taxi flight client-side.|
+|0x00200000|2097152|UNIT_FLAG_DISARMED|TBC+|
+|0x00400000|4194304|UNIT_FLAG_CONFUSED|Unit is a subject to confused movement, movement checks disabled, paired with loss of client control packet.|
+|0x00800000|8388608|UNIT_FLAG_FLEEING|Unit is a subject to fleeing movement, movement checks disabled, paired with loss of client control packet.|
+|0x01000000|16777216|UNIT_FLAG_POSSESSED|Unit is under remote control by another unit, movement checks disabled, paired with loss of client control packet. New master is allowed to use melee attack and can't select this unit via mouse in the world (as if it was own character).|
+|0x02000000|33554432|UNIT_FLAG_UNINTERACTIBLE|Can't be selected by mouse|
+|0x04000000|67108864|UNIT_FLAG_SKINNABLE||
+|0x08000000|134217728|UNIT_FLAG_AURAS_VISIBLE|magic detect|
+|0x10000000|268435456|UNIT_FLAG_UNK_28||
+|0x20000000|536870912|UNIT_FLAG_PREVENT_ANIM|used in Feing Death spell|
+|0x40000000|1073741824|UNIT_FLAG_SHEATHE||
+|0x80000000|2147483648|UNIT_FLAG_IMMUNE|set skinnable icon and also changes color of portrait)(no affect in 2.4.3)|
 
 h4. DynamicFlags
 
@@ -315,7 +321,7 @@ This Field Controls the Application Of Flags That Controls Certain NPC Specific 
 |32|0x00000020|CREATURE_EXTRA_FLAG_NO_CRUSH|creature can't do crush attacks|
 |64|0x00000040|CREATURE_EXTRA_FLAG_NO_XP_AT_KILL|creature kill not provide XP|
 |128|0x00000080|CREATURE_EXTRA_FLAG_INVISIBLE|creature is always invisible for player (mostly trigger creatures)|
-|256|0x00000100|CREATURE_EXTRA_FLAG_NOT_TAUNTABLE|creature is immune to taunt auras and effect attack me|
+|256|0x00000100|CREATURE_EXTRA_FLAG_REUSE||
 |512|0x00000200|CREATURE_EXTRA_FLAG_AGGRO_ZONE|creature sets itself in combat with zone on aggro|
 |1024|0x00000400|CREATURE_EXTRA_FLAG_GUARD|creature is a guard|
 |2048|0x00000800|CREATURE_EXTRA_FLAG_NO_CALL_ASSIST|creature shouldn't call for assistance on aggro|
@@ -325,15 +331,17 @@ This Field Controls the Application Of Flags That Controls Certain NPC Specific 
 |32768|0x00008000|CREATURE_EXTRA_FLAG_WALK_IN_WATER|creature is forced to walk in water even it can swim|
 |65536|0x00010000|CREATURE_EXTRA_FLAG_CIVILIAN|CreatureInfo->civilian substitute (for expansions as Civilian Colum was removed)|
 |131072|0x00020000|CREATURE_EXTRA_FLAG_NO_MELEE|creature can't melee|
-|262144|0x00040000|CREATURE_EXTRA_FLAG_FAR_VIEW|creature with far view|
+|262144|0x00040000|NOT_IMPLEMENTED_CREATURE_EXTRA_FLAG_FAR_VIEW|creature with far view|
 |524288|0x00080000|CREATURE_EXTRA_FLAG_FORCE_ATTACKING_CAPABILITY|SetForceAttackingCapability(true); for nonattackable, nontargetable creatures that should be able to attack nontheless|
-|1048576|0x00100000|CREATURE_EXTRA_FLAG_IGNORE_USED_POSITION|ignore creature when checking used positions around target|
+|1048576|0x00100000|CREATURE_EXTRA_FLAG_DYNGUID|Temporary transition flag - spawns of this entry use dynguid system|
 |2097152|0x00200000|CREATURE_EXTRA_FLAG_COUNT_SPAWNS|count creature spawns in Map*|
-|4194304|0x00400000|CREATURE_EXTRA_FLAG_HASTE_SPELL_IMMUNITY|immunity to COT or Mind Numbing Poison - very common in instances|
+|4194304|0x00400000|CREATURE_EXTRA_FLAG_IGNORE_FEIGN_DEATH|Ignores Feign Death|
+|8388606|0x00800000|CREATURE_EXTRA_FLAG_DUAL_WIELD_FORCED|creature is alwyas dual wielding (even if unarmed)|
+|16777216|0x01000000|CREATURE_EXTRA_FLAG_NO_SKILL_GAINS|Does not give weapon skill gains to attacker|
 
 h4. CreatureTypeFlags
 
-This Field Controls If a Mob Is Mineable or Herbable. If Any Of These Flags Are Used Then The Loot Given When It Is Herb Picked / Mined Will Be Stored In The "Skinning_Loot_Template":Skinning_Loot_Template Table. Aside From These Two Flags, This Field Has No Special Meaning Server-Side. 
+This Field Controls If a Mob Is Mineable or Herbable. If Any Of These Flags Are Used Then The Loot Given When It Is Herb Picked / Mined Will Be Stored In The "Skinning_Loot_Template":Skinning_Loot_Template Table. Aside From These Two Flags, This Field Has No Special Meaning Server-Side.
 
 It will be send to the client in SMSG_CREATURE_QUERY_RESPONSE
 
@@ -374,27 +382,46 @@ Note: This field should only be used as an override if the model's default Speed
 
 (Default Value Is: 1.14286)
 
+h4. Detection
+
+Aggro Range, more info to come
+
+(Default Value Is: 20)
+
+h4. CallForHelp
+
+(Default Value Is: 10) - CreatureFamilyAssistanceRadius mangosd.conf
+
+h4. Pursuit
+
+more info to come
+
+h4. Leash
+
+more info to come
+
 h4. UnitClass
 
 The NPC Unit Class. This Field is a Critical Value That Dictates An NPC's Base Stats System.
 
 An NPC's Unit Class Is A Corner Stone Value Used In "Creature_Template_Classlevelstats":Creature_Template_Classlevelstats To Determine An NPC's Stats.
 
+This Value is Contained in Sniff Data: UNIT_FIELD_BYTES_0_1 - UNIT_BYTES_0_OFFSET_CLASS located in SMSG_UPDATE_OBJECT
+
+|_. enum UnitBytes0Offsets|_. Name|
+|UNIT_BYTES_0_OFFSET_RACE|0|
+|UNIT_BYTES_0_OFFSET_CLASS|1|
+|UNIT_BYTES_0_OFFSET_GENDER|2|
+|UNIT_BYTES_0_OFFSET_POWER_TYPE|3|
+
 NPC Stats Refers To: (Health/Mana/Damage/Armor).
 
-In WOTLK and CATA There Are 4 Possible NPC Classes Available For Creatures:
-(Class: 1,2,4,8)
+|_. ID|_. Name|_. Comment|
+|1|CLASS_WARRIOR||
+|2|CLASS_PALADIN||
+|4|CLASS_ROGUE|wotlk+|
+|8|CLASS_MAGE||
 
-In Classic and TBC There Are 3 Possible NPC Classes Available For Creatures:
-(Class: 1,2,8)
-
-|_. ID|_. Name|
-|CLASS_WARRIOR|1|
-|CLASS_PALADIN|2|
-|CLASS_ROGUE|4|
-|CLASS_MAGE|8|
-
-This Value is Contained in Sniff Data: UNIT_FIELD_BYTES_0 located in SMSG_UPDATE_OBJECT
 It is a Critical Field in Determining Class Level Stats For the NPC. 
 
 NOTE: Typically ONLY Vehicles Are Class=4
@@ -406,14 +433,15 @@ Mages: Have Lots of Mana But Have Very Low Health and Damage
 
 h4. Rank
 
-This Field Determines The Rank of the NPC:
+This Field Determines The Rank of the NPC - enum CreatureEliteType:
 
 |_. Rank|_. Name|_. Comments|
-|0|Normal||
-|1|Elite|Higher damage, more health, better loot.|
-|2|Rare Elite|A rare mob but with elite damage and health.|
-|3|World Boss|Highest rank, best loot, longest respawn time.|
-|4|Rare|Somewhat better loot, longer respawn time.|
+|0|CREATURE_ELITE_NORMAL|Normal|
+|1|CREATURE_ELITE_ELITE|Elite - Higher damage, more health, better loot.|
+|2|CREATURE_ELITE_RAREELITE|Rare Elite - A rare mob but with elite damage and health.|
+|3|CREATURE_ELITE_WORLDBOSS|World Boss - Highest rank, best loot, longest respawn time.|
+|4|CREATURE_ELITE_RARE|Rare - Somewhat better loot, longer respawn time.|
+|5|CREATURE_UNKNOWN|unkown - found in 2.2.3 for 2 mobs|
 
 h4. HealthMultiplier
 
@@ -450,6 +478,8 @@ MaxLevelHealth = ROUND (1277*1.15) = 1468.55 (1469)
 h4. PowerMultiplier
 
 This Value Comes From WDB and Sniff Data. This Is The PRIMARY DB Value That Calculates An NPC's Specific Mana Value. All NPC Have Nice Rounded Values For PowerMultipliers.
+
+UNIT_FIELD_BYTES_0_3 (4), UNIT_BYTES_0_OFFSET_POWER_TYPE
 
 This Is The Multiplier Used Against The BaseMana Value From "Creature_Template_ClassLevelStats":Creature_Template_ClassLevelStats To Calculate An NPC's Final Mana Values. 
 
@@ -508,6 +538,11 @@ CalculatedMinMeleeDmg=ROUND(((BaseDamage * Damage Variance) + (Base Melee Attack
 CalculatedMaxMeleeDmg=ROUND((((BaseDamage * Damage Variance) * 1.5) + (Base Melee Attack Power / 14)) * (Base Attack Time/1000)) * Damage Multiplier
 = ((((78.472 * 1.0) * 1.5) + (266/14)) * (2000/1000)) * 5.83
 = (((117.708) + 19) * 2) = 273.416 * 5.83 = 1594.01528
+
+Bestiary lists Sneed with a range of 97 - 129 damage. He attacks once every 2 seconds (unconfirmed). Given the formula above ...
+
+97 = X * ((9.6823) + (70 / 14)) * (2000 / 1000)
+129 = X * ((9.6823 * 1.5) + (70 / 14)) * (2000 / 1000)
 
 NOTE: 
 
@@ -785,10 +820,12 @@ h4. MovementType
 
 The NPC's default Movement Type.
 
-|_. ID|_. Type|
-|0|Idle - Stand Still (Stationary)|
-|1|Random Movement - Random Move Inside SpawnDist Radius|
-|2|Waypoint Movement - Move Along Waypoint Path Defined|
+|_. ID|_. Name|_. Type|
+|0|IDLE_MOTION_TYPE|Idle - Stand Still (Stationary)|
+|1|RANDOM_MOTION_TYPE|Random Movement - Random Move Inside SpawnDist Radius|
+|2|WAYPOINT_MOTION_TYPE|Waypoint Movement - Move Along Waypoint Path Defined|
+|3|PATH_MOTION_TYPE|Cylic Spline|
+|4|LINEAR_WP_MOTION_TYPE|Moves Points 1,2,3,2,1|
 
 h4. TrainerType
 
@@ -822,13 +859,31 @@ h4. VendorTemplateId
 
 The id refers to the "npc_vendor_template.":npc_vendor_template.
 
+h4. EquipmentTemplateId
+
+The default ID of the equipment that this creature should display. See "creature_equip_template.entry":creature_equip_template#entry
+
 h4. GossipMenuId
 
 Reference to a "gossip_menu_id":gossip_menu.
 
-h4. EquipmentTemplateId
+h4. visibilityDistanceType
 
-The default ID of the equipment that this creature should display. See "creature_equip_template.entry":creature_equip_template#entry
+|_. Bit|_. Name|_. Description|
+|0|DEFAULT_VISIBILITY_DISTANCE|Default Config Setting: 100y|
+|1|VISIBILITY_DISTANCE_TINY|25y|
+|2|VISIBILITY_DISTANCE_SMALL|50y|
+|3|VISIBILITY_DISTANCE_LARGE|200y|
+|4|VISIBILITY_DISTANCE_GIGANTIC|400y|
+|5|MAX_VISIBILITY_DISTANCE|533.33333y|
+
+h4. CorpseDecay
+
+Time before corpse despawns in seconds.
+
+h4. SpellList
+
+"creature_spell_list":https://github.com/cmangos/issues/wiki/creature_spell_list
 
 h4. Civilian
 
@@ -843,14 +898,13 @@ h4. AIName
 Overrides AI used for the creature.
 
 |_. Name|_. Description|
-|NullAI|Empty AI, creature does nothing.|
-|AggressorAI|Creature attacks as soon as something is in aggro range.|
-|ReactorAI|Creature attacks only if aggroed by attack, spell etc.|
-|GuardAI||
+|NullAI|Empty AI creature does nothing.|
+|GuardAI|City Guards|
 |PetAI|Creature is a pet.|
 |TotemAI|Creature casts spell from field spell1, otherwise like NullAI.|
-|EventAI|Creature uses Event Based AI (Creature AI).|
-||
+|EventAI|Creature uses creature_ai_scripts (ACID).|
+|GuardianAI|Creature is Guardian (Follower)|
+|PossessedAI|Mindcontrolled|
 
 h4. ScriptName
 
