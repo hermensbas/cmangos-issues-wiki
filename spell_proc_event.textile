@@ -112,7 +112,8 @@ h4. procEx
 |65536|0x0010000|PROC_EX_EX_TRIGGER_ALWAYS|If set trigger always ( no matter another flags) used for drop charges|
 |131072|0x0020000|PROC_EX_EX_ONE_TIME_TRIGGER|If set trigger always but only one time (not used)|
 |262144|0x0040000|PROC_EX_PERIODIC_POSITIVE|For periodic heal|
-|524288|0x0080000|PROC_EX_MAGNET|For grounding totem hit|
+|524288|0x0080000|PROC_EX_CAST_END|procs on end of cast|
+|1048576|0x0100000|PROC_EX_MAGNET|For grounding totem hit|
 
 h4. ppmRate
 
