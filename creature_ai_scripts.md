@@ -346,12 +346,9 @@ that parameter.
 | --------------------------- | ------- | --- | ----- | ---------------- |
 | UNIT\_FIELD\_HEALTH         | 22      | 22  | 24    | Health           |
 | UNIT\_FIELD\_POWER1         | 23      | 23  | 25    | Mana             |
-| UNIT\_FIELD\_LEVEL          | 34      | 34  | 54    | Level            |
-| UNIT\_VIRTUAL\_ITEM\_SLOT\_DISPLAY| 37 | 37 | 56 | Equipment (UNIT_VIRTUAL_ITEM_SLOT_ID in wotlk) |
-| UNIT\_FIELD\_FLAGS          | 46      | 46  | 59    | UnitFlags        |
+| UNIT\_VIRTUAL\_ITEM\_SLOT\_DISPLAY| 37,38,39 | 37,38,39 | 56,57,58 |WOTLK: UNIT_VIRTUAL_ITEM_SLOT_ID - Equipment offset for slot 0,1,2 (Mainhand, Offhand, Ranged)|
 | UNIT\_FIELD\_BOUNDINGRADIUS | 129     | 150 | 65    | bounding\_radius |
 | UNIT\_FIELD\_COMBATREACH    | 130     | 151 | 66    | combat\_reach    |
-| UNIT\_FIELD\_BYTES\_1       | 138     | 159 | 74    | bytes1           |
 | UNIT\_DYNAMIC\_FLAGS        | 143     | 164 | 79    | DynamicFlags     |
 | UNIT\_NPC\_FLAGS            | 147     | 168 | 82    | NpcFlags         |
 
