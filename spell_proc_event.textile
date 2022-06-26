@@ -59,34 +59,35 @@ These fields control what spells' family flags can proc the triggered spell.
 
 h4. procFlags
 
-A bitmask controlling what events trigger the spell. To combine possible events, add the proc bits together.
+"enum ProcFlags" - A bitmask controlling what events trigger the spell. To combine possible events, add the proc bits together.
 
-| Bit | Hex| ProcFlag Name | Comment |
-|0|0x00000000|PROC_FLAG_NONE|always?|
-|1|0x00000001|PROC_FLAG_KILLED|Killed by aggressor|
+|Bitmask|Hex|Name|Comment|
+|0|0x00000000|PROC_FLAG_NONE|always|
+|1|0x00000001|PROC_FLAG_HEARTBEAT|Heartbeat|
 |2|0x00000002|PROC_FLAG_KILL|Kill target (in most cases need XP/Honor reward, see Unit::IsTriggeredAtSpellProcEvent for additinoal check)|
-|4|0x00000004|PROC_FLAG_SUCCESSFUL_MELEE_HIT|Successful melee auto attack|
-|8|0x00000008|PROC_FLAG_TAKEN_MELEE_HIT|Taken damage from melee auto attack hit|
-|16|0x00000010|PROC_FLAG_SUCCESSFUL_MELEE_SPELL_HIT|Successful attack by Spell that use melee weapon|
-|32|0x00000020|PROC_FLAG_TAKEN_MELEE_SPELL_HIT|Taken damage by Spell that use melee weapon|
-|64|0x00000040|PROC_FLAG_SUCCESSFUL_RANGED_HIT|Successful Ranged auto attack|
-|128|0x00000080|PROC_FLAG_TAKEN_RANGED_HIT|Taken damage from ranged auto attack|
-|256|0x00000100|PROC_FLAG_SUCCESSFUL_RANGED_SPELL_HIT|Successful Ranged attack by Spell that use ranged weapon|
-|512|0x00000200|PROC_FLAG_TAKEN_RANGED_SPELL_HIT|Taken damage by Spell that use ranged weapon|
-|1024|0x00000400|PROC_FLAG_DONE_SPELL_NONE_DMG_CLASS_POS|Done positive spell that has dmg class none|
-|2048|0x00000800|PROC_FLAG_TAKEN_SPELL_NONE_DMG_CLASS_POS|Taken positive spell that has dmg class none|
-|4096|0x00001000|PROC_FLAG_DONE_SPELL_NONE_DMG_CLASS_NEG|Done negative spell that has dmg class none|
-|8192|0x00002000|PROC_FLAG_TAKEN_SPELL_NONE_DMG_CLASS_NEG|Taken negative spell that has dmg class none|
-|16384|0x00004000|PROC_FLAG_DONE_SPELL_MAGIC_DMG_CLASS_POS|Successful cast positive spell (by default only on healing)|
-|32768|0x00008000|PROC_FLAG_TAKEN_SPELL_MAGIC_DMG_CLASS_POS|Taken positive spell hit (by default only on healing)|
-|65536|0x00010000|PROC_FLAG_DONE_SPELL_MAGIC_DMG_CLASS_NEG|Successful negative spell cast (by default only on damage)|
-|131072|0x00020000|PROC_FLAG_TAKEN_SPELL_MAGIC_DMG_CLASS_NEG|Taken negative spell (by default only on damage)|
-|262144|0x00040000|PROC_FLAG_ON_DO_PERIODIC|Successful do periodic (damage / healing, determined by PROC_EX_PERIODIC_POSITIVE or negative if no procEx)|
-|524288|0x00080000|PROC_FLAG_ON_TAKE_PERIODIC|Taken spell periodic (damage / healing, determined by PROC_EX_PERIODIC_POSITIVE or negative if no procEx)|
-|1048576|0x00100000|PROC_FLAG_TAKEN_ANY_DAMAGE|Taken any damage|
-|2097152|0x00200000|PROC_FLAG_ON_TRAP_ACTIVATION|On trap activation|
-|4194304|0x00400000|PROC_FLAG_TAKEN_OFFHAND_HIT|Taken off-hand melee attacks(not used)|
-|8388608|0x00800000|PROC_FLAG_SUCCESSFUL_OFFHAND_HIT|Successful off-hand melee attacks|
+|4|0x00000004|PROC_FLAG_DEAL_MELEE_SWING|Successful melee auto attack|
+|8|0x00000008|PROC_FLAG_TAKE_MELEE_SWING|Taken damage from melee auto attack hit|
+|16|0x00000010|PROC_FLAG_DEAL_MELEE_ABILITY|Successful attack by Spell that use melee weapon|
+|32|0x00000020|PROC_FLAG_TAKE_MELEE_ABILITY|Taken damage by Spell that use melee weapon|
+|64|0x00000040|PROC_FLAG_DEAL_RANGED_ATTACK|Successful Ranged auto attack|
+|128|0x00000080|PROC_FLAG_TAKE_RANGED_ATTACK|Taken damage from ranged auto attack|
+|256|0x00000100|PROC_FLAG_DEAL_RANGED_ABILITY|Successful Ranged attack by Spell that use ranged weapon|
+|512|0x00000200|PROC_FLAG_TAKE_RANGED_ABILITY|Taken damage by Spell that use ranged weapon|
+|1024|0x00000400|PROC_FLAG_DEAL_HELPFUL_ABILITY|Done positive spell that has dmg class none|
+|2048|0x00000800|PROC_FLAG_TAKE_HELPFUL_ABILITY|Taken positive spell that has dmg class none|
+|4096|0x00001000|PROC_FLAG_DEAL_HARMFUL_ABILITY|Done negative spell that has dmg class none|
+|8192|0x00002000|PROC_FLAG_TAKE_HARMFUL_ABILITY|Taken negative spell that has dmg class none|
+|16384|0x00004000|PROC_FLAG_DEAL_HELPFUL_SPELL|Successful cast positive spell (by default only on healing)|
+|32768|0x00008000|PROC_FLAG_TAKE_HELPFUL_SPELL|Taken positive spell hit (by default only on healing)|
+|65536|0x00010000|PROC_FLAG_DEAL_HARMFUL_SPELL|Successful negative spell cast (by default only on damage)|
+|131072|0x00020000|PROC_FLAG_TAKE_HARMFUL_SPELL|Taken negative spell (by default only on damage)|
+|262144|0x00040000|PROC_FLAG_DEAL_HARMFUL_PERIODIC|Successful do periodic (damage / healing, determined by PROC_EX_PERIODIC_POSITIVE or negative if no procEx)|
+|524288|0x00080000|PROC_FLAG_TAKE_HARMFUL_PERIODIC|Taken spell periodic (damage / healing, determined by PROC_EX_PERIODIC_POSITIVE or negative if no procEx)|
+|1048576|0x00100000|PROC_FLAG_TAKE_ANY_DAMAGE|Taken any damage|
+|2097152|0x00200000|PROC_FLAG_ON_TRAP_ACTIVATION|On trap activation - different from enumerated strings - likely reuse|
+|4194304|0x00400000|PROC_FLAG_MAIN_HAND_WEAPON_SWING|Successful main-hand melee attacks|
+|8388608|0x00800000|PROC_FLAG_OFF_HAND_WEAPON_SWING|Successful off-hand melee attacks|
+|16777216|0x01000000|PROC_FLAG_DEATH|On death by any means|
 
 h4. procEx
 
