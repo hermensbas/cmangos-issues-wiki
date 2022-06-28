@@ -350,6 +350,8 @@ Bitmask field that contains flags that the item has on it. As all other such fie
 
 h4. Flags2
 
+Wotlk 3.2+
+
 |1|Faction horde|
 |2|Faction alliance|
 |4|Dont ignore buy price|
