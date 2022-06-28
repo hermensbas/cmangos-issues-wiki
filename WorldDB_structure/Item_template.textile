@@ -348,6 +348,12 @@ Bitmask field that contains flags that the item has on it. As all other such fie
 |4194304|Throwable (for tooltip ingame)|
 |8388608|Special Use|
 
+h4. Flags2
+
+|1|Faction horde|
+|2|Faction alliance|
+|4|Dont ignore buy price|
+|256|Can only roll greed|
 
 h4. BuyCount
 
