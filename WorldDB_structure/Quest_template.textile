@@ -189,11 +189,19 @@ These values are ID taken from QuestInfo.dbc
 
 h4. RequiredClasses
 
-Class required to get the quest. 0 means available for all classes. Field's value is a decimal value that must be transform to a 8 bits binary in order to be understandable. In binary form, each different bit represent a different class. They're assigned as follow :
+Class required to get the quest. 0 means available for all classes. Field's value is a decimal value that must be transform to a 8 bits binary in order to be understandable. In binary form, each different bit represent a different class from "CharClasses.dbc":CharClasses.dbc
 
-h3. Class
-
-These values are 2^ID taken from "CharClasses.dbc":CharClasses.dbc
+|*Value*|*ID*|*Name*|
+|1|1|Warrior|
+|2|2|Paladin|
+|4|3|Hunter|
+|8|4|Rogue|
+|16|5|Priest|
+|32|6|Death Knight|
+|64|7|Shaman|
+|128|8|Mage|
+|256|9|Warlock|
+|1024|11|Druid|
 
 h4. RequiredRaces
 
