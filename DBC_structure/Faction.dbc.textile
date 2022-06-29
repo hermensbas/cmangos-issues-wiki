@@ -202,6 +202,7 @@ h3. *Content*
 |574|Shadowsilk Poacher|
 |575|Searing Spider|
 |594|Trogg|
+|609|Cenarion Circle|
 |614|Victim|
 |634|Monster|
 |635|Cenarion Circle|
@@ -235,6 +236,7 @@ h3. *Content*
 |889|Warsong Outriders|
 |890|Silverwing Sentinels|
 |894|Theramore|
+|910|Brood of Nozdormu|
 |914|Training Dummy|
 |934|Furbolg, Uncorrupted|
 |954|Demon|
