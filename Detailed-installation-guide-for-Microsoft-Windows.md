@@ -198,12 +198,12 @@ These are programs you will need to set up the database and compile the core. Th
 ## Visual Studio
 
 - Go to: https://www.visualstudio.com/downloads/
-- Under **Visual Studio Community 2017** click on **Free Download**.
+- Under **Visual Studio Community 2022** click on **Free Download**.
 - Open the installer. When asked to select Workloads, check **Desktop development with C++** and then click **Install**:
 
   ![vs1](https://user-images.githubusercontent.com/8838573/27422646-444323ea-572f-11e7-9c0c-d92930ccc4d8.png)
 
-- Start **Visual Studio 2017**. You will be asked if you want to sign in, but it is not needed:
+- Start **Visual Studio 2022**. You will be asked if you want to sign in, but it is not needed:
 
   ![vs2](https://user-images.githubusercontent.com/8838573/27422852-f8f5c3ec-572f-11e7-9430-c95d9c56b22b.PNG)
 
@@ -282,7 +282,7 @@ git clone https://github.com/cmangos/wotlk-db.git
 
   ![cmake1 1](https://user-images.githubusercontent.com/8838573/27503014-cdfc8ffa-5878-11e7-9c54-cb5aa7fb1714.PNG)
 
-- In the pop-up window select the compiler version. If you followed this guide you have **Visual Studio 15 2017 Win64**
+- In the pop-up window select the compiler version. If you followed this guide you have **Visual Studio 17.2 2022 Win64**
 
   ![cmake2](https://user-images.githubusercontent.com/8838573/27503270-fcf143da-587a-11e7-9f11-a6f8e5fe4e81.PNG)
 
