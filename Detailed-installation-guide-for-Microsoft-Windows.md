@@ -282,7 +282,7 @@ git clone https://github.com/cmangos/wotlk-db.git
 
   ![cmake1 1](https://user-images.githubusercontent.com/8838573/27503014-cdfc8ffa-5878-11e7-9c54-cb5aa7fb1714.PNG)
 
-- In the pop-up window select the compiler version. If you followed this guide you have **Visual Studio 17.2 2022 Win64**
+- In the pop-up window select the compiler version. If you followed this guide you have **Visual Studio 17.3 2022 Win64**
 
   ![cmake2](https://user-images.githubusercontent.com/8838573/27503270-fcf143da-587a-11e7-9f11-a6f8e5fe4e81.PNG)
 
