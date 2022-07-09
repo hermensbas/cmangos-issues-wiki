@@ -224,6 +224,8 @@ that parameter.
 | 60 | ACTION_T_SET_SPELL_SET 			| SetId | NU | NU | Set for possess |
 | 61 | ACTION_T_SET_IMMOBILIZED_STATE 	| Apply | CombatOnly | NU | CombatOnly is autoremoved on combat stop (death, evade, despawn) |
 | 62 | ACTION_T_SET_DESPAWN_AGGREGATION | Mask | Entry1 | Entry2 | Enable aggregation (despawn for summons) of guids for despawn on event (death, evade). To be used mostly on spawn. |
+| 63 | ACTION_T_SET_IMMUNITY_SET| SetId | NU | NU | SetId - creature_immunities |
+| 64 | ACTION_T_SET_FOLLOW_MOVEMENT| state | NU | NU | state - 0 off, 1 on |
 
 #### EventFlags
 
