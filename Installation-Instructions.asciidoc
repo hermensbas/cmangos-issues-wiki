@@ -20,7 +20,7 @@ Addresses
 ---------
 
  * General -> https://cmangos.net[site] | https://github.com/cmangos[github org] | https://github.com/cmangos/issues/issues[bug tracker] | https://discord.gg/Dgzerzb[discord]  
- * Classic -> https://github.com/cmangos/classic-db/issues[forum] | https://github.com/cmangos/mangos-classic.git[core repo] | https://github.com/cmangos/classic-db.git[database repo] | https://github.com/cmangos/classic-db/releases/tag/classic-db_PreBuild[latest database release] | https://tracker.iplocation.net/hmft[latest core release]
+ * Classic -> https://github.com/cmangos/classic-db/issues[forum] | https://github.com/cmangos/mangos-classic.git[core repo] | https://github.com/cmangos/classic-db.git[database repo] | https://github.com/cmangos/classic-db/releases/tag/classic-db_PreBuild[latest database release] | https://github.com/cmangos/mangos-classic/releases/tag/Last_mangos-classic_PreBuild[latest core release]
  * TBC -> https://github.com/cmangos/tbc-db/issues[forum] | https://github.com/cmangos/mangos-tbc.git[core repo] | https://github.com/cmangos/tbc-db.git[database repo] | https://github.com/cmangos/tbc-db/releases/tag/tbc-db_PreBuild[latest database release] | https://github.com/cmangos/mangos-tbc/releases/tag/Last_mangos-tbc_PreBuild[latest core release] 
  * WotLK -> https://github.com/cmangos/wotlk-db/issues[forum] | https://github.com/cmangos/mangos-wotlk.git[core repo] | https://github.com/cmangos/wotlk-db.git[database repo] | https://github.com/cmangos/wotlk-db/releases/tag/wotlk-db_PreBuild[latest database release] | https://github.com/cmangos/mangos-wotlk/releases/tag/Last_mangos-wotlk_PreBuild[latest core release]
 
@@ -48,7 +48,7 @@ Notes:
 
 ### Install manually:
 
- * https://tracker.iplocation.net/hmfm[Git] - Ensure the "Windows Explorer Integration - Git Bash Here" option is enabled on the "Select Components" page of the install wizard in order to follow along with these instructions. The default options should be fine otherwise. __Alternatively, you can install (http://sourceforge.net/projects/gitextensions/files/latest/download)[Git Extensions] instead, which comes with Git, MySYSGit, and KDiff).__
+ * https://git-scm.com/downloads[Git] - Ensure the "Windows Explorer Integration - Git Bash Here" option is enabled on the "Select Components" page of the install wizard in order to follow along with these instructions. The default options should be fine otherwise. __Alternatively, you can install (http://sourceforge.net/projects/gitextensions/files/latest/download)[Git Extensions] instead, which comes with Git, MySYSGit, and KDiff).__
  * https://cmake.org[CMake] is now used to generate visual studio project file as it's are not provided anymore. *Using version 3.22.1 or newer is encouraged.*
  * https://www.boost.org/users/download[Boost] is a set of libraries for the C++ programming language that provides support for tasks and structures such as linear algebra, pseudorandom number generation, multithreading, image processing, regular expressions, and unit testing. It contains 164 individual libraries. *Using version 1.75.0 or newer is encouraged.* If you see the error "Could NOT find Boost" in CMake, your version of Boost may be incompatible. Check the https://github.com/cmangos/issues/wiki/CMake-to-Boost-Version-Compatibility-Table[compatibility table].
  * Visual C++ 2015 or newer: https://www.visualstudio.com/downloads/[Visual Studio Downloads] (https://www.visualstudio.com/vs/community/[Visual Studio Community] 2015 is recommended, but Express 2015 for Desktop will also do the job and is free, it is however not as good a choice for open source development as CE (Community Edition).
@@ -273,7 +273,7 @@ Video Guide::
 
 Step-by-step Guide::
 
-- Go to https://tracker.iplocation.net/hmfo[https://sourceforge.net/projects/boost/files/boost-binaries]
+- Go to https://sourceforge.net/projects/boost/files/boost-binaries
 - *Or* https://cmangos.net/archive/showthread.php?tid=7365[compile yourself]
  * boost version older than 1.66 will throw "unknown compiler" errors when using VS 2017, ignore it.
 - Download the correct version as indicated in the table below *or* the ++boost_x_xx_x-bin-msvc-all-32-64.7z++ (the x_xx_x part is the boost version). If you need the Win32 or x64 version depends on what architecture you would like your compiled server executable to use. For most people x64 is fine.
@@ -283,8 +283,8 @@ Step-by-step Guide::
 [width="40%",cols=">s,^2e,^2e",frame="topbot",options="header"]
 |======================
 |         |Win32                         |x64
-|VS 2015  |https://tracker.iplocation.net/hmfq[boost_x_xx_x-msvc-14.0-32.exe] |https://tracker.iplocation.net/hmfq[boost_x_xx_x-msvc-14.0-64.exe]
-|VS 2017  |https://tracker.iplocation.net/hmfq[boost_x_xx_x-msvc-14.1-32.exe] |https://tracker.iplocation.net/hmfq[boost_x_xx_x-msvc-14.1-64.exe]
+|VS 2015  |boost_x_xx_x-msvc-14.0-32.exe |boost_x_xx_x-msvc-14.0-64.exe
+|VS 2017  |boost_x_xx_x-msvc-14.1-32.exe |boost_x_xx_x-msvc-14.1-64.exe
 |======================
 
 - Install the downloaded binaries.
@@ -413,9 +413,9 @@ Note that extracting *mmaps* might take a long time depending on your CPU, you w
 
 *Note:* The extractors work only on the system on which they are compiled on. If you have your client files on Windows but built CMaNGOS on Linux, you can download pre-compiled Extractors depending on your version from:
 
-* https://tracker.iplocation.net/hmft[Classic Server Release]
+* https://github.com/cmangos/mangos-classic/releases/tag/Last_mangos-classic_PreBuild[Classic Server Release]
 * https://github.com/cmangos/mangos-tbc/releases/tag/Last_mangos-tbc_PreBuild[TBC Server Release]
-* https://tracker.iplocation.net/hmft[WotLK Server Release]
+* https://github.com/cmangos/mangos-wotlk/releases/tag/Last_mangos-wotlk_PreBuild[WotLK Server Release]
 
 Extraction on Windows
 ~~~~~~~~~~~~~~~~~~~~~
