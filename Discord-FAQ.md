@@ -18,13 +18,13 @@
 ## Installation Instructions
 
 - Any OS: <https://github.com/cmangos/issues/wiki/Installation-Instructions>
-- Windows: [https://github.com/cmangos/issues/wiki/Detailed-installation-guide-for-Microsoft-Windows](https://tracker.iplocation.net/hmfx)
+- Windows: <https://github.com/cmangos/issues/wiki/Detailed-installation-guide-for-Microsoft-Windows>
 
 ### Fully updated core DB as single SQL file
 
-- Vanilla: [https://github.com/cmangos/classic-db/releases](https://tracker.iplocation.net/hmfx)
-- TBC:  [https://github.com/cmangos/tbc-db/releases](https://tracker.iplocation.net/hmfx)
-- WotLK: [https://github.com/cmangos/wotlk-db/releases](https://tracker.iplocation.net/hmfx)
+- Vanilla: <https://github.com/cmangos/classic-db/releases>
+- TBC:  <https://github.com/cmangos/tbc-db/releases>
+- WotLK: <https://github.com/cmangos/wotlk-db/releases>
 
 ### Precompiled Windows x64 binaries
 
@@ -37,8 +37,8 @@
 
 ### CMaNGOS-related Tools
 
-- Spell Viewer / Editor: [https://github.com/sidsukana/QSpellWork/releases](https://tracker.iplocation.net/hmfx)
-- GUI Installer for CMaNGOS (linux-only for now) : [https://github.com/Muehe/cmangos-installer](https://tracker.iplocation.net/hmfx)
+- Spell Viewer / Editor: <https://github.com/sidsukana/QSpellWork/releases>
+- GUI Installer for CMaNGOS (linux-only for now) : <https://github.com/Muehe/cmangos-installer>
 
 ### CMake-to-Boost known compatibility table
 
