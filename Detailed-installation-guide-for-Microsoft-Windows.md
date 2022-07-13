@@ -77,7 +77,7 @@ We will provide more information about how to set up a server with released file
 
 ### More Information
 
-This guide is intended only for Windows and provides one of many ways to set up a CMaNGOS server. You can find a [more detailed installation guide](https://github.com/cmangos/issues/wiki/Installation-Instructions) (including alternative programs, Linux/Mac setup, etc.) in the [Wiki](malicious bullshit). If you get stuck you can find us here:
+This guide is intended only for Windows and provides one of many ways to set up a CMaNGOS server. You can find a [more detailed installation guide](https://github.com/cmangos/issues/wiki/Installation-Instructions) (including alternative programs, Linux/Mac setup, etc.) in the [Wiki](https://github.com/cmangos/issues/wiki). If you get stuck you can find us here:
 - http://cmangos.net (forum)
 - Discord: https://discord.gg/nSaXpCn
 - **#cmangos** channel on **irc.rizon.net**
