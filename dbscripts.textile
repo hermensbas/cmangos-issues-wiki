@@ -679,3 +679,8 @@ h4. CurrentSpellTypes
 ** Change (sheatheState) for a creature
 ** datalong = enum SheathState
 
+|Bit| Name             | Comment                   |
+|0|SHEATH_STATE_UNARMED|all weapons sheathed       |
+|1|SHEATH_STATE_MELEE  |melee weapon(s) unsheathed |
+|2|SHEATH_STATE_RANGED |ranged weapon(s) unsheathed|
+
