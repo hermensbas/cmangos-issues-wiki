@@ -17,13 +17,11 @@ Worldstate variable Id. Can be either official or custom defined in cMaNGOS. Off
 
 Official WorldStateID range from 1-10k (WoTLK ends at about 5k), Custom defined cMaNGOS WorldStateIDs start at 10k+.
 
-[DungeonEncounter.dbc](https://wowpedia.fandom.com/wiki/DungeonEncounterID) is used for instanced Encounter WorldStateIDs * 100 + 1-99.
-
-https://wowpedia.fandom.com/wiki/DungeonEncounterID
+[`instance_dungeon_encounters`.`Id`](instance_dungeon_encounters#Id) is used for instanced Encounter WorldStateIDs * 100 + 2-99. 0 and 1 are always reserved by Core for "Alive" & "Killed".
 
 #### Name
 
-Name and use of variable. Example: (10000, 'A - first 4 bosses dead - spawn Malacrass')
+Name and use of variable. Example: (78202, 'ZA - first 4 bosses dead - spawn Malacrass')
 
 Mainly a bookkeeping table for naming and documenting uses. As we are introducing custom ones, we dont want to have undecipherable magic numbers.
 
