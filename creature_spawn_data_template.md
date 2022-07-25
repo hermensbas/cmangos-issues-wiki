@@ -27,12 +27,13 @@ Linked to [creature_spawn_data.Id](creature_spawn_data)
 Unique ID for each `creature_spawn_data_template`. Linked to [creature_spawn_data.Id](creature_spawn_data#Id)
 To avoid conflicts between Expansions, please use:
 
-| Version:             | Range         |
-| ---------------------|---------------|
-| Generic:             | 0- 999        |
-| Vanilla:             | 1000 - 9999   |
-| TBC:                 | 10000 - 19999 |
-| WotLK:               | 20000 +       |
+| Version:              | Range         |
+| ----------------------|---------------|
+| Generic All Expansions| 0- 999        |
+| Generic Vanilla       | 1000 - 9999   |
+| Generic TBC           | 10000 - 19999 |
+| Generic WotLK         | 20000+        |
+| Specific Creature Entry Case|[`creature_template`.`entry`](creature_template#entry) * 100 + (1 – 99)|
 
 #### NpcFlags
 
