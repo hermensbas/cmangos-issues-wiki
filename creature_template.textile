@@ -188,23 +188,25 @@ If This Is A Non-Zero Value, This Field Defines a Manual Over-Ride For The Size 
 
 h4. Family
 
-This Defines The Family That This Creature Belongs To. This Is Only Used If "CreatureType":#CreatureType Is 1 (Beast).
+This Defines The Family That This Creature Belongs To. This Is Only Used If "CreatureType":#CreatureType Is 1 (Beast). (CreatureFamily.dbc / enum CreatureFamily)
 
-|_. ID|_. Family|_. ID|_. Family|_. ID|_. Family|
-|1|Wolf|15|Doomguard|29|Nether Ray|
-|2|Cat|16|Scorpid|30|Serpent|
-|3|Spider|17|Turtle|31|Moth|
-|4|Bear|18|Imp|32|Chimaera|
-|5|Boar|19|Bat|33|Devilsaur|
-|6|Crocolisk|20|Hyena|34|Ghoul|
-|7|Carrion Bird|21|Bird of Prey|35|Silithid|
-|8|Crab|22|Wind Serpent|36|Worm|
-|9|Gorilla|23|Remote Control|37|Rhino|
-|10|Raptor|24|Felguard|38|Wasp|
-|11|Tallstrider|25|Dragonhawk|39|Core Hound|
-|12|Felhunter|26|Ravager|40|Spirit Beast|
-|13|Voidwalker|27|Warp Stalker|
-|14|Succubus|28|Sporebat|
+|ID|Family Vanilla+TBC)/WotLK|ID|Family|ID|Family|
+|1|CREATURE_FAMILY_WOLF|			16|CREATURE_FAMILY_VOIDWALKER|							31|CREATURE_FAMILY_RAVAGER|
+|2|CREATURE_FAMILY_CAT|				17|CREATURE_FAMILY_SUCCUBUS|							32|CREATURE_FAMILY_WARP_STALKER|
+|3|CREATURE_FAMILY_SPIDER|			18|???|													33|CREATURE_FAMILY_SPOREBAT|
+|4|CREATURE_FAMILY_BEAR|			19|CREATURE_FAMILY_DOOMGUARD|							34|CREATURE_FAMILY_NETHER_RAY|
+|5|CREATURE_FAMILY_BOAR|			20|CREATURE_FAMILY_SCORPID|								35|CREATURE_FAMILY_SERPENT|
+|6|CREATURE_FAMILY_CROCOLISK|		21|CREATURE_FAMILY_TURTLE|								36|CREATURE_FAMILY_SEA_LION|
+|7|CREATURE_FAMILY_CARRION_BIRD|	22|???|													37|CREATURE_FAMILY_MOTH|
+|8|CREATURE_FAMILY_CRAB|			23|CREATURE_FAMILY_IMP|									38|CREATURE_FAMILY_CHIMAERA|
+|9|CREATURE_FAMILY_GORILLA|			24|CREATURE_FAMILY_BAT|									39|CREATURE_FAMILY_DEVILSAUR|
+|10|CREATURE_FAMILY_HORSE_CUSTOM|	25|CREATURE_FAMILY_HYENA|								40|CREATURE_FAMILY_GHOUL|
+|11|CREATURE_FAMILY_RAPTOR|			26|CREATURE_FAMILY_OWL / CREATURE_FAMILY_BIRD_OF_PREY|	41|CREATURE_FAMILY_SILITHID|
+|12|CREATURE_FAMILY_TALLSTRIDER|	27|CREATURE_FAMILY_WIND_SERPENT|						42|CREATURE_FAMILY_WORM|
+|13|???|							28|CREATURE_FAMILY_REMOTE_CONTROL|						43|CREATURE_FAMILY_RHINO|
+|14|???|							29|CREATURE_FAMILY_FELGUARD|							44|CREATURE_FAMILY_WASP|
+|15|CREATURE_FAMILY_FELHUNTER|		30|CREATURE_FAMILY_DRAGONHAWK|							45|CREATURE_FAMILY_CORE_HOUND|
+|||||																						46|CREATURE_FAMILY_SPIRIT_BEAST|
 
 h4. CreatureType
 
