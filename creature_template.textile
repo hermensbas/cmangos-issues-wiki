@@ -190,7 +190,7 @@ h4. Family
 
 This Defines The Family That This Creature Belongs To. This Is Only Used If "CreatureType":#CreatureType Is 1 (Beast). (CreatureFamily.dbc / enum CreatureFamily)
 
-|ID|Family Vanilla+TBC)/WotLK|ID|Family|ID|Family|
+|ID|Family (Vanilla+TBC) / WotLK|ID|Family|ID|Family|
 |1|CREATURE_FAMILY_WOLF|			16|CREATURE_FAMILY_VOIDWALKER|							31|CREATURE_FAMILY_RAVAGER|
 |2|CREATURE_FAMILY_CAT|				17|CREATURE_FAMILY_SUCCUBUS|							32|CREATURE_FAMILY_WARP_STALKER|
 |3|CREATURE_FAMILY_SPIDER|			18|???|													33|CREATURE_FAMILY_SPOREBAT|
@@ -210,23 +210,14 @@ This Defines The Family That This Creature Belongs To. This Is Only Used If "Cre
 
 h4. CreatureType
 
-This Field Defines The Type Of Creature This NPC Is.
+This Field Defines The Type Of Creature This NPC Is. (CreatureType.dbc / enum CreatureType)
 
-|_. ID|_. Type|
-|0|None|
-|1|Beast|
-|2|Dragonkin|
-|3|Demon|
-|4|Elemental|
-|5|Giant|
-|6|Undead|
-|7|Humanoid|
-|8|Critter|
-|9|Mechanical|
-|10|Not specified|
-|11|Totem|
-|12|Non-combat Pet|
-|13|Gas Cloud|
+|ID|Type|ID|Type|ID|Type|
+|0|None						|5|CREATURE_TYPE_GIANT		|10|CREATURE_TYPE_NOT_SPECIFIED    |
+|1|CREATURE_TYPE_BEAST		|6|CREATURE_TYPE_UNDEAD		|11|CREATURE_TYPE_TOTEM            |
+|2|CREATURE_TYPE_DRAGONKIN	|7|CREATURE_TYPE_HUMANOID	|12|CREATURE_TYPE_NON_COMBAT_PET   |
+|3|CREATURE_TYPE_DEMON		|8|CREATURE_TYPE_CRITTER	|13|CREATURE_TYPE_GAS_CLOUD        |
+|4|CREATURE_TYPE_ELEMENTAL	|9|CREATURE_TYPE_MECHANICAL	|||
 
 h4. InhabitType
 
