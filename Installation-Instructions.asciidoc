@@ -51,7 +51,7 @@ Notes:
  * https://git-scm.com/downloads[Git] - Ensure the "Windows Explorer Integration - Git Bash Here" option is enabled on the "Select Components" page of the install wizard in order to follow along with these instructions. The default options should be fine otherwise. __Alternatively, you can install (http://sourceforge.net/projects/gitextensions/files/latest/download)[Git Extensions] instead, which comes with Git, MySYSGit, and KDiff).__
  * https://cmake.org[CMake] is now used to generate visual studio project file as it's are not provided anymore. *Using version 3.22.1 or newer is encouraged.*
  * https://www.boost.org/users/download[Boost] is a set of libraries for the C++ programming language that provides support for tasks and structures such as linear algebra, pseudorandom number generation, multithreading, image processing, regular expressions, and unit testing. It contains 164 individual libraries. *Using version 1.75.0 or newer is encouraged.* If you see the error "Could NOT find Boost" in CMake, your version of Boost may be incompatible. Check the https://github.com/cmangos/issues/wiki/CMake-to-Boost-Version-Compatibility-Table[compatibility table].
- * Visual C++ 2015 or newer: https://www.visualstudio.com/downloads/[Visual Studio Downloads] (https://www.visualstudio.com/vs/community/[Visual Studio Community] 2015 is recommended, but Express 2015 for Desktop will also do the job and is free, it is however not as good a choice for open source development as CE (Community Edition).
+ * Visual C++ 2022 or newer: https://www.visualstudio.com/downloads/[Visual Studio Downloads] (https://www.visualstudio.com/vs/community/[Visual Studio Community] 2022 is recommended, but Express 2022 for Desktop will also do the job and is free, it is however not as good a choice for open source development as CE (Community Edition).
  * Any MySQL server such as http://dev.mysql.com/downloads/mysql[MySQL server community edition] or http://www.apachefriends.org/en/xampp.html[XAMPP]. (Note 2018-05-02: Do not use MySQL version 8.0 for now since build will fail on some queries. Use 5.7 until resolved)
  * Any MySQL client (optional, for easy database access) such as http://dev.mysql.com/downloads/workbench/[MySQL Workbench], https://www.webyog.com/[SQLyog], or https://dbeaver.io/[DBeaver]
  * An advanced text editor (optional) such as https://notepad-plus-plus.org/[Notepad++] or https://code.visualstudio.com/[VSCode]. Not required, but it will make it easier to edit the configuration files in later steps.
@@ -285,6 +285,7 @@ Step-by-step Guide::
 |         |Win32                         |x64
 |VS 2015  |boost_x_xx_x-msvc-14.0-32.exe |boost_x_xx_x-msvc-14.0-64.exe
 |VS 2017  |boost_x_xx_x-msvc-14.1-32.exe |boost_x_xx_x-msvc-14.1-64.exe
+|VS 2022  |boost_x_xx_x-msvc-14.3-32.exe |boost_x_xx_x-msvc-14.3-64.exe
 |======================
 
 - Install the downloaded binaries.
