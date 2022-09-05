@@ -39,6 +39,7 @@ To avoid conflicts between Expansions, please use:
 
 New value that will be applied to creature. Ref: [creature_template.NpcFlags](creature_template#NpcFlags)
 `Important` Default -1. Value `0` will remove all NpcFlags from creature
+Use with CREATURE_EXTRA_FLAG_DYNGUID for entry. Old legacy code breaks it on respawn and a lot of other stuff relied on this "feature", with dynguid the problem does not exist.
 
 #### UnitFlags
 
