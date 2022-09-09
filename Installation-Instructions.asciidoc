@@ -20,9 +20,9 @@ Addresses
 ---------
 
  * General -> https://cmangos.net[site] | https://github.com/cmangos[github org] | https://github.com/cmangos/issues/issues[bug tracker] | https://discord.gg/Dgzerzb[discord]  
- * Classic -> https://github.com/cmangos/classic-db/issues[forum] | https://github.com/cmangos/mangos-classic.git[core repo] | https://github.com/cmangos/classic-db.git[database repo] | https://github.com/cmangos/classic-db/releases/tag/classic-db_PreBuild[latest database release] | https://github.com/cmangos/mangos-classic/releases/tag/Last_mangos-classic_PreBuild[latest core release]
- * TBC -> https://github.com/cmangos/tbc-db/issues[forum] | https://github.com/cmangos/mangos-tbc.git[core repo] | https://github.com/cmangos/tbc-db.git[database repo] | https://github.com/cmangos/tbc-db/releases/tag/tbc-db_PreBuild[latest database release] | https://github.com/cmangos/mangos-tbc/releases/tag/Last_mangos-tbc_PreBuild[latest core release] 
- * WotLK -> https://github.com/cmangos/wotlk-db/issues[forum] | https://github.com/cmangos/mangos-wotlk.git[core repo] | https://github.com/cmangos/wotlk-db.git[database repo] | https://github.com/cmangos/wotlk-db/releases/tag/wotlk-db_PreBuild[latest database release] | https://github.com/cmangos/mangos-wotlk/releases/tag/Last_mangos-wotlk_PreBuild[latest core release]
+ * Classic -> https://github.com/cmangos/classic-db/issues[forum] | https://github.com/cmangos/mangos-classic.git[core repo] | https://github.com/cmangos/classic-db.git[database repo] | https://github.com/cmangos/classic-db/releases/tag/latest[latest database release] | https://github.com/cmangos/mangos-classic/releases/tag/latest[latest core release]
+ * TBC -> https://github.com/cmangos/tbc-db/issues[forum] | https://github.com/cmangos/mangos-tbc.git[core repo] | https://github.com/cmangos/tbc-db.git[database repo] | https://github.com/cmangos/tbc-db/releases/tag/latest[latest database release] | https://github.com/cmangos/mangos-tbc/releases/tag/latest[latest core release]
+ * WotLK -> https://github.com/cmangos/wotlk-db/issues[forum] | https://github.com/cmangos/mangos-wotlk.git[core repo] | https://github.com/cmangos/wotlk-db.git[database repo] | https://github.com/cmangos/wotlk-db/releases/tag/latest[latest database release] | https://github.com/cmangos/mangos-wotlk/releases/tag/latest[latest core release]
 
 Software requirements (General)
 -------------------------------
