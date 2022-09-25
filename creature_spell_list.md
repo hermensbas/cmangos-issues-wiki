@@ -29,7 +29,7 @@ timers in CombatAI and is hot-reloadable. - https://github.com/cmangos/mangos-tb
 
 #### Id
 
-`creature_template`.`entry` * 100 + 1 for the "first list/phase of an NPC.
+`creature_template`.`entry` * 100 + 1-99 for the "first list/phase of an NPC.
 
 #### Position
 
@@ -66,6 +66,8 @@ This is the ingame language of the text. "enum SpellListTargetingHardcoded"
 #### ScriptId
 
 Launch dbscripts_on_relay dbscript at successful cast start.
+
+If possible use same value as for Id. `creature_template`.`entry` * 100 + 1-99
 
 #### Availability
 
