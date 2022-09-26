@@ -172,7 +172,7 @@ that parameter.
 | 8  | ACTION\_T\_RANDOM\_TEXTEMOTE             | NU                                                               | NU                                                                 | NU                                         | deprecated                                                                                                                                                                                                                                                                                                                                                                                |
 | 9  | ACTION\_T\_RANDOM\_SOUND                 | Sound ID 1                                                       | Sound ID 2                                                         | Sound ID 3                                 | Picks a sound ID at random and plays it; –1 = action skipped if chosen                                                                                                                                                                                                                                                                                                                    |
 | 10 | ACTION\_T\_RANDOM\_EMOTE                 | Emote ID 1                                                       | Emote ID 2                                                         | Emote ID 3                                 | Picks an emote ID at random and does visual emote; –1 = action skipped if chosen                                                                                                                                                                                                                                                                                                          |
-| 11 | ACTION\_T\_CAST                          | [spellId](spell_template#Id)                                     | [target](creature_ai_scripts#Target)                               | [castFlags](creature_ai_scripts#castFlags) | Creature cast spell on a target with specified [castFlags](creature_ai_scripts#castFlags)                                                                                                                                                                                                                                                                                                 |
+| 11 | ACTION\_T\_CAST                          | [spellId](spell_template#Id)                                     | [target](creature_ai_scripts#Target)                               | [enum CastFlags](creature_ai_scripts#castFlags) | Creature cast spell on a target with specified [castFlags](creature_ai_scripts#castFlags)                                                                                                                                                                                                                                                                                                 |
 | 12 | ACTION\_T\_SPAWN                         | [CreatureEntry](creature_template#entry)                         | [target](creature_ai_scripts#Target)                               | Duration in milliseconds                   | Creature spawns a creature with (Param1) [CreatureEntry](creature_template#entry) at Target for a given duration (infinite if zero)                                                                                                                                                                                                                                                       |
 | 13 | ACTION\_T\_THREAT\_SINGLE\_PCT           | Threat %                                                         | [target](creature_ai_scripts#Target)                               | NU                                         | Modifies [target](creature_ai_scripts#Target) threat by a percent (–100 to +100)                                                                                                                                                                                                                                                                                                          |
 | 14 | ACTION\_T\_THREAT\_ALL\_PCT              | Threat %                                                         | NU                                                                 | NU                                         | Modifies everyone’s threat by a percent (–100 to +100), –101 will cause Evade                                                                                                                                                                                                                                                                                                             |
@@ -269,19 +269,21 @@ that parameter.
 
 #### castFlags
 
-| Bit  | Name                               | Description                                                                                                |
-| ---- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| 1    | CAST\_INTERRUPT\_PREVIOUS          | Interrupts any previous spell casting.                                                                     |
-| 2    | CAST\_TRIGGERED                    | Forces the cast to be instant and ignores any mana/reagents requirements.                                  |
-| 4    | CAST\_FORCE\_CAST                  | Forces spell to cast even if the target is possibly out of range or the creature is possibly out of mana   |
-| 8    | CAST\_NO\_MELEE\_IF\_OOM           | Prevents creature from entering melee if out of mana or out of range                                       |
-| 16   | CAST\_FORCE\_TARGET\_SELF          | Forces the target to cast this spell on itself                                                             |
-| 32   | CAST\_AURA\_NOT\_PRESENT           | Only casts the spell on the target if the target does not have the aura from that spell on itself already. |
-| 64   | CAST\_IGNORE\_UNSELECTABLE\_TARGET | Can target UNIT\_FLAG\_NOT\_SELECTABLE - Needed in some scripts                                            |
-| 128  | CAST\_SWITCH\_CASTER\_TARGET       | Switches target and caster for spell cast                                                                  |
-| 256  | CAST\_MAIN\_SPELL                  | Marks main spell for AI Type = Action 57 ACTION\_T\_SET\_RANGED\_MODE                                      |
-| 512  | CAST\_PLAYER\_ONLY                 | Selects only player targets - substitution for EAI not having more params                                  |
-| 1024 | CAST\_DISTANCE\_YOURSELF           | If spell with this cast flag hits main aggro target, caster distances himself - EAI only                   |
+| Bit  | Name                               | Description|
+| ---- | ------------------------| --------------------------------------|
+| 1    | CAST_INTERRUPT_PREVIOUS | Interrupts any previous spell casting.|
+| 2    | CAST_TRIGGERED | Forces the cast to be instant and ignores any mana/reagents requirements.|
+| 4    | CAST_FORCE_CAST | Forces spell to cast even if the target is possibly out of range or the creature is possibly out of mana|
+| 8    | CAST_NO_MELEE_IF_OOM | Prevents creature from entering melee if out of mana or out of range|
+| 16   | CAST_FORCE_TARGET_SELF | Forces the target to cast this spell on itself|
+| 32   | CAST_AURA_NOT_PRESENT | Only casts the spell on the target if the target does not have the aura from that spell on itself already.|
+| 64   | CAST_IGNORE_UNSELECTABLE_TARGET | Can target UNIT\_FLAG\_NOT\_SELECTABLE - Needed in some scripts|
+| 128  | CAST_SWITCH_CASTER_TARGET | Switches target and caster for spell cast|
+| 256  | CAST_MAIN_SPELL | Marks main spell for AI Type = Action 57 ACTION\_T\_SET\_RANGED\_MODE|
+| 512  | CAST_PLAYER_ONLY | Selects only player targets - substitution for EAI not having more params|
+| 1024 | CAST_DISTANCE_YOURSELF | If spell with this cast flag hits main aggro target, caster distances himself - EAI only|
+| 2048 | CAST_TARGET_CASTING | Selects only targets that are casting - EAI only|
+| 4096 | CAST_ONLY_XYZ | Targets only coords of target and not unit|
 
 #### schoolMask
 
