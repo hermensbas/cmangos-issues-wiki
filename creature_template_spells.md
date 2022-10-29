@@ -2,7 +2,7 @@ Back to [world database](https://github.com/cmangos/issues/wiki/Mangosdb_struct)
 
 ## The `creature_template_spells` table
 
-holds creature spell data, which was previously hold in [creature_template](https://github.com/cmangos/issues/wiki/creature_template) table.
+holds creature spell data, which was previously held in [creature_template](https://github.com/cmangos/issues/wiki/creature_template) table. DEPRECATED: use [creature_spell_list](https://github.com/cmangos/issues/wiki/creature_spell_list) instead
 
 ### General Use
 
