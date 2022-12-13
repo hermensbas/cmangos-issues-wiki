@@ -686,6 +686,32 @@ Next leave an empty line and then add the following:
 activate = 1
 ```
 
+The final config should look like the following in the section we edited:
+```
+# List of providers to load
+[provider_sect]
+default = default_sect
+legacy = legacy_sect
+# The fips section name should match the section name inside the
+# included fipsmodule.cnf.
+# fips = fips_sect
+
+# If no providers are activated explicitly, the default one is activated implicitly.
+# See man 7 OSSL_PROVIDER-default for more details.
+#
+# If you add a section explicitly activating any other provider(s), you most
+# probably need to explicitly activate the default provider, otherwise it
+# becomes unavailable in openssl.  As a consequence applications depending on
+# OpenSSL may not work correctly which could lead to significant system
+# problems including inability to remotely access the system.
+[default_sect]
+activate = 1
+
+[legacy_sect]
+activate = 1
+```
+Please note the lines that do not have a "\#" in front, these *must* not have a "#" in front in your config either.
+
 (OPTIONAL) Update *.conf files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
