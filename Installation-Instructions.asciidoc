@@ -660,6 +660,31 @@ This part should be an extra wiki-page: Meaning of config files from mangos/sd2
 
 With the default installations, you should get a working environment out of the box :)
 
+OpenSSL3 Legacy Provider
+~~~~~~~~~~~~~~~~~~~~~~~~
+If you are using OpenSSL3 on Linux you may need to activate the legacy provider in your openssl.cnf (often found in /etc/ssl/openssl.cnf, but may vary between distros).
+
+There you'll look for "List of providers to load"
+
+and beneath this:
+```
+[provider_sect]
+default = default_sect
+```
+you add the following line:
+```
+legacy = legacy_sect
+```
+
+next you look for "[default_sect]"
+immediately underneath it it should say `#activate = 1`
+if it does, please change it to `activate = 1`, removing the "#" in front. This step is very important! Not doing it can lock you out of your computer!
+
+Next leave an empty line and then add the following:
+```
+[legacy_sect]
+activate = 1
+```
 
 (OPTIONAL) Update *.conf files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
