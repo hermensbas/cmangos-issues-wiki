@@ -174,17 +174,18 @@ All shell commands are expected to be typed from a *Git bash* started from the +
 
 #### For *nix
 
-create a new user to run your mangos server under
+Create a new directory to clone your copy of CMaNGOS into:
 
- useradd -m -d /home/mangos -c "MaNGOS" -U mangos
+ cd ~ && mkdir cmangos && cd ~/cmangos
 
-This guide assumes you will use this new user personal folder (+/home/mangos+) as a base folder under which you will put everything.
+The rest of the guide assumes that you have this folder in your home directory.
 
- cd /home/mangos
-
+##### Important note: You should not need to use `sudo` in this guide at any point where it isn't explicitly called for in the instructions. If you find that you need to use `sudo` where not instructed to, something probably went wrong. Please check the guide again and make sure you followed it. If you have any questions, feel free to join our discord (links at the top)!
 
 Clone CMaNGOS
 ~~~~~~~~~~~~~
+
+To make the guide more consistent across the versions we're cloning into another subdirectory named "mangos". If you leave the "mangos" part out of the argument, it'll be cloned into a directory named like the git repository (mangos-wotlk for example)
 
 After having opened Git bash in the right folder, simply type:
 
@@ -240,7 +241,7 @@ Now you should have the following subfolders:
  - ++mangos++ (containing the sources of CMaNGOS)
  - ++classic-db++ OR ++tbc-db++ OR ++wotlk-db++ OR ++Database++ containing the content of your database-provider
 
-For windows we suggest creating an additional ++run++ folder, on *nix and MacOS this can be useful if you don't want to install to ++/opt++ or so
+For windows we suggest creating an additional ++run++ folder, on *nix and MacOS this can be useful if you don't want to install to ++/opt++
 
  - ++run++
 
@@ -346,45 +347,45 @@ A https://youtu.be/KlRM18SVCQA[video] of the build process is now available.
   - You must not get any error messages, although if you do so, you could click the menu "Build" -> "Clean Solution" to restart the compile.
   - If you get error messages saying some boost files cannot be found, you may need to restart your Visual Studio and/or your computer for the environment variables to be set.
 
-If you cannot solve an error, please use the official forums or IRC channels to ask for help
+If you cannot solve an error, please join the discord to ask for help
 
 Compiling CMaNGOS (*nix & MacOS)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We assume you have followed the instructions above, i.e. created the ++mangos++ user and cloned the core repository into ++/home/mangos/mangos++. Adjust the paths if your setup is different.
+We assume you have followed the instructions above and cloned the core repository into ++~/cmangos/mangos++. Adjust the paths if your setup is different.
 
 * Create the ++build++ folder:
 
- mkdir /home/mangos/build
+ mkdir ~/cmangos/build
 
 * Enter the ++build++ folder:
 
- cd /home/mangos/build
+ cd ~/cmangos/build
 
 * Invoke ++cmake ../mangos++, suggested options are:
-  - ++-DCMAKE_INSTALL_PREFIX=\../mangos/run++ to install into ++/home/mangos/mangos/run++ folder, by default this will install to ++/opt/mangos++
+  - ++-DCMAKE_INSTALL_PREFIX=~/cmangos/run++ to install into ++/home/username/cmangos/run++ folder, otherwise it will install to ++/opt/mangos++ by default.
   - ++-DPCH=1++ to compile with PCH mode (much faster after updates).
   - ++-DDEBUG=0++ to remove debug mode from compiling (recommended)
   - ++-DBUILD_PLAYERBOT=ON++ to build with playerbots enabled
-  - Switch compiler. If for whatever reason you want to use another compiler add two options like this:
+  - Switch compiler (for problems such as the internal compiler error in gcc 11.2):
     ** ++-DCMAKE_C_COMPILER=/path/to/compiler++
     ** ++-DCMAKE_CXX_COMPILER=/path/to/compiler++
   - *Examples:*
     ** Just want to compile CMaNGOS (e.g. for updates)
 
- cmake ../mangos -DCMAKE_INSTALL_PREFIX=\../mangos/run -DPCH=1 -DDEBUG=0
+ cmake ../mangos -DCMAKE_INSTALL_PREFIX=~/cmangos/run -DPCH=1 -DDEBUG=0
 
     ** Want compile CMaNGOS & the map extraction tools (recommended for first time setup)
 
- cmake ../mangos -DCMAKE_INSTALL_PREFIX=\../mangos/run -DBUILD_EXTRACTORS=ON -DPCH=1 -DDEBUG=0
+ cmake ../mangos -DCMAKE_INSTALL_PREFIX=~/cmangos/run -DBUILD_EXTRACTORS=ON -DPCH=1 -DDEBUG=0
 
     ** Want compile CMaNGOS & the map extraction tools & playerbots (playerbots let players summon other characters from their account as bots)
 
- cmake ../mangos -DCMAKE_INSTALL_PREFIX=\../mangos/run -DBUILD_EXTRACTORS=ON -DPCH=1 -DDEBUG=0 -DBUILD_PLAYERBOT=ON
+ cmake ../mangos -DCMAKE_INSTALL_PREFIX=~/cmangos/run -DBUILD_EXTRACTORS=ON -DPCH=1 -DDEBUG=0 -DBUILD_PLAYERBOT=ON
 
-    ** Want to switch to gcc 9
+    ** Want to switch to clang
 
- cmake ../mangos -DCMAKE_C_COMPILER=gcc-9 -DCMAKE_CXX_COMPILER=g++-9
+ cmake ../mangos -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++
 
 * Invoke ++make++ to compile CMaNGOS and ScriptDev2
 
@@ -393,15 +394,16 @@ We assume you have followed the instructions above, i.e. created the ++mangos++ 
   - You may define the number of threads for faster compilation (e.g. ++make -j8++ for 8 threads)
   - There is currently a bug in GCC 11.2 which causes GCC to fail compiling CMaNGOS. You can downgrade or upgrade GCC to circumvent this, or you can compile CMaNGOS with a different compiler like clang
 
-* Copy the compiled files to the installation directory (++/home/mangos/mangos/run++) by running the following command:
+* Copy the compiled files to the installation directory (++~/cmangos/run++) by running the following command:
 
  make install
 
 * Go the configuration directory and copy the config files to their correct names:
 
- cd /home/mangos/mangos/run/etc
+ cd ~/cmangos/run/etc
  cp mangosd.conf.dist mangosd.conf
  cp realmd.conf.dist realmd.conf
+ cp anticheat.conf.dist anticheat.conf
 
 Install CMaNGOS binary files (Windows)
 --------------------------------------
@@ -437,7 +439,7 @@ Depending on your installation settings, a simple double click onto the ++Extrac
 Extraction on *nix and MacOS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you followed this guide you should find all the extractor files in ++/home/mangos/mangos/run/bin/tools++.
+If you followed this guide you should find all the extractor files in ++~/cmangos/run/bin/tools++.
 
 * Copy all of them over to your WoW client directory
 * Set the executable flag on the shell scripts:
@@ -448,9 +450,9 @@ If you followed this guide you should find all the extractor files in ++/home/ma
 
 * Run the data extraction:
 
- ./ExtractResources.sh
+ bash ./ExtractResources.sh
 
-* When finished, move the folders ++maps++, ++dbc++, and ++vmaps++ - optionally ++mmaps++ and ++Cameras++ - that have been created to ++/home/mangos/mangos/run/bin++ (the buildings folder is not required and can be deleted).
+* When finished, move the folders ++maps++, ++dbc++, and ++vmaps++ - optionally ++mmaps++ and ++Cameras++ - that have been created to ++~/cmangos/run/bin++ (the buildings folder is not required and can be deleted).
 
 Further Information:
 ~~~~~~~~~~~~~~~~~~~~~
@@ -464,6 +466,12 @@ For this section it is assumed you have already installed your MySQL server, and
 *Following instruction are still working but included tool in database repository can now handle a full installation of the DB*
 
 To make use of some additional installation helper scripts it is HIGHLY suggested when installing MYSQL you include the command path to the BIN folder (Option during Install). If this option was not available or if you missed it please follow the instructions found http://dev.mysql.com/doc/mysql-windows-excerpt/5.1/en/mysql-installation-windows-path.html[here] before proceeding. If you don't have this configured properly then you will not be able to follow along with the command-line steps below in the guide because the command prompt will not recognize "mysql" as a valid command.
+
+Deprecation Notice:
+-------------------
+The following instructions about installing the database are deprecated as they have been automated in the ++./InstallFullDB.sh++ script. They will remain in the installation instructions for the purpose of troubleshooting.
+
+Please skip ahead to <<configuring_cmangos>>!
 
 Create empty databases
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -615,10 +623,10 @@ With the default configuration, you only need to change CORE_PATH to:
 +
 -----------------------
 CORE_PATH="/c/Mangos/mangos"
-(for *nix /home/<USER_NAME>/mangos/mangos)
+(for *nix /home/<USER_NAME>/cmangos/mangos)
 -----------------------
 *
-You may actually have to set ++CORE_PATH="../mangos"++ (assuming default paths from this guide), if the tilde is not properly resolved into your home folder path, causing InstallFullDB.sh to complain about not finding "/home/mangos/mangos". Tested on openSUSE 12.3.
+You may actually have to set ++CORE_PATH="../mangos"++ (assuming default paths from this guide), if the tilde is not properly resolved into your home folder path, causing InstallFullDB.sh to complain about not finding "/home/username/cmangos". Tested on openSUSE 12.3.
 
 * Now the helper tool is configured, and you only need to run the helper script, whenever you want to set your world database to a clear state!
 * ++bash ./InstallFullDB.sh++
@@ -658,8 +666,8 @@ So you need to:
 * Note: For those wishing to run the core in debug mode, InstallFullDB.sh have a hidden config option for LOCALES="NO" which does not install locale translations and significantly lowers core load time when repeatedly restarting. Only recommended for developers.
 ---------------------------------
 
-Configuring CMaNGOS
---------------------
+== Configuring CMaNGOS [[configuring_cmangos]]
+
 This part should be an extra wiki-page: Meaning of config files from mangos/sd2
 
 With the default installations, you should get a working environment out of the box :)
@@ -773,25 +781,39 @@ On Windows system launch ++C:\Mangos\run\mangosd.exe++ and ++C:\Mangos\run\realm
 
 On *nix run the corresponding binary files :
 
- /home/mangos/mangos/run/bin/mangosd -c /home/mangos/mangos/run/etc/mangosd.conf -a /home/mangos/mangos/run/etc/ahbot.conf
+ ~/cmangos/run/bin/mangosd -c ~/cmangos/run/etc/mangosd.conf -a ~/cmangos/run/etc/ahbot.conf
 
- /home/mangos/mangos/run/bin/realmd -c /home/mangos/mangos/run/etc/realmd.conf
+ ~/cmangos/run/bin/realmd -c ~/cmangos/run/etc/realmd.conf
 
 
 #### Tip1
 **Don't run mangosd or realmd as root !**
 
- su mangos
+You can create a separate user "mangos" to limit access to the cmangos binaries:
 
-This command will connect you as *mangos* user.
+ useradd -m -d /home/mangos -c "MaNGOS" -U mangos
+
+ sudo passwd mangos
+
+enter new password for the mangos user
+
+copy the run directory to your new mangos user:
+
+ sudo cp ~/cmangos/run /home/mangos/run
+ sudo chown mangos:mangos /home/mangos/run
+
+Then log in as the mangos user:
+
+ su mangos
 
 #### Tip2
 you can run mangosd and realmd in separate screens
 
- exec screen -dmS mangosd /home/mangos/mangos/run/bin/mangosd -c /home/mangos/mangos/run/etc/mangosd.conf -a /home/mangos/mangos/run/etc/ahbot.conf
+ exec screen -dmS mangosd /home/mangos/run/bin/mangosd -c /home/mangos/run/etc/mangosd.conf -a /home/mangos/run/etc/ahbot.conf
 
- exec screen -dmS realmd /home/mangos/mangos/run/bin/realmd -c /home/mangos/mangos/run/etc/realmd.conf
+ exec screen -dmS realmd /home/mangos/run/bin/realmd -c /home/mangos/run/etc/realmd.conf
 
+(make note of where you have your run directory. this example is for when you have created a separate `mangos` user.)
 
 #### Tip3
 if you want to start mangosd and realmd at your server boot, you can use a cron task. create a ++/home/mangos/cmangos-launcher.sh++ file with this content :
@@ -873,3 +895,18 @@ Note that if this account is GM-Account, you can use lots of nice commands to ge
 
 
 *Enjoy running and messing with your CMaNGOS server!*
+
+== Troubleshooting
+
+* Server crashes immediately after boot or on login:
+  - This can happen if OpenSSL 3 is used on the system but CMaNGOS was not compiled with support for it, or if legacy providers are disabled in the OpenSSL configuration.
+* Stuck in the login screen:
+  - Check your firewall settings: mangosd and/or realmd might be blocked.
+* Getting a compiler error at TileAssembler.cpp:
+  - gcc 11.2 (and 11.3 on some distributions) have a bug in their code optimizer. Try to use a different compiler (newer or older version of gcc or clang for example)
+* The extractors show a weird message and not all directories are there:
+  - Try starting the extractors with bash: `bash ./ExtractResources.sh`
+* `make install` fails with a strange zlib/libz error:
+  - Go into your build directory `cd ~/cmangos/build`
+  - From there go into `_deps/zlib-build` and open the file `cmake_install.cmake`
+  - Delete everything in the file and save the empty file. You can now run `make install` again successfully.
