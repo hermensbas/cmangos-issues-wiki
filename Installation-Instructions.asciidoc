@@ -799,7 +799,7 @@ enter new password for the mangos user
 
 copy the run directory to your new mangos user:
 
- sudo cp ~/cmangos/run /home/mangos/run
+ sudo cp -r ~/cmangos/run /home/mangos/run
  sudo chown mangos:mangos /home/mangos/run
 
 Then log in as the mangos user:
