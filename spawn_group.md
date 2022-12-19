@@ -19,6 +19,17 @@ Id - Spawn Group ID
 19000-19999 for tbc-db added classic content, 19999-19000 for wotlk-db added classic content
 20000-29999 TBC (Outland 530)
 30000-39999 WOTLK (Northrend 571)
+      for WoTlk Pls Use:
+      30000 - zul'drak
+      30500 - borean
+      31000 - dragonblight
+      31500 - howling
+      32000 - grizzly
+      32500 - Sholazar
+      33000 - Storm Peaks
+      33500 - crystalong
+      34000 - IC
+      35000 - DK starting Zone
 3000000+ Instance Files
 ```
 
