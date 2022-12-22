@@ -83,7 +83,7 @@ This is a description of the values in "type":Conditions#type
 |8|CONDITION_QUESTREWARDED|Player must have completed a quest first|
 |9|CONDITION_QUESTTAKEN|Players must have the quest in the quest log and not completed yet|
 |10|CONDITION_AD_COMMISSION_AURA||
-|11|UNUSED|Deprecated was CONDITION_NO_AURA replaced by CONDITION_AURA + FLAG_REVERSE_RESULT.|
+|11|CONDITION_PVP_RANK|Player must have Honor Rank (minrank, maxrank)|
 |12|CONDITION_ACTIVE_GAME_EVENT|Event must be active/inactive.|
 |13|CONDITION_AREA_FLAG||
 |14|CONDITION_RACE_CLASS|Has special race or class.|
