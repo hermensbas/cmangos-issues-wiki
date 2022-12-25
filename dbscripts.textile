@@ -611,6 +611,7 @@ h4. AIEventType
 
 * *SCRIPT_COMMAND_DESPAWN_GO = 40*
 ** Resulting target must be a Gameobject. Please note that not all gameobject types support this command.
+** datalong = despawnDelay
 
 * *SCRIPT_COMMAND_RESPAWN = 41*
 ** resultingSource = Creature. Requires SCRIPT_FLAG_BUDDY_IS_DESPAWNED to find dead or despawned targets
