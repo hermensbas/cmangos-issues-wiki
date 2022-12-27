@@ -1,7 +1,8 @@
 > TL;DR: **Provide us with data!**
 
-While it's certainly faster to ask us in `#general`,
-the most preferred way is to [file an issue][1] in a repository, created specifically for that very purpose.
+Don't ask if you can ask something, just ask it directly.
+
+Messages may be overlooked or forgotten in chats more easily than on a bug tracker. While it's certainly faster to ask us in `#general`, the preferred way is to [file an issue][1] in the repository created specifically for that purpose, especially if you suspect a bug.
 
 That being said, if you can't (or won't) -- there are multiple things we would _require_ to know about the issue in order to handle it efficiently, __or at all__.
 
@@ -40,5 +41,5 @@ Don't forget that we are volunteers and donating our spare time to the project, 
 [0]: http://www.catb.org/~esr/faqs/smart-questions.html
 [1]: https://github.com/cmangos/issues/issues/new/choose
 [2]: https://support.discordapp.com/hc/en-us/articles/210298617-Markdown-Text-101-Chat-Formatting-Bold-Italic-Underline-
-[3]: https://gist.github.com/Levitanious/d3756fd1634c7be58c51add9466bbe2e
+[3]: https://github.com/cmangos/issues/wiki/CMake-to-Boost-Version-Compatibility-Table
 [4]: https://duckduckgo.com/?q=how+to+use+gdb&t=ffab&ia=web
