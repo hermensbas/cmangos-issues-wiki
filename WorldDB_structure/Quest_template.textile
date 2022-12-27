@@ -218,7 +218,9 @@ These values are 2^ID taken from "CharRaces.dbc":CharRaces.dbc
 |16|Undead|
 |32|Tauren|
 |64|Gnome|
+|77|Alliance Quest (Classic)|
 |128|Troll|
+|178|Horde Quest (Classic)|
 |256|Goblin|
 |512|Blood Elf|
 |690|Horde Quest (Until Cata)|
