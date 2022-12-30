@@ -248,7 +248,17 @@ Faction ID for reputation requirement. See "Faction.dbc":Faction.dbc
 
 h4. RequiredMinRepValue
 
-Players must have this reputation or higher in order to receive the quest. 
+Players must have this reputation or higher in order to receive the quest.
+
+|_. Value|_. Standing|
+|42000|Exalted|
+|21000|Revered|
+|9000|Honored|
+|3000|Friendly|
+|0|Neutral|
+|-3000|Unfriendly|
+|-6000|Hostile|
+|-42000|Hated|
 
 h4. RequiredMaxRepFaction
 
