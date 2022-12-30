@@ -30,9 +30,10 @@ To avoid conflicts between Expansions, please use:
 | Version:              | Range         |
 | ----------------------|---------------|
 | Generic All Expansions| 0- 999        |
-| Generic Vanilla       | 1000 - 9999   |
-| Generic TBC           | 10000 - 19999 |
-| Generic WotLK         | 20000+        |
+| Vanilla       | 1000 - 9999   |
+| TBC           | 10000 - 19999 |
+| WotLK         | 20000+        |
+| Generic All Expansions| 30000 - 30999 |
 | Specific Creature Entry Case|[`creature_template`.`entry`](creature_template#entry) * 100 + (1 – 99)|
 
 #### NpcFlags
