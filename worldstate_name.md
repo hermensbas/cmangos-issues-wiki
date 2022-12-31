@@ -17,7 +17,7 @@ Worldstate variable Id. Can be either official or custom defined in cMaNGOS. Off
 
 Official WorldStateID range from 1-10k (WoTLK ends at about 5k), Custom defined cMaNGOS WorldStateIDs start at 10k+.
 
-[`instance_dungeon_encounters`.`Id`](instance_dungeon_encounters#Id) is used for instanced Encounter WorldStateIDs * 100 + 2-99. 0 and 1 are always reserved by Core for "Alive" & "Killed".
+[`instance_dungeon_encounters`.`Id`](instance_dungeon_encounters#Id) is used for instanced Encounter WorldStateIDs. Some have filled out CompleteWorldStateID, which can be directly used for a condition. The ones without it filled out have instance_dungeon_encounters.Id * 100 + 2-99. 0 and 1 are always reserved by Core for "Alive" & "Killed".
 
 #### Name
 
