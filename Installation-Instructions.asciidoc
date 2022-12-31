@@ -471,6 +471,8 @@ Deprecation Notice:
 -------------------
 The following instructions about installing the database are deprecated as they have been automated in the ++./InstallFullDB.sh++ script. They will remain in the installation instructions for the purpose of troubleshooting.
 
+When you have downloaded the database repo for the respective server version you can run ++./InstallFullDB.sh++ at any point after having set up your MySQL server. The script will guide you through the process of creating everything and basically has a "do everything" button. Depending on how you set up your MySQL server you may have to run the script as root or with sudo ++sudo ./InstallFullDB.sh++. I recommend leaving all settings on default and letting it auto-detect the core path. If you want to increase the security of your CMaNGOS setup you can later manually change the password for the automatically created ++mangos++ user, which has the password ++mangos++ by default. If you have any problems with this step, please join the Discord and ask, or open an issue on GitHub.
+
 Please skip ahead to <<configuring_cmangos>>!
 
 Create empty databases
