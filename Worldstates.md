@@ -8,7 +8,7 @@ Clientside worldstates can be used for 3 main purposes:
 
 All of these are sent in two packets: SMSG_INIT_WORLD_STATES (entering world or map) and SMSG_UPDATE_WORLD_STATE
 
-cMaNGOS also uses serverside worldstates (which we suspect are also used officially) in a safe region of IDs 10000+. The reason being wotlk using range 4000-ish and not wanting to overlap. These are never sent to client.
+cMaNGOS also uses serverside worldstates (which we suspect are also used officially) in a safe region of IDs 10000+ for vanilla, 20000+ for tbc, 30000+ for wotlk. The reason being wotlk using range 4000-ish and not wanting to overlap. These are never sent to client.
 
 Such predefined serverside worldstates are for boss kills which are in the following format: instance_dungeon_encounters boss entry * 100 + (0 or 1)  
 + 0 variable is set to 1 when given boss dies. + 1 variable is set to 1 when given boss is alive. So variable 16500 would be 1 when boss Cookie dies and 16501 would be 1 when boss Cookie is alive.
