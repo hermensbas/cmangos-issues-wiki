@@ -4,6 +4,8 @@ Back to [world database](mangosdb_struct) list of tables.
 
 holds data on worldstate variables used for [`conditions`.`CONDITION_WORLDSTATE` (42)](https://github.com/cmangos/issues/wiki/conditions) or [`dbscripts`.`SCRIPT_COMMAND_SET_WORLDSTATE` (53)](https://github.com/cmangos/issues/wiki/DBScripts)
 
+More explanation on workings at [WorldStates](https://github.com/cmangos/issues/wiki/Worldstates)
+
 ### Structure
 
 | Field                                                | Type                  | Null | Key | Default | Extra |
