@@ -73,6 +73,12 @@ You will need Git, GCC, CMake, MySQL, Boost and a few libraries.
 
   sudo apt install build-essential gcc g++ automake git-core autoconf make patch libmysql++-dev mysql-server libtool libssl-dev grep binutils zlib1g-dev libbz2-dev cmake libboost-all-dev
 
+Default GCC 11 versions present in Ubuntu 22.04 (11.2 and 11.3) contain internal compiler bug, which prevents building CMaNGOS.
+While GCC 11.3 is known to work for some users, it is recommended to upgrade your default compiler version to GCC 12 to avoid potential problems:
+
+  sudo apt install gcc-12 g++12
+  sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 12 --slave /usr/bin/g++ g++ /usr/bin/g++-12
+
 ### Debian
 
   apt install grep build-essential gcc g++ automake git-core autoconf make patch cmake libmariadb-dev libmariadb-dev-compat mariadb-server libtool libssl-dev binutils zlibc libc6 libbz2-dev subversion libboost-all-dev
