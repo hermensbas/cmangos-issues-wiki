@@ -1,5 +1,7 @@
 # Welcome
 
+**⚠ This guide is partly outdated at the moment, the Map extraction section in particular. When in doubt refer to the [cross-platform installation guide](https://github.com/cmangos/issues/wiki/Installation-Instructions). ⚠**
+
 Welcome to the **C**ontinued **Ma**ssive **N**etwork **G**ame **O**bject **S**erver! :tada:
 
 This step-by-step guide is intended to help people to install a CMaNGOS World of Warcraft server on their Windows computer. If you need installation instructions for macOS or Linux, see the [More Information](#more-information) section. Information about updating an already installed server is provided in the [Updating](#updating) section of this file.
