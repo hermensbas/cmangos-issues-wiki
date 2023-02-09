@@ -233,11 +233,11 @@ This Field Is a Bitmask That Represents What NPC Flags The Creature Has Assigned
 |0x00000004|4|UNIT_NPC_FLAG_VENDOR|*TBC+ uses 128* - Any creature selling items needs to have this flag.|
 |0x00000008|8|UNIT_NPC_FLAG_FLIGHTMASTER|*TBC+ uses 8192* - Any creature serving as fly master has this.|
 |0x00000010|16|UNIT_NPC_FLAG_TRAINER|Allows the creature to have a trainer list to teach spells|
-|0x00000020|32|UNIT_NPC_FLAG_SPIRITHEALER|Makes the creature invisible to alive characters and has the resurrect function.|
-|0x00000040|64|UNIT_NPC_FLAG_SPIRITGUIDE||
+|0x00000020|32|UNIT_NPC_FLAG_SPIRITHEALER|*TBC+ uses 16384* - Makes the creature invisible to alive characters and has the resurrect function.|
+|0x00000040|64|UNIT_NPC_FLAG_SPIRITGUIDE|*TBC+ uses 32768*|
 |0x00000080|128|UNIT_NPC_FLAG_INNKEEPER|*TBC+ uses 65536* - Creatures with this flag can set hearthstone locations.|
 |0x00000100|256|UNIT_NPC_FLAG_BANKER|*TBC+ uses 131072* - Creatures with this flag can show the bank|
-|0x00000200|512|UNIT_NPC_FLAG_PETITIONER|*TBC+ uses 131072* - guild petitions|
+|0x00000200|512|UNIT_NPC_FLAG_PETITIONER|*TBC+ uses 262144* - guild petitions|
 |0x00000400|1024|UNIT_NPC_FLAG_TABARDDESIGNER|*TBC+ uses 524288* - Allows the designing of guild tabards.|
 |0x00000800|2048|UNIT_NPC_FLAG_BATTLEMASTER|*TBC+ uses 1048576* - Creatures with this flag port players to battlegrounds.|
 |0x00001000|4096|UNIT_NPC_FLAG_AUCTIONEER|*TBC+ uses 2097152* - Allows creature to display auction list.|
