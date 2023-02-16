@@ -38,7 +38,7 @@ The 11 tables have different relations with other DB tables.
 |milling_loot_template|"entry":Loot_template#entry|many &lt;- one|"item_template":Item_template|"entry":Item_template#entry||
 |pickpocketing_loot_template|"entry":Loot_template#entry|many &lt;- many|"creature_template":Creature_template|"pickpocketloot":Creature_template#pickpocketloot||
 |skinning_loot_template|"entry":Loot_template#entry|many &lt;- many|"creature_template":Creature_template|"skinloot":Creature_template#skinloot|Can also store minable/herbable items gathered from creatures|
-|quest_mail_loot_template|"entry":Loot_template#entry||"quest_template":Quest_template|"RewMailTemplateId":Quest_template#rewmailtemplateid||
+|mail_loot_template|"entry":Loot_template#entry||"quest_template":Quest_template|"RewMailTemplateId":Quest_template#rewmailtemplateid||
 |reference_loot_template|"entry":Loot_template#entry|many &lt;- many|* _loot_template|"-mincountOrRef":Loot_template#mincountorref|In case of negative mincountOrRef|
 
 
