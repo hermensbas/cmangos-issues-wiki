@@ -27,12 +27,11 @@ NOTE:
 
 | Field                                                | Type                  | Null | Key | Default | Extra |
 | ---------------------------------------------------- | --------------------- | ---- | --- | ------- | ----- |
-| [entry/guid](creature_template_addon#entry/guid)     | mediumint(8) / int(10) unsigned | NO   | PRI | 0       ||
+| [entry/guid](creature_template_addon#entry/guid)     | int(10 - guid) / mediumint(8 - entry) unsigned | NO   | PRI | 0       ||
 | [mount](creature_template_addon#mount)               | mediumint(8) unsigned | NO   |     | 0       ||
-| [bytes1](creature_template_addon#bytes1)             | int(10) unsigned      | NO   |     | 0       ||
-| [b2_0_sheath](creature_template_addon#b2_0_sheath)   | tinyint(3) unsigned   | NO   |     | 0       ||
-| [b2_1_flags](creature_template_addon#b2_1_flags)     | tinyint(3) unsigned   | NO   |     | 0       |Dont use if possible|
-| [emote](creature_template_addon#emote)               | mediumint(8) / int(10) unsigned | NO   |     | 0       ||
+| [stand_state](creature_template_addon#stand_state)   | tinyint(3) unsigned      | NO   |     | 0       ||
+| [sheath_state](creature_template_addon#sheath_state) | tinyint(3) unsigned   | NO   |     | 0       ||
+| [emote](creature_template_addon#emote)               | int(10 - guid) / mediumint(8 - entry) unsigned | NO   |     | 0       ||
 | [moveflags](creature_template_addon#moveflags)       | int(10) unsigned      | NO   |     | 0       |Dont use if possible|
 | [auras](creature_template_addon#auras)               | text                  | YES  |     | NULL ||
 
@@ -49,18 +48,9 @@ mounted. The value here overrides the value for the creature’s unit
 field UNIT_FIELD_MOUNTDISPLAYID. List of known values and what their
 visual effects on the creature
 
-### enum UnitBytes1Offsets
+#### stand_state
 
-```
-    UNIT_BYTES_1_OFFSET_STAND_STATE     = 0,
-    UNIT_BYTES_1_OFFSET_PET_LOYALTY     = 1,
-    UNIT_BYTES_1_OFFSET_VIS_FLAGS       = 2,
-    UNIT_BYTES_1_OFFSET_MISC_FLAGS      = 3,
-```
-
-#### bytes1
-
-(UNIT_BYTES_1_OFFSET_STAND_STATE) - enum UnitStandStateType
+(UNIT_FIELD_BYTES_1, UNIT_BYTES_1_OFFSET_STAND_STATE) - enum UnitStandStateType
 
 | Bit | Name                              | Comment                                                             |
 | --- | ----------------------------------| ------------------------------------------------------------------- |
@@ -75,53 +65,15 @@ visual effects on the creature
 | 8   | UNIT_STAND_STATE_KNEEL            | kneel                                                               |
 | 9   | UNIT_STAND_STATE_CUSTOM           | Depends on model animation. Submerge, freeze, hide, hibernate, rest |
 
-#### bytes1_flags
+#### sheath_state
 
-(UNIT_FIELD_BYTES_1,3) used instead of bytes1 in some cases.
-
-|Bitmask / Value|Name|Comment|
-| -------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0x01     | UNIT_BYTE1_FLAG_ALWAYS_STAND     | always stand state                                                                                                                            |
-| 0x02     | UNIT_BYTE1_FLAG_FLY_ANIM         | Creature that can fly and are not on the ground appear to have this flag. If they are on the ground, flag is not present.                     |
-| 0x04     | UNIT_BYTE1_FLAG_UNTRACKABLE      | untrackable                                                                                                                                   |
-| 0x08     | ? | ? |
-|0x200|?|related to player controlled pet LoyaltyLevel?|
-|0x400|?|related to player controlled pet LoyaltyLevel?|
-|1536|?|related to player controlled pet LoyaltyLevel?|
-|65536|?| Linked to Defensive Stance? (not actively added flag?) StandFlags|
-|131072|?| no name & health bar visible with plate mode on (name only when targeted) Linked to Stealth? Linked to DeathState? (not actively added flag?) StandFlags|
-|1048576|?| Linked to Defensive Stance? (not actively added flag?) StandMiscFlags|
-|1114112|?| Linked to Battle Stance (not actively added flag?) StandMiscFlags|
-|33554432|?| Linked to Stealth? (not actively added flag?) StandMiscFlags|
-|0xFF| UNIT\_BYTE1\_FLAG\_ALL|all|
-
-### enum UnitBytes2Offsets
-
-```
-    UNIT_BYTES_2_OFFSET_SHEATH_STATE = 0,
-    UNIT_BYTES_2_OFFSET_DEBUFF_LIMIT = 1,
-    UNIT_BYTES_2_OFFSET_PET_FLAGS    = 2,
-    UNIT_BYTES_2_OFFSET_SHAPESHIFT   = 3,
-```
-
-#### b2\_0\_sheath
-
-(UNIT\_FIELD\_BYTES\_2,0)
+(UNIT_FIELD_BYTES_2, UNIT_BYTES_2_OFFSET_SHEATH_STATE) - enum SheathState
 
 | Bit | Name                   | Comment                     |
 | --- | ---------------------- | --------------------------- |
-| 0   | SHEATH\_STATE\_UNARMED | all weapons sheathed        |
-| 1   | SHEATH\_STATE\_MELEE   | melee weapon(s) unsheathed  |
-| 2   | SHEATH\_STATE\_RANGED  | ranged weapon(s) unsheathed |
-
-#### b2\_1\_flags
-
-(UNIT\_FIELD\_BYTES\_2,1)
-
-| Bit | Name                                           | Comment |
-| --- | ---------------------------------------------- | ------- |
-| 16  | UNIT\_BYTE2\_CREATURE\_DEBUFF\_LIMIT           | ?       |
-| 40  | UNIT\_BYTE2\_PLAYER\_CONTROLLED\_DEBUFF\_LIMIT | Player Pet, Player controlled, no default spawn       |
+| 0   | SHEATH_STATE_UNARMED | all weapons sheathed        |
+| 1   | SHEATH_STATE_MELEE   | melee weapon(s) unsheathed  |
+| 2   | SHEATH_STATE_RANGED  | ranged weapon(s) unsheathed |
 
 #### emote
 
