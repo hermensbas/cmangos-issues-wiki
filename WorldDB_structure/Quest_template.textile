@@ -98,16 +98,8 @@ h3. Structure
 |"RewItemCount2":Quest_template#rewitemcount|smallint(5) unsigned|NO||0||
 |"RewItemCount3":Quest_template#rewitemcount|smallint(5) unsigned|NO||0||
 |"RewItemCount4":Quest_template#rewitemcount|smallint(5) unsigned|NO||0||
-|"RewRepFaction1":Quest_template#rewrepfaction|smallint(5)|NO||0||
-|"RewRepFaction2":Quest_template#rewrepfaction|smallint(5)|NO||0||
-|"RewRepFaction3":Quest_template#rewrepfaction|smallint(5)|NO||0||
-|"RewRepFaction4":Quest_template#rewrepfaction|smallint(5)|NO||0||
-|"RewRepFaction5":Quest_template#rewrepfaction|smallint(5)|NO||0||
-|"RewRepValue1":Quest_template#rewrepvalue|mediumint(9)|NO||0||
-|"RewRepValue2":Quest_template#rewrepvalue|mediumint(9)|NO||0||
-|"RewRepValue3":Quest_template#rewrepvalue|mediumint(9)|NO||0||
-|"RewRepValue4":Quest_template#rewrepvalue|mediumint(9)|NO||0||
-|"RewRepValue5":Quest_template#rewrepvalue|mediumint(9)|NO||0||
+|"RewRepFaction1-5":Quest_template#rewrepfaction|smallint(5)|NO||0||
+|"RewRepValue1-5 / RewRepValueId1-5":Quest_template#rewrepvalue|mediumint(9)|NO||0||
 |"RewHonorableKills":Quest_template#rewhonorablekills|int(11)|NO||0||
 |"RewOrReqMoney":Quest_template#reworreqmoney|int(11)|NO||0||
 |"RewMoneyMaxLevel":Quest_template#rewmoneymaxlevel|int(10) unsigned|NO||0||
@@ -454,11 +446,27 @@ Number of RewItem
 
 item Id given for reward (no choice).
 
-h4. RewRepFaction, RewRepValue
+h4. RewRepFaction
 
 Faction Id (from "Faction.dbc":Faction.dbc) for which the quest give reputation points.
 
+h4. RewRepValue, 
+
 Number of gain or lost reputation points for Faction at quest completion. This is special reputation rewarding. Normal reputation reward to quest rewarding creature faction calculated and added automatically.
+
+In wotlk RewRepValueId points towards QuestFactionReward.dbc
+
+|Value|Reputation|
+|0|0|
+|+-1|10 / -10|
+|+-2|25 / -25|
+|+-3|75 / -75|
+|+-4|150 / -150|
+|+-5|250 / -250|
+|+-6|350 / -350|
+|+-7|500 / -500|
+|+-8|1000 / -1000|
+|+-9|5 / -5|
 
 h4. RewHonorableKills
 
