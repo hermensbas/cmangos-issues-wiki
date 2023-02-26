@@ -14,7 +14,7 @@ Linked to [creature_spawn_data.Id](creature_spawn_data)
 | [UnitFlags](creature_spawn_data_template#UnitFlags)     | bigint(20)            | NO   | PRI | -1      |       |
 | [Faction](creature_spawn_data_template#Faction)         | int(10) unsigned      | NO   |     | 0       |       |
 | [ModelId](creature_spawn_data_template#ModelId)         | mediumint(8) unsigned | NO   | PRI | 0       |       |
-| [EquipmentId](creature_spawn_data_template#EquipmentId) | int(10) unsigned      | NO   | PRI | 0       |       |
+| [EquipmentId](creature_spawn_data_template#EquipmentId) | int(10) unsigned      | NO   | PRI | -1      |       |
 | [CurHealth](creature_spawn_data_template#CurHealth)     | int(10) unsigned      | NO   | PRI | 0       |       |
 | [CurMana](creature_spawn_data_template#CurMana)         | int(10) unsigned      | NO   | PRI | 0       |       |
 | [SpawnFlags](creature_spawn_data_template#SpawnFlags)   | int(10) unsigned      | NO   | PRI | 0       |       |
@@ -60,7 +60,7 @@ New value that will be applied to creature. Ref: [Creature_Model_Info.Entry](Cre
 #### EquipmentId
 
 New value that will be applied to creature. Ref: [creature_equip_template.entry](creature_equip_template#entry)
-`0` - will leave creatures default value
+`-1` - will leave creatures default value, 0 sets no equipment.
 
 #### CurHealth
 
