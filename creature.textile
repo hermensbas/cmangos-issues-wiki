@@ -11,9 +11,7 @@ h3. Structure
 |"id":creature#id|mediumint(8) unsigned|NO|MUL|0||
 |"map":creature#map|smallint(5) unsigned|NO|MUL|0||
 |"spawnMask":creature#spawnmask|tinyint(3) unsigned|NO||1||
-|"phaseMask":creature#phasemask|smallint(5) unsigned|NO||1|(WotLK)|
-|"modelid":creature#modelid|mediumint(8) unsigned|YES||0|Dont use if possible|
-|"equipment_id":creature#equipment_id|mediumint(9)|NO||0|Dont use if possible|
+|"phaseMask":creature#phasemask|smallint(5) unsigned|NO||1|(WotLK+)|
 |"position_x":creature#position_x|float|NO||0||
 |"position_y":creature#position_y|float|NO||0||
 |"position_z":creature#position_z|float|NO||0||
@@ -21,10 +19,6 @@ h3. Structure
 |"spawntimesecsmin":creature#spawntimesecsmin|int(10) unsigned|NO||120||
 |"spawntimesecsmax":creature#spawntimesecsmax|int(10) unsigned|NO||120||
 |"spawndist":creature#spawndist|float|NO||5||
-|"currentwaypoint":creature#currentwaypoint|mediumint(8) unsigned|NO||0||
-|"curhealth":creature#curhealth|int(10) unsigned|NO||1|Deprecated Dont Use|
-|"curmana":creature#curmana|int(10) unsigned|NO||0|Deprecated Dont Use|
-|"DeathState":creature#deathstate|tinyint(3) unsigned|NO||0|Deprecated Dont Use|
 |"MovementType":creature#movementtype|tinyint(3) unsigned|NO||0||
 
 h3. Description of the fields
@@ -57,14 +51,6 @@ h4. phaseMask
 
 Defines which phase the creature belongs. 1 is default phase, rest are from spell's aura 261, (Aura #261) (4) = phasemask = 4.
 
-h4. modelid
-
-The model ID associated with this creature. Note that two creatures that use the same template can have different models. See "creature_model_info":creature_model_info for more information on model-specific characteristics. DEPRECATED: Use creature_spawn_data_template paradigm instead.
-
-h4. equipment_id
-
-The ID of the equipment that the creature is using. See "creature_equip_template.entry":creature_equip_template#entry DEPRECATED: Use creature_spawn_data_template paradigm instead.
-
 h4. position_x
 
 The X position of the creature.
@@ -96,26 +82,8 @@ h4. spawndist
 The maximum distance that the creature should spawn from its spawn point. Also controls how far away the creature can walk from its spawn point if its "MovementType":creature#MovementType = 1.
 
 |_. Value|_. Comment|
-|1|Orientation change only|
-|2|Lowest random movement value|
+|-1|Orientation change only - not implemented currently|
 |5|Default random movement value|
-
-h4. currentwaypoint
-
-The current waypoint number that the creature is on, if any. See "creature_movement.point":creature_movement#point
-
-h4. curhealth
-
-The current health that the creature has. For CLS enabled NPCs value of 1 should be used unless NPC has lower-than-max HP out of combat. DEPRECATED: Use creature_spawn_data_template paradigm instead.
-
-h4. curmana
-
-The current mana that the creature has. Some NPCs start with 0 mana, needs to be combined with removing REGEN_FLAG_POWER from creature_template. DEPRECATED: Use creature_spawn_data_template paradigm instead.
-
-h4. DeathState
-
-The creature's death state. DEPRECATED: Official way uses fake death spells like 29266 instead.
-A boolean, 0 = Alive, 1 = Corpse lying dead around (no gossip possible when dead, if you need corpse-gossip use dynamicflags|32)
 
 h4. MovementType
 
@@ -123,7 +91,7 @@ See "creature_template.MovementType":creature_template#MovementType for possible
 
 creature_movement and creature_movement_template need to have MovementType set to 2,3,4 for a guid.
 
-waypoint_path need to have MovementType set to 0 for all creatures of that spawn_group.
+spawn_group / waypoint_path spawns should use 0 for all creatures of that spawn_group.
 
 |_. Value|_. Name|_. Comment|
 |0|IDLE_MOTION_TYPE|No Movement - IdleMovementGenerator|
@@ -131,3 +99,4 @@ waypoint_path need to have MovementType set to 0 for all creatures of that spawn
 |2|WAYPOINT_MOTION_TYPE|123.123 - WaypointMovementGenerator|
 |3|PATH_MOTION_TYPE|123.123 - Spline Movement, All Waypoints are send in creature update packet (e.g flight paths) - PathMovementGenerator|
 |4|LINEAR_WP_MOTION_TYPE|123.21.23.21.23.21 - WaypointMovementGenerator|
+
