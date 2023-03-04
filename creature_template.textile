@@ -394,7 +394,7 @@ This Field Controls the Application Of Flags That Controls Certain NPC Specific 
 |32|0x00000020|CREATURE_EXTRA_FLAG_NO_CRUSH|creature can't do crush attacks|
 |64|0x00000040|CREATURE_EXTRA_FLAG_NO_XP_AT_KILL|creature kill not provide XP|
 |128|0x00000080|CREATURE_EXTRA_FLAG_INVISIBLE|creature is always invisible for player (mostly trigger creatures)|
-|256|0x00000100|CREATURE_EXTRA_FLAG_REUSE||
+|256|0x00000100|CREATURE_EXTRA_FLAG_NO_WOUNDED_SLOWDOWN|creature does not slow down on low hp in combat|
 |512|0x00000200|CREATURE_EXTRA_FLAG_AGGRO_ZONE|creature sets itself in combat with zone on aggro|
 |1024|0x00000400|CREATURE_EXTRA_FLAG_GUARD|creature is a guard|
 |2048|0x00000800|CREATURE_EXTRA_FLAG_NO_CALL_ASSIST|creature shouldn't call for assistance on aggro|
