@@ -5,7 +5,7 @@
 The short answer is **"probably not much"** but it is nearly impossible to tell for sure without someone combing through the code of each platform to compare.  All have the same general goal and at one point in time shared a code base. Over the years different design decisions have resulted in systems that function similarly but are probably implemented in different ways.  
 
 ### Yeah, but what does that mean for me?
-Cmangos seems to have the most active public platform, which means we are frequently working on fixing bugs or features. The Devs are very responsive, if you give them the [Needed Information](https://github.com/cmangos/issues/wiki/On-Help-and-All-Things-Support) and have done at least some of your own homework. Like reading the FAQ, searching through Discord chat or the forums for your issue. Chances are the question has been answered before.
+Cmangos seems to have the most active public platform, which means we are frequently working on fixing bugs or features. The Devs are very responsive, if you give them the [Needed Information](https://github.com/cmangos/issues/wiki/On-Help-and-All-Things-Support) and have done at least some of your own homework. Like reading the FAQ or searching through Discord chat. Chances are the question has been answered before.
 
 ### But which is best?
 As for content completeness, again it is impossible to say which is best. We'd like to think we have more stuff done as we seem to be more active than other platforms but there is no way to know and we are probably bias.
@@ -15,7 +15,6 @@ As for content completeness, again it is impossible to say which is best. We'd l
 * In general, read the log file and see if you can work out the problem from there on your own; if you can't, seek out help on:
   * Discord: https://discord.gg/Dgzerzb
   * IRC ([#cmangos](irc://irc.rizon.net/#cmangos))
-  * the [cmangos.net forums](https://forum.cmangos.net/)
 * Every application generates a log file somewhere that can be opened and reviewed.
   * For compile problems: Look into the log, on *nix you can create a log with `make > compile.log 2>&1`
   * For problems with the server: Look for the file, *Server.log*, in your server's home directory.
