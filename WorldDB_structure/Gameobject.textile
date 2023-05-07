@@ -22,9 +22,6 @@ h3. Structure
 |"rotation2":Gameobject#rotation2|float|NO||0||
 |"rotation3":Gameobject#rotation3|float|NO||0||
 |"spawntimesecs":Gameobject#spawntimesecs|int(10) unsigned|NO||0||
-|"animprogress":Gameobject#animprogress|int(10) unsigned|NO||0||
-|"state":Gameobject#state|int(10) unsigned|NO||1||
-
 
 h3. Description of the fields
 
@@ -95,13 +92,3 @@ Time in seconds for this object to respawn.
 
 Using a negative value will result in the object starting out by being &quot;despawned&quot; until a script will spawn it. It will then despawn after the amount of time specified here has passed.
 
-h4. animprogress
-
-Not really known what this is used for at this time. However, always set it to 100 for chests.
-
-h4. state
-
-Only for chests.
-
-* 1 = closed
-* 0 = open
