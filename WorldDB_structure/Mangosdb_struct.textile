@@ -74,7 +74,7 @@ h3. This is the list of tables in the regular 'mangos' database
 |"game_tele":https://github.com/cmangos/issues/wiki/game_tele|contains a list of teleport locations that can be used with the .tele command in-game.|
 |"game_weather":https://github.com/cmangos/issues/wiki/game_weather|holds the percentages for weather changes in various zones.|
 |"gameobject":https://github.com/cmangos/issues/wiki/gameobject|holds the individual object data on each spawned game object in the world.|
-|"gameobject_addon":https://github.com/cmangos/issues/wiki/gameobject_addon (WotLK)|path rotation|
+|"gameobject_addon":https://github.com/cmangos/issues/wiki/gameobject_addon|Nondefault animprogress, state, path_rotation|
 |"gameobject_battleground":https://github.com/cmangos/issues/wiki/gameobject_battleground|contains the events of gameobjects which are spawned on battlegrounds.|
 |"gameobject_involvedrelation":https://github.com/cmangos/issues/wiki/gameobject_involvedrelation (Reloadable)|holds game object quest taker relations.|
 |"gameobject_loot_template":https://github.com/cmangos/issues/wiki/gameobject_loot_template (Reloadable)|Gameobject loot|
