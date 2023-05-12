@@ -330,32 +330,83 @@ The quality of the item:
 
 h4. Flags
 
+enum ItemPrototypeFlags
+
 Bitmask field that contains flags that the item has on it. As all other such fields, just add the flags together to combine them. Possible flags are listed below.
 
-|_. Flag|_. Comments|
-|1|Soulbound|
-|2|Conjured|
-|4|Lootable (can be opened by right-click)|
-|8|Wrapped|
-|32|Totem|
-|64|Activatable with right-click|
-|256|Wrapper|
-|1024|Gifts|
-|2048|Item is party loot and can be looted by all|
-|8192|Charter (Arena or Guild)|
-|32768|PvP reward item|
-|524288|Unique equipped (player can only have one equipped at the same time)|
-|4194304|Throwable (for tooltip ingame)|
-|8388608|Special Use|
+|_. Flag|_. Name|_. Comments|
+|1|ITEM_FLAG_NO_PICKUP|Soulbound|
+|2|ITEM_FLAG_CONJURED|Conjured|
+|4|ITEM_FLAG_HAS_LOOT|Lootable (can be opened by right-click)|
+|8|ITEM_FLAG_HEROIC_TOOLTIP|heroic item version|
+|16|ITEM_FLAG_DEPRECATED|can't repeat old note: appears red icon (like when item durability==0)|
+|32|ITEM_FLAG_NO_USER_DESTROY|used for totem. Item can not be destroyed, except by using spell (item can be reagent for spell and then allowed)|
+|64|ITEM_FLAG_PLAYERCAST|Activatable with right-click|
+|128|ITEM_FLAG_NO_EQUIPCOOLDOWN||
+|256|ITEM_FLAG_MULTILOOTQUEST|saw this on item 47115, 49295...|
+|512|ITEM_FLAG_IS_WRAPPER|used or not used wrapper|
+|1024|ITEM_FLAG_USES_RESOURCES|ignore bag space at new item creation?|
+|2048|ITEM_FLAG_MULTI_DROP|Item is party loot and can be looted by all|
+|4096|ITEM_FLAG_ITEMPURCHASE_RECORD|item cost can be refunded within 2 hours after purchase|
+|8192|ITEM_FLAG_PETITION|Charter (Arena or Guild)|
+|16384|ITEM_FLAG_HAS_TEXT||
+|32768|ITEM_FLAG_NO_DISENCHANT|a lot of items have this (PvP reward item)|
+|65536|ITEM_FLAG_REAL_DURATION|a lot of items have this|
+|131072|ITEM_FLAG_NO_CREATOR||
+|262144|ITEM_FLAG_IS_PROSPECTABLE|item can have prospecting loot (in fact some items expected have empty loot)|
+|524288|ITEM_FLAG_UNIQUE_EQUIPPABLE|Unique equipped (player can only have one equipped at the same time)|
+|1048576|ITEM_FLAG_IGNORE_FOR_AURAS||
+|2097152|ITEM_FLAG_IGNORE_DEFAULT_ARENA_RESTRICTIONS||
+|4194304|ITEM_FLAG_NO_DURABILITY_LOSS|Throwable (for tooltip ingame) Only items of ITEM_SUBCLASS_WEAPON_THROWN have it but not all, so can't be used as in game check|
+|8388608|ITEM_FLAG_USE_WHEN_SHAPESHIFTED|Special Use last used flag in 2.3.0|
+|16777216|ITEM_FLAG_HAS_QUEST_GLOW||
+|33554432|ITEM_FLAG_HIDE_UNUSABLE_RECIPE||
+|67108864|ITEM_FLAG_NOT_USABLE_IN_ARENA||
+|134217728|ITEM_FLAG_IS_BOUND_TO_ACCOUNT|bind on account (set in template for items that can binded in like way)|
+|268435456|ITEM_FLAG_NO_REAGENT_COST|for enchant scrolls|
+|536870912|ITEM_FLAG_IS_MILLABLE|item can have milling loot|
+|1073741824|ITEM_FLAG_REPORT_TO_GUILD_CHAT||
+|-2147483648|ITEM_FLAG_NO_PROGRESSIVE_LOOT|bound item that can be traded|
 
 h4. Flags2
 
 Wotlk 3.2+
 
-|1|Faction horde|
-|2|Faction alliance|
-|4|Dont ignore buy price|
-|256|Can only roll greed|
+enum ItemPrototypeFlags2
+
+|_. Flag|_. Name|_. Comments|
+|1|ITEM_FLAG2_FACTION_HORDE|drop in loot, sell by vendor and equipping only for horde|
+|2|ITEM_FLAG2_FACTION_ALLIANCE|drop in loot, sell by vendor and equipping only for alliance|
+|4|ITEM_FLAG2_DONT_IGNORE_BUY_PRICE|item cost include gold part in case extended cost use also - Dont ignore buy price|
+|8|ITEM_FLAG2_CLASSIFY_AS_CASTER||
+|16|ITEM_FLAG2_CLASSIFY_AS_PHYSICAL||
+|32|ITEM_FLAG2_EVERYONE_CAN_ROLL_NEED||
+|64|ITEM_FLAG2_NO_TRADE_BIND_ON_ACQUIRE||
+|128|ITEM_FLAG2_CAN_TRADE_BIND_ON_ACQUIRE||
+|256|ITEM_FLAG2_CAN_ONLY_ROLL_GREED|need roll during looting is not allowed for this item - Can only roll greed|
+|512|ITEM_FLAG2_CASTER_WEAPON|uses caster specific dbc file for DPS calculations|
+|1024|ITEM_FLAG2_DELETE_ON_LOGIN||
+|2048|ITEM_FLAG2_INTERNAL_ITEM||
+|4096|ITEM_FLAG2_NO_VENDOR_VALUE||
+|8192|ITEM_FLAG2_SHOW_BEFORE_DISCOVERED||
+|16384|ITEM_FLAG2_OVERRIDE_GOLD_COST||
+|32768|ITEM_FLAG2_IGNORE_DEFAULT_RATED_BG_RESTRICTIONS||
+|65536|ITEM_FLAG2_NOT_USABLE_IN_RATED_BG||
+|131072|ITEM_FLAG2_BNET_ACCOUNT_TRADE_OK||
+|262144|ITEM_FLAG2_CONFIRM_BEFORE_USE||
+|524288|ITEM_FLAG2_REEVALUATE_BONDING_ON_TRANSFORM||
+|1048576|ITEM_FLAG2_NO_TRANSFORM_ON_CHARGE_DEPLETION||
+|2097152|ITEM_FLAG2_NO_ALTER_ITEM_VISUAL||
+|4194304|ITEM_FLAG2_NO_SOURCE_FOR_ITEM_VISUAL||
+|8388608|ITEM_FLAG2_IGNORE_QUALITY_FOR_ITEM_VISUAL_SOURCE||
+|16777216|ITEM_FLAG2_NO_DURABILITY||
+|33554432|ITEM_FLAG2_ROLE_TANK||
+|67108864|ITEM_FLAG2_ROLE_HEALER||
+|134217728|ITEM_FLAG2_ROLE_DAMAGE||
+|268435456|ITEM_FLAG2_CAN_DROP_IN_CHALLENGE_MODE||
+|536870912|ITEM_FLAG2_NEVER_STACK_IN_LOOT_UI||
+|1073741824|ITEM_FLAG2_DISENCHANT_TO_LOOT_TABLE||
+|-2147483648|ITEM_FLAG2_USED_IN_A_TRADESKILL||
 
 h4. BuyCount
 
