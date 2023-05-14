@@ -19,6 +19,8 @@ Linked to [creature_spawn_data.Id](creature_spawn_data)
 | [CurMana](creature_spawn_data_template#CurMana)         | int(10) unsigned      | NO   | PRI | 0       |       |
 | [SpawnFlags](creature_spawn_data_template#SpawnFlags)   | int(10) unsigned      | NO   | PRI | 0       |       |
 | [RelayId](creature_spawn_data_template#RelayId)         | int(10) unsigned      | NO   |     | 0       | dbscripts_on_relay |
+| [StringId](string_id#id)         | int(10) unsigned      | NO   |     | 0       | dbscripts_on_relay |
+| [Name](creature_spawn_data_template#Name)         | varchar(200)      | NO   |     | 0       |  |
 
 ### Description of the fields
 
