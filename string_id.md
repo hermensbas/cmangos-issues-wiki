@@ -19,7 +19,7 @@ Numeric identifier of string_id variable
 
 Found in:
 
-[creature_spawn_data_template][creature_spawn_data_template:stringid)  
+[creature_spawn_data_template](creature_spawn_data_template:stringid)  
 [gameobject_addon](gameobject_addon:stringid)  
 [spawn_group](spawn_group:stringid)  
 [creature_template](creature_template:stringid1)  
