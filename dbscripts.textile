@@ -237,6 +237,7 @@ The following commands can be used (enum ScriptCommand):
 |52|SCRIPT_COMMAND_SET_GOSSIP_MENU|Change default gossip menu id of a creature.|
 |53|SCRIPT_COMMAND_SET_WORLDSTATE|Change worldstate variable to specific value.|
 |54|SCRIPT_COMMAND_SET_SHEATHE|Change (sheatheState) (b2_0_sheath, UNIT_FIELD_BYTES_2,0) for a creature|
+|55|SCRIPT_COMMAND_SET_STRING_ID|Sets or unsets string_id for a world object|
 
 h4. buddy_entry
 
@@ -679,6 +680,11 @@ h4. CurrentSpellTypes
 * *SCRIPT_COMMAND_SET_SHEATHE= 54*
 ** Change (sheatheState) for a creature
 ** datalong = enum SheathState
+
+* *SCRIPT_COMMAND_SET_STRING_ID = 55*
+** Sets or removes "string_id#id":https://github.com/cmangos/issues/wiki/string_id for a WorldObject
+** datalong = string_id Id
+** datalong2 = apply - 0 remove, 1 add
 
 |Bit| Name             | Comment                   |
 |0|SHEATH_STATE_UNARMED|all weapons sheathed       |
