@@ -6,7 +6,7 @@ This table contains id and string connection between string_id variables
 
 h3. Structure
 
-
-|Field|Type|Attributes|Can be null|Default|Comments|
-|"Id"|mediumint(8)|signed|NO|None||
-|"Name"|tintint(3)|unsigned|NO|0||
+| Field                           | Type             | NULL | Key     | Default | Comments                    |
+| ------------------------------- | ---------------- | ---- | ------- | ------- | --------------------------- |
+| [id]     | int(11) unsigned | NO   | PRIMARY | 0       | Identifier, auto\_increment |
+| [name]   | varchar(255) | YES  |         |         |                             |
