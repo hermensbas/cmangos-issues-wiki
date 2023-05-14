@@ -59,7 +59,7 @@ Flags - enum SpawnGroupFlags // flags that are common between both creature and 
     SPAWN_GROUP_DESPAWN_ON_COND_FAIL = 0x08,
 ```
 
-StringId - [string_id](string_id#id)  
+StringId - [string_id](string_id#id) - will be set to all spawns of spawn_group
 
 ---
 ## spawn_group_spawn
