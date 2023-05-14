@@ -25,6 +25,7 @@ Found in:
 [creature_template](creature_template#stringid1)  
 [creature_template](creature_template#stringid2)  
 [gameobject_template](gameobject_template#stringid)  
+[dbscripts - SCRIPT_COMMAND_SET_STRING_ID](https://github.com/cmangos/issues/wiki/dbscripts)  
 
 #### Name
 
