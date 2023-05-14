@@ -107,6 +107,8 @@ h3. Structure
 |"VisibilityDistanceType":creature_template#visibilityDistanceType|tinyint(4)|YES||0||
 |"CorpseDecay":creature_template#CorpseDecay|int(10) unsigned|NO||0||
 |"SpellList":creature_template#SpellList|int(11)|NO||0|"creature_spell_list":https://github.com/cmangos/issues/wiki/creature_spell_list|
+|"StringId1":creature_template#StringId1|int(11) unsigned|NO||||
+|"StringId2":creature_template#StringId2|int(11) unsigned|NO||||
 |"AIName":creature_template#ainame|char(64)|NO||||
 |"ScriptName":creature_template#scriptname|char(64)|NO||||
 
@@ -997,6 +999,14 @@ Time before corpse despawns in seconds.
 h4. SpellList
 
 "creature_spell_list":https://github.com/cmangos/issues/wiki/creature_spell_list
+
+h4. StringId1
+
+Sets StringId to all creature spawns with entry
+
+h4. StringId2
+
+Sets StringId to all creature spawns with entry
 
 h4. AIName
 
