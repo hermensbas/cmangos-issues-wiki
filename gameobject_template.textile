@@ -44,6 +44,7 @@ h3. Structure
 |"CustomData1":gameobject_template#CustomData1|int(11) unsigned|NO||0||
 |"mingold":gameobject_template#mingold|mediumint(8) unsigned|NO||0||
 |"maxgold":gameobject_template#maxgold|mediumint(8) unsigned|NO||0||
+|"StringId":gameobject_template#StringId|int(11) unsigned|NO||0||
 |"ScriptName":gameobject_template#scriptname|char(100)|NO||||
 
 h3. Description of the fields
