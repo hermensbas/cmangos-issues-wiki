@@ -19,12 +19,12 @@ Numeric identifier of string_id variable
 
 Found in:
 
-[creature_spawn_data_template](creature_spawn_data_template#stringid)  
-[gameobject_addon](gameobject_addon#stringid)  
-[spawn_group](spawn_group#stringid)  
 [creature_template](creature_template#stringid1)  
 [creature_template](creature_template#stringid2)  
+[creature_spawn_data_template](creature_spawn_data_template#stringid)  
 [gameobject_template](gameobject_template#stringid)  
+[gameobject_addon](gameobject_addon#stringid)  
+[spawn_group](spawn_group#stringid)  
 [dbscripts - SCRIPT_COMMAND_SET_STRING_ID](https://github.com/cmangos/issues/wiki/dbscripts)  
 
 #### Name
