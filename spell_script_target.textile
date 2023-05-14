@@ -39,12 +39,13 @@ NOTE: The only valide targets for ImpliciteTargetA-B == 7 are creatures(dead or 
 
 h4. type
 
-|ID|Type|
-|0|Gameobject|
-|1|Creature by Entry|
-|2|Creature which must be dead (killed by Player or Npc)|
-|3|Creature by Guid|
-|4|Gameobject by Guid|
+|ID|Type|Comment|
+|0|Gameobject||
+|1|Creature by Entry||
+|2|Creature which must be dead (killed by Player or Npc)||
+|3|Creature by Guid|OBSOLETE - use StringId instead|
+|4|Gameobject by Guid|OBSOLETE - use StringId instead|
+|5|WorldObject by StringId||
 
 Supply through Guid now utilizes Map wide fetching when range of spell is 50000yd. This can be used for many map wide scripts, but remember the target still has to be loaded in grid.
 
