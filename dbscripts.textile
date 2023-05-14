@@ -247,6 +247,8 @@ This means that if an entry for buddy_entry is provided, aside from source and t
 
 Which one on the three (originalSource, originalTarget, buddy) will be used in the "command":dbscripts#command, depends on the "data_flags":dbscripts#data_flags (enum ScriptInfoDataFlags) Note that some commands (like EMOTE) use only the resulting source for an action.
 
+When SCRIPT_FLAG_BUDDY_BY_STRING_ID is used - buddy_entry is "StringId":https://github.com/cmangos/issues/wiki/string_id#id - supercedes pool, spawn group, entry and guid targeting and enables spell spawn and script targeting when set.
+
 Possible combinations of the "data_flags":dbscripts#data_flags |SCRIPT_FLAG_BUDDY_AS_TARGET 0x01|SCRIPT_FLAG_REVERSE_DIRECTION 0x02|SCRIPT_FLAG_SOURCE_TARGETS_SELF 0x04| are:
 
 Where "A -> B" means that the "command":dbscripts#command is executed from A with B as target.
@@ -289,6 +291,7 @@ Defined in "enum ScriptInfoDataFlags"
 |256|0x100|SCRIPT_FLAG_BUDDY_BY_SPAWN_GROUP|buddy is from spawn group|
 |512|0x200|SCRIPT_FLAG_ALL_ELIGIBLE_BUDDIES|multisource/multitarget - will execute for each eligible|
 |1024|0x400|SCRIPT_FLAG_BUDDY_BY_GO|take the buddy by GO (for commands which can target both creature and GO)|
+|2048|0x800|SCRIPT_FLAG_BUDDY_BY_STRING_ID|targets entities by "StringId":https://github.com/cmangos/issues/wiki/string_id#id (creature or GO)|
 
 h4. Usage
 
