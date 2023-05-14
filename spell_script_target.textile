@@ -45,7 +45,7 @@ h4. type
 |2|Creature which must be dead (killed by Player or Npc)||
 |3|Creature by Guid|OBSOLETE - use StringId instead|
 |4|Gameobject by Guid|OBSOLETE - use StringId instead|
-|5|WorldObject by StringId|"string_id#id":https://github.com/cmangos/issues/wiki/string_id|
+|5|WorldObject by StringId|"string_id#Id":https://github.com/cmangos/issues/wiki/string_id|
 
 Supply through Guid now utilizes Map wide fetching when range of spell is 50000yd. This can be used for many map wide scripts, but remember the target still has to be loaded in grid.
 
