@@ -8,5 +8,5 @@ h3. Structure
 
 | Field                           | Type             | NULL | Key     | Default | Comments                    |
 | ------------------------------- | ---------------- | ---- | ------- | ------- | --------------------------- |
-| [id]     | int(11) unsigned | NO   | PRIMARY | 0       | Identifier, auto\_increment |
+| [id]     | int(11) unsigned | NO   | PRIMARY | 0       | Primary Key |
 | [name]   | varchar(255) | YES  |         |         |                             |
