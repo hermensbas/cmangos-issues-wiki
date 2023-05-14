@@ -23,4 +23,14 @@ String identifier of string_id variable
 
 ### Uses
 
-Targeting for [dbscripts](dbscripts)
+Targeting for [dbscripts](dbscripts)  
+Targeting for [spells](spell_script_target)  
+Targeting for C++ scripts:  
+Spells:  
+```cpp
+auto creaturesWithStringId = spell->GetCaster()->GetMap()->GetCreatures("STRING_ID");
+```  
+AI:  
+```cpp
+auto creaturesWithStringId = m_creature->GetMap()->GetCreatures("STRING_ID");
+```
