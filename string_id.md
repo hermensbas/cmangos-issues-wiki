@@ -15,7 +15,16 @@ This table contains id and string connection between string_id variables
 
 #### Id
 
-Numeric identifier of string_id variable
+Numeric identifier of string_id variable  
+
+Found in:
+
+(creature_spawn_data_template)[creature_spawn_data_template:stringid]
+(gameobject_addon)[gameobject_addon:stringid]
+(spawn_group)[spawn_group:stringid]
+(creature_template)[creature_template:stringid1]
+(creature_template)[creature_template:stringid2]
+(gameobject_template)[gameobject_template:stringid]
 
 #### Name
 
