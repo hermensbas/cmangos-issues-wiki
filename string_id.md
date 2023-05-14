@@ -1,4 +1,4 @@
-Back to "world database":mangosdb_struct list of tables.
+Back to [world database](mangosdb_struct) list of tables.
 
 ## The `string_id` table
 
