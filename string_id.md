@@ -2,7 +2,7 @@ Back to [world database](mangosdb_struct) list of tables.
 
 ## The `string_id` table
 
-This table contains id and string connection between string_id variables
+This table contains id and string connection between string_id variables. StringId is assigned to a world object, and then enables querying. Effectively supercedes guid, entry, or other kind of targeting, and enables custom targeting from spells or even per dbscript.
 
 ### Structure
 
