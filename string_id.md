@@ -24,7 +24,7 @@ String identifier of string_id variable - should be descriptive on where it is u
 ### Uses
 
 Targeting for [dbscripts](dbscripts)  
-Targeting for [spells](spell_script_target)  
+Targeting for spells - [spell_script_target](spell_script_target)  
 Targeting for C++ scripts:  
 Spells:  
 ```cpp
