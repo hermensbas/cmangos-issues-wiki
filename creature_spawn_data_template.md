@@ -89,7 +89,7 @@ Special Flags applied to creature:
 
 #### StringId
 
-[string_id.Id](string_id#id) - StringId
+[string_id.Id](string_id#id) - Sets StringId to all spawns with template
 
 #### Name
 
