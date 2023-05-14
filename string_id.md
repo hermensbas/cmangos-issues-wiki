@@ -19,7 +19,7 @@ Numeric identifier of string_id variable
 
 #### Name
 
-String identifier of string_id variable
+String identifier of string_id variable - should be descriptive on where it is used, without spaces and limited to 255 characters.
 
 ### Uses
 
