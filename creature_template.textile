@@ -1002,11 +1002,11 @@ h4. SpellList
 
 h4. StringId1
 
-Sets StringId to all creature spawns with entry
+Sets "StringId":https://github.com/cmangos/issues/wiki/string_id#id to all creature spawns with entry
 
 h4. StringId2
 
-Sets StringId to all creature spawns with entry
+Sets "StringId":https://github.com/cmangos/issues/wiki/string_id#id to all creature spawns with entry
 
 h4. AIName
 
