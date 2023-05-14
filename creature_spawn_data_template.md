@@ -87,3 +87,11 @@ Special Flags applied to creature:
 
 [dbscripts.id](dbscripts#id) - RelayId
 
+#### StringId
+
+[string_id.Id](string_id#id) - StringId
+
+#### Name
+
+Verbose description on where it is used and when
+
