@@ -37,3 +37,7 @@ gameobject_template StartsOpen is inverted, 1 in gameobject_template is actually
 
 rotation value, wotlk+
 
+#### StringId
+
+Sets [StringId](string_id) to all gameobjects with addon
+
