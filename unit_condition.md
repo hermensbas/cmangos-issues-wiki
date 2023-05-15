@@ -48,7 +48,7 @@ Numeric identifier
 
 #### Flags
 
-By default, multiple conditions are executed with AND operation. Possible to set UNIT_CONDITION_FLAG_OR to make them OR.
+By default, multiple conditions are executed with AND operation. UNIT_CONDITION_FLAG_OR = 0x1 causes them to execute as OR.
 
 #### Variable_0
 #### Variable_1
