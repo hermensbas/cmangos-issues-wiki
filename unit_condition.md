@@ -38,7 +38,7 @@ Official table structure - used for condition checks on units
 ### Uses
 
 [combat_condition](combat_condition)  
-[creature_spell_targeting](creature_spell_targeting)  
+[creature_spell_targeting](creature_spell_list#the-creature_spell_targeting-table)  
 
 ### Description of the fields
 
