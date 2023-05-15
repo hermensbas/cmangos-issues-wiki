@@ -9,7 +9,7 @@ Official table structure - used for condition checks on units
 | Field                           | Type             | NULL | Key     | Default | Comments                    |
 | ------------------------------- | ---------------- | ---- | ------- | ------- | --------------------------- |
 | [Id](#Id)                  | int(11) unsigned | NO   | PRIMARY | 0       | Primary Key |
-| [Flags](#)                 | int(11) unsigned | NO   |         | 0       |             |
+| [Flags](#Flags)            | int(11) unsigned | NO   |         | 0       |             |
 | [Variable_0](#Variable_0)  | int(11) unsigned | NO   |         | 0       |             |
 | [Variable_1](#Variable_1)  | int(11) unsigned | NO   |         | 0       |             |
 | [Variable_2](#Variable_2)  | int(11) unsigned | NO   |         | 0       |             |
