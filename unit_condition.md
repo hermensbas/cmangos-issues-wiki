@@ -59,20 +59,21 @@ By default, multiple conditions are executed with AND operation. UNIT_CONDITION_
 #### Variable_6
 #### Variable_7
 
-All variables are enum class UnitCondition:
+Each condition has 3 parameters when evaluating: Condition source (Unit), Condition target (Unit), and Value (signed integer)  
+All variables are enum class UnitCondition:  
 
     NONE                                     = 0,
-    RACE                                     = 1,
-    CLASS                                    = 2,
-    LEVEL                                    = 3,
-    IS_SELF                                  = 4,
-    IS_MY_PET                                = 5,
-    IS_MASTER                                = 6,
-    IS_TARGET                                = 7,
-    CAN_ASSIST                               = 8,
-    CAN_ATTACK                               = 9,
-    HAS_PET                                  = 10,
-    HAS_WEAPON                               = 11,
+    RACE                                     = 1, Result: Race
+    CLASS                                    = 2, Result: Class
+    LEVEL                                    = 3, Result: Level
+    IS_SELF                                  = 4, Result: 1 if self
+    IS_MY_PET                                = 5, Result: 1 if target is my pet
+    IS_MASTER                                = 6, Result: 1 if target is my master
+    IS_TARGET                                = 7, Result: 1 if source is target of target
+    CAN_ASSIST                               = 8, Result: 1 if source can assist target
+    CAN_ATTACK                               = 9, Result: 1 if source can attack target
+    HAS_PET                                  = 10, Result: 1 if source has pet
+    HAS_WEAPON                               = 11, Result: 1 if source has weapon
     HEALTH_PERCENT                           = 12,
     MANA_PERCENT                             = 13,
     RAGE_PERCENT                             = 14,
@@ -92,14 +93,14 @@ All variables are enum class UnitCondition:
     DAMAGE_FROST                             = 28,
     DAMAGE_SHADOW                            = 29,
     DAMAGE_ARCANE                            = 30,
-    IN_COMBAT                                = 31,
-    IS_MOVING                                = 32,
-    IS_CASTING                               = 33,
-    IS_CASTING_SPELL                         = 34,
-    IS_CHANNELING                            = 35,
-    IS_CHANNELING_SPELL                      = 36,
+    IN_COMBAT                                = 31, Result: 1 if
+    IS_MOVING                                = 32, Result: 1 if
+    IS_CASTING                               = 33, Result: 1 if
+    IS_CASTING_SPELL                         = 34, Result: 1 if
+    IS_CHANNELING                            = 35, Result: 1 if
+    IS_CHANNELING_SPELL                      = 36, Result: 1 if
     NUMBER_OF_MELEE_ATTACKERS                = 37,
-    IS_ATTACKING_ME                          = 38,
+    IS_ATTACKING_ME                          = 38, Result: 1 if
     RANGE                                    = 39,
     IN_MELEE_RANGE                           = 40,
     PURSUIT_TIME                             = 41,
@@ -114,38 +115,38 @@ All variables are enum class UnitCondition:
     THREAT_FROST                             = 50,
     THREAT_SHADOW                            = 51,
     THREAT_ARCANE                            = 52,
-    IS_INTERRUPTIBLE                         = 53,
+    IS_INTERRUPTIBLE                         = 53, Result: 1 if
     NUMBER_OF_ATTACKERS                      = 54,
     NUMBER_OF_RANGED_ATTACKERS               = 55,
     CREATURE_TYPE                            = 56,
-    IS_MELEE_ATTACKING                       = 57,
-    IS_RANGED_ATTACKING                      = 58,
+    IS_MELEE_ATTACKING                       = 57, Result: 1 if
+    IS_RANGED_ATTACKING                      = 58, Result: 1 if
     HEALTH                                   = 59,
     SPELL_KNOWN                              = 60,
     HAS_HARMFUL_AURA_EFFECT                  = 61,
-    IS_IMMUNE_TO_AREA_OF_EFFECT              = 62,
-    IS_PLAYER                                = 63,
+    IS_IMMUNE_TO_AREA_OF_EFFECT              = 62, Result: 1 if
+    IS_PLAYER                                = 63, Result: 1 if
     DAMAGE_MAGIC                             = 64,
     DAMAGE_TOTAL                             = 65,
     THREAT_MAGIC                             = 66,
     THREAT_TOTAL                             = 67,
-    HAS_CRITTER                              = 68,
-    HAS_TOTEM_IN_SLOT_1                      = 69,
-    HAS_TOTEM_IN_SLOT_2                      = 70,
-    HAS_TOTEM_IN_SLOT_3                      = 71,
-    HAS_TOTEM_IN_SLOT_4                      = 72,
-    HAS_TOTEM_IN_SLOT_5                      = 73,
+    HAS_CRITTER                              = 68, Result: 1 if
+    HAS_TOTEM_IN_SLOT_1                      = 69, Result: 1 if
+    HAS_TOTEM_IN_SLOT_2                      = 70, Result: 1 if
+    HAS_TOTEM_IN_SLOT_3                      = 71, Result: 1 if
+    HAS_TOTEM_IN_SLOT_4                      = 72, Result: 1 if
+    HAS_TOTEM_IN_SLOT_5                      = 73, Result: 1 if
     CREATURE_ID                              = 74,
-    STRING_ID                                = 75,
-    HAS_AURA                                 = 76,
-    IS_ENEMY                                 = 77,
+    STRING_ID                                = 75, Result: 1 if
+    HAS_AURA                                 = 76, Result: 1 if
+    IS_ENEMY                                 = 77, Result: 1 if
     IS_SPEC_MELEE                            = 78,
     IS_SPEC_TANK                             = 79,
     IS_SPEC_RANGED                           = 80,
     IS_SPEC_HEALER                           = 81,
-    IS_PLAYER_CONTROLLED_NPC                 = 82,
-    IS_DYING                                 = 83,
-    PATH_FAIL_COUNT                          = 84,
+    IS_PLAYER_CONTROLLED_NPC                 = 82, Result: 1 if
+    IS_DYING                                 = 83, Result: 1 if
+    PATH_FAIL_COUNT                          = 84, Result: 1 if target is not reachable - HACK (for now)
     UNUSED                                   = 85,
     LABEL                                    = 86,
 
@@ -167,6 +168,8 @@ All op are operations from enum class ConditionOperation:
     LESS_THAN_OR_EQUAL_TO       = 4,
     GREATER_THAN                = 5,
     GREATER_THAN_OR_EQUAL_TO    = 6,
+
+Used to compare result of condition against corresponding Value
 
 #### Value_0
 #### Value_1
