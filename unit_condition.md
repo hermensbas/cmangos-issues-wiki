@@ -2,6 +2,10 @@ Back to [world database](mangosdb_struct) list of tables.
 
 ## The `unit_condition` table
 
+Official table structure - used for condition checks on units
+
+### Structure
+
 | Field                           | Type             | NULL | Key     | Default | Comments                    |
 | ------------------------------- | ---------------- | ---- | ------- | ------- | --------------------------- |
 | Id          | int(11) unsigned | NO   | PRIMARY | 0       | Primary Key |
@@ -30,4 +34,28 @@ Back to [world database](mangosdb_struct) list of tables.
 | Value_5     | int(11) unsigned | NO   |         | 0       |             |
 | Value_6     | int(11) unsigned | NO   |         | 0       |             |
 | Value_7     | int(11) unsigned | NO   |         | 0       |             |
+
+### Uses
+
+[combat_condition](combat_condition)  
+[creature_spell_targeting](creature_spell_targeting)  
+
+### Description of the fields
+
+#### Id
+
+Numeric identifier
+
+#### Flags
+
+By default, multiple conditions are executed with AND operation. Possible to set UNIT_CONDITION_FLAG_OR to make them OR.
+
+#### Variable_0
+#### Variable_1
+#### Variable_2
+#### Variable_3
+#### Variable_4
+#### Variable_5
+#### Variable_6
+#### Variable_7
 
