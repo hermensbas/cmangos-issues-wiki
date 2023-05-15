@@ -26,3 +26,29 @@ Official table structure - used for combat condition checks on units for [creatu
 | [EnemyConditionOp_1](#EnemyConditionOp_1)         | int(11) unsigned | NO   |         | 0       |             |
 | [EnemyConditionCount_0](#EnemyConditionCount_0)   | int(11) unsigned | NO   |         | 0       |             |
 | [EnemyConditionCount_1](#EnemyConditionCount_1)   | int(11) unsigned | NO   |         | 0       |             |
+
+#### Id
+
+#### WorldStateExpressionID
+
+#### SelfConditionID
+
+#### TargetConditionID
+
+#### FriendConditionLogic
+#### EnemyConditionLogic
+
+#### FriendConditionID_0
+#### FriendConditionID_1
+#### EnemyConditionID_0
+#### EnemyConditionID_1
+
+#### FriendConditionOp_0
+#### FriendConditionOp_1
+#### EnemyConditionOp_0
+#### EnemyConditionOp_1
+
+#### FriendConditionCount_0
+#### FriendConditionCount_1
+#### EnemyConditionCount_0
+#### EnemyConditionCount_1
