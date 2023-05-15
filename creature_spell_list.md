@@ -17,6 +17,7 @@ timers in CombatAI and is hot-reloadable. - https://github.com/cmangos/mangos-tb
 |[Position](https://github.com/cmangos/issues/wiki/creature_spell_list#Position)|int(11) unsigned|YES|Primary Key|0|Position on list - Primary Key #2|
 |[SpellId](https://github.com/cmangos/issues/wiki/creature_spell_list#SpellId)|int(11) unsigned|YES|NULL|0|SpellId|
 |[Flags](https://github.com/cmangos/issues/wiki/creature_spell_list#Flags)|int(11) unsigned|YES|NULL|0|Spell Flags - enum SpellListFlags|
+|[CombatCondition](https://github.com/cmangos/issues/wiki/creature_spell_list#CombatCondition)|int(11) unsigned|YES|NULL|0||
 |[TargetId](https://github.com/cmangos/issues/wiki/creature_spell_list#TargetId)|int(11) unsigned|YES|NULL|0|Targeting ID - enum SpellListTargetingHardcoded|
 |[ScriptId](https://github.com/cmangos/issues/wiki/creature_spell_list#ScriptId)|int(11) unsigned|YES|NULL|0|Dbscript to be launched on success|
 |[Availability](https://github.com/cmangos/issues/wiki/creature_spell_list#Availability)|int(11) unsigned|YES|NULL|0|Chance on spawn for spell to be included|
@@ -47,6 +48,10 @@ This is the text type of the text. "enum SpellListFlags"
     SPELL_LIST_FLAG_SUPPORT_ACTION  = 1,
     SPELL_LIST_FLAG_RANGED_ACTION   = 2, // previously known as main ranged spell in EAI
 ```
+
+#### CombatCondition
+
+[combat_condition.Id](combat_condition#Id) - evaluated on target
 
 #### TargetId
 
