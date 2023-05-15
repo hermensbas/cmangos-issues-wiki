@@ -32,7 +32,7 @@ String expression in Hex format that contains information about evaluation:
 Evaluation of value consists of:  
 
 1. Constant  
-2. Worldstate Variable  
+2. Worldstate Variable - this is the part most people think is a worldstate (example 2174 General Rajaxx dead)
 3. Function  
 
 Functions are (taken from Dragonflight, some might not apply):
