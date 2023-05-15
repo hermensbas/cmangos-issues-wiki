@@ -168,3 +168,13 @@ All op are operations from enum class ConditionOperation:
     GREATER_THAN                = 5,
     GREATER_THAN_OR_EQUAL_TO    = 6,
 
+#### Value_0
+#### Value_1
+#### Value_2
+#### Value_3
+#### Value_4
+#### Value_5
+#### Value_6
+#### Value_7
+
+Value for usage in specific unit condition types.
