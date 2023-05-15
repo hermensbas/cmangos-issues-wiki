@@ -59,7 +59,7 @@ By default, multiple conditions are executed with AND operation. Possible to set
 #### Variable_6
 #### Variable_7
 
-Enum UnitCondition:
+All variables are enum class UnitCondition:
 
     NONE                                     = 0,
     RACE                                     = 1,
@@ -148,3 +148,23 @@ Enum UnitCondition:
     PATH_FAIL_COUNT                          = 84,
     UNUSED                                   = 85,
     LABEL                                    = 86,
+
+#### Op_0
+#### Op_1
+#### Op_2
+#### Op_3
+#### Op_4
+#### Op_5
+#### Op_6
+#### Op_7
+
+All op are operations from enum class ConditionOperation:
+
+    NONE                        = 0,
+    EQUAL_TO                    = 1,
+    NOT_EQUAL_TO                = 2,
+    LESS_THAN                   = 3,
+    LESS_THAN_OR_EQUAL_TO       = 4,
+    GREATER_THAN                = 5,
+    GREATER_THAN_OR_EQUAL_TO    = 6,
+
