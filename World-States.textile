@@ -1,4 +1,4 @@
-OLD PAGE KEPT FOR ARCHIVAL, FOR DEVELOPMENT INFO GO TO [Worldstates](Worldstates)
+OLD PAGE KEPT FOR ARCHIVAL, FOR DEVELOPMENT INFO GO TO "Worldstates":Worldstates
 
 World states are used to set global world settings in the game, they're also used for map-specific variables and UI elements. Examples include arena season id, whether or not the arena season is active, battle status in battlegrounds and so on.
 
