@@ -4,6 +4,8 @@ Back to [world database](https://github.com/cmangos/issues/wiki/mangosdb_struct)
 
 Official table structure - used for evaluating worldstate conditions. On more info about worldstate variables go to [Worldstates](Worldstates)
 
+TODO: Viewer application
+
 ### Structure
 
 | Field                           | Type             | NULL | Key     | Default | Comments                    |
