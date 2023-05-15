@@ -2,7 +2,7 @@ Back to [world database](https://github.com/cmangos/issues/wiki/mangosdb_struct)
 
 ## The `worldstate_expression` table
 
-Official table structure - used for evaluating worldstate conditions
+Official table structure - used for evaluating worldstate conditions. On more info about worldstate variables go to [Worldstates](Worldstates)
 
 ### Structure
 
@@ -14,6 +14,10 @@ Official table structure - used for evaluating worldstate conditions
 #### Id
 
 Numeric identifier
+
+Uses:
+
+[combat_condition.WorldStateExpressionID](combat_condition#WorldStateExpressionID)
 
 #### Expression
 
