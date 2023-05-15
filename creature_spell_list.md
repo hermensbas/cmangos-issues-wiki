@@ -134,6 +134,7 @@ holds mostly hardcoded targeting types for [`creature_spell_list`.`TargetId`](ht
 |[Param1](https://github.com/cmangos/issues/wiki/creature_spell_list#`creature_spell_targeting`.`Param1`)|int(11)|NO|NO|0|First parameter|
 |[Param2](https://github.com/cmangos/issues/wiki/creature_spell_list#`creature_spell_targeting`.`Param2`)|int(11)|NO|NO|0|Second parameter|
 |[Param3](https://github.com/cmangos/issues/wiki/creature_spell_list#`creature_spell_targeting`.`Param3`)|int(11)|NO|NO|0|Third parameter|
+|[UnitCondition](https://github.com/cmangos/issues/wiki/creature_spell_list#`creature_spell_targeting`.`UnitCondition`)|int(11)|NO|NO|0||
 |[Comments](https://github.com/cmangos/issues/wiki/creature_spell_list#`creature_spell_targeting`.`Comments`)|varchar(255)|NO|NO|Empty String|Description of target|
 
 #### `creature_spell_targeting`.`Id`
@@ -199,6 +200,9 @@ enum SelectFlags
 
 Type 2 - Support: Param2 - Param3 - 0 or 1, 0 if self should not be eligible.
 
+#### `creature_spell_targeting`.`UnitCondition`
+
+[unit_condition.Id](unit_condition#Id) - evaluated on target
 
 #### `creature_spell_targeting`.`Comments`
 
