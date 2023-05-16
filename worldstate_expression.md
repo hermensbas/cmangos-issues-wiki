@@ -4,7 +4,9 @@ Back to [world database](https://github.com/cmangos/issues/wiki/mangosdb_struct)
 
 Official table structure - used for evaluating worldstate conditions. On more info about worldstate variables go to [Worldstates](Worldstates)
 
-TODO: Viewer application
+Reader application https://github.com/killerwife/WorldstateExpressionReader - produces a console output with all conditions in readable format.
+
+https://gist.github.com/killerwife/20a822b785944dcb10cffc4018b5f48d - 16.05.2023 generated file
 
 ### Structure
 
