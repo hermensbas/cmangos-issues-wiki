@@ -2,6 +2,10 @@ Back to [creature_template](https://github.com/cmangos/issues/wiki/creature_temp
 
 Documentation for columns StaticFlags1, StaticFlags2, StaticFlags3, StaticFlags4 in all creature_template tables.
 
+Enums from Entities/CreatureDefines.h
+
+### CreatureStaticFlags
+
     MOUNTABLE                   = 0x00000001, - NYI
     NO_XP                       = 0x00000002,
     NO_LOOT                     = 0x00000004,
@@ -34,3 +38,4 @@ Documentation for columns StaticFlags1, StaticFlags2, StaticFlags3, StaticFlags4
     FLOATING                    = 0x20000000, - NYI
     MORE_AUDIBLE                = 0x40000000, - NYI
     LARGE_AOI                   = 0x80000000  - NYI
+
