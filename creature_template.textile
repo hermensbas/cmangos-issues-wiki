@@ -40,6 +40,10 @@ h3. Structure
 |"DynamicFlags":creature_template#dynamicflags|int(10) unsigned|NO||0||
 |"ExtraFlags":creature_template#extraflags|int(10) unsigned|NO||0||
 |"CreatureTypeFlags":creature_template#creaturetypeflags|int(10) unsigned|YES||0||
+|"StaticFlags1":creature_template#staticflags1|int(10) unsigned|YES||0||
+|"StaticFlags2":creature_template#staticflags2|int(10) unsigned|YES||0||
+|"StaticFlags3":creature_template#staticflags3|int(10) unsigned|YES||0||
+|"StaticFlags4":creature_template#staticflags4|int(10) unsigned|YES||0||
 |"SpeedWalk":creature_template#speedwalk|float|YES||1||
 |"SpeedRun":creature_template#speedrun|float|YES||1.14286||
 |"Detection":creature_template#detection|int|NO||20||
@@ -438,6 +442,13 @@ It will be send to the client in SMSG_CREATURE_QUERY_RESPONSE
 |8192|CREATURE_TYPEFLAGS_UNK14|checked from calls in Lua_PetHasActionBar|
 |16384|CREATURE_TYPEFLAGS_UNK15|Lua_UnitGUID, client does guid_low &= 0xFF000000 if this flag is set|
 |32768|CREATURE_TYPEFLAGS_ENGINEERLOOT|Makes Mob Corpse Engineer Lootable - Uses Skinning Loot Field|
+
+h4. StaticFlags1
+h4. StaticFlags2
+h4. StaticFlags3
+h4. StaticFlags4
+
+"Creature Static Flags":https://github.com/cmangos/issues/wiki/CreatureStaticFlags
 
 h4. SpeedWalk
 
