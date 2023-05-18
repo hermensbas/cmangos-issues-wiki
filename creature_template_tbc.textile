@@ -37,6 +37,10 @@ h3. Structure
 |"DynamicFlags":creature_template_tbc#dynamicflags|int(10) unsigned|NO||0||
 |"ExtraFlags":creature_template_tbc#extraflags|int(10) unsigned|NO||0||
 |"CreatureTypeFlags":creature_template_tbc#creaturetypeflags|int(10) unsigned|YES||0||
+|"StaticFlags1":creature_template#staticflags1|int(10) unsigned|YES||0||
+|"StaticFlags2":creature_template#staticflags2|int(10) unsigned|YES||0||
+|"StaticFlags3":creature_template#staticflags3|int(10) unsigned|YES||0||
+|"StaticFlags4":creature_template#staticflags4|int(10) unsigned|YES||0||
 |"SpeedWalk":creature_template_tbc#speedwalk|float|YES||1||
 |"SpeedRun":creature_template_tbc#speedrun|float|YES||1.14286||
 |"Detection":creature_template_tbc#detection|int|NO||20||
@@ -371,7 +375,7 @@ h4. CreatureTypeFlags
 
 This Field Controls If a Mob Is Mineable or Herbable. If Any Of These Flags Are Used Then The Loot Given When It Is Herb Picked / Mined Will Be Stored In The "Skinning_Loot_Template":Skinning_Loot_Template Table. Aside From These Two Flags, This Field Has No Special Meaning Server-Side.
 
-It will be send to the client in SMSG_CREATURE_QUERY_RESPONSE
+It will be send to the client in SMSG_CREATURE_QUERY_RESPONSE. Originate from CreatureStaticFlags.
 
 |*Flag*|*Name*|*Comments*|
 |1|CREATURE_TYPEFLAGS_TAMEABLE|Makes the mob tameable (must also be a beast and have family set)|
@@ -391,6 +395,16 @@ It will be send to the client in SMSG_CREATURE_QUERY_RESPONSE
 |8192|CREATURE_TYPEFLAGS_UNK14|checked from calls in Lua_PetHasActionBar|
 |16384|CREATURE_TYPEFLAGS_UNK15|Lua_UnitGUID, client does guid_low &= 0xFF000000 if this flag is set|
 |32768|CREATURE_TYPEFLAGS_ENGINEERLOOT|Makes Mob Corpse Engineer Lootable - Uses Skinning Loot Field|
+
+h4. StaticFlags1
+
+h4. StaticFlags2
+
+h4. StaticFlags3
+
+h4. StaticFlags4
+
+"Creature Static Flags":https://github.com/cmangos/issues/wiki/CreatureStaticFlags
 
 h4. SpeedWalk
 
