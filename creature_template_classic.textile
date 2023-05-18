@@ -35,10 +35,10 @@ h3. Structure
 |"DynamicFlags":creature_template_classic#dynamicflags|int(10) unsigned|NO||0||
 |"ExtraFlags":creature_template_classic#extraflags|int(10) unsigned|NO||0||
 |"CreatureTypeFlags":creature_template_classic#creaturetypeflags|int(10) unsigned|YES||0||
-|"StaticFlags1":creature_template#staticflags1|int(10) unsigned|YES||0||
-|"StaticFlags2":creature_template#staticflags2|int(10) unsigned|YES||0||
-|"StaticFlags3":creature_template#staticflags3|int(10) unsigned|YES||0||
-|"StaticFlags4":creature_template#staticflags4|int(10) unsigned|YES||0||
+|"StaticFlags1":creature_template_classic#staticflags1|int(10) unsigned|YES||0||
+|"StaticFlags2":creature_template_classic#staticflags2|int(10) unsigned|YES||0||
+|"StaticFlags3":creature_template_classic#staticflags3|int(10) unsigned|YES||0||
+|"StaticFlags4":creature_template_classic#staticflags4|int(10) unsigned|YES||0||
 |"SpeedWalk":creature_template_classic#speedwalk|float|YES||1||
 |"SpeedRun":creature_template_classic#speedrun|float|YES||1.14286||
 |"Detection":creature_template_classic#detection|int|NO||20||
