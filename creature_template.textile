@@ -443,10 +443,10 @@ It will be send to the client in SMSG_CREATURE_QUERY_RESPONSE
 |16384|CREATURE_TYPEFLAGS_UNK15|Lua_UnitGUID, client does guid_low &= 0xFF000000 if this flag is set|
 |32768|CREATURE_TYPEFLAGS_ENGINEERLOOT|Makes Mob Corpse Engineer Lootable - Uses Skinning Loot Field|
 
-h4. StaticFlags1
-h4. StaticFlags2
-h4. StaticFlags3
-h4. StaticFlags4
+h4. StaticFlags1  
+h4. StaticFlags2  
+h4. StaticFlags3  
+h4. StaticFlags4  
 
 "Creature Static Flags":https://github.com/cmangos/issues/wiki/CreatureStaticFlags
 
