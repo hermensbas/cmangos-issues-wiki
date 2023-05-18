@@ -76,5 +76,38 @@ Enums from Entities/CreatureDefines.h
 
 ### CreatureStaticFlags3
 
+    NO_DAMAGE_HISTORY              = 0x00000001, - NYI
+    DONT_PVP_ENABLE_OWNER          = 0x00000002, - NYI
+    DO_NOT_FADE_IN                 = 0x00000004, - NYI
+    MASK_UID                       = 0x00000008, - NYI
+    SKIN_WITH_ENGINEERING          = 0x00000010, - NYI
+    NO_AGGRO_ON_LEASH              = 0x00000020, - NYI
+    NO_FRIENDLY_AREA_AURAS         = 0x00000040, - NYI
+    EXTENDED_CORPSE_DURATION       = 0x00000080, - NYI
+    CANNOT_SWIM                    = 0x00000100, - NYI
+    TAMEABLE_EXOTIC                = 0x00000200, - NYI
+    GIGANTIC_AOI                   = 0x00000400, - NYI
+    INFINITE_AOI                   = 0x00000800, - NYI
+    CANNOT_PENETRATE_WATER         = 0x00001000, - NYI
+    NO_NAME_PLATE                  = 0x00002000, - NYI
+    CHECKS_LIQUIDS                 = 0x00004000, - NYI
+    NO_THREAT_FEEDBACK             = 0x00008000, - NYI
+    USE_MODEL_COLLISION_SIZE       = 0x00010000, - NYI
+    ATTACKER_IGNORES_FACING        = 0x00020000, - NYI
+    ALLOW_INTERACTION_WHILE_IN_COMBAT = 0x00040000, - NYI
+    SPELL_CLICK_FOR_PARTY_ONLY     = 0x00080000, - NYI
+    FACTION_LEADER                 = 0x00100000, - NYI
+    IMMUNE_TO_PLAYER_BUFFS         = 0x00200000, - NYI
+    COLLIDE_WITH_MISSILES          = 0x00400000, - NYI
+    CAN_BE_MULTITAPPED             = 0x00800000, - NYI
+    DO_NOT_PLAY_MOUNTED_ANIMATIONS = 0x01000000, - NYI
+    CANNOT_TURN                    = 0x02000000, - NYI
+    ENEMY_CHECK_IGNORES_LOS        = 0x04000000, - NYI
+    FOREVER_CORPSE_DURATION        = 0x08000000, - NYI
+    PETS_ATTACK_WITH_3D_PATHING    = 0x10000000, - NYI
+    LINK_ALL                       = 0x20000000, - NYI
+    AI_CAN_AUTO_TAKEOFF_IN_COMBAT  = 0x40000000, - NYI
+    AI_CAN_AUTO_LAND_IN_COMBAT     = 0x80000000  - NYI
+
 ### CreatureStaticFlags4
 
