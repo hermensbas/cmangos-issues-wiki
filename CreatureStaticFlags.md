@@ -14,7 +14,7 @@ Enums from Entities/CreatureDefines.h
     IMMUNE_TO_PC                = 0x00000020, - NYI
     IMMUNE_TO_NPC               = 0x00000040, - NYI
     CAN_WIELD_LOOT              = 0x00000080, - NYI
-    SESSILE                     = 0x00000100, - Synonymic to rooted, equivalent to dynamic https://github.com/cmangos/issues/wiki/Creature_ai_scripts - ACTION_T_SET_IMMOBILIZED_STATE
+    SESSILE                     = 0x00000100, - Synonymic to rooted, equivalent to dynamic Creature_ai_scripts - ACTION_T_SET_IMMOBILIZED_STATE
     UNINTERACTIBLE              = 0x00000200, - NYI
     NO_AUTOMATIC_REGEN          = 0x00000400, - NYI
     DESPAWN_INSTANTLY           = 0x00000800, - NYI
