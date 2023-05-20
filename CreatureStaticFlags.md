@@ -26,7 +26,7 @@ Enums from Entities/CreatureDefines.h
     COMBAT_PING                 = 0x00020000, - NYI
     AQUATIC                     = 0x00040000, - NYI
     AMPHIBIOUS                  = 0x00080000, - NYI
-    NO_MELEE                    = 0x00100000, - NYI
+    NO_MELEE_FLEE               = 0x00100000, - Does not melee, if capable of moving, flees in combat immediately.
     VISIBLE_TO_GHOSTS           = 0x00200000, - NYI
     PVP_ENABLING                = 0x00400000, - NYI
     DO_NOT_PLAY_WOUND_ANIM      = 0x00800000, - NYI
