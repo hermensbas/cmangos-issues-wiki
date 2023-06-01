@@ -45,6 +45,9 @@ MaxCount - Maximum count of spawns that can be spawned at a time for whole group
 
 WorldState - Evaluates condition from conditions table. Intended to be used in connection with type CONDITION_ACTIVE_GAME_EVENT 12, CONDITION_ACTIVE_HOLIDAY 26 and CONDITION_WORLDSTATE 42 conditions only for performance and safety reasons. Consult [worldstate](https://github.com/cmangos/issues/wiki/Worldstates) for more information.  
 
+WorldStateExpression - [worldstate_expression.Id](https://github.com/cmangos/issues/wiki/worldstate_expression)  
+Exclusive with WorldState - Uses official data for expressions like in combat_condition
+
 Flags - enum CreatureGroupFlags
 
 ```
