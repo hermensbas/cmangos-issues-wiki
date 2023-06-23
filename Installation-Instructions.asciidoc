@@ -419,6 +419,7 @@ Install CMaNGOS binary files (Windows)
 
 Extract files from the client
 -----------------------------
+*Note:* The CMaNGOS project does not supply the retail client files. You must source your own copy of that software.
 
 *Note:* The extractors are compiled only if you pass the ++-DBUILD_EXTRACTORS=ON++ option to ++cmake++ during compilation.
 
