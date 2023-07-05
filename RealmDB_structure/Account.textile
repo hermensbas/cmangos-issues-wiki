@@ -23,7 +23,11 @@ h3. Structure
 |"online":Account#online|tinyint(4)|NO||0||
 |"expansion":Account#expansion|tinyint(3) unsigned|NO||0||
 |"mutetime":Account#mutetime|bigint(40) unsigned|NO||0||
-|"locale":Account#locale|tinyint(3) unsigned|NO||0||
+|"locale":Account#locale|varchar(4)|NO||||
+|"os":Account#os|varchar(4)|NO||0||
+|"platform":Account#platform|varchar(4)|NO||0||
+|"token":Account#token|text|YES||NULL||
+|"flags":Account#locale|int(10) unsigned|NO||0||
 
 
 h3. Description of the fields
@@ -98,5 +102,21 @@ The time, in Unix time, when the account will be unmuted.
 h4. locale
 
 The locale used by the client logged into this account. If multiple locale data has been configured and added to the world servers, the world servers will return the proper locale strings to the client. See "localization IDs":localization_lang
+
+h4. os
+
+The last known OS used by the client logged into this account.
+
+h4. platform
+
+The system architecture (x86, ARM, etc.) of the last client logged into this account.
+
+h4. token
+
+The private key for TOTP 2-Factor Authentication.
+
+h4. flags
+
+Account-specific flags.
 
 "Category: Realm database tables":Category: Realm database tables
