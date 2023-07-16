@@ -80,9 +80,9 @@ Chance for spell to be included in spell list at assignment. Assignment happens 
 
 #### Probability
 
-When probability is 0 for all spells, they will use priority based on positions. All have to be either == 0 or > 0. Mix of 0 and other values is not permitted.
+When probability is 0 for all spells, they will use priority based on positions. (lower position, higher priority) - A mix of 0 and other values is not permitted.
 
-If several spells are eligible in the same spell list tick, this is the weight with which its likely this spell will go off. Higher probability, higher chance for spell to go off.
+If all spells have probability > 0 and are eligible for usage in the same spell list tick, this is the weight with which its likely this spell will go off. (Higher probability, higher chance for spell to be used)
 
 #### InitialMin
 #### InitialMax
