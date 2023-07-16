@@ -83,9 +83,13 @@ While GCC 11.3 is known to work for some users, it is recommended to upgrade you
 
   apt install grep build-essential gcc g++ automake git-core autoconf make patch cmake libmariadb-dev libmariadb-dev-compat mariadb-server libtool libssl-dev binutils zlibc libc6 libbz2-dev subversion libboost-all-dev
 
-### Fedora 32
+### Fedora
+  dnf install epel-release
+  dnf install git make cmake gcc g++ mariadb-server mariadb-devel libtool boost-devel boost-static
 
-  dnf install git make cmake gcc patch autoconf mariadb-server mariadb-devel libtool zfstream gcc-c++ subversion boost-devel boost-static
+### RockyLinux/AlmaLinux/Oracle Linux
+  dnf config-manager --set-enabled crb
+  dnf install git make cmake gcc g++ mariadb-server mariadb-devel libtool boost-devel boost-static
 
 ### Arch Linux
 
