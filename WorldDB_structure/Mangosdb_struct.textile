@@ -17,6 +17,7 @@ h3. This is the list of tables in the regular 'mangos' database
 |"battlemaster_entry":https://github.com/cmangos/issues/wiki/battlemaster_entry|holds information on which NPC can start what battleground or arena.|
 |"broadcast_text":https://github.com/cmangos/issues/wiki/broadcast_text|holds all the texts.|
 |"broadcast_text_locale":https://github.com/cmangos/issues/wiki/broadcast_text_locale|holds translations for broadcast_text|
+|"combat_condition":https://github.com/cmangos/issues/wiki/combat_condition/|holds complex checks for executing combat events on units for creature_spell_list|
 |"command":https://github.com/cmangos/issues/wiki/command (Reloadable)|holds help and security information for commands.|
 |"conditions":https://github.com/cmangos/issues/wiki/conditions|With this table and the new conditions it is possible to create tree like and very complicated combined conditions.|
 |"creature":https://github.com/cmangos/issues/wiki/creature|contains individual creature spawn data. Spawn of a creature is an instance of the creature object in the world.|
@@ -177,12 +178,16 @@ h3. This is the list of tables in the regular 'mangos' database
 |"spell_target_position":https://github.com/cmangos/issues/wiki/spell_target_position (Reloadable)|holds coordinate information on where the player should be teleported to when a spell with effect SPELL_EFFECT_TELEPORT_UNITS.|
 |"spell_template":https://github.com/cmangos/issues/wiki/spell_template (Core)|contains the description of spells.|
 |"spell_threat":https://github.com/cmangos/issues/wiki/spell_threat (Reloadable)|holds threat values on all spells that should either give or take away threat.|
+|"string_id":https://github.com/cmangos/issues/wiki/string_id|holds ids and strings connection between string_id variables. StringId is assigned to a world object, and then enables querying. Effectively supercedes guid, entry, or other kind of targeting, and enables custom targeting from spells or even per dbscript.|
 |"taxi_shortcuts":https://github.com/cmangos/issues/wiki/taxi_shortcuts (Reloadable)|holds information about shortcuts for each individual taxi flight.|
 |"trainer_greeting":https://github.com/cmangos/issues/wiki/trainer_greeting|?|
 |"transports":https://github.com/cmangos/issues/wiki/transports|contains all type 15 transports (Boats and Zeppelins).|
+|"unit_condition":https://github.com/cmangos/issues/wiki/transports|contains data used for condition checks on units|
 |"vehicle_accessory":https://github.com/cmangos/issues/wiki/vehicle_accessory|?|
 |"warden_scans":https://github.com/cmangos/issues/wiki/warden_scans|Anticheat|
 |"waypoint_path":https://github.com/cmangos/issues/wiki/spawn_group|paths linked to "spawn_groups":https://github.com/cmangos/issues/wiki/spawn_group|
+|"waypoint_path_name":https://github.com/cmangos/issues/wiki/spawn_group|path names linked to "spawn_groups":https://github.com/cmangos/issues/wiki/spawn_group|
 |"world_safe_locs":https://github.com/cmangos/issues/wiki/world_safe_locs|?|
 |"world_template":https://github.com/cmangos/issues/wiki/world_template (Core)|holds the ScriptNames of the world maps 0, 1, 530, 571|
+|"worldstate_expression":https://github.com/cmangos/issues/wiki/worldstate_expression|holds data for evaluating worldstate conditions. On more info about worldstate variables go to Worldstates|
 |"worldstate_name":https://github.com/cmangos/issues/wiki/worldstate_name|holds data on worldstate variables used for CONDITION_WORLDSTATE|
