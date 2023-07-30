@@ -4,8 +4,10 @@ Tables:
 [spawn_group_spawn](https://github.com/cmangos/issues/wiki/spawn_group#spawn_group_spawn)  
 [spawn_group_entry](https://github.com/cmangos/issues/wiki/spawn_group#spawn_group_entry)  
 [spawn_group_formation](https://github.com/cmangos/issues/wiki/spawn_group#spawn_group_formation)  
-[spawn_group_linked_group](https://github.com/cmangos/issues/wiki/spawn_group#spawn_group_linked_group)   
-[waypoint_path](https://github.com/cmangos/issues/wiki/spawn_group#waypoint_path) - paths for spawn_group_formation.PathId  
+[spawn_group_linked_group](https://github.com/cmangos/issues/wiki/spawn_group#spawn_group_linked_group)
+
+[waypoint_path](https://github.com/cmangos/issues/wiki/spawn_group#waypoint_path)
+[waypoint_path_name](https://github.com/cmangos/issues/wiki/spawn_group#waypoint_path_name)
 
 Logically a replacement of linking and pooling. Groups spawns into a logical group, which can behave differently. Benefits are much easier handling in core and during creation of new entries. Also introduces conditional spawning through worldstate alteration.
 
@@ -120,9 +122,15 @@ enum SpawGroupFormationOptions
 |0x01|SPAWN_GROUP_FORMATION_OPTION_FOLLOWERS_WILL_NOT_PATHFIND_TO_LOCATION |
 |0x02|SPAWN_GROUP_FORMATION_OPTION_KEEP_COMPACT   |
 
-#### MovementID
+#### PathId
 
-Table waypoint_path PathId
+##### waypoint_path 
+
+Table waypoint_path holds the waypoint data for PathId used in spawn_group_formation.
+
+##### waypoint_path_name
+
+Table waypoint_path_name PathId holds names used for PathId
 
 #### MovementType
 
@@ -131,6 +139,8 @@ MovementType of the Formation, Overwrites creature.MovementType. 0 (Idle) 2 (way
 #### Comment
 
 Same as [`spawn_group`.`Name`](https://github.com/cmangos/issues/wiki/spawn_group#Name)
+
+---
 
 ## spawn_group_linked_group
 
