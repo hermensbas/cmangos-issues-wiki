@@ -140,6 +140,7 @@ below.
 | 34 | EVENT_T_SPELLHIT_TARGET          | SpellID                                        | Schoolmask                                   | RepeatMin  | RepeatMax |  | | Expires upon Spell Hit of the NPC. When (param1) is set, it is the specific Spell ID used as the trigger. With (param2) specified, the expiration is limited to specific spell schools (–1 for all) and Spell ID value is ignored. Will repeat Event Conditions Check between every (Param3) and (Param4). Only A Spell ID or Spell School may be Specified but NOT both |
 | 35 | EVENT_T_DEATH_PREVENTED          | unused                                             | NU                                           | NU         | NU        |  | | Expires when Death prevention (Action 42) kicks in                                                                                                                                                                                                                                                                                                                       |
 | 36 | EVENT_T_TARGET_NOT_REACHABLE		| eventId | eventId | NU | NU | | | |
+| 37 | EVENT_T_SPELL_CAST| SpellId| 0| NU | NU | | | on successful spell cast|
 
 Now that all of the supported events have been listed and described, we
 shall now move on to the actions that can be performed.
