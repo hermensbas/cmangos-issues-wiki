@@ -280,7 +280,7 @@ that parameter.
 | 128  | CAST_SWITCH_CASTER_TARGET | Switches target and caster for spell cast|
 | 256  | CAST_MAIN_SPELL | Marks main spell for AI Type = Action 57 ACTION\_T\_SET\_RANGED\_MODE|
 | 512  | CAST_PLAYER_ONLY | Selects only player targets - substitution for EAI not having more params|
-| 1024 | CAST_DISTANCE_YOURSELF | If spell with this cast flag hits main aggro target, caster distances himself - EAI only|
+| 1024 | CAST_DISTANCE_YOURSELF |Deprecated - Done automatically in RangeMode|
 | 2048 | CAST_TARGET_CASTING | Selects only targets that are casting - EAI only|
 | 4096 | CAST_ONLY_XYZ | Targets only coords of target and not unit|
 
@@ -437,18 +437,16 @@ ____ = __
 #### Ranged mode - reference usage
 
 ```
-(‘58902’,‘589’,‘11’,‘0’,‘100’,‘0’,‘0’,‘0’,‘0’,‘0’,‘0’,‘0’,‘57’,‘1’,‘35’,‘0’,‘0’,‘0’,‘0’,‘0’,‘0’,‘0’,‘0’,‘0’,‘Defias Pillager - Enable Caster Mode on Spawn’),
-(‘58905’,‘589’,‘0’,‘0’,‘100’,‘1025’,‘0’,‘0’,‘3400’,‘4900’,‘0’,‘0’,‘11’,‘20793’,‘1’,‘256’,‘0’,‘0’,‘0’,‘0’,‘0’,‘0’,‘0’,‘0’,‘Defias Pillager - Cast Fireball’),
+('327301','3273','11','0','100','0','0','0','0','0','0','0','57','2','35','0','0','0','0','0','0','0','0','0','Kolkar Stormer - Enable Range Mode on Spawn'),
+
+('327305','3273','0','0','100','1281','0','0','3000','4000','0','0','11','9532','1','256','0','0','0','0','0','0','0','0','Kolkar Stormer - Cast Lightning Bolt (Range Mode)'),
+('327306','3273','0','0','100','1537','0','0','5000','20000','0','0','11','9532','1','256','0','0','0','0','0','0','0','0','Kolkar Stormer - Cast Lightning Bolt (Melee Mode)'),
 ```
 
-The ranged mode was designed to be toggled on spawn, but can effectively
-by toggled on phase change on other condition when needed. It
-automatically reverts itself on evade. It works in connection with its
-modes, and automatically changes chase distance. A main casting spell,
-which is supposed to be lowest in priority (highest ID), needs to use
-256 cast flag. This notes that when this spell returns OOM error, ranged
-mode automatically adjusts its behavior. Ranged mode also responds to
-kicks and silence on this spell. Last notable feature with ranged mode
-is distancing, which only occurs if cast flag 1024 is set, and when
-creature is in melee mode, and the target is hit, creature runs away
-from main aggro targets melee reach.
+The ranged mode was designed to be toggled on spawn, but can effectively by toggled on phase change or on other condition when needed.
+It automatically reverts itself on evade. It works in connection with its modes, and automatically changes chase distance.
+A main casting spell, which is supposed to be lowest in priority (highest ID), needs to use 256 cast flag.
+This notes that when this spell returns OOM error, ranged mode automatically adjusts its behavior to melee mode.
+Ranged mode also responds to kicks and silence on this spell, forcing the mob into temporary melee mode.
+Last notable feature with ranged mode is distancing, which occurs if current victim is rooted by an aura and the npc is in melee mode.
+When creature is in melee mode, and the target is rooted, the creature runs away from main aggro targets melee reach.
