@@ -30,6 +30,7 @@ Id - Spawn Group ID
       32500 - Sholazar
       33000 - Storm Peaks
       33500 - crystalong
+      33700 - Dalaran
       34000 - IC
       35000 - DK starting Zone
 3000000+ Instance Files
