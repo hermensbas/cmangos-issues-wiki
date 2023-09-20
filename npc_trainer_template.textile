@@ -32,7 +32,7 @@ The cost that the player needs to pay in order to learn the spell.
 
 h4. reqskill
 
-The required skill the player needs to have in order to be able to learn the spell. See ID in SkillLine.dbc
+The required skill the player needs to have in order to be able to learn the spell. See ID in "SkillLine.dbc":https://github.com/cmangos/issues/wiki/SkillLine.dbc
 
 h4. reqskillvalue
 
