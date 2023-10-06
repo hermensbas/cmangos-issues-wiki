@@ -21,7 +21,7 @@ Numeric identifier
 
 Uses:
 
-[combat_condition.WorldStateExpressionID](combat_condition#WorldStateExpressionID)
+[combat_condition.WorldStateExpressionID](combat_condition#WorldStateExpressionID)  
 [spawn_group.WorldStateExpression](spawn_group#spawn_group)
 
 #### Expression
