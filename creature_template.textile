@@ -442,6 +442,7 @@ It will be send to the client in SMSG_CREATURE_QUERY_RESPONSE. Originate from Cr
 |8192|CREATURE_TYPEFLAGS_UNK14|checked from calls in Lua_PetHasActionBar|
 |16384|CREATURE_TYPEFLAGS_UNK15|Lua_UnitGUID, client does guid_low &= 0xFF000000 if this flag is set|
 |32768|CREATURE_TYPEFLAGS_ENGINEERLOOT|Makes Mob Corpse Engineer Lootable - Uses Skinning Loot Field|
+|134217728|CREATURE_TYPEFLAGS_FORCE_GOSSIP|WoTLK ONLY - Allows the creature to display a single gossip option.|
 
 h4. StaticFlags1
 
