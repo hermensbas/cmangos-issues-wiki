@@ -445,7 +445,7 @@ For this you can open a "Git Bash" on your C:\World of Warcraft folder and type 
 
 Depending on your installation settings, a simple double click onto the ++ExtractResources.sh++ file from your explorer might also work.
 
-* When finished, move the folders ++maps++, ++dbc++, and ++vmaps++ - optionally ++mmaps++ and ++Cameras++ - that have been created in your ++C:\World of Warcraft++ to your ++C:\Mangos\run++ (the buildings folder is not required and can be deleted).
+* When finished, move the folders ++maps++, ++dbc++, and ++vmaps++ - optionally ++mmaps++, ++CreatureModels++ and ++Cameras++ - that have been created in your ++C:\World of Warcraft++ to your ++C:\Mangos\run++ (the buildings folder is not required and can be deleted).
 
 Extraction on *nix and MacOS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
