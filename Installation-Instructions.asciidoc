@@ -463,7 +463,7 @@ If you followed this guide you should find all the extractor files in ++~/cmango
 
  bash ./ExtractResources.sh
 
-* When finished, move the folders ++maps++, ++dbc++, and ++vmaps++ - optionally ++mmaps++ and ++Cameras++ - that have been created to ++~/cmangos/run/bin++ (the buildings folder is not required and can be deleted).
+* When finished, move the folders ++maps++, ++dbc++, and ++vmaps++ - optionally ++mmaps++, ++CreatureModels++ and ++Cameras++ - that have been created to ++~/cmangos/run/bin++ (the buildings folder is not required and can be deleted).
 
 Further Information:
 ~~~~~~~~~~~~~~~~~~~~~
