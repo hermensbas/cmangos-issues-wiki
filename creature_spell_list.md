@@ -183,23 +183,25 @@ Type 1 - Attack: Param3  - enum SelectFlags
 ```
 enum SelectFlags
 {
-    SELECT_FLAG_IN_LOS              = 0x0001,               // Default Selection Requirement for Spell-targets
-    SELECT_FLAG_PLAYER              = 0x0002,
-    SELECT_FLAG_POWER_MANA          = 0x0004,               // For Energy based spells, like manaburn
-    SELECT_FLAG_POWER_RAGE          = 0x0008,
-    SELECT_FLAG_POWER_ENERGY        = 0x0010,
-    SELECT_FLAG_IN_MELEE_RANGE      = 0x0040,
-    SELECT_FLAG_NOT_IN_MELEE_RANGE  = 0x0080,
-    SELECT_FLAG_HAS_AURA            = 0x0100,
-    SELECT_FLAG_NOT_AURA            = 0x0200,
-    SELECT_FLAG_RANGE_RANGE         = 0x0400,               // For direct targeted abilities like charge or frostbolt but need custom data
-    SELECT_FLAG_RANGE_AOE_RANGE     = 0x0800,               // For AOE targeted abilities like frost nova but need custom data
-    SELECT_FLAG_POWER_NOT_MANA      = 0x1000,               // Used in some dungeon encounters
-    SELECT_FLAG_USE_EFFECT_RADIUS   = 0x2000,               // For AOE targeted abilities which have correct data in effect index 0
-    SELECT_FLAG_SKIP_TANK           = 0x4000,               // Not GetVictim - tank is not always top threat
-    SELECT_FLAG_CASTING             = 0x8000,               // Selects only targets that are casting
-    SELECT_FLAG_SKIP_CUSTOM         =0x10000,               // skips custom target
-    SELECT_FLAG_NOT_IMMUNE          =0x20000,
+    SELECT_FLAG_IN_LOS								=   0x0001, // 1 Default Selection Requirement for Spell-targets
+    SELECT_FLAG_PLAYER								=   0x0002, // 2
+    SELECT_FLAG_POWER_MANA							=   0x0004, // 4 For Energy based spells, like manaburn
+    SELECT_FLAG_POWER_RAGE							=   0x0008, // 8
+    SELECT_FLAG_POWER_ENERGY							=   0x0010, // 16
+    SELECT_FLAG_UNUSED_1							=   0x0020, // 32 UNUSED
+    SELECT_FLAG_IN_MELEE_RANGE							=   0x0040, // 64
+    SELECT_FLAG_NOT_IN_MELEE_RANGE						=   0x0080, // 128
+    SELECT_FLAG_HAS_AURA							=   0x0100, // 256
+    SELECT_FLAG_NOT_AURA							=   0x0200, // 512
+    SELECT_FLAG_RANGE_RANGE							=   0x0400, // 1024 For direct targeted abilities like charge or frostbolt but need custom data
+    SELECT_FLAG_RANGE_AOE_RANGE							=   0x0800, // 2048 For AOE targeted abilities like frost nova but need custom data
+    SELECT_FLAG_POWER_NOT_MANA							=   0x1000, // 4096 Used in some dungeon encounters
+    SELECT_FLAG_USE_EFFECT_RADIUS						=   0x2000, // 8192 For AOE targeted abilities which have correct data in effect index 0
+    SELECT_FLAG_SKIP_TANK							=   0x4000, // 16384 Not GetVictim - tank is not always top threat
+    SELECT_FLAG_CASTING								=   0x8000, // 32768 Selects only targets that are casting
+    SELECT_FLAG_SKIP_CUSTOM							=  0x10000, // 65536 skips custom target
+    SELECT_FLAG_NOT_IMMUNE							=  0x20000, // 131072
+    SELECT_FLAG_USE_EFFECT_RADIUS_OF_TRIGGERED_SPELL				=  0x40000  // 262144 For AOE targeted abilities which have correct data in triggered spell effect index 0
 };
 ```
 
