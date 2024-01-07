@@ -14,7 +14,7 @@ Must have [waypoint_path_name](https://github.com/cmangos/issues/wiki/waypoint_p
 
 ID Acquisition rules:  
 1-19999 - Vanilla  
-20000-29999 - TBC
+20000-29999 - TBC  
 30000+ - WOTLK  
 (corresponds to spawn_group expansion rules)  
 
