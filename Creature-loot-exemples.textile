@@ -1,4 +1,4 @@
-h4. Let's create a temporary creature on vanilla to handle loot for this tutorial.
+h3. Let's create a temporary creature on vanilla to handle loot for this tutorial.
 
 ```sql
 -- Creature Template
@@ -6,10 +6,15 @@ h4. Let's create a temporary creature on vanilla to handle loot for this tutoria
 INSERT INTO `creature_template`(`Entry`, `Name`, `SubName`, `MinLevel`, `MaxLevel`, `ModelId1`, `ModelId2`, `ModelId3`, `ModelId4`, `Faction`, `Scale`, `Family`, `CreatureType`, `InhabitType`, `RegenerateStats`, `RacialLeader`, `NpcFlags`, `UnitFlags`, `DynamicFlags`, `ExtraFlags`, `CreatureTypeFlags`, `StaticFlags1`, `StaticFlags2`, `StaticFlags3`, `StaticFlags4`, `SpeedWalk`, `SpeedRun`, `Detection`, `CallForHelp`, `Pursuit`, `Leash`, `Timeout`, `UnitClass`, `Rank`, `HealthMultiplier`, `PowerMultiplier`, `DamageMultiplier`, `DamageVariance`, `ArmorMultiplier`, `ExperienceMultiplier`, `MinLevelHealth`, `MaxLevelHealth`, `MinLevelMana`, `MaxLevelMana`, `MinMeleeDmg`, `MaxMeleeDmg`, `MinRangedDmg`, `MaxRangedDmg`, `Armor`, `MeleeAttackPower`, `RangedAttackPower`, `MeleeBaseAttackTime`, `RangedBaseAttackTime`, `DamageSchool`, `MinLootGold`, `MaxLootGold`, `LootId`, `PickpocketLootId`, `SkinningLootId`, `KillCredit1`, `KillCredit2`, `MechanicImmuneMask`, `SchoolImmuneMask`, `ResistanceHoly`, `ResistanceFire`, `ResistanceNature`, `ResistanceFrost`, `ResistanceShadow`, `ResistanceArcane`, `PetSpellDataId`, `MovementType`, `TrainerType`, `TrainerSpell`, `TrainerClass`, `TrainerRace`, `TrainerTemplateId`, `VendorTemplateId`, `GossipMenuId`, `InteractionPauseTimer`, `CorpseDecay`, `SpellList`, `StringId1`, `StringId2`, `EquipmentTemplateId`, `Civilian`, `AIName`, `ScriptName`) VALUES
 (1002958, 'Prairie Wolf', NULL, 5, 6, 1100, 0, 0, 0, 38, 0, 1, 1, 1, 14, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1.14286, 18, 0, 15000, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 102, 120, 0, 0, 3, 6, 8.624, 11.858, 174, 2, 100, 1500, 2000, 0, 0, 0, 2958, 0, 2958, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5936, 1, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 'EventAI', '');
 ```
+After the above added to your DB you'll be able to add this npc using following command ingame in gm mode.
+<pre><code>.npc add 1002958</code></pre>
+
+You can test drop stats by using following ingame command in gm mode:
+<pre><code>.debug lootdrop 1002958</code></pre>
 
 In this creature template based on an existing creature from vanilla, we modified only the `Entry` and `LootId` to arbitrary values.
 
-Now, let's add some chance to get Malachite. We will use `groupid` = 0 since there are no more rules for this drop, and it should be treated separately.
+h4. Now, let's add some chance to get Malachite. We will use `groupid` = 0 since there are no more rules for this drop, and it should be treated separately.
 
 ```sql
 -- Malachite
@@ -20,7 +25,7 @@ INSERT INTO `creature_loot_template`(`entry`, `item`, `ChanceOrQuestChance`, `gr
 
 !https://i.imgur.com/1JD2wRV.png!
 
-You can add more chances for other items following the same logic. Adding Tigerseye, for example:
+h4. You can add more chances for other items following the same logic. Adding Tigerseye, for example:
 
 ```sql
 -- Tigerseye
@@ -32,7 +37,7 @@ INSERT INTO `creature_loot_template`(`entry`, `item`, `ChanceOrQuestChance`, `gr
 At this stage, we have a chance to get either nothing, Malachite, Tigerseye, or both Malachite and Tigerseye.
 !https://i.imgur.com/Z4hANiK.png!
 
-Now, let's add a chance to get some patterns. We want only one pattern from a pattern list. We'll create a list in `reference_loot_template`:
+h4. Now, let's add a chance to get some patterns. We want only one pattern from a pattern list. We'll create a list in `reference_loot_template`:
 
 ```sql
 -- Patterns
@@ -43,6 +48,10 @@ INSERT INTO `reference_loot_template`(`entry`, `item`, `ChanceOrQuestChance`, `g
 INSERT INTO `reference_loot_template`(`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`, `comments`) VALUES
 (1002958, 2407, 0, 1, 1, 1, 0, 'Pattern: White Leather Jerkin');
 ```
+You can see that used a group here, because groupid is different than 0.
+Whenever item are grouped that mean only one of them will picked from the list after the roll.
+Chance is set to 0 meaning they all have same chance to get picked.
+As there is 2 then it mean that there is 50% chance for each of them to be picked when this reference is processed.
 
 Now, link this list to the creature:
 
@@ -50,11 +59,11 @@ Now, link this list to the creature:
 INSERT INTO `creature_loot_template`(`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`, `comments`) VALUES
 (1002958, 0, 0.3, 0, -1002958, 1, 0, 'Patterns');
 ```
-
-This means each drop has a 0.3% chance to evaluate the items list in `1002958` without any conditions.
+Group is set to 0 meaning not grouped and thus will be processed each time.
+Chance to 0.3% mean 0.3% chance to evaluate the items list in `1002958` without any conditions. (one time because maxcount = 1)
 !https://i.imgur.com/o4lmBfO.png!
 
-Next, let's consider adding green and blue items with different chances:
+h4. Next, let's consider adding green and blue items with different chances:
 
 ```sql
 -- Greens, Blue, and Epic
@@ -68,7 +77,7 @@ INSERT INTO `creature_loot_template`(`entry`, `item`, `ChanceOrQuestChance`, `gr
 This means there's a 70% chance to get 2 green items, a 29.9% chance to get a blue item, and a 0.1% chance to get an epic item.
 !https://i.imgur.com/mjeeC0q.png!
 
-Finally, add another item shared between many creatures using a reference list:
+h4. Finally, add another item shared between many creatures using a reference list:
 
 ```sql
 -- Quest start items
