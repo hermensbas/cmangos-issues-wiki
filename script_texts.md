@@ -1,6 +1,6 @@
 Back to [world database](https://github.com/cmangos/issues/wiki/mangosdb_struct) list of tables.
 
-## The `script_texts` table
+## The `script_texts` table DEPRECATED - USE [broadcast_text](broadcast_text) INSTEAD
 
 holds all the texts used by core scripted creatures (ScriptDev). This table handles the actual text, display type (say/yell/emote) and corresponding sounds or emote (if any).
 
