@@ -1,6 +1,6 @@
 Back to "world database":mangosdb_struct list of tables.
 
-h2. The `gossip_texts` table
+h2. The `gossip_texts` table - DEPRECATED, USE gossip_menu/gossip_menu_option WITH broadcast_text INSTEAD
 
 This table stores gossip texts used in ScriptDevAI, for normal gossip implementation see "Gossip_menu":Gossip_menu and "npc_text":npc_text.
 
