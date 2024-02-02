@@ -11,8 +11,7 @@ Please refer to the main page and the side-bar for further general information a
 
 ## Installation Instructions
 
-- [General installation instructions for Windows/MacOS/Linux](https://github.com/cmangos/issues/wiki/Installation-Instructions)
-- [More detailed installation guide for Windows](https://github.com/cmangos/issues/wiki/Detailed-installation-guide-for-Microsoft-Windows)
+- [Installation instructions for Windows/MacOS/Linux](https://github.com/cmangos/issues/wiki/Installation-Instructions)
 - [Setting up a systemd service](https://github.com/cmangos/issues/wiki/Creating-a-systemd-service)
 
 ## Code repositories

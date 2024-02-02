@@ -44,7 +44,6 @@ Notes:
 
 - You'll need to add cmake to https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/[PATH] after installing. Default install location is `C:\Program Files\CMake\bin`.
 - You also need to add `BOOST_ROOT` to your environment variables. Boost is located in `C:/local/boost_SOMEVERSION`.
-- This might not be everything that you need. When in doubt, follow the https://github.com/cmangos/issues/wiki/Detailed-installation-guide-for-Microsoft-Windows[detailed Windows guide]. 
 
 ### Install manually:
 
@@ -57,8 +56,6 @@ Notes:
  * An advanced text editor (optional) such as https://notepad-plus-plus.org/[Notepad++] or https://code.visualstudio.com/[VSCode]. Not required, but it will make it easier to edit the configuration files in later steps.
 
 You can find https://youtu.be/drnlf4UMZ1w[a video here] of how to install Git, Visual Studio and CMAKE.
-
-If you are having trouble with the instructions on this page, try this https://github.com/cmangos/issues/wiki/Detailed-installation-guide-for-Microsoft-Windows[alternate detailed installation guide for Windows users].
 
 Software requirements (*nix)
 ----------------------------
@@ -175,8 +172,6 @@ Get the remote data to your system
 It is a good idea to start off your installation with some basic directory structure. See the below options depending on your operating system and follow along.
 
 #### For Windows
-
-https://github.com/cmangos/issues/wiki/Detailed-installation-guide-for-Microsoft-Windows[CMaNGOS Installation Guide for Windows ]
 
 For this guide we will assume that you will use +C:\Mangos+ as base directory under which you put everything.
 
