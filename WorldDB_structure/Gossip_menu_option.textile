@@ -49,7 +49,7 @@ h4. option&#95;icon
 |9|GOSSIP&#95;ICON&#95;BATTLE|two swords|
 |10|GOSSIP&#95;ICON&#95;DOT|yellow dot|
 
-![image](https://github.com/cmangos/issues/assets/16798471/db850758-c401-4955-a987-f38a110362cb)
+!https://i.imgur.com/087XeGC.png(gossip icons)!
 
 h4. option&#95;text
 
