@@ -24,7 +24,6 @@ h3. Structure
 |"box_broadcast_text":Gossip_menu_option#box_broadcast_text|int(11)|unsigned||NO|0|
 |"condition_id":Gossip_menu_option#condition_id|mediumint(8)|unsigned||NO|0|
 
-
 h3. Description of the fields
 
 h4. menu&#95;id
@@ -50,6 +49,7 @@ h4. option&#95;icon
 |9|GOSSIP&#95;ICON&#95;BATTLE|two swords|
 |10|GOSSIP&#95;ICON&#95;DOT|yellow dot|
 
+![image](https://github.com/cmangos/issues/assets/16798471/db850758-c401-4955-a987-f38a110362cb)
 
 h4. option&#95;text
 
