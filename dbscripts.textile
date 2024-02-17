@@ -402,6 +402,7 @@ warning - if used with a channeled spell will not interrupt channel
 ** datalong2: "TriggerCastFlags":dbscripts#TriggerCastFlags
 ** buddy_entry: "entry":creature_template#entry of the target
 ** search_radius: radius to search for "buddy_entry":dbscripts#buddy_entry or "guid":creature#guid of the specific guid if "data_flags":dbscripts#data_flags|16 is set
+** "data_flags":dbscripts#data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL (8): do not pass target to spellcast
 ** dataint - dataint4 optional. If some of these are set to a spell id, a random spell out of datalong + dataint - dataint4 is cast.
 
 h4. TriggerCastFlags
