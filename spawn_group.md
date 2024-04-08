@@ -32,6 +32,7 @@ Id - Spawn Group ID
       33500 - crystalong
       33700 - Dalaran
       34000 - IC
+      34950 - Hrothgar's Landing
       35000 - DK starting Zone
 3000000+ Instance Files
 ```
