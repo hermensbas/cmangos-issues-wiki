@@ -221,7 +221,7 @@ The following commands can be used (enum ScriptCommand):
 |35|SCRIPT_COMMAND_SEND_AI_EVENT|Send a give AI event for EventAI around the source with a given radius.|
 |36|SCRIPT_COMMAND_SET_FACING|Turn resulting source to resulting target.|
 |37|SCRIPT_COMMAND_MOVE_DYNAMIC|Move resulting source to a random point around resulting target or to resulting target.|
-|38|SCRIPT_COMMAND_SEND_MAIL|Send mail from resulting source to resulting target.|
+|38|SCRIPT_COMMAND_SEND_MAIL|Send mail,money from resulting source to resulting target.|
 |39|SCRIPT_COMMAND_SET_HOVER|Makes a creature start or stop flying.|
 |40|SCRIPT_COMMAND_DESPAWN_GO|Despawns a gameobject.|
 |41|SCRIPT_COMMAND_RESPAWN|Respawns a creature.|
@@ -607,6 +607,7 @@ h4. AIEventType
 ** Resulting source should be a Creature OR NULL. Resulting target must be Player
 ** datalong = mailTemplateId (mail_template_dbc + mail_loot_template)
 ** datalong2: AlternativeSenderEntry. Use as sender-Entry of the sent mail
+** datalong3: Money
 ** dataint: Delay (>= 0) in Seconds
 
 * *SCRIPT_COMMAND_SET_HOVER = 39*
