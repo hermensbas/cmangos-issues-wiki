@@ -5,7 +5,11 @@
 ## Basics
 
 - [The actual FAQ page can be found here](https://github.com/cmangos/issues/wiki/FAQ-Frequently-Asked-Questions)  
-- [Main wiki page](https://github.com/cmangos/issues/wiki)
+* [Main wiki page](https://github.com/cmangos/issues/wiki)
+* * [cmangos world database](https://github.com/cmangos/issues/wiki/mangosdb_struct)
+* * [characters database](https://github.com/cmangos/issues/wiki/charactersdb_struct)
+* * [realmd database](https://github.com/cmangos/issues/wiki/realmdb_struct)
+
 
 Please refer to the main page and the side-bar for further general information about the project.
 
