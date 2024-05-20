@@ -108,7 +108,6 @@ h3. This is the list of tables in the regular 'mangos' database
 |"locales_trainer_greeting":https://github.com/cmangos/issues/wiki/locales_trainer_greeting|?|
 |"mail_level_reward":https://github.com/cmangos/issues/wiki/mail_level_reward (Reloadable)|holds information on sent mails when a character levels up. Can be specified by raceMask.|
 |"mail_loot_template":https://github.com/cmangos/issues/wiki/mail_loot_template (Reloadable)|?|
-|"mail_template_dbc":https://github.com/cmangos/issues/wiki/mail_template_dbc|?|
 |"mangos_string":https://github.com/cmangos/issues/wiki/mangos_string|holds all of the strings used internally by the server.|
 |"milling_loot_template":https://github.com/cmangos/issues/wiki/milling_loot_template|Milling loot|
 |"npc_gossip":https://github.com/cmangos/issues/wiki/npc_gossip|THIS TABLE IS OUTDATED. DO NOT USE|
