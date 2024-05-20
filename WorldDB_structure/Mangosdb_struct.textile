@@ -156,12 +156,11 @@ h3. This is the list of tables in the regular 'mangos' database
 |"skill_discovery_template":https://github.com/cmangos/issues/wiki/skill_discovery_template (Reloadable)|controls the so called "discovery" system of learning spells.|
 |"skill_extra_item_template":https://github.com/cmangos/issues/wiki/skill_extra_item_template|holds information about when using certain profession spells, you have the chance of creating more than one copy of the item.|
 |"skill_fishing_base_level":https://github.com/cmangos/issues/wiki/skill_fishing_base_level|controls the minimum skill level required in fishing to fish in a certain area.|
-|"spam_records":https://github.com/cmangos/issues/wiki/spam_records|Anticheat|
 |"skinning_loot_template":https://github.com/cmangos/issues/wiki/skinning_loot_template|Skinning loot|
+|"spam_records":https://github.com/cmangos/issues/wiki/spam_records|Anticheat|
 |"spawn_group":https://github.com/cmangos/issues/wiki/spawn_group|Defines how groups of entities spawn spawn_group_entry, spawn_group_formation, spawn_group_linked_group, spawn_group_spawn|
 |"spell_affect":https://github.com/cmangos/issues/wiki/spell_affect (Reloadable)|holds information on what spells are affected by what spell mods.|
 |"spell_area":https://github.com/cmangos/issues/wiki/spell_area (Reloadable)|holds information on what spells are applied to npcs/players in some areas.|
-|"spell_bonus_data":https://github.com/cmangos/issues/wiki/spell_bonus_data (Reloadable)|is used for storing custom damage/healing bonus coefficients.|
 |"spell_chain":https://github.com/cmangos/issues/wiki/spell_chain (Reloadable)|defines spell chains. A spell chain is a series of spells which all share the same name and all do the same thing.|
 |"spell_check":https://github.com/cmangos/issues/wiki/spell_check|?|
 |"spell_cone":https://github.com/cmangos/issues/wiki/spell_cone|holds Degrees for Cone spells|
