@@ -95,7 +95,7 @@ h3. This is the list of tables in the regular 'mangos' database
 |"item_loot_template":https://github.com/cmangos/issues/wiki/item_loot_template (Reloadable)|Item loot|
 |"item_required_target":https://github.com/cmangos/issues/wiki/item_required_target (Reloadable)|These spell effects require a specific target in either alive or dead state (for creatures).|
 |"item_template":https://github.com/cmangos/issues/wiki/item_template|holds information on every item that exists in the game.|
-|"locals_areatrigger_teleport":https://github.com/cmangos/issues/wiki/locals_areatrigger_teleport|?|
+|"locales_areatrigger_teleport":https://github.com/cmangos/issues/wiki/locales_areatrigger_teleport|?|
 |"locales_creature":https://github.com/cmangos/issues/wiki/locales_creature|is used to provide to localized clients with localized string for creatures.|
 |"locales_gameobject":https://github.com/cmangos/issues/wiki/locales_gameobject|is used to provide to localized clients with localized string for gameobjects.|
 |"locales_gossip_menu_option":https://github.com/cmangos/issues/wiki/locales_gossip_menu_option|?|
