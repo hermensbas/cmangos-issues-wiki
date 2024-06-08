@@ -71,7 +71,7 @@ You will need Git, GCC, CMake, MySQL, Boost and a few libraries.
   sudo apt install build-essential gcc g++ automake git-core autoconf make patch libmysql++-dev mysql-server libtool libssl-dev grep binutils zlib1g-dev libbz2-dev cmake libboost-all-dev
 
 Default GCC 11 versions present in Ubuntu 22.04 (11.2 and 11.3) contain internal compiler bug, which prevents building CMaNGOS.
-While GCC 11.3 is known to work for some users, it is recommended to upgrade your default compiler version to GCC 12 to avoid potential problems:
+While GCC 11.3 is known to work for some users, it is recommended to upgrade your default compiler version to GCC 12 to avoid potential problems, although some reports indicate that the bug is present for GCC 12 as well:
 
   sudo apt install g++-12
   sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 12 --slave /usr/bin/g++ g++ /usr/bin/g++-12
@@ -372,7 +372,7 @@ We assume you have followed the instructions above and cloned the core repositor
   - ++-DPCH=1++ to compile with PCH mode (much faster after updates).
   - ++-DDEBUG=0++ to remove debug mode from compiling (recommended)
   - ++-DBUILD_PLAYERBOT=ON++ to build with playerbots enabled
-  - Switch compiler (for problems such as the internal compiler error in gcc 11.2):
+  - Switch compiler (for problems such as the internal compiler error in gcc 11/12):
     ** ++-DCMAKE_C_COMPILER=/path/to/compiler++
     ** ++-DCMAKE_CXX_COMPILER=/path/to/compiler++
   - *Examples:*
@@ -397,7 +397,7 @@ We assume you have followed the instructions above and cloned the core repositor
  make
 
   - You may define the number of threads for faster compilation (e.g. ++make -j8++ for 8 threads)
-  - There is currently a bug in GCC 11.2 which causes GCC to fail compiling CMaNGOS. You can downgrade or upgrade GCC to circumvent this, or you can compile CMaNGOS with a different compiler like clang
+  - There is currently a bug in GCC 11 and possibly GCC 12 which causes GCC to fail compiling CMaNGOS. You can downgrade or upgrade GCC to circumvent this, or you can compile CMaNGOS with a different compiler like clang
 
 * Copy the compiled files to the installation directory (++~/cmangos/run++) by running the following command:
 
@@ -911,7 +911,7 @@ Note that if this account is GM-Account, you can use lots of nice commands to ge
 * Stuck in the login screen:
   - Check your firewall settings: mangosd and/or realmd might be blocked.
 * Getting a compiler error at TileAssembler.cpp:
-  - gcc 11.2 (and 11.3 on some distributions) have a bug in their code optimizer. Try to use a different compiler (newer or older version of gcc or clang for example)
+  - gcc 11.2 (and 11.3 or 12 on some distributions) have a bug in their code optimizer. Try to use a different compiler (newer or older version of gcc or clang for example)
 * The extractors show a weird message and not all directories are there:
   - Try starting the extractors with bash: `bash ./ExtractResources.sh`
 * `make install` fails with a strange zlib/libz error:
