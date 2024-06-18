@@ -912,6 +912,8 @@ Note that if this account is GM-Account, you can use lots of nice commands to ge
   - Check your firewall settings: mangosd and/or realmd might be blocked.
 * Getting a compiler error at TileAssembler.cpp:
   - gcc 11.2 (and 11.3 or 12 on some distributions) have a bug in their code optimizer. Try to use a different compiler (newer or older version of gcc or clang for example)
+* Random crashes in G3D Code
+  - May be caused by the memory allocation implementation of G3D. Rebuild CMaNGOS with the `-DNO_BUFFERPOOL` flag to disable G3D memory management and use C++ Standard memory management instead
 * The extractors show a weird message and not all directories are there:
   - Try starting the extractors with bash: `bash ./ExtractResources.sh`
 * `make install` fails with a strange zlib/libz error:
